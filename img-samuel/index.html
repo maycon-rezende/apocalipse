@@ -123,6 +123,8 @@ h1.movie-title .z-letter.glow{ animation: letter-in .9s cubic-bezier(.2,.8,.2,1)
   font-family:var(--f-term); font-size:1.4rem; letter-spacing:.25em; text-transform:uppercase;
   color:var(--ink-dim); animation:prompt-pulse 2.2s ease-in-out infinite;
 }
+@media(max-width:480px){#stage{padding:5vw}.title{font-size:clamp(2.7rem,18vw,5rem);overflow-wrap:anywhere}.tagline{padding:0 4vw}.continue{bottom:max(4vh,env(safe-area-inset-bottom))}}@media(max-height:520px) and (orientation:landscape){#stage{padding:2rem}.title{font-size:clamp(2.5rem,16vh,5rem)}.tagline{margin-top:.7rem}.continue{bottom:2vh}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body,.grain,.rec-dot{animation:none!important}.reveal{opacity:1;transform:none;transition:none!important}}
 </style>
 </head>
 <body>
