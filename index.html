@@ -3,528 +3,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DOOMSDAY // ARQUIVO_DD</title>
+<title>DOOMSDAY</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
 <style>
 :root{
-  --void:#050505; --panel:#0d0f0c; --panel-2:#12140f;
-  --amber:#e8a33d; --amber-dim:#8a6224; --red:#d21f2c; --red-dim:#5e1017;
-  --ink:#e6e3d6; --ink-dim:#9a9689; --line:#2a2a24;
-  --f-display:'Anton', sans-serif; --f-term:'VT323', monospace; --f-mono:'Courier Prime', monospace;
+  --void:#000000;
+  --red:#8f0f18;
+  --red-bright:#c81e2c;
+  --ink:#e6e3d6;
+  --ink-dim:#8a8578;
+  --f-display:'Anton', sans-serif;
+  --f-term:'VT323', monospace;
+  --f-mono:'Courier Prime', monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--void); color:var(--ink); font-family:var(--f-mono); line-height:1.65; overflow-x:hidden;}
-body.locked{overflow:hidden; height:100vh;}
-::selection{background:var(--red); color:#fff;}
-a{color:inherit; text-decoration:none;}
+html,body{height:100%;}
+body{
+  background:var(--void);
+  color:var(--ink);
+  font-family:var(--f-mono);
+  overflow:hidden;
+  cursor:default;
+}
 
-.crt-overlay{position:fixed; inset:0; z-index:998; pointer-events:none; mix-blend-mode:overlay;
-  background:repeating-linear-gradient(to bottom, rgba(255,255,255,.035) 0px, rgba(255,255,255,.035) 1px, transparent 1px, transparent 3px);}
-.vignette{position:fixed; inset:0; z-index:997; pointer-events:none; box-shadow:inset 0 0 180px rgba(0,0,0,.85);}
-.grain{position:fixed; inset:0; z-index:996; pointer-events:none; opacity:.045;
+.grain{
+  position:fixed; inset:0; z-index:50; pointer-events:none; opacity:.06;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation:grain-shift .4s steps(2) infinite;}
+  animation:grain-shift .4s steps(2) infinite;
+}
 @keyframes grain-shift{0%{transform:translate(0,0);}100%{transform:translate(-2%,2%);}}
-@keyframes flicker{0%,100%{opacity:1;}92%{opacity:1;}93%{opacity:.82;}94%{opacity:1;}96%{opacity:.9;}97%{opacity:1;}}
-body{animation:flicker 8s infinite;}
-@keyframes blink{50%{opacity:0;}}
+.vignette{position:fixed; inset:0; z-index:49; pointer-events:none; box-shadow:inset 0 0 220px rgba(0,0,0,.95);}
 
-/* glitch */
-.glitch{position:relative; display:inline-block;}
-.glitch.active::before, .glitch.active::after{
-  content:attr(data-text); position:absolute; left:0; top:0; width:100%; height:100%; overflow:hidden; background:var(--void);
+/* ===== STAGE ===== */
+#stage{position:fixed; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:8vw;}
+
+/* --- testimony lines --- */
+.testimony{
+  font-family:var(--f-mono);
+  font-style:italic;
+  font-size:clamp(1.1rem, 3vw, 1.8rem);
+  color:var(--ink-dim);
+  max-width:20ch;
+  opacity:0;
+  letter-spacing:.01em;
+  line-height:1.5;
 }
-.glitch.active::before{color:var(--red); left:2px; text-shadow:-1px 0 var(--red); animation:glitch-1 .35s linear;}
-.glitch.active::after{color:#3ddc84; left:-2px; text-shadow:1px 0 #3ddc84; animation:glitch-2 .35s linear;}
-@keyframes glitch-1{0%{clip-path:inset(20% 0 60% 0);}20%{clip-path:inset(70% 0 5% 0);}40%{clip-path:inset(10% 0 80% 0);}60%{clip-path:inset(50% 0 20% 0);}80%{clip-path:inset(5% 0 70% 0);}100%{clip-path:inset(0 0 0 0);}}
-@keyframes glitch-2{0%{clip-path:inset(60% 0 10% 0);}20%{clip-path:inset(5% 0 75% 0);}40%{clip-path:inset(80% 0 5% 0);}60%{clip-path:inset(15% 0 60% 0);}80%{clip-path:inset(65% 0 15% 0);}100%{clip-path:inset(0 0 0 0);}}
-
-.eyebrow{font-family:var(--f-term); letter-spacing:.2em; text-transform:uppercase; color:var(--amber); font-size:1.05rem; display:flex; align-items:center; gap:.75rem; justify-content:center;}
-.eyebrow::before{content:"//"; opacity:.7;}
-.reveal{opacity:0; transform:translateY(20px); transition:opacity .8s ease, transform .8s ease;}
-.reveal.is-visible{opacity:1; transform:translateY(0);}
-
-/* ===== NAV ===== */
-nav{position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center;
-  padding:1.1rem 6vw; background:rgba(5,5,5,.88); backdrop-filter:blur(3px); border-bottom:1px solid var(--line);
-  font-family:var(--f-term); font-size:1.05rem; letter-spacing:.08em; text-transform:uppercase;}
-nav .logo{font-family:var(--f-display); font-size:1.15rem; letter-spacing:.03em; color:var(--ink); text-transform:none;}
-nav .logo span{color:var(--red);}
-nav .links{display:flex; gap:1.6rem; align-items:center;}
-nav .links > a{color:var(--ink-dim); transition:color .2s;}
-nav .links > a:hover{color:var(--amber);}
-#nav-toggle{display:none;}
-@media(max-width:800px){
-  .links{position:fixed; top:0; right:0; height:100vh; width:75vw; max-width:300px; background:var(--panel);
-    flex-direction:column; justify-content:center; padding:2rem; gap:1.5rem; transform:translateX(100%);
-    transition:transform .35s ease; border-left:1px solid var(--line); align-items:flex-start;}
-  .links.open{transform:translateX(0);}
-  #nav-toggle{display:block; background:none; border:1px solid var(--line); color:var(--amber); font-size:1.3rem; padding:.3rem .7rem; cursor:pointer; z-index:110;}
+.testimony.show{ animation: line-in 3.6s ease forwards; }
+@keyframes line-in{
+  0%{opacity:0; transform:translateY(10px) scale(.98); filter:blur(3px);}
+  15%{opacity:1; transform:translateY(0) scale(1); filter:blur(0);}
+  75%{opacity:1;}
+  100%{opacity:0;}
 }
 
-/* ===== OPENING CRAWL ===== */
-#crawl-stage{
-  position:fixed; inset:0; z-index:1500; background:var(--void);
-  display:flex; align-items:center; justify-content:center;
-  transition:opacity 1s ease; overflow:hidden;
+/* --- blood wipe transition --- */
+#blood-wipe{
+  position:fixed; inset:0; z-index:40;
+  background:linear-gradient(180deg, var(--red-bright) 0%, var(--red) 55%, #2b0507 100%);
+  transform:scaleY(0); transform-origin:top;
+  pointer-events:none;
 }
-#crawl-stage.fade-out{opacity:0; pointer-events:none;}
-.crawl-bg-figure{position:absolute; bottom:0; opacity:.06; width:220px;}
-.crawl-outer{perspective:340px; height:78vh; width:min(680px,86vw); overflow:hidden; position:relative;}
-.crawl-outer::before{
-  content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
-  background:linear-gradient(to bottom, var(--void) 0%, transparent 18%, transparent 78%, var(--void) 100%);
-}
-.crawl-text{
-  position:absolute; top:100%; left:50%; width:56ch; max-width:100%;
-  transform:translateX(-50%) rotateX(28deg); transform-origin:50% 100%;
-  animation:crawl-up 19s linear forwards;
-  font-family:var(--f-mono); font-size:clamp(1rem,2vw,1.3rem); line-height:2.1;
-  color:var(--ink-dim); text-align:center;
-}
-.crawl-text p{margin-bottom:1.6em;}
-.crawl-text .hook{color:var(--red); font-family:var(--f-display); font-size:1.6em; letter-spacing:.04em; text-transform:uppercase;}
-@keyframes crawl-up{
-  0%{top:105%; opacity:1;}
-  92%{opacity:1;}
-  100%{top:-160%; opacity:0;}
-}
+#blood-wipe.drop{animation: wipe-down 1.1s cubic-bezier(.7,0,.3,1) forwards;}
+#blood-wipe.lift{animation: wipe-up 1.3s cubic-bezier(.7,0,.3,1) forwards;}
+@keyframes wipe-down{ to{ transform:scaleY(1); } }
+@keyframes wipe-up{ from{transform:scaleY(1); transform-origin:bottom;} to{transform:scaleY(0); transform-origin:bottom;} }
 
-/* ===== TITLE — PARTÍCULAS SE FORMANDO + SANGUE ===== */
-.title-wrap{position:relative; display:inline-block;}
-#movie-title{position:relative; opacity:0; transition:opacity .12s ease;}
-#movie-title.revealed{opacity:1;}
-#title-canvas{position:absolute; z-index:4; pointer-events:none;}
-.hero h1 .z-letter.glow{ animation:z-glow 2.4s ease-in-out infinite; }
-@keyframes z-glow{
-  0%,100%{ text-shadow:0 0 18px rgba(210,31,44,.45); }
-  50%{ text-shadow:0 0 42px rgba(210,31,44,.85); }
-}
-
-.blood-drips{position:absolute; top:100%; left:4%; right:4%; height:0; pointer-events:none; z-index:2;}
+/* --- drips --- */
 .drip{
-  position:absolute; top:0; width:3px;
-  background:linear-gradient(to bottom, var(--red) 0%, #6e0f16 75%, transparent 100%);
-  border-radius:0 0 40% 40%;
-}
-.drip::after{
-  content:""; position:absolute; bottom:-3px; left:50%; transform:translateX(-50%);
-  width:8px; height:10px; background:#8f0f18;
-  border-radius:50% 50% 50% 50% / 65% 65% 35% 35%;
-  box-shadow:0 0 6px rgba(143,15,24,.6);
+  position:fixed; top:0; width:3px; background:var(--red-bright); opacity:0;
+  border-radius:0 0 3px 3px; z-index:41; pointer-events:none;
 }
 
-.fade-block{opacity:0; transition:opacity 1.2s ease;}
-.fade-block.show{opacity:1;}
+/* --- title --- */
+#title-wrap{opacity:0;}
+#title-wrap.show{opacity:1;}
+h1.movie-title{
+  font-family:var(--f-display);
+  font-size:clamp(3rem, 14vw, 9rem);
+  letter-spacing:.03em;
+  color:var(--ink);
+  line-height:.9;
+}
+h1.movie-title .letter{
+  display:inline-block; opacity:0; transform:translateY(18px) scale(1.08); filter:blur(4px);
+  animation: letter-in .9s cubic-bezier(.2,.8,.2,1) forwards;
+}
+@keyframes letter-in{ to{ opacity:1; transform:translateY(0) scale(1); filter:blur(0); } }
+h1.movie-title .z-letter{color:var(--red-bright); text-shadow:0 0 0 rgba(200,30,44,0);}
+h1.movie-title .z-letter.glow{ animation: letter-in .9s cubic-bezier(.2,.8,.2,1) forwards, z-glow 2.4s ease-in-out .9s infinite; }
+@keyframes z-glow{
+  0%,100%{ text-shadow:0 0 18px rgba(200,30,44,.45); }
+  50%{ text-shadow:0 0 42px rgba(200,30,44,.85); }
+}
+.movie-tagline{
+  margin-top:1.4rem; font-family:var(--f-mono); font-style:italic; font-size:clamp(.9rem,1.8vw,1.15rem);
+  color:var(--ink-dim); opacity:0; transition:opacity 1.4s ease 2.6s;
+}
+.movie-tagline.show{opacity:1;}
 
-/* ===== HERO ===== */
-.hero{
-  min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
-  padding:9rem 6vw 5rem; text-align:center;
-  background: radial-gradient(ellipse at 50% 20%, rgba(210,31,44,.1), transparent 55%);
+/* --- enter prompt --- */
+#enter-prompt{
+  position:fixed; bottom:8vh; left:0; right:0; text-align:center;
+  font-family:var(--f-term); font-size:1.3rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-dim); opacity:0; transition:opacity 1s ease; cursor:pointer; z-index:60;
 }
-.hero h1{
-  font-family:var(--f-display); font-size:clamp(3rem,11vw,7rem); letter-spacing:.01em;
-  color:var(--ink); line-height:.95; margin-top:.8rem;
-}
-.hero h1 .z{color:var(--red); text-shadow:0 0 40px rgba(210,31,44,.55);}
-.hero .tagline{
-  font-family:var(--f-mono); font-style:italic; font-size:clamp(1rem,1.8vw,1.2rem); color:var(--ink-dim);
-  margin:1.2rem auto 0; max-width:52ch;
-}
+#enter-prompt.show{opacity:1; animation:prompt-pulse 2.2s ease-in-out infinite;}
+@keyframes prompt-pulse{0%,100%{opacity:.55;}50%{opacity:1;}}
 
-/* ===== IMAGEM DE IMPACTO ===== */
-.captured-frame{
-  margin:3.2rem auto 0; width:min(420px, 82vw); position:relative;
-  border:1px solid var(--red-dim); background:#080808;
+/* --- start gate --- */
+#start-gate{
+  position:fixed; inset:0; z-index:100; background:var(--void);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:opacity .5s ease;
 }
-.captured-frame .frame-bar{
-  display:flex; justify-content:space-between; align-items:center; padding:.5rem .8rem;
-  border-bottom:1px solid var(--red-dim); font-family:var(--f-term); font-size:.9rem;
-  letter-spacing:.06em; text-transform:uppercase; color:var(--ink-dim);
+#start-gate.hidden{opacity:0; pointer-events:none;}
+#start-gate span{
+  font-family:var(--f-term); font-size:1.4rem; letter-spacing:.25em; text-transform:uppercase;
+  color:var(--ink-dim); animation:prompt-pulse 2.2s ease-in-out infinite;
 }
-.captured-frame .rec{display:flex; align-items:center; gap:.4rem; color:var(--red);}
-.captured-frame .rec .dot{width:7px;height:7px;border-radius:50%;background:var(--red); animation:blink 1.2s infinite;}
-.captured-frame .art-wrap{
-  position:relative; aspect-ratio:4/5; overflow:hidden;
-  background:radial-gradient(ellipse at 50% 65%, rgba(210,31,44,.22), transparent 60%), #030303;
-}
-.captured-frame .art-wrap svg{position:absolute; inset:0; width:100%; height:100%;}
-.captured-frame .art-wrap::after{
-  content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
-  background:repeating-linear-gradient(to bottom, rgba(255,255,255,.04) 0px, rgba(255,255,255,.04) 1px, transparent 1px, transparent 3px);
-}
-.captured-frame .glitch-bar{
-  position:absolute; left:0; right:0; height:6%; background:rgba(210,31,44,.35); opacity:0;
-  mix-blend-mode:screen; animation:frame-glitch 6s ease-in-out infinite;
-}
-@keyframes frame-glitch{
-  0%,92%,100%{opacity:0; transform:translateY(0);}
-  93%{opacity:.7; transform:translateY(10%);}
-  94%{opacity:0;}
-  95%{opacity:.5; transform:translateY(-20%);}
-  96%{opacity:0;}
-}
-.captured-frame .caption{
-  padding:.6rem .9rem; font-family:var(--f-term); font-size:.9rem; letter-spacing:.05em;
-  color:var(--ink-dim); text-align:left; border-top:1px solid var(--line);
-}
-
-.hero .scroll-cue{
-  margin-top:3rem; font-family:var(--f-term); font-size:1rem; letter-spacing:.15em; text-transform:uppercase;
-  color:var(--ink-dim); display:flex; flex-direction:column; align-items:center; gap:.6rem;
-}
-.hero .scroll-cue .bar-v{width:1px;height:26px;background:linear-gradient(var(--amber),transparent); animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:.25;}50%{opacity:1;}}
-
-/* ===== TESTEMUNHO TEASER ===== */
-.teaser{
-  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-  background:var(--panel); padding:5rem 6vw; text-align:center;
-}
-.teaser .quote{
-  font-family:var(--f-mono); font-style:italic; font-size:clamp(1.1rem,2.4vw,1.5rem);
-  color:var(--ink); max-width:44ch; margin:0 auto;
-}
-.teaser .attrib{
-  margin-top:1rem; font-family:var(--f-term); font-size:.95rem; letter-spacing:.08em;
-  text-transform:uppercase; color:var(--amber-dim);
-}
-.teaser .more-link{
-  display:inline-block; margin-top:1.6rem; font-family:var(--f-term); font-size:1rem;
-  letter-spacing:.08em; text-transform:uppercase; color:var(--red); border-bottom:1px solid var(--red-dim); padding-bottom:.2rem;
-}
-.teaser .more-link:hover{color:var(--amber);}
-
-/* ===== EXPLORAR (directory) ===== */
-.explore{padding:6rem 6vw; max-width:1100px; margin:0 auto;}
-.explore .eyebrow{justify-content:flex-start;}
-.explore h2{font-family:var(--f-display); font-size:clamp(1.8rem,4vw,2.6rem); text-transform:uppercase; margin:.6rem 0 2.2rem;}
-.explore-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.4rem;}
-.explore-card{
-  border:1px solid var(--line); background:var(--panel); padding:1.7rem 1.4rem; text-align:left;
-  transition:border-color .3s, transform .3s, background .3s; display:flex; flex-direction:column; gap:.5rem;
-}
-.explore-card:hover{border-color:var(--red); transform:translateY(-4px); background:var(--panel-2);}
-.explore-card .icon{font-family:var(--f-term); font-size:1.5rem; color:var(--red);}
-.explore-card h3{font-family:var(--f-display); font-size:1.2rem; text-transform:uppercase; color:var(--ink);}
-.explore-card p{font-size:.85rem; color:var(--ink-dim);}
-.explore-card .go{font-family:var(--f-term); font-size:.9rem; color:var(--amber); letter-spacing:.06em;}
-
-footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size:1rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-dim); border-top:1px solid var(--line);}
 </style>
 </head>
-<body class="locked">
+<body>
 
-<audio id="bg-audio" autoplay loop hidden>
-  <source src="audio/themeindex.mp3" type="audio/mpeg" />
+<div id="start-gate"><span>Toque para iniciar</span></div>
+<audio id="bg-audio" loop hidden>
+  <source src="audio/themeintro.mp3" type="audio/mpeg" />
 </audio>
 
-<div class="crt-overlay"></div>
-<div class="vignette"></div>
 <div class="grain"></div>
+<div class="vignette"></div>
+<div id="blood-wipe"></div>
 
-<!-- ===== OPENING CRAWL ===== -->
-<div id="crawl-stage">
-  <svg class="crawl-bg-figure" style="left:6%;" viewBox="0 0 100 220" xmlns="http://www.w3.org/2000/svg">
-    <ellipse cx="50" cy="30" rx="16" ry="18" fill="#8a0f16"/>
-    <path d="M20 46 Q14 120 20 210 L40 210 Q46 130 50 90 Q54 130 60 210 L80 210 Q86 120 80 46 Q50 30 20 46Z" fill="#8a0f16"/>
-  </svg>
-  <svg class="crawl-bg-figure" style="right:8%; bottom:0; width:180px;" viewBox="0 0 100 220" xmlns="http://www.w3.org/2000/svg">
-    <ellipse cx="50" cy="30" rx="15" ry="17" fill="#8a0f16"/>
-    <path d="M22 45 Q16 118 22 208 L40 208 Q46 128 50 88 Q54 128 60 208 L78 208 Q84 118 78 45 Q50 28 22 45Z" fill="#8a0f16"/>
-  </svg>
+<div id="stage">
+  <p class="testimony" id="testimony-line"></p>
 
-  <div class="crawl-outer">
-    <div class="crawl-text" id="crawl-text">
-      <p>Era mais um dia comum numa cidade da Califórnia.</p>
-      <p>Horas antes de tudo desmoronar, o Capitão Hanson — ainda não General — recebeu os primeiros relatos de um surto que ninguém sabia nomear.</p>
-      <p>No Pentágono, Samuel já sabia o suficiente pra agir. Sua prioridade não era entender o vírus. Era manter o Presidente vivo.</p>
-      <p>Enquanto isso, a família Bradock corria pelas ruas, tentando atravessar o caos antes que ele os alcançasse.</p>
-      <p class="hook">Isso é o...</p>
-    </div>
+  <div id="title-wrap">
+    <h1 class="movie-title" id="movie-title"></h1>
+    <p class="movie-tagline" id="movie-tagline">Baseado em uma queda que ninguém viu chegar.</p>
   </div>
 </div>
 
-<nav>
-  <div class="logo">DOOMS<span>DAY</span></div>
-  <button id="nav-toggle" aria-label="Abrir menu">☰</button>
-  <div class="links" id="nav-links">
-    <a href="historia.html">História</a>
-    <a href="personagens.html">Personagens</a>
-    <a href="ameaca.html">Ameaça</a>
-    <a href="galeria.html">Galeria</a>
-  </div>
-</nav>
-
-<!-- ===== HERO ===== -->
-<header class="hero">
-  <p class="eyebrow fade-block" id="hero-eyebrow">Arquivo recuperado // DD-01</p>
-  <div class="title-wrap" id="title-wrap">
-    <h1 id="movie-title"></h1>
-    <canvas id="title-canvas"></canvas>
-    <div class="blood-drips" id="blood-drips"></div>
-  </div>
-  <p class="tagline fade-block" id="hero-tagline">Era uma manhã como qualquer outra. Cinco helicópteros depois, nada mais seria.</p>
-
-  <div class="captured-frame fade-block" id="hero-frame">
-    <div class="frame-bar">
-      <span>CÂMERA 04</span>
-      <span class="rec"><span class="dot"></span>07:52:13</span>
-    </div>
-    <div class="art-wrap">
-      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMax slice">
-        <defs>
-          <radialGradient id="fog" cx="50%" cy="70%" r="70%">
-            <stop offset="0%" stop-color="#1a0508" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#030303" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#d21f2c" stop-opacity="0"/>
-            <stop offset="50%" stop-color="#d21f2c" stop-opacity=".55"/>
-            <stop offset="100%" stop-color="#d21f2c" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <rect x="0" y="0" width="400" height="500" fill="#050505"/>
-        <ellipse cx="200" cy="430" rx="220" ry="90" fill="url(#fog)"/>
-        <!-- silhueta -->
-        <g transform="translate(200,250)">
-          <ellipse cx="0" cy="-108" rx="30" ry="34" fill="#020202"/>
-          <path d="M -34 -80 Q -46 -20 -40 60 Q -30 150 -46 210 L -18 210 Q -6 140 0 90 Q 6 140 18 210 L 46 210 Q 30 150 40 60 Q 46 -20 34 -80 Q 0 -100 -34 -80 Z" fill="#020202"/>
-          <path d="M -34 -70 Q -70 -40 -78 20" stroke="#020202" stroke-width="20" fill="none" stroke-linecap="round"/>
-          <path d="M 34 -70 Q 64 -10 50 40" stroke="#020202" stroke-width="20" fill="none" stroke-linecap="round"/>
-          <ellipse cx="0" cy="-108" rx="30" ry="34" fill="url(#rim)" opacity=".5"/>
-          <circle cx="-10" cy="-112" r="2.6" fill="#d21f2c" opacity=".9"/>
-          <circle cx="9" cy="-115" r="2.4" fill="#d21f2c" opacity=".75"/>
-        </g>
-        <rect x="0" y="0" width="400" height="500" fill="url(#rim)" opacity=".12"/>
-      </svg>
-      <div class="glitch-bar" style="top:22%;"></div>
-      <div class="glitch-bar" style="top:61%; animation-delay:2.4s;"></div>
-    </div>
-    <div class="caption">último quadro antes da perda de sinal</div>
-  </div>
-
-  <div class="scroll-cue fade-block" id="hero-scroll-cue"><span class="bar-v"></span><span>Role para descriptografar</span></div>
-</header>
-
-<!-- ===== TESTEMUNHO TEASER ===== -->
-<section class="teaser">
-  <p class="quote reveal">"Não escrevo mais datas. Só quantos de nós ainda restam."</p>
-  <p class="attrib reveal">— Testemunho recuperado, Dia 6</p>
-  <a class="more-link reveal" href="historia.html#testemunhos">Ler outros relatos →</a>
-</section>
-
-<!-- ===== EXPLORAR ===== -->
-<section class="explore">
-  <p class="eyebrow reveal">Navegar pelo arquivo</p>
-  <h2 class="reveal">Explorar</h2>
-  <div class="explore-grid">
-    <a class="explore-card reveal" href="historia.html">
-      <span class="icon">◍</span>
-      <h3>História</h3>
-      <p>Sinopse, cenas recuperadas do primeiro dia e testemunhos de sobreviventes.</p>
-      <span class="go">Abrir →</span>
-    </a>
-    <a class="explore-card reveal" href="personagens.html">
-      <span class="icon">☰</span>
-      <h3>Personagens</h3>
-      <p>Fichas de quem sobreviveu ao primeiro dia — e de quem tomou as decisões.</p>
-      <span class="go">Abrir →</span>
-    </a>
-    <a class="explore-card reveal" href="ameaca.html">
-      <span class="icon">⚠</span>
-      <h3>Ameaça</h3>
-      <p>Relatório biológico sobre o que está do lado de fora, e os locais afetados.</p>
-      <span class="go">Abrir →</span>
-    </a>
-    <a class="explore-card reveal" href="galeria.html">
-      <span class="icon">▣</span>
-      <h3>Galeria</h3>
-      <p>Referências de arte conceitual do universo de DoomsDay.</p>
-      <span class="go">Abrir →</span>
-    </a>
-  </div>
-</section>
-
-<footer>DoomsDay — Obra original — Dossiê não oficial do universo do livro</footer>
+<div id="enter-prompt">Clique para entrar</div>
 
 <script>
-/* fallback: se o autoplay for bloqueado (ex: acesso direto ao index sem passar pela intro), toca no primeiro toque/clique */
+const startGate = document.getElementById('start-gate');
 const bgAudio = document.getElementById('bg-audio');
-const tryPlay = () => bgAudio.play().catch(() => {});
-tryPlay();
-document.addEventListener('click', tryPlay, { once: true });
-document.addEventListener('keydown', tryPlay, { once: true });
-
-/* nav mobile */
-const toggle = document.getElementById('nav-toggle');
-const links = document.getElementById('nav-links');
-toggle.addEventListener('click', () => links.classList.toggle('open'));
-links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-
-/* scroll reveal (sessões abaixo da hero) */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){ entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
-  });
-}, {threshold:0.15});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-/* ===== SEQUÊNCIA DE ABERTURA ===== */
-const crawlStage = document.getElementById('crawl-stage');
-const movieTitle = document.getElementById('movie-title');
-const titleCanvas = document.getElementById('title-canvas');
+const testimonyEl = document.getElementById('testimony-line');
 const titleWrap = document.getElementById('title-wrap');
-const bloodDrips = document.getElementById('blood-drips');
-const fadeBlocks = ['hero-eyebrow','hero-tagline','hero-frame','hero-scroll-cue'].map(id => document.getElementById(id));
+const titleEl = document.getElementById('movie-title');
+const taglineEl = document.getElementById('movie-tagline');
+const bloodWipe = document.getElementById('blood-wipe');
+const enterPrompt = document.getElementById('enter-prompt');
+
+const lines = [
+  "Eu não sei quantos dias já se passaram.",
+  "Só sei que ainda estamos respirando.",
+  "E que eles ainda estão lá fora."
+];
 
 function wait(ms){ return new Promise(r => setTimeout(r, ms)); }
 
-function buildTitle(){
-  movieTitle.innerHTML = '<span class="glitch" data-text="DOOMS">DOOMS</span><span class="z z-letter glitch" data-text="DAY">DAY</span>';
-}
-
-function startGlitchLoop(){
-  const glitchEls = movieTitle.querySelectorAll('.glitch');
-  setInterval(() => {
-    const el = glitchEls[Math.floor(Math.random()*glitchEls.length)];
-    el.classList.add('active');
-    setTimeout(() => el.classList.remove('active'), 350);
-  }, 3200);
-}
-
-/* partículas de cinza/brasa convergindo pra formar o título (tipo estalo ao contrário) */
-async function assembleTitleParticles(){
-  await (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve());
-
-  const rect = movieTitle.getBoundingClientRect();
-  const wrapRect = titleWrap.getBoundingClientRect();
-  const width = Math.max(rect.width, 10);
-  const height = Math.max(rect.height, 10);
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-  titleCanvas.style.left = (rect.left - wrapRect.left) + 'px';
-  titleCanvas.style.top = (rect.top - wrapRect.top) + 'px';
-  titleCanvas.style.width = width + 'px';
-  titleCanvas.style.height = height + 'px';
-  titleCanvas.width = width * dpr;
-  titleCanvas.height = height * dpr;
-  const ctx = titleCanvas.getContext('2d');
-  ctx.scale(dpr, dpr);
-
-  /* desenha o texto num canvas invisível só pra extrair a forma das letras */
-  const off = document.createElement('canvas');
-  off.width = width; off.height = height;
-  const octx = off.getContext('2d');
-  const computed = window.getComputedStyle(movieTitle);
-  octx.font = computed.fontSize + ' ' + computed.fontFamily;
-  octx.textBaseline = 'alphabetic';
-  octx.fillStyle = '#fff';
-  const fontSizePx = parseFloat(computed.fontSize);
-  octx.fillText('DOOMSDAY', 1, height - fontSizePx * 0.22);
-
-  const imgData = octx.getImageData(0, 0, width, height).data;
-  const step = Math.max(2, Math.round(Math.min(width, height) / 130));
-  const particles = [];
-  for(let y = 0; y < height; y += step){
-    for(let x = 0; x < width; x += step){
-      const idx = (y * width + x) * 4;
-      if(imgData[idx + 3] > 120){
-        const palette = Math.random();
-        const color = palette < 0.55 ? '210,31,44' : (palette < 0.8 ? '232,163,61' : '230,227,214');
-        particles.push({
-          tx: x, ty: y,
-          sx: x + (Math.random() - 0.5) * 300,
-          sy: y + (Math.random() - 0.5) * 220 + 60,
-          delay: Math.random() * 0.55,
-          dur: 0.85 + Math.random() * 0.55,
-          size: 0.8 + Math.random() * 1.6,
-          color
-        });
-      }
-    }
+async function showLines(){
+  for(const line of lines){
+    testimonyEl.textContent = line;
+    testimonyEl.classList.remove('show');
+    void testimonyEl.offsetWidth; // reinicia a animação
+    testimonyEl.classList.add('show');
+    await wait(3600);
   }
-
-  return new Promise(resolve => {
-    const start = performance.now();
-    function frame(now){
-      const elapsed = (now - start) / 1000;
-      ctx.clearRect(0, 0, width, height);
-      let allDone = true;
-      for(const p of particles){
-        let t = (elapsed - p.delay) / p.dur;
-        if(t < 0){ allDone = false; continue; }
-        if(t < 1){ allDone = false; } else { t = 1; }
-        const eased = 1 - Math.pow(1 - t, 3);
-        const x = p.sx + (p.tx - p.sx) * eased;
-        const y = p.sy + (p.ty - p.sy) * eased;
-        const alpha = Math.min(1, t * 1.5);
-        ctx.beginPath();
-        ctx.fillStyle = `rgba(${p.color},${alpha})`;
-        ctx.arc(x, y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      if(!allDone){
-        requestAnimationFrame(frame);
-      } else {
-        resolve();
-      }
-    }
-    requestAnimationFrame(frame);
-  });
+  testimonyEl.style.display = 'none';
 }
 
-function spawnBloodDrips(){
-  const width = movieTitle.offsetWidth;
-  const count = Math.max(6, Math.floor(width / 70));
+function spawnDrips(count){
   for(let i = 0; i < count; i++){
     const d = document.createElement('div');
     d.className = 'drip';
-    const left = 4 + Math.random() * 92;
-    const height = 30 + Math.random() * 90;
-    const delay = Math.random() * 900;
-    d.style.left = left + '%';
+    const left = Math.random() * 100;
+    const height = 60 + Math.random() * 140;
+    const delay = Math.random() * .5;
+    d.style.left = left + 'vw';
     d.style.height = '0px';
-    bloodDrips.appendChild(d);
-    setTimeout(() => {
-      d.animate(
-        [{ height: '0px' }, { height: height + 'px' }],
-        { duration: 1400 + Math.random()*800, easing: 'cubic-bezier(.25,.85,.35,1)', fill:'forwards' }
-      );
-    }, delay);
+    d.style.opacity = '.9';
+    document.body.appendChild(d);
+    d.animate(
+      [{ height: '0px' }, { height: height + 'px' }],
+      { duration: 900 + Math.random()*600, delay: delay*1000, easing: 'cubic-bezier(.3,.9,.4,1)', fill:'forwards' }
+    );
+    setTimeout(() => d.remove(), 3000);
   }
 }
 
-async function revealHero(){
-  buildTitle();
-  await assembleTitleParticles();
-  movieTitle.classList.add('revealed');
-  titleCanvas.style.display = 'none';
-  const zSpan = movieTitle.querySelector('.z-letter');
-  zSpan.classList.add('glow');
-  spawnBloodDrips();
+function buildTitle(){
+  const word1 = "DOOMS";
+  const word2 = "DAY";
+  let delay = 0;
+  word1.split('').forEach((ch) => {
+    const span = document.createElement('span');
+    span.className = 'letter';
+    span.textContent = ch;
+    span.style.animationDelay = delay + 's';
+    titleEl.appendChild(span);
+    delay += 0.045;
+  });
+  const zGroup = document.createElement('span');
+  zGroup.className = 'z-letter';
+  word2.split('').forEach((ch) => {
+    const span = document.createElement('span');
+    span.className = 'letter';
+    span.textContent = ch;
+    span.style.animationDelay = delay + 's';
+    zGroup.appendChild(span);
+    delay += 0.045;
+  });
+  titleEl.appendChild(zGroup);
+  setTimeout(() => zGroup.classList.add('glow'), delay*1000 + 50);
+}
+
+async function runIntro(){
   await wait(500);
-  for(const block of fadeBlocks){
-    block.classList.add('show');
-    await wait(260);
-  }
-  document.body.classList.remove('locked');
-  startGlitchLoop();
+  await showLines();
+
+  spawnDrips(14);
+  await wait(200);
+  bloodWipe.classList.add('drop');
+  await wait(1100);
+  bloodWipe.classList.add('lift');
+  await wait(900);
+
+  buildTitle();
+  titleWrap.classList.add('show');
+  await wait(2600);
+  taglineEl.classList.add('show');
+  await wait(1800);
+
+  enterPrompt.classList.add('show');
 }
 
-async function runSequence(){
-  await wait(19000); // duração do crawl
-  crawlStage.classList.add('fade-out');
-  await wait(700);
-  crawlStage.style.display = 'none';
-  await revealHero();
+function startExperience(){
+  startGate.classList.add('hidden');
+  bgAudio.play().catch(() => {}); // gesto do clique libera o áudio
+  runIntro();
 }
 
-runSequence();
+startGate.addEventListener('click', startExperience, { once: true });
+
+function goToSite(){
+  document.body.style.transition = 'opacity .6s ease';
+  document.body.style.opacity = '0';
+  setTimeout(() => { window.location.href = 'home.html'; }, 600);
+}
+
+enterPrompt.addEventListener('click', goToSite);
+document.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') goToSite(); });
 </script>
 
 </body>
