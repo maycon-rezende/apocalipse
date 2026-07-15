@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>APOCALIPSE Z // ARQUIVO_00Z</title>
+<title>DOOMSDAY // ARQUIVO_DD</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
@@ -219,11 +219,9 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
 </head>
 <body class="locked">
 
-
- <audio autoplay loop hidden>
-    <source src="audio/themeindex.mp3" type="audio/mpeg" />
-  </audio>
-  
+<audio id="bg-audio" autoplay loop hidden>
+  <source src="audio/themeindex.mp3" type="audio/mpeg" />
+</audio>
 
 <div class="crt-overlay"></div>
 <div class="vignette"></div>
@@ -246,12 +244,13 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
       <p>Horas antes de tudo desmoronar, o Capitão Hanson — ainda não General — recebeu os primeiros relatos de um surto que ninguém sabia nomear.</p>
       <p>No Pentágono, Samuel já sabia o suficiente pra agir. Sua prioridade não era entender o vírus. Era manter o Presidente vivo.</p>
       <p>Enquanto isso, a família Bradock corria pelas ruas, tentando atravessar o caos antes que ele os alcançasse.</p>
+      <p class="hook">Isso é o...</p>
     </div>
   </div>
 </div>
 
 <nav>
-  <div class="logo">APOCALIPSE <span>Z</span></div>
+  <div class="logo">DOOMS<span>DAY</span></div>
   <button id="nav-toggle" aria-label="Abrir menu">☰</button>
   <div class="links" id="nav-links">
     <a href="historia.html">História</a>
@@ -263,7 +262,7 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
 
 <!-- ===== HERO ===== -->
 <header class="hero">
-  <p class="eyebrow fade-block" id="hero-eyebrow">Arquivo recuperado // 00-Z</p>
+  <p class="eyebrow fade-block" id="hero-eyebrow">Arquivo recuperado // DD-01</p>
   <div class="title-wrap" id="title-wrap">
     <h1 id="movie-title"></h1>
     <canvas id="title-canvas"></canvas>
@@ -345,15 +344,22 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
     <a class="explore-card reveal" href="galeria.html">
       <span class="icon">▣</span>
       <h3>Galeria</h3>
-      <p>Referências de arte conceitual do universo de Apocalipse Z.</p>
+      <p>Referências de arte conceitual do universo de DoomsDay.</p>
       <span class="go">Abrir →</span>
     </a>
   </div>
 </section>
 
-<footer>Apocalipse Z — Obra original — Dossiê não oficial do universo do livro</footer>
+<footer>DoomsDay — Obra original — Dossiê não oficial do universo do livro</footer>
 
 <script>
+/* fallback: se o autoplay for bloqueado (ex: acesso direto ao index sem passar pela intro), toca no primeiro toque/clique */
+const bgAudio = document.getElementById('bg-audio');
+const tryPlay = () => bgAudio.play().catch(() => {});
+tryPlay();
+document.addEventListener('click', tryPlay, { once: true });
+document.addEventListener('keydown', tryPlay, { once: true });
+
 /* nav mobile */
 const toggle = document.getElementById('nav-toggle');
 const links = document.getElementById('nav-links');
@@ -379,7 +385,7 @@ const fadeBlocks = ['hero-eyebrow','hero-tagline','hero-frame','hero-scroll-cue'
 function wait(ms){ return new Promise(r => setTimeout(r, ms)); }
 
 function buildTitle(){
-  movieTitle.innerHTML = '<span class="glitch" data-text="APOCALIPSE">APOCALIPSE</span> <span class="z z-letter glitch" data-text="Z">Z</span>';
+  movieTitle.innerHTML = '<span class="glitch" data-text="DOOMS">DOOMS</span><span class="z z-letter glitch" data-text="DAY">DAY</span>';
 }
 
 function startGlitchLoop(){
@@ -419,7 +425,7 @@ async function assembleTitleParticles(){
   octx.textBaseline = 'alphabetic';
   octx.fillStyle = '#fff';
   const fontSizePx = parseFloat(computed.fontSize);
-  octx.fillText('APOCALIPSE Z', 1, height - fontSizePx * 0.22);
+  octx.fillText('DOOMSDAY', 1, height - fontSizePx * 0.22);
 
   const imgData = octx.getImageData(0, 0, width, height).data;
   const step = Math.max(2, Math.round(Math.min(width, height) / 130));

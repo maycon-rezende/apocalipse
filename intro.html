@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>APOCALIPSE Z</title>
+<title>DOOMSDAY</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
@@ -112,28 +112,29 @@ h1.movie-title .z-letter.glow{ animation: letter-in .9s cubic-bezier(.2,.8,.2,1)
 #enter-prompt.show{opacity:1; animation:prompt-pulse 2.2s ease-in-out infinite;}
 @keyframes prompt-pulse{0%,100%{opacity:.55;}50%{opacity:1;}}
 
-/* --- skip --- */
-#skip-btn{
-  position:fixed; top:1.4rem; right:1.6rem; z-index:70;
-  font-family:var(--f-term); font-size:1rem; letter-spacing:.1em; text-transform:uppercase;
-  background:none; border:1px solid #333; color:var(--ink-dim);
-  padding:.4rem .9rem; cursor:pointer; opacity:0; transition:opacity .6s ease, border-color .2s, color .2s;
+/* --- start gate --- */
+#start-gate{
+  position:fixed; inset:0; z-index:100; background:var(--void);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:opacity .5s ease;
 }
-#skip-btn.show{opacity:1;}
-#skip-btn:hover{border-color:var(--red-bright); color:var(--red-bright);}
+#start-gate.hidden{opacity:0; pointer-events:none;}
+#start-gate span{
+  font-family:var(--f-term); font-size:1.4rem; letter-spacing:.25em; text-transform:uppercase;
+  color:var(--ink-dim); animation:prompt-pulse 2.2s ease-in-out infinite;
+}
 </style>
 </head>
 <body>
 
- <audio autoplay loop hidden>
-    <source src="audio/themeintro.mp3" type="audio/mpeg" />
- </audio>
-
+<div id="start-gate"><span>Toque para iniciar</span></div>
+<audio id="bg-audio" loop hidden>
+  <source src="audio/themeintro.mp3" type="audio/mpeg" />
+</audio>
 
 <div class="grain"></div>
 <div class="vignette"></div>
 <div id="blood-wipe"></div>
-<button id="skip-btn">Pular introdução ⏭</button>
 
 <div id="stage">
   <p class="testimony" id="testimony-line"></p>
@@ -147,13 +148,14 @@ h1.movie-title .z-letter.glow{ animation: letter-in .9s cubic-bezier(.2,.8,.2,1)
 <div id="enter-prompt">Clique para entrar</div>
 
 <script>
+const startGate = document.getElementById('start-gate');
+const bgAudio = document.getElementById('bg-audio');
 const testimonyEl = document.getElementById('testimony-line');
 const titleWrap = document.getElementById('title-wrap');
 const titleEl = document.getElementById('movie-title');
 const taglineEl = document.getElementById('movie-tagline');
 const bloodWipe = document.getElementById('blood-wipe');
 const enterPrompt = document.getElementById('enter-prompt');
-const skipBtn = document.getElementById('skip-btn');
 
 const lines = [
   "Eu não sei quantos dias já se passaram.",
@@ -194,8 +196,8 @@ function spawnDrips(count){
 }
 
 function buildTitle(){
-  const word1 = "APOCALIPSE";
-  const word2 = "Z";
+  const word1 = "DOOMS";
+  const word2 = "DAY";
   let delay = 0;
   word1.split('').forEach((ch) => {
     const span = document.createElement('span');
@@ -205,19 +207,21 @@ function buildTitle(){
     titleEl.appendChild(span);
     delay += 0.045;
   });
-  titleEl.appendChild(document.createTextNode(' '));
-  delay += 0.15;
-  const zSpan = document.createElement('span');
-  zSpan.className = 'letter z-letter';
-  zSpan.textContent = word2;
-  zSpan.style.animationDelay = delay + 's';
-  titleEl.appendChild(zSpan);
-  setTimeout(() => zSpan.classList.add('glow'), delay*1000 + 50);
+  const zGroup = document.createElement('span');
+  zGroup.className = 'z-letter';
+  word2.split('').forEach((ch) => {
+    const span = document.createElement('span');
+    span.className = 'letter';
+    span.textContent = ch;
+    span.style.animationDelay = delay + 's';
+    zGroup.appendChild(span);
+    delay += 0.045;
+  });
+  titleEl.appendChild(zGroup);
+  setTimeout(() => zGroup.classList.add('glow'), delay*1000 + 50);
 }
 
 async function runIntro(){
-  skipBtn.classList.add('show');
-
   await wait(500);
   await showLines();
 
@@ -237,6 +241,14 @@ async function runIntro(){
   enterPrompt.classList.add('show');
 }
 
+function startExperience(){
+  startGate.classList.add('hidden');
+  bgAudio.play().catch(() => {}); // gesto do clique libera o áudio
+  runIntro();
+}
+
+startGate.addEventListener('click', startExperience, { once: true });
+
 function goToSite(){
   document.body.style.transition = 'opacity .6s ease';
   document.body.style.opacity = '0';
@@ -244,10 +256,7 @@ function goToSite(){
 }
 
 enterPrompt.addEventListener('click', goToSite);
-skipBtn.addEventListener('click', goToSite);
 document.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') goToSite(); });
-
-runIntro();
 </script>
 
 </body>
