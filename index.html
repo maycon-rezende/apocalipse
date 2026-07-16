@@ -93,6 +93,8 @@ h1.movie-title .letter{
 @keyframes letter-in{ to{ opacity:1; transform:translateY(0) scale(1); filter:blur(0); } }
 h1.movie-title .z-letter{color:var(--red-bright); text-shadow:0 0 0 rgba(200,30,44,0);}
 h1.movie-title .z-letter.glow{ animation: letter-in .9s cubic-bezier(.2,.8,.2,1) forwards, z-glow 2.4s ease-in-out .9s infinite; }
+.movie-title .letter.morph-out{animation:morph-out .42s ease-in forwards!important}.movie-title .letter.morph-in{animation:morph-in .55s ease-out forwards!important;color:var(--ink)}.snow-field{position:fixed;inset:0;z-index:38;pointer-events:none;overflow:hidden}.snowflake{position:absolute;top:-5vh;width:5px;height:5px;border-radius:50%;background:#eafcff;box-shadow:0 0 7px rgba(210,245,255,.9);animation:snowfall var(--fall) linear forwards}.snowflake:nth-child(3n){filter:blur(1px);opacity:.65}.snowflake:nth-child(4n){width:8px;height:8px}
+@keyframes morph-out{to{opacity:0;transform:translateY(-18px) scale(.82);filter:blur(4px)}}@keyframes morph-in{from{opacity:0;transform:translateY(18px) scale(.9);filter:blur(4px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}@keyframes snowfall{to{transform:translate(var(--drift),110vh) rotate(260deg)}}
 @keyframes z-glow{
   0%,100%{ text-shadow:0 0 18px rgba(200,30,44,.45); }
   50%{ text-shadow:0 0 42px rgba(200,30,44,.85); }
@@ -124,6 +126,7 @@ h1.movie-title .z-letter.glow{ animation: letter-in .9s cubic-bezier(.2,.8,.2,1)
   color:var(--ink-dim); animation:prompt-pulse 2.2s ease-in-out infinite;
 }
 </style>
+<link rel="stylesheet" href="cursor-site.css">
 </head>
 <body>
 
@@ -134,6 +137,7 @@ h1.movie-title .z-letter.glow{ animation: letter-in .9s cubic-bezier(.2,.8,.2,1)
 
 <div class="grain"></div>
 <div class="vignette"></div>
+<div class="snow-field" id="snow-field" aria-hidden="true"></div>
 <div id="blood-wipe"></div>
 
 <div id="stage">
@@ -221,6 +225,24 @@ function buildTitle(){
   setTimeout(() => zGroup.classList.add('glow'), delay*1000 + 50);
 }
 
+function spawnSnow(){
+  const field=document.getElementById('snow-field');
+  const addFlake=()=>{const flake=document.createElement('i');flake.className='snowflake';flake.style.left=Math.random()*100+'vw';flake.style.setProperty('--fall',(1.8+Math.random()*2.2)+'s');flake.style.setProperty('--drift',(-50+Math.random()*100)+'px');field.appendChild(flake);setTimeout(()=>flake.remove(),4300)};
+  for(let i=0;i<34;i++)setTimeout(addFlake,Math.random()*900);
+  setInterval(addFlake,95);
+}
+
+async function transformTitle(){
+  const target='APOCALIPSE';
+  const current=[...titleEl.querySelectorAll('.letter')];
+  for(let index=0;index<target.length;index++){
+    let letter=current[index];
+    if(letter){letter.classList.add('morph-out');await wait(270);letter.textContent=target[index];letter.className='letter morph-in';}
+    else{letter=document.createElement('span');letter.className='letter morph-in';letter.textContent=target[index];titleEl.appendChild(letter);}
+    await wait(115);
+  }
+}
+
 async function runIntro(){
   await wait(500);
   await showLines();
@@ -232,9 +254,12 @@ async function runIntro(){
   bloodWipe.classList.add('lift');
   await wait(900);
 
+  spawnSnow();
   buildTitle();
   titleWrap.classList.add('show');
-  await wait(2600);
+  await wait(1800);
+  await transformTitle();
+  await wait(800);
   taglineEl.classList.add('show');
   await wait(1800);
 
@@ -267,5 +292,6 @@ document.addEventListener('keydown', (e) => {
 });
 </script>
 
+<script src="cursor-site.js"></script>
 </body>
 </html>

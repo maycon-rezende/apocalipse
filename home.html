@@ -99,12 +99,18 @@ nav .links > a:hover{color:var(--amber);}
 #movie-title.revealed{opacity:1;}
 #title-canvas{position:absolute; z-index:4; pointer-events:none;}
 .hero h1 .z-letter.glow{ animation:z-glow 2.4s ease-in-out infinite; }
+.fire-shadow{position:absolute;z-index:-1;left:50%;top:62%;width:max-content;opacity:0;transform:translateX(-50%) scaleY(.86);transition:opacity .8s ease .25s;font-family:var(--f-display);font-size:clamp(2.5rem,9.2vw,5.9rem);line-height:1;letter-spacing:.015em;filter:blur(.25px)}.fire-shadow.revealed{opacity:.82}.fire-letter{position:relative;display:inline-block;color:#ffcc67;background:linear-gradient(0deg,#7d0909 4%,#ef3b12 36%,#ffc53d 68%,#fff3b0 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 9px 13px rgba(0,0,0,.85);animation:letter-fire 1.25s ease-in-out infinite alternate}.fire-letter:nth-child(2n){animation-delay:-.45s}.fire-letter:nth-child(3n){animation-delay:-.8s}.fire-letter::after{content:attr(data-char);position:absolute;inset:0;-webkit-text-fill-color:transparent;text-shadow:0 -7px 12px rgba(255,77,10,.7),0 -16px 25px rgba(255,160,20,.3);opacity:.7;animation:flame-shadow .7s ease-in-out infinite alternate;pointer-events:none}
+@keyframes letter-fire{0%{filter:brightness(.9) drop-shadow(0 -2px 3px rgba(210,31,44,.5));transform:translateY(0)}100%{filter:brightness(1.22) drop-shadow(0 -7px 8px rgba(255,103,15,.75));transform:translateY(-2px)}}@keyframes flame-shadow{to{transform:translateY(-4px) scaleY(1.05);opacity:.35}}
+#movie-title{z-index:2}.title-wrap{isolation:isolate;margin-bottom:clamp(5.4rem,11vw,8.8rem)}.fire-shadow{z-index:1;top:74%;opacity:0;transform-origin:50% 0;transform:translateX(-52%) perspective(520px) rotateX(40deg) skewX(-11deg) scaleY(1.05);font-size:clamp(2.7rem,10.4vw,6.7rem);letter-spacing:0;filter:saturate(1.12) brightness(1.05) drop-shadow(0 4px 2px rgba(0,0,0,.85));mask-image:linear-gradient(to bottom,#000 0%,#000 72%,rgba(0,0,0,.72) 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 72%,rgba(0,0,0,.72) 100%)}.fire-shadow.revealed{opacity:.96}.fire-shadow .fire-letter{-webkit-text-stroke:1px rgba(255,132,35,.32);text-shadow:0 -4px 9px rgba(255,88,10,.7),4px 11px 8px rgba(0,0,0,.82)}
+.fire-shadow .fire-letter{opacity:0;transform:translateY(-105px) scaleY(.45);animation:none}.fire-shadow.dropping .fire-letter{animation:shadow-letter-drop 1.35s cubic-bezier(.18,.72,.18,1) calc(var(--i)*.34s) forwards}.fire-shadow .fire-letter.settled{opacity:1;transform:none;animation:letter-fire 1.25s ease-in-out infinite alternate}.fire-shadow .fire-letter.settled:nth-child(2n){animation-delay:-.45s}.fire-shadow .fire-letter.settled:nth-child(3n){animation-delay:-.8s}
+@keyframes shadow-letter-drop{0%{opacity:0;transform:translateY(-105px) scaleY(.45);filter:brightness(2) blur(3px)}55%{opacity:1;transform:translateY(8px) scaleY(1.08);filter:brightness(1.35) blur(0)}75%{transform:translateY(-4px) scaleY(.97)}100%{opacity:1;transform:translateY(0) scaleY(1);filter:brightness(1)}}
+.fire-shadow{left:0;top:96%;width:100%;display:flex;justify-content:space-between;align-items:flex-start;transform:perspective(520px) rotateX(40deg) skewX(-9deg) scaleY(1.05);font-size:clamp(2.15rem,8.3vw,5.35rem)}.fire-shadow .fire-letter{flex:0 0 auto;background:#403a35;-webkit-text-stroke:1px rgba(190,180,160,.28);text-shadow:4px 11px 8px rgba(0,0,0,.88)}.fire-shadow .fire-letter::after{opacity:0;animation:none}.fire-shadow .fire-letter.settled{animation:none}.fire-shadow .fire-letter.burning{background:linear-gradient(0deg,#7d0909 4%,#ef3b12 36%,#ffc53d 68%,#fff3b0 100%);-webkit-text-stroke:1px rgba(255,132,35,.32);text-shadow:0 -4px 9px rgba(255,88,10,.7),4px 11px 8px rgba(0,0,0,.82);animation:letter-fire 1.25s ease-in-out infinite alternate}.fire-shadow .fire-letter.burning::after{opacity:.7;animation:flame-shadow .7s ease-in-out infinite alternate}.fire-shadow .fire-letter.burning:nth-child(2n){animation-delay:-.45s}.fire-shadow .fire-letter.burning:nth-child(3n){animation-delay:-.8s}
 @keyframes z-glow{
   0%,100%{ text-shadow:0 0 18px rgba(210,31,44,.45); }
   50%{ text-shadow:0 0 42px rgba(210,31,44,.85); }
 }
 
-.blood-drips{position:absolute; top:100%; left:4%; right:4%; height:0; pointer-events:none; z-index:2;}
+.blood-drips{position:absolute; top:8%; left:4%; right:4%; height:0; pointer-events:none; z-index:3;}
 .drip{
   position:absolute; top:0; width:3px;
   background:linear-gradient(to bottom, var(--red) 0%, #6e0f16 75%, transparent 100%);
@@ -133,7 +139,7 @@ nav .links > a:hover{color:var(--amber);}
 .hero h1 .z{color:var(--red); text-shadow:0 0 40px rgba(210,31,44,.55);}
 .hero .tagline{
   font-family:var(--f-mono); font-style:italic; font-size:clamp(1rem,1.8vw,1.2rem); color:var(--ink-dim);
-  margin:1.2rem auto 0; max-width:52ch;
+  margin:clamp(1.8rem,4vw,3.5rem) auto 0; max-width:52ch;
 }
 
 /* ===== IMAGEM DE IMPACTO ===== */
@@ -218,6 +224,7 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
 @media(max-width:480px){nav{padding:.75rem 4vw}.hero{padding:7rem 4vw 4rem}.explore{padding:4rem 4vw}.explore-grid{grid-template-columns:minmax(0,1fr)}.captured-frame{width:min(420px,92vw)}#nav-toggle{min-width:44px;min-height:44px}.links{width:min(86vw,300px)}}@media(max-height:520px) and (orientation:landscape){.hero{padding-top:5rem}.crawl-outer{height:70dvh}.crawl-skip{bottom:2vh}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body,.grain,.rec-dot{animation:none!important}.reveal{opacity:1;transform:none;transition:none!important}}
 </style>
+<link rel="stylesheet" href="cursor-site.css">
 </head>
 <body class="locked">
 
@@ -267,6 +274,7 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
   <p class="eyebrow fade-block" id="hero-eyebrow">Arquivo recuperado // DD-01</p>
   <div class="title-wrap" id="title-wrap">
     <h1 id="movie-title"></h1>
+    <div class="fire-shadow" id="fire-shadow" aria-label="Apocalipse"></div>
     <canvas id="title-canvas"></canvas>
     <div class="blood-drips" id="blood-drips"></div>
   </div>
@@ -381,6 +389,7 @@ const crawlStage = document.getElementById('crawl-stage');
 const movieTitle = document.getElementById('movie-title');
 const titleCanvas = document.getElementById('title-canvas');
 const titleWrap = document.getElementById('title-wrap');
+const fireShadow = document.getElementById('fire-shadow');
 const bloodDrips = document.getElementById('blood-drips');
 const fadeBlocks = ['hero-eyebrow','hero-tagline','hero-frame','hero-scroll-cue'].map(id => document.getElementById(id));
 
@@ -388,6 +397,7 @@ function wait(ms){ return new Promise(r => setTimeout(r, ms)); }
 
 function buildTitle(){
   movieTitle.innerHTML = '<span class="glitch" data-text="DOOMS">DOOMS</span><span class="z z-letter glitch" data-text="DAY">DAY</span>';
+  fireShadow.innerHTML = 'APOCALIPSE'.split('').map((ch,index) => `<span class="fire-letter" style="--i:${index}" data-char="${ch}">${ch}</span>`).join('');
 }
 
 function startGlitchLoop(){
@@ -505,6 +515,14 @@ async function revealHero(){
   buildTitle();
   await assembleTitleParticles();
   movieTitle.classList.add('revealed');
+  fireShadow.classList.add('revealed');
+  await wait(650);
+  fireShadow.classList.add('dropping');
+  await wait(4400);
+  const shadowLetters=[...fireShadow.querySelectorAll('.fire-letter')];
+  shadowLetters.forEach(letter => letter.classList.add('settled'));
+  await wait(650);
+  for(const letter of shadowLetters){letter.classList.add('burning');await wait(190);}
   titleCanvas.style.display = 'none';
   const zSpan = movieTitle.querySelector('.z-letter');
   zSpan.classList.add('glow');
@@ -529,5 +547,6 @@ async function runSequence(){
 runSequence();
 </script>
 
+<script src="cursor-site.js"></script>
 </body>
 </html>
