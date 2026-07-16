@@ -22,6 +22,8 @@ As fontes principais são Anton, Courier Prime e VT323.
 - `historia.html`: conteúdo relacionado à história e aos testemunhos.
 - `personagens.html`: fichas pesquisáveis e filtráveis dos personagens.
 - `personagem.html`: arquivo secreto dinâmico de cada personagem.
+- `evidencias.html`: cofre dinâmico com os lotes completos de fotografias encontradas.
+- `acesso-restrito.html`: portal protegido do material ainda em construção da Melissa.
 - `ameaca.html`: informações sobre a ameaça.
 - `galeria.html`: registros visuais do universo.
 - `cursor-site.css` e `cursor-site.js`: cursor personalizado compartilhado pelas páginas gerais.
@@ -126,8 +128,42 @@ Por ser arquiteta, o arquivo de Mei possui:
 - grade técnica semelhante a uma planta arquitetônica;
 - linhas horizontais e verticais de medição;
 - detalhes em azul técnico.
+- cursor exclusivo de desenho técnico;
+- coordenadas X/Y acompanhando o movimento do mouse;
+- marcações de enquadramento e escala `1:50`;
+- linhas de cotagem animadas nos documentos;
+- reação visual técnica sobre as evidências.
 
 O sistema já aplica os temas automaticamente conforme o parâmetro `id` da URL.
+
+## Evidências encontradas
+
+Os arquivos individuais possuem um segundo nível de material em `evidencias.html`:
+
+- Mick possui seis registros fotográficos disponíveis;
+- Melissa possui vinte registros catalogados;
+- cada item recebe número de evidência e código de lote;
+- as imagens preservam sua proporção original;
+- os registros aparecem conforme a rolagem;
+- clicar em uma fotografia abre a evidência em tela cheia;
+- o botão de retorno leva ao dossiê correto.
+
+No arquivo de Melissa, a terceira evidência preliminar exibida em `personagem.html` usa atualmente `img-mei/meicaseira.png`.
+
+## Acesso restrito da Melissa
+
+Enquanto as fotografias de Melissa ainda estão sendo preparadas:
+
+- o acesso visível foi substituído por um símbolo arquitetônico discreto `⌖`;
+- o símbolo abre `acesso-restrito.html`;
+- a tela apresenta o setor como “obra em andamento” e “área interditada”;
+- uma credencial é solicitada antes da abertura do cofre;
+- a senha é comparada por hash e não aparece em texto aberto no código;
+- uma tentativa incorreta exibe “Acesso negado”;
+- a autorização é mantida apenas durante a sessão do navegador;
+- abrir diretamente as evidências de Melissa sem autorização redireciona para o portal restrito.
+
+Esta proteção é adequada apenas para a fase atual de demonstração do site estático. Antes de uma publicação profissional, o material deverá ser liberado ou protegido por autenticação no servidor.
 
 ## Cursor geral do site
 
@@ -197,4 +233,3 @@ Pasta `img-mei/`, incluindo:
 - Criar efeitos exclusivos para Chris, Diana, Emma, James, Stayci e Samuel.
 - Revisar o tempo completo das animações de `index.html` e `home.html`.
 - Fazer uma revisão final de desempenho, acessibilidade e responsividade.
-
