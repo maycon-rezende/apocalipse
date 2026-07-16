@@ -87,14 +87,34 @@ h1.movie-title{
   line-height:.9;
 }
 h1.movie-title .letter{
-  display:inline-block; opacity:0; transform:translateY(18px) scale(1.08); filter:blur(4px);
+  position:relative; display:inline-block; opacity:0; transform:translateY(18px) scale(1.08); filter:blur(4px);
   animation: letter-in .9s cubic-bezier(.2,.8,.2,1) forwards;
 }
 @keyframes letter-in{ to{ opacity:1; transform:translateY(0) scale(1); filter:blur(0); } }
 h1.movie-title .z-letter{color:var(--red-bright); text-shadow:0 0 0 rgba(200,30,44,0);}
 h1.movie-title .z-letter.glow{ animation: letter-in .9s cubic-bezier(.2,.8,.2,1) forwards, z-glow 2.4s ease-in-out .9s infinite; }
 .movie-title .letter.morph-out{animation:morph-out .42s ease-in forwards!important}.movie-title .letter.morph-in{animation:morph-in .55s ease-out forwards!important;color:var(--ink)}.snow-field{position:fixed;inset:0;z-index:38;pointer-events:none;overflow:hidden}.snowflake{position:absolute;top:-5vh;width:5px;height:5px;border-radius:50%;background:#eafcff;box-shadow:0 0 7px rgba(210,245,255,.9);animation:snowfall var(--fall) linear forwards}.snowflake:nth-child(3n){filter:blur(1px);opacity:.65}.snowflake:nth-child(4n){width:8px;height:8px}
+.movie-title .letter::before{
+  content:attr(data-char); position:absolute; inset:0; z-index:2; pointer-events:none;
+  color:#e9fbff; opacity:0; overflow:hidden;
+  background:linear-gradient(180deg,#fff 0%,#dff8ff 28%,#86cbe2 72%,#3d829f 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  clip-path:polygon(0 0,100% 0,100% 25%,88% 31%,76% 25%,64% 38%,52% 27%,39% 34%,25% 24%,12% 31%,0 26%);
+  filter:drop-shadow(0 1px 1px #fff) drop-shadow(0 0 7px rgba(146,224,255,.85));
+  transform:translateY(-8px); transition:none;
+}
+.movie-title .letter::after{
+  content:""; position:absolute; z-index:3; left:8%; right:7%; top:24%; height:13%;
+  opacity:0; transform:scaleY(0); transform-origin:top; pointer-events:none;
+  background:linear-gradient(110deg,transparent 0 8%,#dff8ff 9% 14%,transparent 15% 35%,#9ddcf0 36% 42%,transparent 43% 66%,#e9fbff 67% 73%,transparent 74%);
+  clip-path:polygon(0 0,100% 0,100% 20%,74% 18%,70% 100%,65% 20%,43% 18%,39% 75%,34% 18%,14% 20%,10% 88%,6% 20%,0 20%);
+  filter:drop-shadow(0 2px 2px rgba(111,205,239,.8));
+}
+.movie-title .letter.frozen::before{animation:ice-cap .75s cubic-bezier(.16,.8,.3,1) forwards}
+.movie-title .letter.frozen::after{animation:icicles .55s ease-out .35s forwards}
 @keyframes morph-out{to{opacity:0;transform:translateY(-18px) scale(.82);filter:blur(4px)}}@keyframes morph-in{from{opacity:0;transform:translateY(18px) scale(.9);filter:blur(4px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}@keyframes snowfall{to{transform:translate(var(--drift),110vh) rotate(260deg)}}
+@keyframes ice-cap{0%{opacity:0;transform:translateY(-9px);clip-path:polygon(0 0,100% 0,100% 3%,0 3%)}55%{opacity:1}100%{opacity:.98;transform:translateY(0);clip-path:polygon(0 0,100% 0,100% 25%,88% 31%,76% 25%,64% 38%,52% 27%,39% 34%,25% 24%,12% 31%,0 26%)}}
+@keyframes icicles{to{opacity:.9;transform:scaleY(1)}}
 @keyframes z-glow{
   0%,100%{ text-shadow:0 0 18px rgba(200,30,44,.45); }
   50%{ text-shadow:0 0 42px rgba(200,30,44,.85); }
@@ -237,10 +257,13 @@ async function transformTitle(){
   const current=[...titleEl.querySelectorAll('.letter')];
   for(let index=0;index<target.length;index++){
     let letter=current[index];
-    if(letter){letter.classList.add('morph-out');await wait(270);letter.textContent=target[index];letter.className='letter morph-in';}
-    else{letter=document.createElement('span');letter.className='letter morph-in';letter.textContent=target[index];titleEl.appendChild(letter);}
+    if(letter){letter.classList.add('morph-out');await wait(270);letter.textContent=target[index];letter.dataset.char=target[index];letter.className='letter morph-in';}
+    else{letter=document.createElement('span');letter.className='letter morph-in';letter.textContent=target[index];letter.dataset.char=target[index];titleEl.appendChild(letter);}
     await wait(115);
   }
+  await wait(350);
+  const frozenLetters=[...titleEl.querySelectorAll('.letter')];
+  frozenLetters.forEach((letter,index)=>setTimeout(()=>letter.classList.add('frozen'),index*85));
 }
 
 async function runIntro(){

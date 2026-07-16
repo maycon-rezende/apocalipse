@@ -44,13 +44,31 @@ A abertura possui:
 
 A transformação está na função `transformTitle()`. Cada letra antiga sobe e desaparece antes de ser substituída pela letra correspondente de “APOCALIPSE”. As duas letras adicionais são criadas no final.
 
+Depois que a transformação termina, a parte superior de cada letra de **APOCALIPSE** congela em sequência, da esquerda para a direita. O efeito possui:
+
+- cobertura branca e azulada;
+- borda de gelo irregular;
+- brilho frio;
+- pequenos pingentes;
+- integração visual com a neve que já cai ao fundo.
+
 ## Página principal — `home.html`
 
-Antes da página principal aparecer, existe um texto introdutório em formato de crawl. Depois dele, o título é montado por partículas.
+Antes da página principal aparecer, existe um texto introdutório em formato de crawl. A fonte desse texto foi aumentada para melhorar a leitura.
+
+Ao final do crawl:
+
+- a parte final do relato permanece visível por um instante;
+- os caracteres perdem definição e se desfazem em poeira;
+- partículas claras, cinzas, vermelhas e âmbar convergem para o centro da tela;
+- essa transição conduz diretamente à formação do título.
 
 ### Composição do título
 
-- **DOOMSDAY** é o título principal.
+- **DOOMSDAY** é o título principal e agora surge letra por letra.
+- Cada letra nasce de sua própria nuvem de poeira e ganha definição gradualmente.
+- “DOOMS” é formado por partículas claras, cinza queimado e pequenos pontos âmbar.
+- “DAY” é formado por cinzas vermelhas e brasas âmbar.
 - “DOOMS” permanece claro.
 - “DAY” possui vermelho, brilho e glitch.
 - **APOCALIPSE** aparece abaixo como uma sombra projetada do título.
@@ -67,6 +85,40 @@ Antes da página principal aparecer, existe um texto introdutório em formato de
 Filetes de sangue são gerados dinamicamente sobre o título. Atualmente o contêiner `.blood-drips` começa em `top: 8%`, fazendo o sangue nascer próximo ao topo e escorrer por praticamente toda a altura das letras de “DOOMSDAY”.
 
 Esse foi o último ajuste visual realizado e pode ser refinado caso a posição ainda varie demais em diferentes resoluções.
+
+### Arquivo recuperado
+
+Depois da formação do título, do fogo e do sangue, a página apresenta um painel funcional de recuperação:
+
+- identificação `DD-01`;
+- origem no setor de contenção;
+- classificação de nível vermelho;
+- integridade avançando de `00%` até `63%`;
+- mensagens de localização, reconstrução e validação dos registros;
+- linha de varredura e indicador pulsante;
+- botão bloqueado durante a recuperação;
+- botão **Acessar arquivos recuperados** liberado ao final;
+- rolagem direta até o diretório principal.
+
+### Diretório recuperado
+
+A antiga seção “Explorar” foi transformada em um diretório militar com quatro setores:
+
+- Setor 01 — História;
+- Setor 02 — Personagens;
+- Setor 03 — Ameaça;
+- Setor 04 — Galeria.
+
+Cada setor possui código, estado, cor própria, varredura ao interagir, descrição contextual e chamada de acesso específica. O setor de personagens apresenta um contador animado com os oito registros existentes.
+
+### Dossiês prioritários
+
+A página principal agora oferece acesso direto aos arquivos secretos já disponíveis:
+
+- Mick Bradock: `personagem.html?id=mick`, com retrato, mira e indicação `SUBJECT TRACKED`;
+- Melissa “Mei” Bradock: `personagem.html?id=mei`, com grade arquitetônica, coordenadas técnicas e aviso de evidências restritas.
+
+Os cards preservam as identidades visuais dos respectivos dossiês e se adaptam a telas menores.
 
 ## Personagens — `personagens.html`
 
@@ -224,10 +276,22 @@ Pasta `img-mei/`, incluindo:
 - Manter “DOOMSDAY” como nome principal da obra.
 - Usar “APOCALIPSE” como tradução/sombra e representação visual do caos.
 
+## Versionamento e GitHub
+
+O projeto é versionado no repositório:
+
+- `https://github.com/maycon-rezende/apocalipse.git`
+- branch principal: `main`.
+
+A partir desta atualização, as mudanças relevantes do projeto também serão registradas neste resumo e enviadas ao GitHub. Antes de cada envio, devem ser conferidos os arquivos alterados, a validade do JavaScript e os caminhos locais utilizados pelas páginas.
+
+Nesta atualização, o GitHub está sendo sincronizado com os novos efeitos de `index.html`, as melhorias de `home.html` e esta documentação.
+
 ## Próximos passos possíveis
 
 - Testar a posição do sangue em diferentes tamanhos de tela.
 - Refinar o alinhamento da sombra “APOCALIPSE” em celulares.
+- Testar visualmente as novas transições de poeira, recuperação e diretório em diferentes navegadores.
 - Definir onde Mick e Mei estavam exatamente no Dia Zero.
 - Criar imagens e arquivos secretos para os demais personagens.
 - Criar efeitos exclusivos para Chris, Diana, Emma, James, Stayci e Samuel.
