@@ -45,6 +45,11 @@ nav .logo{font-family:var(--f-display); font-size:1.1rem; letter-spacing:.03em; 
 nav .logo span{color:var(--red);}
 nav .back{color:var(--amber); display:flex; align-items:center; gap:.4rem;}
 nav .back:hover{color:var(--red);}
+.threat-hero{padding-top:9rem}.doom-title{display:flex;align-items:baseline;gap:.08em;width:max-content;max-width:100%}.doom-title .doom-word{position:relative;color:#dff8ff;text-shadow:0 0 24px rgba(115,201,232,.38)}.doom-title .doom-word::after{content:'DOOM';position:absolute;inset:0;color:#fff;opacity:.72;clip-path:polygon(0 0,100% 0,100% 18%,86% 27%,71% 17%,57% 31%,43% 20%,28% 29%,12% 17%,0 25%);filter:drop-shadow(0 3px 4px #72bad3)}.doom-title .designation-z{font:.28em var(--f-term);letter-spacing:.14em;color:var(--red)}.origin-summary{max-width:72ch;color:var(--ink-dim);font-size:1rem}.origin-summary strong{color:var(--ink)}.archive-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:2rem;border:1px solid var(--line);background:var(--line)}.archive-strip div{padding:.85rem;background:var(--panel)}.archive-strip span{display:block;font:.72rem var(--f-term);letter-spacing:.1em;color:var(--ink-dim)}.archive-strip strong{font:1rem var(--f-term);color:var(--amber)}
+.origin-grid{display:grid;grid-template-columns:minmax(300px,.9fr) minmax(0,1.1fr);gap:2rem;align-items:stretch}.ice-core{position:relative;min-height:460px;border:1px solid #355664;background:radial-gradient(circle at 50% 40%,rgba(139,220,244,.15),transparent 38%),linear-gradient(155deg,#071116,#030708);overflow:hidden}.ice-core::before{content:'';position:absolute;inset:-30%;background:repeating-linear-gradient(112deg,transparent 0 34px,rgba(185,239,255,.05) 35px 37px,transparent 38px 72px);animation:ice-drift 10s linear infinite}.ice-core svg{position:absolute;inset:8%;width:84%;height:84%;filter:drop-shadow(0 0 18px rgba(118,205,235,.28))}.core-label{position:absolute;left:1rem;right:1rem;bottom:1rem;display:flex;justify-content:space-between;font:.8rem var(--f-term);letter-spacing:.08em;color:#9edff2}.origin-file{border:1px solid var(--line);background:var(--panel);padding:1.5rem}.origin-file h3{font:1.5rem var(--f-display);text-transform:uppercase;margin-bottom:1rem}.origin-file dl{display:grid;grid-template-columns:minmax(130px,.42fr) 1fr;border-top:1px solid var(--line)}.origin-file dt,.origin-file dd{padding:.7rem 0;border-bottom:1px solid var(--line)}.origin-file dt{font:.9rem var(--f-term);letter-spacing:.07em;color:var(--amber)}.origin-file dd{font-size:.88rem;color:var(--ink-dim)}.classified{display:inline-block;background:#171717;color:#171717;user-select:none;padding:0 .25rem}.origin-note{margin-top:1.2rem;padding:1rem;border-left:2px solid var(--red);background:rgba(210,31,44,.055);font-size:.88rem;color:var(--ink-dim)}
+.analysis-controls{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.4rem}.analysis-filter{padding:.45rem .7rem;border:1px solid var(--line);background:transparent;color:var(--ink-dim);font:.9rem var(--f-term);letter-spacing:.07em;cursor:pointer}.analysis-filter.active,.analysis-filter:hover,.analysis-filter:focus-visible{border-color:var(--amber);color:var(--amber);outline:none}.threat-card[data-state="locked"]{background:repeating-linear-gradient(135deg,var(--panel) 0 12px,#10100e 12px 24px)}.threat-card.filtered-out{display:none}.status.confirmado{color:#75cfe8}.status.pendente{color:var(--ink-dim)}.threat-card .data-state{display:block;margin-top:.8rem;padding-top:.6rem;border-top:1px dashed var(--line);font:.78rem var(--f-term);letter-spacing:.08em;color:var(--red)}
+.discovery-chain{position:relative;margin-top:1rem;padding-left:2rem}.discovery-chain::before{content:'';position:absolute;left:7px;top:.6rem;bottom:.6rem;width:1px;background:linear-gradient(#7ed6ed,var(--red),var(--line))}.chain-event{position:relative;margin-bottom:1rem;padding:1rem 1.2rem;border:1px solid var(--line);background:var(--panel)}.chain-event::before{content:'';position:absolute;left:-2rem;top:1.25rem;width:13px;height:13px;border-radius:50%;background:var(--void);border:2px solid var(--amber)}.chain-event.confirmed::before{border-color:#7ed6ed;box-shadow:0 0 12px #4b9cb5}.chain-event time{font:1rem var(--f-term);color:var(--amber)}.chain-event h3{font:1.1rem var(--f-display);text-transform:uppercase}.chain-event p{font-size:.86rem;color:var(--ink-dim)}
+@keyframes ice-drift{to{transform:translate(10%,7%)}}
 
 .status{display:inline-flex; align-items:center; gap:.4rem; font-family:var(--f-term); font-size:1rem; letter-spacing:.08em; text-transform:uppercase; padding:.2rem .6rem; border:1px solid currentColor;}
 .status::before{content:"●"; font-size:.6em;}
@@ -70,7 +75,7 @@ nav .back:hover{color:var(--red);}
 .location-card .status-dot{position:absolute; top:1.3rem; right:1.3rem; width:9px; height:9px; border-radius:50%;}
 
 footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size:1rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-dim); border-top:1px solid var(--line);}
-@media(max-width:700px){nav{padding:.75rem 4vw;gap:.75rem}nav .logo{font-size:1rem;flex:0 0 auto}nav .back{font-size:.95rem;line-height:1.15;text-align:right}.section{padding:5rem 4vw 3rem}.threat-grid,.locations-grid{grid-template-columns:minmax(0,1fr)}.threat-card,.location-card{min-width:0}.threat-header{padding:1rem;align-items:flex-start}}@media(max-width:360px){h1.page-title{font-size:2.2rem;overflow-wrap:anywhere}.eyebrow{font-size:.95rem;letter-spacing:.12em}.threat-card .tc-head{gap:.5rem;flex-wrap:wrap}}
+@media(max-width:700px){nav{padding:.75rem 4vw;gap:.75rem}nav .logo{font-size:1rem;flex:0 0 auto}nav .back{font-size:.95rem;line-height:1.15;text-align:right}.section{padding:5rem 4vw 3rem}.origin-grid{grid-template-columns:1fr}.archive-strip{grid-template-columns:repeat(2,1fr)}.ice-core{min-height:360px}.origin-file dl{grid-template-columns:1fr}.origin-file dd{padding-top:0}.threat-grid,.locations-grid{grid-template-columns:minmax(0,1fr)}.threat-card,.location-card{min-width:0}.threat-header{padding:1rem;align-items:flex-start}}@media(max-width:360px){h1.page-title{font-size:2.2rem;overflow-wrap:anywhere}.eyebrow{font-size:.95rem;letter-spacing:.12em}.threat-card .tc-head{gap:.5rem;flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body,.grain,.rec-dot{animation:none!important}.reveal{opacity:1;transform:none;transition:none!important}}
 </style>
 <link rel="stylesheet" href="cursor-site.css">
@@ -86,75 +91,43 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
   <a class="back" href="home.html">← Voltar ao Arquivo</a>
 </nav>
 
-<section class="section" id="zumbis">
-  <p class="eyebrow reveal is-visible">Relatório de ameaça biológica</p>
-  <h1 class="page-title reveal is-visible">Classificação de Ameaça</h1>
-  <div class="threat-header reveal is-visible">
-    <span class="designation">Designação: Não Confirmada</span>
-    <span class="designation">Nível de Risco: Crítico</span>
-  </div>
-  <div class="threat-grid">
-    <div class="threat-card reveal">
-      <div class="tc-head"><span class="level">01</span><span class="status confirmado">Confirmado</span></div>
-      <div class="body">
-        <h4>Comportamento Observado</h4>
-        <p>Agressão direcionada por estímulo sonoro e movimento. Sem sinais de coordenação social ou uso de ferramentas.</p>
-      </div>
+<section class="section threat-hero" id="doom">
+  <p class="eyebrow reveal is-visible">Relatório de ameaça biológica // acesso parcial</p>
+  <h1 class="page-title doom-title reveal is-visible"><span class="doom-word">DOOM</span><span class="designation-z">AMOSTRA ANTÁRTICA</span></h1>
+  <p class="origin-summary reveal is-visible"><strong>DOOM</strong> é a designação atribuída a um elemento viral desconhecido recuperado na Antártida. O material permaneceu congelado por um período ainda não determinado, em uma região capaz de preservar vírus, bactérias, fungos e outros organismos de eras remotas.</p>
+  <div class="archive-strip reveal is-visible"><div><span>DESIGNAÇÃO</span><strong>DOOM</strong></div><div><span>ORIGEM</span><strong>ANTÁRTIDA</strong></div><div><span>ESTADO INICIAL</span><strong>CONGELADO</strong></div><div><span>RISCO</span><strong>NÍVEL CRÍTICO</strong></div></div>
+</section>
+
+<section class="section" id="origem">
+  <p class="eyebrow reveal">Arquivo de origem</p>
+  <h2 class="section-title reveal">Amostra no Gelo</h2>
+  <div class="origin-grid">
+    <div class="ice-core reveal" aria-label="Representação técnica da amostra DOOM preservada no gelo">
+      <svg viewBox="0 0 420 460" aria-hidden="true"><defs><linearGradient id="ice" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9fbff" stop-opacity=".85"/><stop offset=".5" stop-color="#5ca6c1" stop-opacity=".28"/><stop offset="1" stop-color="#163e50" stop-opacity=".7"/></linearGradient><radialGradient id="sample"><stop stop-color="#d21f2c"/><stop offset=".3" stop-color="#7b101a"/><stop offset="1" stop-color="#170508" stop-opacity=".2"/></radialGradient></defs><path d="M110 25L309 42 357 122 330 387 239 438 92 403 58 119Z" fill="url(#ice)" stroke="#a7e5f4" stroke-width="3"/><path d="M113 92L281 70 318 139 287 357 193 402 105 347 83 145Z" fill="none" stroke="#d9f8ff" stroke-opacity=".42" stroke-width="2"/><circle cx="211" cy="237" r="58" fill="url(#sample)"/><circle cx="211" cy="237" r="88" fill="none" stroke="#d21f2c" stroke-opacity=".5" stroke-dasharray="8 7"/><path d="M211 124V350M97 237H325" stroke="#dff8ff" stroke-opacity=".36"/><text x="227" y="220" fill="#e8a33d" font-family="monospace" font-size="13">DOOM-00</text><text x="227" y="239" fill="#a7e5f4" font-family="monospace" font-size="11">AMOSTRA ATIVA?</text></svg>
+      <div class="core-label"><span>CORE // ANT-00</span><span>TEMP. ORIGINAL: NÃO REGISTRADA</span></div>
     </div>
-    <div class="threat-card reveal">
-      <div class="tc-head"><span class="level">02</span><span class="status hipotese">Hipótese</span></div>
-      <div class="body">
-        <h4>Transmissão</h4>
-        <p>Contato direto com fluidos. Tempo de incubação variável — ainda não determinado com precisão pelas equipes de campo.</p>
-      </div>
-    </div>
-    <div class="threat-card reveal">
-      <div class="tc-head"><span class="level">03</span><span class="status confirmado">Confirmado</span></div>
-      <div class="body">
-        <h4>Vulnerabilidades</h4>
-        <p>Dano estrutural severo ao sistema nervoso central interrompe a atividade. Demais formas de dano têm eficácia reduzida.</p>
-      </div>
-    </div>
-    <div class="threat-card reveal">
-      <div class="tc-head"><span class="level">04</span><span class="status hipotese">Observação</span></div>
-      <div class="body">
-        <h4>Deterioração Física</h4>
-        <p>Estado dos corpos varia conforme tempo desde a infecção — fator usado por sobreviventes pra estimar quão "recente" é um foco de contágio.</p>
-      </div>
-    </div>
+    <article class="origin-file reveal"><h3>Ficha de recuperação</h3><dl><dt>Local</dt><dd>Antártida // coordenadas classificadas</dd><dt>Contexto</dt><dd>Pesquisa de organismos e elementos preservados sob camadas antigas de gelo.</dd><dt>Descoberta</dt><dd>Material biológico desconhecido catalogado provisoriamente como DOOM.</dd><dt>Antiguidade</dt><dd>Não determinada. Associação com eras remotas permanece uma hipótese científica.</dd><dt>Equipe</dt><dd><span class="classified">████████████████</span></dd><dt>Natureza</dt><dd>Elemento viral // classificação definitiva pendente</dd></dl><p class="origin-note">O arquivo confirma a origem congelada da amostra. Transporte, primeiros testes e circunstâncias da exposição permanecem bloqueados até que esses acontecimentos sejam definidos na história.</p></article>
   </div>
 </section>
 
-<section class="section" id="locais">
-  <p class="eyebrow reveal">Mapa de operações</p>
-  <h2 class="section-title reveal">Locais</h2>
-  <div class="locations-grid">
-    <div class="location-card reveal">
-      <span class="status-dot" style="background:var(--green);"></span>
-      <div class="coord">SETOR 01</div>
-      <h4>[Nome da cidade/base inicial]</h4>
-      <p>Onde a história começa, antes do colapso ser reconhecido publicamente.</p>
-    </div>
-    <div class="location-card reveal">
-      <span class="status-dot" style="background:var(--amber);"></span>
-      <div class="coord">SETOR 02</div>
-      <h4>[Zona de quarentena]</h4>
-      <p>Área sob controle militar direto do General Hanson.</p>
-    </div>
-    <div class="location-card reveal">
-      <span class="status-dot" style="background:var(--red);"></span>
-      <div class="coord">SETOR 03</div>
-      <h4>[Zona vermelha / perdida]</h4>
-      <p>Território fora de contenção — sem comunicação confirmada.</p>
-    </div>
-    <div class="location-card reveal">
-      <span class="status-dot" style="background:var(--ink-dim);"></span>
-      <div class="coord">SETOR 04</div>
-      <h4>[Pentágono / comando central]</h4>
-      <p>Onde Samuel opera, longe da linha de frente, mas perto de todas as decisões.</p>
-    </div>
+<section class="section" id="analise">
+  <p class="eyebrow reveal">Matriz de conhecimento</p>
+  <h2 class="section-title reveal">O Que Sabemos</h2>
+  <div class="analysis-controls reveal" aria-label="Filtrar dados por estado"><button class="analysis-filter active" type="button" data-analysis="all" aria-pressed="true">Todos</button><button class="analysis-filter" type="button" data-analysis="confirmed" aria-pressed="false">Confirmados</button><button class="analysis-filter" type="button" data-analysis="pending" aria-pressed="false">Em análise</button><button class="analysis-filter" type="button" data-analysis="locked" aria-pressed="false">Classificados</button></div>
+  <div class="threat-grid">
+    <article class="threat-card reveal" data-state="confirmed"><div class="tc-head"><span class="level">01</span><span class="status confirmado">Confirmado</span></div><div class="body"><h4>Origem</h4><p>A amostra DOOM foi recuperada de material congelado na Antártida.</p><span class="data-state">FONTE // ARQUIVO DE EXPEDIÇÃO</span></div></article>
+    <article class="threat-card reveal" data-state="pending"><div class="tc-head"><span class="level">02</span><span class="status hipotese">Em análise</span></div><div class="body"><h4>Classificação</h4><p>O termo “elemento viral” é provisório. Relações com outros organismos preservados ainda não foram estabelecidas.</p><span class="data-state">DADOS INSUFICIENTES</span></div></article>
+    <article class="threat-card reveal" data-state="locked"><div class="tc-head"><span class="level">03</span><span class="status pendente">Classificado</span></div><div class="body"><h4>Transmissão</h4><p><span class="classified">████████████████████████████</span></p><span class="data-state">PROTOCOLO BLOQUEADO</span></div></article>
+    <article class="threat-card reveal" data-state="locked"><div class="tc-head"><span class="level">04</span><span class="status pendente">Classificado</span></div><div class="body"><h4>Efeitos no Hospedeiro</h4><p><span class="classified">████████████████████████████</span></p><span class="data-state">AGUARDANDO DEFINIÇÃO NARRATIVA</span></div></article>
+    <article class="threat-card reveal" data-state="pending"><div class="tc-head"><span class="level">05</span><span class="status hipotese">Em análise</span></div><div class="body"><h4>Tempo no Gelo</h4><p>A idade exata da amostra não foi confirmada. Sua preservação remete a camadas extremamente antigas.</p><span class="data-state">DATAÇÃO PENDENTE</span></div></article>
+    <article class="threat-card reveal" data-state="locked"><div class="tc-head"><span class="level">06</span><span class="status pendente">Classificado</span></div><div class="body"><h4>Falha de Contenção</h4><p><span class="classified">████████████████████████████</span></p><span class="data-state">EVENTO NÃO DEFINIDO</span></div></article>
   </div>
-  <p style="margin-top:2rem;font-size:.95rem;color:var(--ink-dim);font-family:var(--f-term);letter-spacing:.03em;">* Nomes de locais e um mapa ilustrado real podem ser adicionados aqui assim que você definir a geografia da história.</p>
+</section>
+
+<section class="section" id="cadeia">
+  <p class="eyebrow reveal">Cadeia de custódia incompleta</p>
+  <h2 class="section-title reveal">Do Gelo ao Dia Zero</h2>
+  <div class="discovery-chain"><article class="chain-event confirmed reveal"><time>MARCO 00 // CONFIRMADO</time><h3>Descoberta antártica</h3><p>O elemento viral é localizado e recebe a designação DOOM.</p></article><article class="chain-event reveal"><time>MARCO 01 // CLASSIFICADO</time><h3>Retirada da amostra</h3><p>Equipe, método e destino inicial ainda não foram definidos.</p></article><article class="chain-event reveal"><time>MARCO 02 // CLASSIFICADO</time><h3>Pesquisa e contenção</h3><p>Testes, responsáveis e protocolos permanecem fora do registro público.</p></article><article class="chain-event reveal"><time>MARCO 03 // REGISTRO AUSENTE</time><h3>Ruptura</h3><p>O caminho entre a pesquisa e o surto ainda será escrito.</p></article><article class="chain-event reveal"><time>DIA ZERO // CONSEQUÊNCIA</time><h3>DAY</h3><p>O ápice do caos transforma DOOM em DOOMSDAY.</p></article></div>
 </section>
 
 <footer>DoomsDay — Obra original — Dossiê não oficial do universo do livro</footer>
@@ -166,6 +139,18 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, {threshold:0.15});
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const analysisFilters=[...document.querySelectorAll('.analysis-filter')];
+const analysisCards=[...document.querySelectorAll('.threat-card[data-state]')];
+analysisFilters.forEach(button=>button.addEventListener('click',()=>{
+  const filter=button.dataset.analysis;
+  analysisFilters.forEach(item=>{
+    const active=item===button;
+    item.classList.toggle('active',active);
+    item.setAttribute('aria-pressed',String(active));
+  });
+  analysisCards.forEach(card=>card.classList.toggle('filtered-out',filter!=='all'&&card.dataset.state!==filter));
+}));
 </script>
 
 <script src="cursor-site.js"></script>

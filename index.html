@@ -94,6 +94,7 @@ h1.movie-title .letter{
 h1.movie-title .z-letter{color:var(--red-bright); text-shadow:0 0 0 rgba(200,30,44,0);}
 h1.movie-title .z-letter.glow{ animation: letter-in .9s cubic-bezier(.2,.8,.2,1) forwards, z-glow 2.4s ease-in-out .9s infinite; }
 .movie-title .letter.morph-out{animation:morph-out .42s ease-in forwards!important}.movie-title .letter.morph-in{animation:morph-in .55s ease-out forwards!important;color:var(--ink)}.snow-field{position:fixed;inset:0;z-index:38;pointer-events:none;overflow:hidden}.snowflake{position:absolute;top:-5vh;width:5px;height:5px;border-radius:50%;background:#eafcff;box-shadow:0 0 7px rgba(210,245,255,.9);animation:snowfall var(--fall) linear forwards}.snowflake:nth-child(3n){filter:blur(1px);opacity:.65}.snowflake:nth-child(4n){width:8px;height:8px}
+.movie-title .letter.zero-letter{color:var(--red-bright);margin-left:.045em;text-shadow:0 0 24px rgba(200,30,44,.58)}
 .movie-title .letter::before{
   content:attr(data-char); position:absolute; inset:0; z-index:2; pointer-events:none;
   color:#e9fbff; opacity:0; overflow:hidden;
@@ -253,12 +254,12 @@ function spawnSnow(){
 }
 
 async function transformTitle(){
-  const target='APOCALIPSE';
+  const target='APOCALIPSEZ';
   const current=[...titleEl.querySelectorAll('.letter')];
   for(let index=0;index<target.length;index++){
     let letter=current[index];
-    if(letter){letter.classList.add('morph-out');await wait(270);letter.textContent=target[index];letter.dataset.char=target[index];letter.className='letter morph-in';}
-    else{letter=document.createElement('span');letter.className='letter morph-in';letter.textContent=target[index];letter.dataset.char=target[index];titleEl.appendChild(letter);}
+    if(letter){letter.classList.add('morph-out');await wait(270);letter.textContent=target[index];letter.dataset.char=target[index];letter.className=`letter morph-in${index===target.length-1?' zero-letter':''}`;}
+    else{letter=document.createElement('span');letter.className=`letter morph-in${index===target.length-1?' zero-letter':''}`;letter.textContent=target[index];letter.dataset.char=target[index];titleEl.appendChild(letter);}
     await wait(115);
   }
   await wait(350);

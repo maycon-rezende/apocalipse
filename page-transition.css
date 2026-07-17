@@ -1,0 +1,14 @@
+.page-tear{position:fixed;inset:0;z-index:5000;pointer-events:none;visibility:hidden;overflow:hidden;background:transparent}
+.page-tear.is-tearing{visibility:visible;pointer-events:auto;animation:tear-shake .82s cubic-bezier(.2,.75,.2,1) both}
+.page-tear__dark{position:absolute;inset:-8%;background:#030303;clip-path:polygon(0 0,0 100%,0 100%,0 0);filter:drop-shadow(0 0 22px #000)}
+.page-tear.is-tearing .page-tear__dark{animation:tear-cover .9s cubic-bezier(.7,0,.25,1) forwards}
+.page-tear__slash{--rot:-13deg;--delay:0s;position:absolute;left:-12vw;top:var(--top);width:125vw;height:clamp(34px,6vw,78px);transform:rotate(var(--rot)) scaleX(0);transform-origin:left center;background:linear-gradient(180deg,transparent 0 22%,#401015 24%,#0b0707 39%,#020202 50%,#160707 64%,#741522 70%,transparent 74%);filter:drop-shadow(0 0 7px rgba(210,31,44,.72));opacity:0}
+.page-tear.is-tearing .page-tear__slash{animation:claw-cut .58s cubic-bezier(.15,.7,.18,1) var(--delay) forwards}
+.page-tear__slash::after{content:"";position:absolute;inset:42% 0 auto;height:3px;background:linear-gradient(90deg,transparent,#d21f2c 12%,#5e1017 83%,transparent);box-shadow:0 0 9px #d21f2c}
+.page-tear__label{position:absolute;left:50%;bottom:8vh;transform:translate(-50%,12px);font:clamp(1rem,2.4vw,1.35rem) 'VT323',monospace;letter-spacing:.2em;color:#d21f2c;opacity:0;white-space:nowrap;text-shadow:0 0 10px rgba(210,31,44,.8)}
+.page-tear.is-tearing .page-tear__label{animation:tear-label .35s .48s forwards}
+@keyframes claw-cut{0%{opacity:0;transform:rotate(var(--rot)) scaleX(0)}18%{opacity:1}100%{opacity:1;transform:rotate(var(--rot)) scaleX(1)}}
+@keyframes tear-cover{0%,28%{clip-path:polygon(0 0,0 100%,0 100%,0 0)}100%{clip-path:polygon(0 0,0 100%,100% 100%,100% 0)}}
+@keyframes tear-shake{0%,100%{transform:none}24%{transform:translate(-5px,2px)}31%{transform:translate(6px,-3px)}43%{transform:translate(-3px,1px)}}
+@keyframes tear-label{to{opacity:1;transform:translate(-50%,0)}}
+@media(prefers-reduced-motion:reduce){.page-tear.is-tearing{animation:none}.page-tear__slash{display:none}.page-tear.is-tearing .page-tear__dark{animation:tear-fade .18s forwards}.page-tear__label{display:none}@keyframes tear-fade{to{background:#030303;clip-path:inset(0)}}}

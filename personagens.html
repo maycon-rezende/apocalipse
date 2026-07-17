@@ -104,6 +104,8 @@ nav .back:hover{color:var(--red);}
 .dossier .titlebar .dots span:nth-child(2){background:var(--amber);}
 .dossier .titlebar .dots span:nth-child(3){background:var(--green);}
 .dossier .titlebar .path{font-family:var(--f-term); font-size:.95rem; color:var(--ink-dim);}
+.dossier.featured .titlebar{position:absolute;z-index:4;left:0;right:0;top:0;background:linear-gradient(180deg,rgba(5,5,5,.94),rgba(5,5,5,.62),transparent);border-bottom:0;padding-bottom:1.15rem;pointer-events:none}.dossier.featured .titlebar .path{color:rgba(230,227,214,.76);text-shadow:0 1px 3px #000}.dossier.featured .portrait{border-top:0}
+.dossier.featured .body{padding-top:1rem}.dossier.featured .portrait-code{bottom:3.25rem}.portrait-name{position:absolute;z-index:3;left:1.15rem;right:1rem;bottom:.5rem;margin:0!important;font-family:var(--f-display);font-size:1.5rem;text-transform:uppercase;color:var(--ink);text-shadow:0 2px 5px #000,0 0 12px #000}.dossier.featured .portrait::after{background:linear-gradient(180deg,transparent 42%,rgba(5,5,5,.28) 62%,rgba(5,5,5,.96) 100%),repeating-linear-gradient(0deg,transparent 0 3px,rgba(232,163,61,.035) 3px 4px)}
 .dossier .body{padding:1.6rem;}
 .dossier h3{font-family:var(--f-display); font-size:1.5rem; text-transform:uppercase; margin-bottom:.2rem;}
 .dossier .role{font-family:var(--f-term); font-size:1rem; letter-spacing:.08em; text-transform:uppercase; color:var(--amber); margin-bottom:1rem;}
@@ -198,13 +200,14 @@ footer{
 .search-box{position:relative;flex:1 1 260px}.search-box input{width:100%;min-height:44px;padding:.7rem 1rem .7rem 2.5rem;border:1px solid var(--line);background:var(--void);color:var(--ink);font:1rem var(--f-mono);outline:none}.search-box input:focus{border-color:var(--amber)}.search-box::before{content:'⌕';position:absolute;left:.85rem;top:50%;transform:translateY(-52%);color:var(--amber);font:1.4rem var(--f-term)}
 .result-count{font:1rem var(--f-term);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim)}
 .dossier{overflow:hidden}.portrait{display:block;position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--line);background:linear-gradient(135deg,#151710,#080908)}.portrait img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 25%;filter:saturate(.72) contrast(1.08);transition:transform .45s,filter .45s}.dossier:hover .portrait img,.dossier:focus .portrait img{transform:scale(1.035);filter:saturate(.9) contrast(1.08)}.portrait::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,5,5,.88)),repeating-linear-gradient(0deg,transparent 0 3px,rgba(232,163,61,.035) 3px 4px);pointer-events:none}.portrait-code{position:absolute;left:.8rem;bottom:.55rem;z-index:1;font:1rem var(--f-term);letter-spacing:.1em;color:var(--amber)}.portrait-file{position:absolute;right:.8rem;top:.65rem;z-index:2;padding:.18rem .48rem;border:1px solid var(--red);background:rgba(5,5,5,.82);color:var(--ink);font:.9rem var(--f-term);letter-spacing:.08em;text-transform:uppercase}.portrait:hover .portrait-file,.portrait:focus-visible .portrait-file{background:var(--red)}.portrait:focus-visible{outline:2px solid var(--amber);outline-offset:-3px}
-.dossier:focus-visible{outline:2px solid var(--amber);outline-offset:3px}.dossier.empty-result{display:none}.dossier.featured{border-color:var(--amber-dim)}.dossier.featured .titlebar{background:linear-gradient(90deg,rgba(232,163,61,.12),var(--panel-2))}
+.dossier:focus-visible{outline:2px solid var(--amber);outline-offset:3px}.dossier.empty-result{display:none}.dossier.featured{border-color:var(--amber-dim)}.dossier.featured .titlebar{background:linear-gradient(180deg,rgba(5,5,5,.94),rgba(5,5,5,.55),transparent)}
 .modal-layout{display:grid;grid-template-columns:minmax(190px,240px) minmax(0,1fr)}.modal-portrait{min-height:100%;background:var(--void);border-right:1px solid var(--line)}.modal-portrait img{width:100%;height:100%;min-height:430px;display:block;object-fit:cover;object-position:center top;filter:saturate(.75) contrast(1.08)}.modal-nav{display:flex;gap:.7rem;margin-top:1.5rem}.modal-nav button{min-height:44px;flex:1;border:1px solid var(--line);background:transparent;color:var(--amber);font:1rem var(--f-term);cursor:pointer}.modal-nav button:hover,.modal-nav button:focus-visible{border-color:var(--amber);background:rgba(232,163,61,.07)}
 @media(max-width:620px){.page-tools{align-items:stretch}.result-count{text-align:center}.modal-layout{grid-template-columns:1fr}.modal-portrait{border-right:0;border-bottom:1px solid var(--line);max-height:36dvh}.modal-portrait img{min-height:0;height:36dvh;object-position:center 20%}.portrait{aspect-ratio:4/3}}
 .portrait{aspect-ratio:16/7}.portrait-file{display:none}.card-actions{display:flex;align-items:center;justify-content:space-between;gap:.8rem;margin-top:1.2rem}.card-actions .status{margin-top:0;flex:0 0 auto}.secret-link{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:.25rem .65rem;border:1px solid var(--red);color:var(--ink);background:rgba(210,31,44,.07);font:.95rem var(--f-term);letter-spacing:.06em;text-transform:uppercase;transition:.2s}.secret-link:hover,.secret-link:focus-visible{background:var(--red);color:#fff;outline:none}.secret-link::after{content:' →';margin-left:.35rem;color:var(--amber)}
 @media(max-width:440px){.card-actions{align-items:stretch;flex-direction:column}.secret-link{width:100%}}
 </style>
 <link rel="stylesheet" href="cursor-site.css">
+<link rel="stylesheet" href="page-transition.css">
 </head>
 <body>
 
@@ -246,9 +249,8 @@ footer{
       data-status="vivo" data-status-label="Vivo"
       data-bio="Reservado desde a escola, Mick era nerd, geek e apaixonado por tecnologia. Mesmo jogando futebol americano, preferia a companhia dos amigos nerds e nunca se identificou com o grupo popular. Seu instinto de proteger os mais vulneráveis o levava a enfrentar valentões e a praticar artes marciais desde cedo. No FBI, transformou inteligência, disciplina e senso de justiça em ferramentas para ajudar pessoas — sem deixar de ser alguém que prefere ficar na dele.">
       <div class="titlebar"><div class="dots"><span></span><span></span><span></span></div><span class="path">~/arquivo/ficha_01.dat</span></div>
-      <div class="portrait"><img src="img-bradock/mick4.png" alt="Retrato de Mick Bradock" loading="eager"><span class="portrait-code">SUBJECT_01 // FBI</span></div>
+      <div class="portrait"><img src="img-bradock/mick4.png" alt="Retrato de Mick Bradock" loading="eager"><span class="portrait-code">SUBJECT_01 // FBI</span><h3 class="portrait-name">Mick Bradock</h3></div>
       <div class="body">
-        <h3>Mick Bradock</h3>
         <div class="role">Agente Especial — FBI</div>
         <div class="field"><b>Função</b><span>Protagonista</span></div>
         <div class="field"><b>Família</b><span>Casado, 3 filhos</span></div>
@@ -264,9 +266,8 @@ footer{
       data-status="classificado" data-status-label="Classificado"
       data-bio="Nascida em Kyoto, Japão, Melissa Akemi Collins — apelidada de Mei desde pequena — possui nacionalidade japonesa e americana e fala japonês e inglês fluentemente. Perdeu o pai, Daniel Collins, aos 12 anos e a mãe, Aiko Sato Collins, aos 15. Mudou-se para Seattle, formou-se em Arquitetura e fundou o Bradock Atelier, tornando-se referência em arquitetura contemporânea e projetos de luxo. Reservada, observadora e disciplinada, carrega os ensinamentos dos pais e é o centro de gravidade da família Bradock.">
       <div class="titlebar"><div class="dots"><span></span><span></span><span></span></div><span class="path">~/arquivo/ficha_02.dat</span></div>
-      <div class="portrait"><img src="img-mei/meiurbana.png" alt="Retrato de Melissa “Mei” Bradock" loading="lazy"><span class="portrait-code">SUBJECT_02 // BRADOCK</span></div>
+      <div class="portrait"><img src="img-mei/meiurbana.png" alt="Retrato de Melissa “Mei” Bradock" loading="lazy"><span class="portrait-code">SUBJECT_02 // BRADOCK</span><h3 class="portrait-name">Melissa “Mei” Bradock</h3></div>
       <div class="body">
-        <h3>Melissa “Mei” Bradock</h3>
         <div class="role">Arquiteta — Bradock Atelier</div>
         <div class="field"><b>Família</b><span>Bradock</span></div>
         <p class="bio">O centro de gravidade da família. <em>[rascunho — aguardando mais detalhes]</em></p>
@@ -490,5 +491,6 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 <script src="cursor-site.js"></script>
+<script src="page-transition.js"></script>
 </body>
 </html>

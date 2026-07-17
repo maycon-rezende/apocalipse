@@ -15,6 +15,16 @@ O site apresenta a obra original **DoomsDay**, ambientada em um apocalipse e con
 
 As fontes principais são Anton, Courier Prime e VT323.
 
+### Significado do título
+
+O nome **DoomsDay** possui uma divisão narrativa deliberada:
+
+- **DOOM** é o nome dado ao elemento viral descoberto por cientistas na Antártida, preservado no gelo desde uma era remota junto a organismos ainda desconhecidos;
+- **DAY** representa o dia em que o surto atinge seu ápice e o caos rompe a normalidade;
+- **Z**, incorporado visualmente a **APOCALIPSEZ**, representa o **Dia Zero**, conectando a origem do elemento ao começo do colapso.
+
+Por isso, o gelo e a neve da introdução representam a origem antártica de DOOM, enquanto o fogo da Home representa DAY, o dia do caos. O Z encerra as duas composições como marca do ponto inicial do apocalipse.
+
 ## Estrutura atual
 
 - `index.html`: introdução cinematográfica e entrada no site.
@@ -38,13 +48,13 @@ A abertura possui:
 - transição de sangue cobrindo a tela;
 - revelação inicial do título **DOOMSDAY**;
 - neve rápida começando somente quando o título aparece;
-- transformação gradual, letra por letra, de **DOOMSDAY** para **APOCALIPSE**;
+- transformação gradual, letra por letra, de **DOOMSDAY** para **APOCALIPSEZ**;
 - chamada para entrar no site;
 - redirecionamento para `home.html`.
 
-A transformação está na função `transformTitle()`. Cada letra antiga sobe e desaparece antes de ser substituída pela letra correspondente de “APOCALIPSE”. As duas letras adicionais são criadas no final.
+A transformação está na função `transformTitle()`. Cada letra antiga sobe e desaparece antes de ser substituída pela letra correspondente de “APOCALIPSEZ”. As três letras adicionais são criadas no final, sendo o Z a marca visual do Dia Zero.
 
-Depois que a transformação termina, a parte superior de cada letra de **APOCALIPSE** congela em sequência, da esquerda para a direita. O efeito possui:
+Depois que a transformação termina, a parte superior de cada letra de **APOCALIPSEZ** congela em sequência, da esquerda para a direita. O efeito possui:
 
 - cobertura branca e azulada;
 - borda de gelo irregular;
@@ -55,6 +65,8 @@ Depois que a transformação termina, a parte superior de cada letra de **APOCAL
 ## Página principal — `home.html`
 
 Antes da página principal aparecer, existe um texto introdutório em formato de crawl. A fonte desse texto foi aumentada para melhorar a leitura.
+
+A sequência cinematográfica da abertura é exibida somente na primeira visita à página durante a sessão do navegador. Ao retornar de Personagens ou de outro setor, a página monta imediatamente o estado final da hero, com o título, o arquivo recuperado e o restante da navegação já disponíveis. Uma nova sessão volta a apresentar a abertura completa.
 
 Ao final do crawl:
 
@@ -71,10 +83,10 @@ Ao final do crawl:
 - “DAY” é formado por cinzas vermelhas e brasas âmbar.
 - “DOOMS” permanece claro.
 - “DAY” possui vermelho, brilho e glitch.
-- **APOCALIPSE** aparece abaixo como uma sombra projetada do título.
-- A primeira e a última letra de “APOCALIPSE” são alinhadas às extremidades de “DOOMSDAY”.
+- **APOCALIPSEZ** aparece abaixo como uma sombra projetada do título.
+- A primeira e a última letra de “APOCALIPSEZ” são alinhadas às extremidades de “DOOMSDAY”.
 - As letras intermediárias são distribuídas dentro da mesma largura.
-- As letras de “APOCALIPSE” descem individualmente e lentamente.
+- As letras de “APOCALIPSEZ” descem individualmente e lentamente.
 - Primeiro a palavra se forma como uma sombra escura.
 - Depois o fogo é aceso letra por letra, do “A” até o “E”.
 - O fogo representa o caos e o pico do surto.
@@ -120,6 +132,55 @@ A página principal agora oferece acesso direto aos arquivos secretos já dispon
 
 Os cards preservam as identidades visuais dos respectivos dossiês e se adaptam a telas menores.
 
+Antes de navegar, cada card pode ser expandido para revelar uma prévia operacional, a quantidade de evidências e o comando final de autorização. Os acessos a Personagens e aos arquivos secretos usam uma transição compartilhada de rasgos e marcas de garras, como se a interface fosse violada por uma criatura.
+
+A Home também passou a incluir:
+
+- linha do tempo parcial do Dia Zero, sem confirmar acontecimentos ainda indefinidos;
+- mapa operacional estilizado com zonas e origem do sinal não confirmadas;
+- painel contextual dos quatro setores ao interagir com o diretório;
+- memória de setores consultados durante a sessão;
+- painel numérico com o progresso atual da investigação;
+- transmissões ocasionais e discretas do sistema;
+- última transmissão interrompida antes do rodapé;
+- retorno inteligente dos arquivos secretos, com rolagem e destaque do dossiê consultado.
+
+## História — `historia.html`
+
+A página de História foi reorganizada como um arquivo cronológico recuperado. Ela possui:
+
+- cabeçalho confidencial com classificação, integridade e estado da reconstrução;
+- abertura identificada como **Sinopse**, com letras reconstruídas individualmente e interferência discreta;
+- índice fixo para resumo, Dia Zero, documentos e testemunhos;
+- filtros dos registros por Bradock, Hanson e Pentágono;
+- indicadores editoriais de fonte e confiabilidade em cada cena;
+- transcrição de rádio baseada somente nos acontecimentos já definidos;
+- memorando censurado que sinaliza explicitamente informações ainda não confirmadas;
+- testemunhos reservados para futuros trechos reais da obra, sem conteúdo narrativo inventado.
+
+## Galeria — `galeria.html`
+
+A Galeria foi transformada em um arquivo visual recuperado com:
+
+- todos os registros existentes nas pastas de Mick e Mei, atualmente totalizando 41 imagens;
+- preservação da proporção original das imagens em composição tipo arquivo/mosaico;
+- filtros por personagem e por retrato, ambiente ou registro pessoal;
+- códigos, integridade, procedência e contexto editorial sem inventar datas ou acontecimentos;
+- contador dinâmico dos registros visíveis;
+- visualizador em tela cheia com metadados, teclado e navegação anterior/próximo.
+
+## Ameaça — `ameaca.html`
+
+A página de Ameaça foi transformada em um relatório científico-militar sobre DOOM. Ela apresenta:
+
+- designação DOOM e origem confirmada na Antártida;
+- representação técnica da amostra preservada no gelo;
+- ficha de recuperação com equipe e coordenadas classificadas;
+- separação entre dados confirmados, informações em análise e arquivos bloqueados;
+- filtros interativos para os três estados de conhecimento;
+- cadeia de custódia do gelo ao Dia Zero, mantendo em aberto transporte, pesquisa e falha de contenção;
+- remoção das antigas afirmações sobre transmissão, comportamento e vulnerabilidades que ainda não foram definidas na história.
+
 ## Personagens — `personagens.html`
 
 A página contém:
@@ -163,6 +224,7 @@ As fotografias não são apresentadas como uma galeria tradicional. Elas aparece
 
 Por ser agente do FBI, o arquivo de Mick possui:
 
+- trilha sonora exclusiva em `audio/thememick.mp3`, reproduzida em loop somente no dossiê de Mick;
 - varredura verde de vigilância;
 - retículo sobre a fotografia de identificação;
 - indicador “SUBJECT TRACKED”;
@@ -274,7 +336,7 @@ Pasta `img-mei/`, incluindo:
 - Não inventar eventos da história que ainda não foram definidos.
 - Criar efeitos específicos de acordo com a personalidade ou profissão de cada personagem.
 - Manter “DOOMSDAY” como nome principal da obra.
-- Usar “APOCALIPSE” como tradução/sombra e representação visual do caos.
+- Usar “APOCALIPSEZ” como tradução/sombra e representação visual do caos, com o Z representando o Dia Zero.
 
 ## Versionamento e GitHub
 
@@ -290,7 +352,7 @@ Nesta atualização, o GitHub está sendo sincronizado com os novos efeitos de `
 ## Próximos passos possíveis
 
 - Testar a posição do sangue em diferentes tamanhos de tela.
-- Refinar o alinhamento da sombra “APOCALIPSE” em celulares.
+- Refinar o alinhamento da sombra “APOCALIPSEZ” em celulares.
 - Testar visualmente as novas transições de poeira, recuperação e diretório em diferentes navegadores.
 - Definir onde Mick e Mei estavam exatamente no Dia Zero.
 - Criar imagens e arquivos secretos para os demais personagens.

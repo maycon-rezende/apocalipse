@@ -10,7 +10,7 @@
 <style>
 :root{
   --void:#050505; --panel:#0d0f0c; --panel-2:#12140f;
-  --amber:#e8a33d; --amber-dim:#8a6224; --red:#d21f2c; --red-dim:#5e1017;
+  --amber:#e8a33d; --amber-dim:#8a6224; --red:#d21f2c; --red-dim:#5e1017; --green:#3ddc84;
   --ink:#e6e3d6; --ink-dim:#9a9689; --line:#2a2a24;
   --f-display:'Anton', sans-serif; --f-term:'VT323', monospace; --f-mono:'Courier Prime', monospace;
 }
@@ -111,7 +111,7 @@ nav .links > a:hover{color:var(--amber);}
 .fire-shadow{position:absolute;z-index:-1;left:50%;top:62%;width:max-content;opacity:0;transform:translateX(-50%) scaleY(.86);transition:opacity .8s ease .25s;font-family:var(--f-display);font-size:clamp(2.5rem,9.2vw,5.9rem);line-height:1;letter-spacing:.015em;filter:blur(.25px)}.fire-shadow.revealed{opacity:.82}.fire-letter{position:relative;display:inline-block;color:#ffcc67;background:linear-gradient(0deg,#7d0909 4%,#ef3b12 36%,#ffc53d 68%,#fff3b0 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 9px 13px rgba(0,0,0,.85);animation:letter-fire 1.25s ease-in-out infinite alternate}.fire-letter:nth-child(2n){animation-delay:-.45s}.fire-letter:nth-child(3n){animation-delay:-.8s}.fire-letter::after{content:attr(data-char);position:absolute;inset:0;-webkit-text-fill-color:transparent;text-shadow:0 -7px 12px rgba(255,77,10,.7),0 -16px 25px rgba(255,160,20,.3);opacity:.7;animation:flame-shadow .7s ease-in-out infinite alternate;pointer-events:none}
 @keyframes letter-fire{0%{filter:brightness(.9) drop-shadow(0 -2px 3px rgba(210,31,44,.5));transform:translateY(0)}100%{filter:brightness(1.22) drop-shadow(0 -7px 8px rgba(255,103,15,.75));transform:translateY(-2px)}}@keyframes flame-shadow{to{transform:translateY(-4px) scaleY(1.05);opacity:.35}}
 #movie-title{z-index:2}.title-wrap{isolation:isolate;margin-bottom:clamp(5.4rem,11vw,8.8rem)}.fire-shadow{z-index:1;top:74%;opacity:0;transform-origin:50% 0;transform:translateX(-52%) perspective(520px) rotateX(40deg) skewX(-11deg) scaleY(1.05);font-size:clamp(2.7rem,10.4vw,6.7rem);letter-spacing:0;filter:saturate(1.12) brightness(1.05) drop-shadow(0 4px 2px rgba(0,0,0,.85));mask-image:linear-gradient(to bottom,#000 0%,#000 72%,rgba(0,0,0,.72) 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 72%,rgba(0,0,0,.72) 100%)}.fire-shadow.revealed{opacity:.96}.fire-shadow .fire-letter{-webkit-text-stroke:1px rgba(255,132,35,.32);text-shadow:0 -4px 9px rgba(255,88,10,.7),4px 11px 8px rgba(0,0,0,.82)}
-.fire-shadow .fire-letter{opacity:0;transform:translateY(-105px) scaleY(.45);animation:none}.fire-shadow.dropping .fire-letter{animation:shadow-letter-drop 1.35s cubic-bezier(.18,.72,.18,1) calc(var(--i)*.34s) forwards}.fire-shadow .fire-letter.settled{opacity:1;transform:none;animation:letter-fire 1.25s ease-in-out infinite alternate}.fire-shadow .fire-letter.settled:nth-child(2n){animation-delay:-.45s}.fire-shadow .fire-letter.settled:nth-child(3n){animation-delay:-.8s}
+.fire-shadow .fire-letter{opacity:0;transform:translateY(-105px) scaleY(.45);animation:none}.fire-shadow.dropping .fire-letter{animation:shadow-letter-drop 1.35s cubic-bezier(.18,.72,.18,1) calc(var(--i)*.34s) forwards}.fire-shadow .fire-letter.settled{opacity:1;transform:none;animation:letter-fire 1.25s ease-in-out infinite alternate}.fire-shadow .fire-letter.settled:nth-child(2n){animation-delay:-.45s}.fire-shadow .fire-letter.settled:nth-child(3n){animation-delay:-.8s}.fire-shadow .fire-letter.zero-day{color:var(--red);filter:drop-shadow(0 0 9px rgba(210,31,44,.8));margin-left:.035em}
 @keyframes shadow-letter-drop{0%{opacity:0;transform:translateY(-105px) scaleY(.45);filter:brightness(2) blur(3px)}55%{opacity:1;transform:translateY(8px) scaleY(1.08);filter:brightness(1.35) blur(0)}75%{transform:translateY(-4px) scaleY(.97)}100%{opacity:1;transform:translateY(0) scaleY(1);filter:brightness(1)}}
 .fire-shadow{left:0;top:96%;width:100%;display:flex;justify-content:space-between;align-items:flex-start;transform:perspective(520px) rotateX(40deg) skewX(-9deg) scaleY(1.05);font-size:clamp(2.15rem,8.3vw,5.35rem)}.fire-shadow .fire-letter{flex:0 0 auto;background:#403a35;-webkit-text-stroke:1px rgba(190,180,160,.28);text-shadow:4px 11px 8px rgba(0,0,0,.88)}.fire-shadow .fire-letter::after{opacity:0;animation:none}.fire-shadow .fire-letter.settled{animation:none}.fire-shadow .fire-letter.burning{background:linear-gradient(0deg,#7d0909 4%,#ef3b12 36%,#ffc53d 68%,#fff3b0 100%);-webkit-text-stroke:1px rgba(255,132,35,.32);text-shadow:0 -4px 9px rgba(255,88,10,.7),4px 11px 8px rgba(0,0,0,.82);animation:letter-fire 1.25s ease-in-out infinite alternate}.fire-shadow .fire-letter.burning::after{opacity:.7;animation:flame-shadow .7s ease-in-out infinite alternate}.fire-shadow .fire-letter.burning:nth-child(2n){animation-delay:-.45s}.fire-shadow .fire-letter.burning:nth-child(3n){animation-delay:-.8s}
 @keyframes z-glow{
@@ -240,6 +240,12 @@ nav .links > a:hover{color:var(--amber);}
 }
 .teaser .more-link:hover{color:var(--amber);}
 
+/* ===== DIA ZERO + MAPA OPERACIONAL ===== */
+.intel-section{padding:clamp(4rem,8vw,7rem) 6vw;border-top:1px solid var(--line);background:linear-gradient(180deg,#070807,var(--void))}.intel-grid{width:min(1180px,100%);margin:2rem auto 0;display:grid;grid-template-columns:minmax(0,.85fr) minmax(320px,1.15fr);gap:clamp(1.5rem,4vw,3.5rem)}.zero-log{display:grid;gap:.7rem}.zero-event{display:grid;grid-template-columns:72px 1fr;gap:1rem;padding:.9rem;border-left:2px solid var(--red-dim);background:rgba(255,255,255,.018)}.zero-event time{font:1.05rem var(--f-term);color:var(--amber)}.zero-event strong{display:block;font:.95rem var(--f-term);letter-spacing:.08em;color:var(--ink)}.zero-event p{font-size:.8rem;color:var(--ink-dim)}.contamination-map{position:relative;min-height:390px;border:1px solid #30362e;background:#080b09;overflow:hidden}.contamination-map svg{display:block;width:100%;height:100%;min-height:390px}.map-head{position:absolute;left:1rem;right:1rem;top:.8rem;z-index:2;display:flex;justify-content:space-between;font:.78rem var(--f-term);letter-spacing:.1em;color:var(--green)}.map-legend{position:absolute;left:1rem;bottom:.8rem;font:.72rem var(--f-term);letter-spacing:.08em;color:var(--ink-dim)}.map-pulse{transform-origin:center;animation:map-ping 2.4s ease-out infinite}@keyframes map-ping{0%{opacity:.9;transform:scale(.5)}100%{opacity:0;transform:scale(2.5)}}
+
+/* ===== PAINEL OPERACIONAL ===== */
+.sector-preview{margin-top:1.4rem;padding:1.15rem;border:1px solid var(--line);background:#080a08;display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center}.sector-preview__code{font:1.35rem var(--f-term);color:var(--amber)}.sector-preview h3{font:1.05rem var(--f-display);text-transform:uppercase}.sector-preview p{font-size:.8rem;color:var(--ink-dim)}.sector-preview__integrity{font:.85rem var(--f-term);color:var(--green);letter-spacing:.08em}.explore-card.is-visited .sector-state::after{content:' // CONSULTADO';color:var(--ink-dim)}.investigation-progress{margin:clamp(3rem,6vw,5rem) 0 0;padding:1.4rem;border:1px solid var(--line);background:rgba(13,15,12,.7)}.investigation-progress h3{font:1.25rem var(--f-display);text-transform:uppercase;margin-bottom:1rem}.progress-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}.progress-item{padding:1rem;background:var(--panel);text-align:center}.progress-item strong{display:block;font:2rem var(--f-term);color:var(--amber)}.progress-item span{font:.72rem var(--f-term);letter-spacing:.08em;color:var(--ink-dim)}.signal-toast{position:fixed;left:1rem;bottom:1rem;z-index:114;width:min(360px,calc(100vw - 2rem));padding:.75rem 1rem;border-left:2px solid var(--red);background:rgba(5,5,5,.94);font:.9rem var(--f-term);letter-spacing:.06em;color:var(--ink-dim);opacity:0;transform:translateY(15px);pointer-events:none;transition:.35s}.signal-toast.show{opacity:1;transform:none}.return-notice{width:min(1180px,88vw);margin:1rem auto 0;padding:.65rem 1rem;border:1px solid var(--red-dim);color:var(--amber);font:.9rem var(--f-term);letter-spacing:.08em;text-align:center}.last-transmission{padding:3rem 6vw 2rem;text-align:center;border-top:1px solid var(--line);background:#030303}.last-transmission strong{display:block;color:var(--red);font:1rem var(--f-term);letter-spacing:.16em}.last-transmission p{margin:.8rem auto;max-width:60ch;color:var(--ink);font-style:italic}.last-transmission .signal-lost{font:.82rem var(--f-term);letter-spacing:.12em;color:var(--ink-dim);animation:blink 1.4s steps(2) infinite}
+
 /* ===== EXPLORAR (directory) ===== */
 .explore{padding:6rem 6vw; max-width:1100px; margin:0 auto;}
 .explore .eyebrow{justify-content:flex-start;}
@@ -271,7 +277,7 @@ nav .links > a:hover{color:var(--amber);}
 .priority-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4rem}
 .priority-card{--accent:#3ddc84;position:relative;display:grid;grid-template-columns:minmax(125px,38%) 1fr;min-height:265px;border:1px solid color-mix(in srgb,var(--accent) 38%,var(--line));background:var(--panel);overflow:hidden;transition:.3s}
 .priority-card.mei{--accent:#65b9df;background-color:#071116;background-image:linear-gradient(rgba(101,185,223,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(101,185,223,.055) 1px,transparent 1px);background-size:18px 18px}
-.priority-card:hover,.priority-card:focus-visible{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 14px 34px rgba(0,0,0,.45),inset 0 0 24px color-mix(in srgb,var(--accent) 5%,transparent);outline:none}
+.priority-card:hover,.priority-card:focus-within,.priority-card.is-open{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 14px 34px rgba(0,0,0,.45),inset 0 0 24px color-mix(in srgb,var(--accent) 5%,transparent);outline:none}
 .priority-photo{position:relative;min-height:100%;overflow:hidden;background:#080a09}
 .priority-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.72) contrast(1.08) brightness(.72);transition:filter .35s,transform .5s}
 .priority-card:hover img,.priority-card:focus-visible img{filter:grayscale(.25) contrast(1.08) brightness(.9);transform:scale(1.035)}
@@ -284,16 +290,23 @@ nav .links > a:hover{color:var(--amber);}
 .priority-status{margin:.8rem 0;font:.78rem var(--f-term);letter-spacing:.08em;color:var(--accent)}
 .priority-status::before{content:"[ ";color:var(--ink-dim)}.priority-status::after{content:" ]";color:var(--ink-dim)}
 .priority-copy{font-size:.82rem;color:var(--ink-dim);margin-bottom:1rem}
-.priority-open{margin-top:auto;font:.88rem var(--f-term);letter-spacing:.08em;color:var(--accent);border-top:1px solid var(--line);padding-top:.55rem;width:100%}
+.priority-open{margin-top:auto;font:.88rem var(--f-term);letter-spacing:.08em;text-align:left;color:var(--accent);border:0;border-top:1px solid var(--line);padding:.55rem 0 0;width:100%;background:transparent;cursor:pointer}
+.priority-open:hover,.priority-open:focus-visible{color:var(--ink);outline:none}
+.priority-details{grid-column:1/-1;padding:1rem 1.15rem 1.2rem;border-top:1px dashed color-mix(in srgb,var(--accent) 48%,var(--line));background:color-mix(in srgb,var(--accent) 4%,#080808);animation:priority-unseal .36s ease both}
+.priority-details[hidden]{display:none}.priority-details span{display:inline-block;margin:0 .9rem .55rem 0;font:.78rem var(--f-term);letter-spacing:.09em;color:var(--accent)}.priority-details p{font-size:.84rem;color:var(--ink-dim);max-width:58ch;margin-bottom:.9rem}.priority-details a{display:inline-flex;min-height:42px;align-items:center;padding:.45rem .7rem;border:1px solid var(--accent);font:.88rem var(--f-term);letter-spacing:.08em;color:var(--accent)}.priority-details a:hover,.priority-details a:focus-visible{background:var(--accent);color:var(--void);outline:none}
+@keyframes priority-unseal{from{opacity:0;transform:translateY(-10px);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
+.priority-card.returned{animation:return-highlight 1.1s ease 2}@keyframes return-highlight{50%{border-color:var(--red);box-shadow:0 0 30px rgba(210,31,44,.28)}}
 .technical-mark{position:absolute;right:.55rem;bottom:.35rem;font:.7rem var(--f-term);color:rgba(101,185,223,.52);letter-spacing:.06em}
 
-footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size:1rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-dim); border-top:1px solid var(--line);}
+footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);background:#030303}
 @media(max-width:700px){.priority-grid{grid-template-columns:1fr}.priority-card{grid-template-columns:minmax(115px,34%) 1fr}.priority-heading{align-items:flex-start;flex-direction:column}}
+@media(max-width:760px){.intel-grid{grid-template-columns:1fr}.progress-grid{grid-template-columns:repeat(2,1fr)}.sector-preview{grid-template-columns:1fr}}
 @media(max-width:480px){nav{padding:.75rem 4vw}.hero{padding:7rem 4vw 4rem}.explore{padding:4rem 4vw}.explore-grid{grid-template-columns:minmax(0,1fr)}.captured-frame{width:min(420px,92vw)}#nav-toggle{min-width:44px;min-height:44px}.links{width:min(86vw,300px)}.archive-recovery{padding:.85rem}.archive-data{font-size:.82rem}.archive-recovery::after{font-size:1.5rem}.priority-card{grid-template-columns:1fr}.priority-photo{height:210px}.priority-info{min-height:245px}}
 @media(max-height:520px) and (orientation:landscape){.hero{padding-top:5rem}.crawl-outer{height:70dvh}.crawl-skip{bottom:2vh}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body,.grain,.rec-dot{animation:none!important}.reveal{opacity:1;transform:none;transition:none!important}}
 </style>
 <link rel="stylesheet" href="cursor-site.css">
+<link rel="stylesheet" href="page-transition.css">
 </head>
 <body class="locked">
 
@@ -344,7 +357,7 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
   <p class="eyebrow fade-block" id="hero-eyebrow">Arquivo recuperado // DD-01</p>
   <div class="title-wrap" id="title-wrap">
     <h1 id="movie-title"></h1>
-    <div class="fire-shadow" id="fire-shadow" aria-label="Apocalipse"></div>
+    <div class="fire-shadow" id="fire-shadow" aria-label="Apocalipse Z"></div>
     <canvas id="title-canvas"></canvas>
     <div class="blood-drips" id="blood-drips"></div>
   </div>
@@ -410,6 +423,27 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
   <a class="more-link reveal" href="historia.html#testemunhos">Ler outros relatos →</a>
 </section>
 
+<!-- ===== INTELIGÊNCIA DO DIA ZERO ===== -->
+<section class="intel-section" id="dia-zero">
+  <p class="eyebrow reveal">Fragmentos cronológicos</p>
+  <div class="intel-grid">
+    <div class="zero-log reveal">
+      <article class="zero-event"><time>07:42</time><div><strong>PRIMEIRO SINAL</strong><p>Chamado incompleto recebido. Origem e natureza ainda não confirmadas.</p></div></article>
+      <article class="zero-event"><time>07:51</time><div><strong>INTERFERÊNCIA CRESCENTE</strong><p>Fragmentos de comunicação indicam perda progressiva de contato.</p></div></article>
+      <article class="zero-event"><time>08:03</time><div><strong>MOBILIZAÇÃO AÉREA</strong><p>Cinco helicópteros são registrados nos arquivos recuperados.</p></div></article>
+      <article class="zero-event"><time>--:--</time><div><strong>REGISTRO CORROMPIDO</strong><p>Os acontecimentos seguintes aguardam confirmação narrativa.</p></div></article>
+    </div>
+    <div class="contamination-map reveal" aria-label="Mapa operacional parcialmente recuperado">
+      <div class="map-head"><span>MAPA // DD-CAL-01</span><span>SINAL INSTÁVEL</span></div>
+      <svg viewBox="0 0 620 390" role="img" aria-label="Mapa técnico com zonas não confirmadas">
+        <defs><pattern id="map-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#263029" stroke-width="1"/></pattern><radialGradient id="danger-zone"><stop offset="0" stop-color="#d21f2c" stop-opacity=".55"/><stop offset="1" stop-color="#d21f2c" stop-opacity="0"/></radialGradient></defs>
+        <rect width="620" height="390" fill="url(#map-grid)"/><path d="M80 318L116 275 101 222 153 181 146 118 202 74 278 88 329 61 398 92 474 76 535 124 516 181 552 228 491 268 466 326 383 309 328 344 258 316 190 337Z" fill="#111813" stroke="#526558" stroke-width="2" stroke-dasharray="7 5"/><path d="M105 260L190 233 252 252 327 187 410 203 514 142M164 115L231 168 327 187 385 292" fill="none" stroke="#63766a" stroke-width="2"/><circle cx="327" cy="187" r="92" fill="url(#danger-zone)"/><circle class="map-pulse" cx="327" cy="187" r="28" fill="none" stroke="#d21f2c" stroke-width="3"/><circle cx="327" cy="187" r="5" fill="#e8a33d"/><text x="342" y="177" fill="#e8a33d" font-family="monospace" font-size="13">ORIGEM NÃO CONFIRMADA</text><text x="120" y="292" fill="#8fa397" font-family="monospace" font-size="12">ROTA INTERROMPIDA</text><text x="405" y="300" fill="#d21f2c" font-family="monospace" font-size="12">SETOR SEM SINAL</text>
+      </svg>
+      <span class="map-legend">● ATIVIDADE &nbsp; ◌ PROPAGAÇÃO ESTIMADA &nbsp; ┄ DADOS PARCIAIS</span>
+    </div>
+  </div>
+</section>
+
 <!-- ===== EXPLORAR ===== -->
 <section class="explore" id="arquivos-recuperados">
   <p class="eyebrow reveal">Navegar pelo arquivo</p>
@@ -450,13 +484,17 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
     </a>
   </div>
 
-  <div class="priority-files">
+  <aside class="sector-preview reveal" id="sector-preview" aria-live="polite"><span class="sector-preview__code">SETOR 01</span><div><h3>História // registros narrativos</h3><p>Testemunhos e cenas recuperadas do primeiro dia.</p></div><span class="sector-preview__integrity">INTEGRIDADE 71%</span></aside>
+
+  <section class="investigation-progress reveal" aria-labelledby="progress-title"><h3 id="progress-title">Progresso da investigação</h3><div class="progress-grid"><div class="progress-item"><strong data-investigation-count="8">08</strong><span>PERSONAGENS LOCALIZADOS</span></div><div class="progress-item"><strong data-investigation-count="2">02</strong><span>ARQUIVOS SECRETOS</span></div><div class="progress-item"><strong data-investigation-count="26">26</strong><span>EVIDÊNCIAS CATALOGADAS</span></div><div class="progress-item"><strong data-investigation-count="4">04</strong><span>SETORES RECUPERADOS</span></div></div></section>
+
+  <div class="priority-files" id="dossies-prioritarios">
     <div class="priority-heading reveal">
       <h3>Dossiês prioritários</h3>
       <span>02 ARQUIVOS SECRETOS DISPONÍVEIS</span>
     </div>
     <div class="priority-grid">
-      <a class="priority-card mick reveal" href="personagem.html?id=mick" aria-label="Abrir arquivo secreto de Mick Bradock">
+      <article class="priority-card mick reveal">
         <div class="priority-photo"><img src="img-bradock/mick.png" alt="Mick Bradock" loading="lazy"></div>
         <div class="priority-info">
           <span class="priority-code">DD-PERSONNEL // 001</span>
@@ -464,11 +502,12 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
           <span class="priority-role">Agente do FBI</span>
           <span class="priority-status">SUBJECT TRACKED</span>
           <p class="priority-copy">Registro tático, linha do tempo do Dia Zero e evidências anexadas ao caso.</p>
-          <span class="priority-open">[ ABRIR ARQUIVO SECRETO ] →</span>
+          <button class="priority-open" type="button" aria-expanded="false">[ ANALISAR DOSSIÊ ] →</button>
         </div>
-      </a>
+        <div class="priority-details" hidden><span>LOCALIZAÇÃO // NÃO CONFIRMADA</span><span>EVIDÊNCIAS // 06 REGISTROS</span><p>Perfil disciplinado, observador e protetor. A família permanece como prioridade operacional.</p><a href="personagem.html?id=mick&amp;from=home">[ AUTORIZAR ABERTURA DO ARQUIVO ] →</a></div>
+      </article>
 
-      <a class="priority-card mei reveal" href="personagem.html?id=mei" aria-label="Abrir arquivo secreto de Melissa Mei Bradock">
+      <article class="priority-card mei reveal">
         <div class="priority-photo"><img src="img-mei/mei1.png" alt="Melissa Mei Bradock" loading="lazy"></div>
         <div class="priority-info">
           <span class="priority-code">DD-PERSONNEL // 002</span>
@@ -476,15 +515,18 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
           <span class="priority-role">Arquiteta</span>
           <span class="priority-status">EVIDÊNCIAS RESTRITAS</span>
           <p class="priority-copy">Arquivo técnico, localização registrada e documentação fotográfica parcial.</p>
-          <span class="priority-open">[ ABRIR ARQUIVO SECRETO ] →</span>
+          <button class="priority-open" type="button" aria-expanded="false">[ ANALISAR DOSSIÊ ] →</button>
           <span class="technical-mark">X 042 // Y 117 // ESC 1:50</span>
         </div>
-      </a>
+        <div class="priority-details" hidden><span>LOCALIZAÇÃO // REGISTRO INCOMPLETO</span><span>EVIDÊNCIAS // ACESSO RESTRITO</span><p>Arquivo arquitetônico, vínculos familiares e documentação técnica recuperada parcialmente.</p><a href="personagem.html?id=mei&amp;from=home">[ AUTORIZAR ABERTURA DO ARQUIVO ] →</a></div>
+      </article>
     </div>
   </div>
 </section>
 
+<section class="last-transmission"><strong>ÚLTIMA TRANSMISSÃO // CANAL 06</strong><p>“Se alguém receber esta mensagem, não siga pela—”</p><span class="signal-lost">[ SINAL INTERROMPIDO ]</span></section>
 <footer>DoomsDay — Obra original — Dossiê não oficial do universo do livro</footer>
+<div class="signal-toast" id="signal-toast" role="status" aria-live="polite"></div>
 
 <script>
 /* fallback: se o autoplay for bloqueado (ex: acesso direto ao index sem passar pela intro), toca no primeiro toque/clique */
@@ -500,6 +542,83 @@ const links = document.getElementById('nav-links');
 toggle.addEventListener('click', () => links.classList.toggle('open'));
 links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
+/* prévia dos dossiês prioritários antes da abertura do arquivo */
+document.querySelectorAll('.priority-card').forEach(card=>{
+  const trigger=card.querySelector('.priority-open');
+  const details=card.querySelector('.priority-details');
+  trigger.addEventListener('click',()=>{
+    const willOpen=details.hidden;
+    document.querySelectorAll('.priority-card.is-open').forEach(openCard=>{
+      if(openCard===card)return;
+      openCard.classList.remove('is-open');
+      openCard.querySelector('.priority-details').hidden=true;
+      openCard.querySelector('.priority-open').setAttribute('aria-expanded','false');
+      openCard.querySelector('.priority-open').textContent='[ ANALISAR DOSSIÊ ] →';
+    });
+    details.hidden=!willOpen;
+    card.classList.toggle('is-open',willOpen);
+    trigger.setAttribute('aria-expanded',String(willOpen));
+    trigger.textContent=willOpen?'[ RECOLHER DOSSIÊ ] ↑':'[ ANALISAR DOSSIÊ ] →';
+  });
+});
+
+/* painel contextual e memória dos setores consultados */
+const sectorPreview=document.getElementById('sector-preview');
+const sectorData=[
+  ['SETOR 01','História // registros narrativos','Testemunhos e cenas recuperadas do primeiro dia.','INTEGRIDADE 71%'],
+  ['SETOR 02','Personagens // banco de sobreviventes','Oito identidades localizadas; dois arquivos secretos disponíveis.','INTEGRIDADE 86%'],
+  ['SETOR 03','Ameaça // risco biológico','Relatórios incompletos. Nível de risco permanece crítico.','INTEGRIDADE 43%'],
+  ['SETOR 04','Galeria // arquivo visual','Referências e registros conceituais parcialmente recuperados.','INTEGRIDADE 58%']
+];
+let visitedSectors=[];
+try{visitedSectors=JSON.parse(sessionStorage.getItem('doomsday-visited-sectors')||'[]')}catch(error){}
+document.querySelectorAll('.explore-card').forEach((card,index)=>{
+  if(visitedSectors.includes(index))card.classList.add('is-visited');
+  const updatePreview=()=>{
+    const data=sectorData[index];
+    sectorPreview.querySelector('.sector-preview__code').textContent=data[0];
+    sectorPreview.querySelector('h3').textContent=data[1];
+    sectorPreview.querySelector('p').textContent=data[2];
+    sectorPreview.querySelector('.sector-preview__integrity').textContent=data[3];
+  };
+  card.addEventListener('mouseenter',updatePreview);
+  card.addEventListener('focus',updatePreview);
+  card.addEventListener('click',()=>{
+    if(!visitedSectors.includes(index))visitedSectors.push(index);
+    try{sessionStorage.setItem('doomsday-visited-sectors',JSON.stringify(visitedSectors))}catch(error){}
+  });
+});
+
+/* transmissões atmosféricas ocasionais */
+const signalToast=document.getElementById('signal-toast');
+const signalMessages=['> Movimento detectado fora do perímetro','> Sinal de rádio perdido // canal 06','> Registro DD-08 parcialmente recuperado','> Identidade detectada // confirmação pendente'];
+let signalIndex=0;
+function scheduleSignal(){
+  setTimeout(()=>{
+    if(!document.hidden){
+      signalToast.textContent=signalMessages[signalIndex++%signalMessages.length];
+      signalToast.classList.add('show');
+      setTimeout(()=>signalToast.classList.remove('show'),4200);
+    }
+    scheduleSignal();
+  },18000+Math.random()*9000);
+}
+scheduleSignal();
+
+/* retorno inteligente dos arquivos secretos */
+const returnedSubject=new URLSearchParams(location.search).get('returned');
+if(returnedSubject){
+  const dossierSection=document.getElementById('dossies-prioritarios');
+  const notice=document.createElement('p');
+  notice.className='return-notice';
+  notice.textContent=`ARQUIVO ${returnedSubject.toUpperCase()} FECHADO // SESSÃO REGISTRADA`;
+  dossierSection.before(notice);
+  const returnedCard=document.querySelector(`.priority-card.${CSS.escape(returnedSubject)}`);
+  if(returnedCard)returnedCard.classList.add('returned');
+  history.replaceState(null,'',location.pathname+'#dossies-prioritarios');
+  requestAnimationFrame(()=>dossierSection.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
+}
+
 /* scroll reveal (sessões abaixo da hero) */
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -512,7 +631,7 @@ const countObserver = new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(!entry.isIntersecting) return;
     const counter=entry.target;
-    const target=Number(counter.dataset.count)||0;
+    const target=Number(counter.dataset.count||counter.dataset.investigationCount)||0;
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
       counter.textContent=String(target).padStart(2,'0');
     }else{
@@ -527,7 +646,7 @@ const countObserver = new IntersectionObserver(entries=>{
     countObserver.unobserve(counter);
   });
 },{threshold:.8});
-document.querySelectorAll('.record-count').forEach(counter=>countObserver.observe(counter));
+document.querySelectorAll('.record-count,[data-investigation-count]').forEach(counter=>countObserver.observe(counter));
 
 /* ===== SEQUÊNCIA DE ABERTURA ===== */
 const crawlStage = document.getElementById('crawl-stage');
@@ -547,8 +666,25 @@ const integrityValue = document.getElementById('integrity-value');
 const integrityFill = document.getElementById('integrity-fill');
 const archiveMessage = document.getElementById('archive-message');
 const archiveAccess = document.getElementById('archive-access');
+const openingSessionKey = 'doomsday-home-opening-seen';
 
 function wait(ms){ return new Promise(r => setTimeout(r, ms)); }
+
+function hasSeenOpening(){
+  try{
+    return sessionStorage.getItem(openingSessionKey) === 'true';
+  }catch(error){
+    return false;
+  }
+}
+
+function rememberOpening(){
+  try{
+    sessionStorage.setItem(openingSessionKey, 'true');
+  }catch(error){
+    /* A abertura continua funcionando mesmo se o armazenamento estiver indisponível. */
+  }
+}
 
 async function recoverArchive(){
   archiveRecovery.classList.add('show');
@@ -671,7 +807,7 @@ async function dissolveCrawlToDust(){
 function buildTitle(){
   const makeLetters = word => word.split('').map(ch => `<span class="title-letter">${ch}</span>`).join('');
   movieTitle.innerHTML = `<span class="glitch" data-text="DOOMS">${makeLetters('DOOMS')}</span><span class="z z-letter glitch" data-text="DAY">${makeLetters('DAY')}</span>`;
-  fireShadow.innerHTML = 'APOCALIPSE'.split('').map((ch,index) => `<span class="fire-letter" style="--i:${index}" data-char="${ch}">${ch}</span>`).join('');
+  fireShadow.innerHTML = 'APOCALIPSEZ'.split('').map((ch,index,array) => `<span class="fire-letter${index===array.length-1?' zero-day':''}" style="--i:${index}" data-char="${ch}">${ch}</span>`).join('');
 }
 
 function startGlitchLoop(){
@@ -761,7 +897,7 @@ async function assembleTitleParticles(){
   }
 }
 
-function spawnBloodDrips(){
+function spawnBloodDrips(animate = true){
   const width = movieTitle.offsetWidth;
   const count = Math.max(6, Math.floor(width / 70));
   for(let i = 0; i < count; i++){
@@ -771,8 +907,9 @@ function spawnBloodDrips(){
     const height = 30 + Math.random() * 90;
     const delay = Math.random() * 900;
     d.style.left = left + '%';
-    d.style.height = '0px';
+    d.style.height = animate ? '0px' : height + 'px';
     bloodDrips.appendChild(d);
+    if(!animate) continue;
     setTimeout(() => {
       d.animate(
         [{ height: '0px' }, { height: height + 'px' }],
@@ -810,6 +947,37 @@ async function revealHero(){
   startGlitchLoop();
 }
 
+function showCompletedHome(){
+  crawlStage.style.display = 'none';
+  buildTitle();
+  movieTitle.classList.add('revealed');
+  movieTitle.querySelectorAll('.title-letter').forEach(letter => {
+    letter.classList.add('formed');
+    letter.style.animation = 'none';
+    letter.style.opacity = '1';
+    letter.style.filter = 'none';
+    letter.style.transform = 'none';
+  });
+  fireShadow.classList.add('revealed', 'dropping');
+  fireShadow.querySelectorAll('.fire-letter').forEach(letter => letter.classList.add('settled', 'burning'));
+  titleCanvas.style.display = 'none';
+  movieTitle.querySelector('.z-letter').classList.add('glow');
+  spawnBloodDrips(false);
+  heroEyebrow.classList.add('show');
+  heroTagline.classList.add('show');
+  archiveRecovery.classList.add('show');
+  integrityValue.textContent = '63%';
+  integrityFill.style.width = '63%';
+  archiveMessage.textContent = 'RECUPERAÇÃO PARCIAL CONCLUÍDA // ACESSO LIBERADO';
+  archiveAccess.disabled = false;
+  archiveAccess.classList.add('ready');
+  archiveAccess.textContent = '[ ACESSAR ARQUIVOS RECUPERADOS ]';
+  heroFrame.classList.add('show');
+  heroScrollCue.classList.add('show');
+  document.body.classList.remove('locked');
+  startGlitchLoop();
+}
+
 async function runSequence(){
   await wait(19000); // duração do crawl
   await dissolveCrawlToDust();
@@ -819,10 +987,16 @@ async function runSequence(){
   await revealHero();
 }
 
-prepareCrawlDust();
-runSequence();
+if(hasSeenOpening()){
+  showCompletedHome();
+}else{
+  rememberOpening();
+  prepareCrawlDust();
+  runSequence();
+}
 </script>
 
 <script src="cursor-site.js"></script>
+<script src="page-transition.js"></script>
 </body>
 </html>
