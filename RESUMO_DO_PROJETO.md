@@ -1,6 +1,6 @@
 # DoomsDay — resumo do projeto
 
-Última atualização: 16 de julho de 2026.
+Última atualização: 17 de julho de 2026.
 
 ## Conceito geral
 
@@ -35,6 +35,7 @@ Por isso, o gelo e a neve da introdução representam a origem antártica de DOO
 - `evidencias.html`: cofre dinâmico com os lotes completos de fotografias encontradas.
 - `acesso-restrito.html`: portal protegido do material ainda em construção da Melissa.
 - `ameaca.html`: informações sobre a ameaça.
+- `projeto-doom.html`: arquivo ultrassecreto sobre a descoberta antártica e a cadeia de custódia incompleta de DOOM.
 - `galeria.html`: registros visuais do universo.
 - `cursor-site.css` e `cursor-site.js`: cursor personalizado compartilhado pelas páginas gerais.
 
@@ -162,7 +163,7 @@ A página de História foi reorganizada como um arquivo cronológico recuperado.
 
 A Galeria foi transformada em um arquivo visual recuperado com:
 
-- todos os registros existentes nas pastas de Mick e Mei, atualmente totalizando 41 imagens;
+- doze registros visuais de Mick; as imagens de Mei foram retiradas da Galeria enquanto essa parte é reestruturada;
 - preservação da proporção original das imagens em composição tipo arquivo/mosaico;
 - filtros por personagem e por retrato, ambiente ou registro pessoal;
 - códigos, integridade, procedência e contexto editorial sem inventar datas ou acontecimentos;
@@ -180,6 +181,26 @@ A página de Ameaça foi transformada em um relatório científico-militar sobre
 - filtros interativos para os três estados de conhecimento;
 - cadeia de custódia do gelo ao Dia Zero, mantendo em aberto transporte, pesquisa e falha de contenção;
 - remoção das antigas afirmações sobre transmissão, comportamento e vulnerabilidades que ainda não foram definidas na história.
+
+## Projeto DOOM — `projeto-doom.html`
+
+O arquivo de nível 05 separa a origem do agente biológico do relatório geral de ameaça. Ele apresenta:
+
+- descoberta confirmada da amostra no gelo antártico;
+- protocolo de acesso obrigatório com inicialização digitada, cinco fragmentos escondidos pelo site e credencial persistente do laboratório;
+- mapa interativo do laboratório com Recepção, Observação, Criogenia, Testes, Contenção e Arquivo Central;
+- terminal de inspeção que diferencia setores recuperados, registros ausentes e áreas ainda bloqueadas;
+- cadeia de custódia expansível entre recuperação, expedição, transporte, pesquisa, ruptura e Dia Zero;
+- documentos classificados e perguntas de continuidade ainda pendentes;
+- campos preparados para receber fatos novos durante a reescrita, sem antecipar respostas;
+- acesso pela navegação da Home e pelo relatório de Ameaça.
+
+## Continuidade da família Bradock
+
+- **Melissa “Mei” Bradock** substitui definitivamente o antigo nome Elisabeth;
+- os filhos de Mick e Mei são **Chris**, **Maya** e **Hanna**;
+- Maya substitui o antigo nome Diana;
+- Hanna substitui o antigo nome Emma.
 
 ## Personagens — `personagens.html`
 
@@ -347,7 +368,42 @@ O projeto é versionado no repositório:
 
 A partir desta atualização, as mudanças relevantes do projeto também serão registradas neste resumo e enviadas ao GitHub. Antes de cada envio, devem ser conferidos os arquivos alterados, a validade do JavaScript e os caminhos locais utilizados pelas páginas.
 
-Nesta atualização, o GitHub está sendo sincronizado com os novos efeitos de `index.html`, as melhorias de `home.html` e esta documentação.
+### Última sincronização
+
+Em 17 de julho de 2026, o projeto foi sincronizado com a branch `main` no commit `392afe6` (`Expande arquivos narrativos e visuais do DoomsDay`). O envio incluiu:
+
+- significado narrativo de DOOM, DAY e do Z de Dia Zero;
+- composição **APOCALIPSEZ** no `index.html` e na sombra da Home;
+- abertura da Home executada somente uma vez por sessão;
+- novos painéis operacionais, mapa, dossiês expansíveis e retorno inteligente na Home;
+- transição compartilhada de rasgos entre páginas e dossiês;
+- trilha exclusiva de Mick em `audio/thememick.mp3`;
+- reformulação inicial das páginas História e Ameaça;
+- Galeria ampliada para todos os 41 registros de Mick e Mei;
+- melhorias visuais nos cards de personagens;
+- novas imagens adicionadas às pastas `img-bradock/` e `img-mei/`.
+
+Após o envio, o commit local e `origin/main` foram conferidos e estavam sincronizados no hash `392afe6a57a27559a7d7e88c8217ee7dbd092ff2`.
+
+### Atualização atual — 17 de julho de 2026
+
+Esta versão também foi preparada e sincronizada com o GitHub na branch `main`. A atualização inclui:
+
+- correção de continuidade: Elisabeth passa definitivamente a ser Melissa “Mei” Bradock;
+- atualização dos nomes das filhas para Maya e Hanna;
+- remoção das fotografias de Mei da Galeria, que será reconstruída futuramente com imagens do apocalipse e do caos;
+- criação do arquivo ultrassecreto `projeto-doom.html`;
+- protocolo de inicialização anterior ao acesso ao Projeto DOOM;
+- puzzle com cinco fragmentos escondidos na Home, em Personagens, nos dossiês de Mick e Mei e no relatório de Ameaça;
+- credencial final organizada como origem, amostra, integridade, Dia Zero e risco;
+- armazenamento local do progresso e da autorização do usuário;
+- tela de laboratório bloqueado com retorno aos arquivos públicos;
+- mapa interativo do laboratório com seis setores e terminal de inspeção;
+- áreas preparadas para futuros experimentos, documentos, gravações e registros secretos;
+- correção da tela da credencial para mostrar os fragmentos recuperados em vez de losangos genéricos;
+- novos arquivos compartilhados `doom-puzzle.css` e `doom-puzzle.js`.
+
+Com esta sincronização, o resumo do projeto e o repositório GitHub voltam a representar o mesmo estado do site.
 
 ## Próximos passos possíveis
 
@@ -356,6 +412,6 @@ Nesta atualização, o GitHub está sendo sincronizado com os novos efeitos de `
 - Testar visualmente as novas transições de poeira, recuperação e diretório em diferentes navegadores.
 - Definir onde Mick e Mei estavam exatamente no Dia Zero.
 - Criar imagens e arquivos secretos para os demais personagens.
-- Criar efeitos exclusivos para Chris, Diana, Emma, James, Stayci e Samuel.
+- Criar efeitos exclusivos para Chris, Maya, Hanna, James, Stayci e Samuel.
 - Revisar o tempo completo das animações de `index.html` e `home.html`.
 - Fazer uma revisão final de desempenho, acessibilidade e responsividade.

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PROJETO DOOM // ULTRASSECRETO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--void:#040606;--panel:#0b1010;--panel2:#111818;--ice:#a9e8f6;--ice-dim:#4e8b9b;--amber:#e8a33d;--red:#d21f2c;--red-dim:#5e1017;--green:#3ddc84;--ink:#e6e3d6;--dim:#969d99;--line:#27302e;--display:'Anton',sans-serif;--term:'VT323',monospace;--mono:'Courier Prime',monospace}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--void);color:var(--ink);font-family:var(--mono);line-height:1.65;overflow-x:hidden}body.locked{height:100vh;overflow:hidden}body.locked>nav,body.locked>main,body.locked>footer{visibility:hidden}a{color:inherit;text-decoration:none}::selection{background:var(--red);color:#fff}.scanlines,.vignette,.frost{position:fixed;inset:0;pointer-events:none}.scanlines{z-index:998;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.025) 3px 4px)}.vignette{z-index:997;box-shadow:inset 0 0 180px #000}.frost{z-index:2;opacity:.18;background:radial-gradient(circle at 8% 8%,rgba(169,232,246,.25),transparent 18%),radial-gradient(circle at 92% 78%,rgba(169,232,246,.18),transparent 22%)}
+#intro{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:6vw;background:var(--void);transition:opacity .6s ease,transform .6s ease}#intro::before{content:'';position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.025) 3px 4px);box-shadow:inset 0 0 180px #000}#intro.hidden{opacity:0;transform:scale(1.03);pointer-events:none}.boot-box{position:relative;width:min(640px,88vw);font:clamp(1.15rem,3vw,1.35rem)/1.5 var(--term);color:var(--amber);text-shadow:0 0 12px rgba(232,163,61,.2)}.boot-line{min-height:1.5em;opacity:0;white-space:pre-wrap}.boot-line.shown{opacity:1}.boot-line:last-of-type{color:var(--ice);text-shadow:0 0 14px rgba(169,232,246,.45)}#enter-btn{display:none;margin-top:2rem;padding:.65rem 1rem;border:1px solid var(--red);background:rgba(210,31,44,.06);color:var(--red);font:1.15rem var(--term);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}#enter-btn:hover,#enter-btn:focus-visible{background:var(--red);color:#fff;outline:1px solid var(--red);outline-offset:4px}#enter-btn.show{display:inline-block;animation:blink-slow 1.8s infinite}@keyframes blink-slow{0%,100%{opacity:1}50%{opacity:.55}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.access-gate{border:1px solid var(--red);padding:1.2rem;background:rgba(210,31,44,.035)}.access-gate h2{color:var(--red);font:1.5rem var(--display);letter-spacing:.08em}.access-gate p{margin:.35rem 0;color:var(--dim)}.fragment-status{display:grid;grid-template-columns:repeat(5,1fr);gap:.45rem;margin:1.2rem 0}.fragment-status span{display:grid;place-items:center;min-height:38px;border:1px solid var(--line);color:#56605d}.fragment-status span.found{border-color:var(--ice-dim);color:var(--ice);box-shadow:inset 0 0 12px rgba(169,232,246,.08)}.gate-hint{font-size:1rem!important;color:var(--amber)!important}.gate-form{display:flex;gap:.65rem;margin-top:1rem}.gate-form input{min-width:0;flex:1;border:1px solid var(--line);background:#030505;color:var(--ice);padding:.65rem .8rem;font:1.1rem var(--term);letter-spacing:.12em;text-transform:uppercase}.gate-form input:focus{border-color:var(--ice);outline:none}.gate-form button,.gate-back{border:1px solid var(--red);background:transparent;color:var(--red);padding:.65rem .9rem;font:1rem var(--term);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.gate-form button:hover,.gate-form button:focus-visible{background:var(--red);color:#fff}.gate-back{display:inline-block;margin-top:1rem;border-color:var(--line);color:var(--dim);text-decoration:none}.gate-message{min-height:1.5em;margin-top:.7rem!important;color:var(--red)!important}.gate-message.success{color:var(--ice)!important}
+nav{position:fixed;inset:0 0 auto;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 6vw;border-bottom:1px solid var(--line);background:rgba(4,6,6,.92);font:1.05rem var(--term);letter-spacing:.09em;text-transform:uppercase}nav strong{font-family:var(--display)}nav strong span{color:var(--red)}nav a{color:var(--amber)}main{position:relative;z-index:3}.section{width:min(1160px,88vw);margin:auto;padding:5rem 0}.hero{min-height:100vh;padding-top:9rem;display:grid;align-content:center}.clearance{font:1rem var(--term);letter-spacing:.18em;color:var(--red);text-transform:uppercase}.hero h1{font:clamp(4rem,13vw,9rem)/.85 var(--display);letter-spacing:.01em;margin:.7rem 0}.hero h1 .ice-word{position:relative;color:var(--ice);text-shadow:0 0 30px rgba(169,232,246,.4)}.hero h1 .ice-word::after{content:'DOOM';position:absolute;inset:0;color:#fff;opacity:.7;clip-path:polygon(0 0,100% 0,100% 18%,85% 29%,68% 17%,52% 33%,35% 20%,18% 30%,0 19%);filter:drop-shadow(0 3px 3px var(--ice-dim))}.hero-copy{max-width:68ch;color:var(--dim)}.hero-copy strong{color:var(--ink)}.file-status{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:2.2rem;background:var(--line);border:1px solid var(--line)}.file-status div{padding:.9rem;background:var(--panel)}.file-status span{display:block;font:.72rem var(--term);letter-spacing:.1em;color:var(--dim)}.file-status b{font:1rem var(--term);color:var(--amber)}.eyebrow{font:1rem var(--term);letter-spacing:.18em;color:var(--amber);text-transform:uppercase}.section h2{font:clamp(2rem,5vw,3.4rem) var(--display);text-transform:uppercase;margin:.4rem 0 1.5rem}.chain{position:relative;margin-left:1rem;padding-left:2rem}.chain::before{content:'';position:absolute;left:6px;top:.8rem;bottom:.8rem;width:1px;background:linear-gradient(var(--ice),var(--red),var(--line))}.stage{position:relative;margin-bottom:1rem;border:1px solid var(--line);background:var(--panel);padding:1.1rem 1.3rem}.stage::before{content:'';position:absolute;left:-2.25rem;top:1.25rem;width:12px;height:12px;border-radius:50%;border:2px solid var(--amber);background:var(--void)}.stage.confirmed::before{border-color:var(--ice);box-shadow:0 0 12px var(--ice)}.stage time{font:1rem var(--term);color:var(--amber)}.stage h3{font:1.2rem var(--display);text-transform:uppercase}.stage p{font-size:.86rem;color:var(--dim)}.stage.locked{background:repeating-linear-gradient(135deg,var(--panel) 0 12px,#0e1414 12px 24px)}.redacted{background:#151515;color:#151515;user-select:none;padding:0 .2rem}.document-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}.document{position:relative;border:1px solid var(--line);padding:1.4rem;background:var(--panel2)}.document h3{font:1.25rem var(--display);text-transform:uppercase;margin-bottom:.7rem}.document p{font-size:.86rem;color:var(--dim)}.document dl{margin-top:1rem;border-top:1px solid var(--line)}.document dl div{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--line);font:.9rem var(--term)}.document dt{color:var(--amber)}.document dd{color:var(--dim);text-align:right}.stamp{display:inline-block;margin-top:1.2rem;border:3px solid var(--red);color:var(--red);padding:.1rem .55rem;font:1.3rem var(--display);transform:rotate(-2deg)}.access-note{padding:1rem;border-left:2px solid var(--red);background:rgba(210,31,44,.06);color:var(--dim)}.reveal{opacity:0;transform:translateY(18px);transition:.65s}.reveal.visible{opacity:1;transform:none}footer{position:relative;z-index:3;padding:2rem 6vw;border-top:1px solid var(--line);text-align:center;font:1rem var(--term);letter-spacing:.1em;color:var(--dim)}
+.lab-section{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.lab-shell{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(290px,.75fr);gap:1.2rem}.lab-map{position:relative;display:grid;grid-template-columns:repeat(3,1fr);grid-template-areas:'reception observation cryo' 'archive containment tests';gap:1rem;padding:1.3rem;border:1px solid var(--ice-dim);background-color:#071011;background-image:linear-gradient(rgba(169,232,246,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(169,232,246,.045) 1px,transparent 1px);background-size:24px 24px;box-shadow:inset 0 0 45px #020606}.lab-map::before{content:'PLANTA // SUBNÍVEL ANT-00';position:absolute;right:1rem;top:-.8rem;padding:0 .45rem;background:var(--void);color:var(--ice);font:1rem var(--term);letter-spacing:.12em}.sector{position:relative;min-height:145px;padding:1rem;border:1px solid #31545a;background:rgba(7,15,16,.88);color:var(--ink);font-family:var(--term);text-align:left;cursor:pointer;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s}.sector::before{content:'';position:absolute;left:0;top:0;width:38%;height:3px;background:var(--ice-dim)}.sector::after{content:'';position:absolute;right:-18px;bottom:-18px;width:55px;height:55px;border:1px solid rgba(169,232,246,.12);transform:rotate(45deg)}.sector:hover,.sector:focus-visible,.sector.active{border-color:var(--ice);box-shadow:0 0 22px rgba(169,232,246,.16);transform:translateY(-2px);outline:none}.sector.locked-sector{border-color:#55272a;background:repeating-linear-gradient(135deg,rgba(30,8,10,.86) 0 10px,rgba(12,10,10,.9) 10px 20px)}.sector.locked-sector::before{background:var(--red)}.sector-code{display:block;color:var(--ice-dim);letter-spacing:.15em}.sector strong{display:block;margin:.4rem 0;font:1.25rem var(--display);letter-spacing:.04em;text-transform:uppercase}.sector-state{display:block;color:var(--amber);font-size:.95rem}.sector.locked-sector .sector-state{color:var(--red)}.sector-reception{grid-area:reception}.sector-observation{grid-area:observation}.sector-cryo{grid-area:cryo}.sector-tests{grid-area:tests}.sector-containment{grid-area:containment}.sector-archive{grid-area:archive}.lab-console{display:flex;flex-direction:column;min-height:100%;border:1px solid var(--line);background:#050909}.console-head{display:flex;justify-content:space-between;gap:1rem;padding:.65rem .9rem;border-bottom:1px solid var(--line);color:var(--ice);font:1rem var(--term);letter-spacing:.1em}.console-head span:last-child{color:var(--green)}.console-screen{position:relative;flex:1;padding:1.25rem;overflow:hidden}.console-screen::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(transparent 50%,rgba(169,232,246,.018) 50%);background-size:100% 4px}.console-label{color:var(--amber);font:1rem var(--term);letter-spacing:.14em}.console-screen h3{margin:.4rem 0 .8rem;font:1.65rem var(--display);text-transform:uppercase}.console-screen p{color:var(--dim);font-size:.88rem}.console-data{margin-top:1.2rem;border-top:1px solid var(--line)}.console-data div{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px solid var(--line);font:1rem var(--term)}.console-data dt{color:var(--ice-dim)}.console-data dd{color:var(--amber);text-align:right}.console-log{padding:.8rem 1rem;border-top:1px solid var(--line);color:var(--green);font:1rem var(--term)}.console-log::before{content:'> ';color:var(--ice)}
+@media(max-width:850px){.lab-shell{grid-template-columns:1fr}.lab-map{grid-template-columns:1fr 1fr;grid-template-areas:'reception observation' 'cryo tests' 'archive containment'}}@media(max-width:700px){nav{padding:.75rem 4vw;gap:1rem}.section{width:min(92vw,1160px);padding:4rem 0}.hero{padding-top:7rem}.file-status,.document-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:clamp(3.4rem,20vw,6rem)}.gate-form{flex-direction:column}}@media(max-width:500px){.lab-map{grid-template-columns:1fr;grid-template-areas:'reception' 'observation' 'cryo' 'tests' 'containment' 'archive'}.sector{min-height:118px}}@media(max-width:430px){.file-status,.document-grid{grid-template-columns:1fr}.stage{padding:1rem}.chain{padding-left:1.5rem}.stage::before{left:-1.75rem}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}#intro{transition:none}#enter-btn.show{animation:none}.sector{transition:none}}
+</style>
+<link rel="stylesheet" href="cursor-site.css">
+</head>
+<body class="locked">
+<div id="intro" role="dialog" aria-modal="true" aria-label="Protocolo de acesso ao Projeto DOOM">
+  <div class="boot-box" id="boot-box" aria-live="polite"></div>
+</div>
+<div class="scanlines"></div><div class="vignette"></div><div class="frost"></div>
+<nav><strong>DOOMS<span>DAY</span> // BLACK VAULT</strong><a href="home.html">← Fechar arquivo</a></nav>
+<main>
+  <section class="section hero"><p class="clearance">Nível de acesso 05 // ultrassecreto</p><h1>PROJETO <span class="ice-word">DOOM</span></h1><p class="hero-copy"><strong>Arquivo de custódia da amostra antártica.</strong> Este documento registra somente informações confirmadas e lacunas de investigação. Qualquer dado ainda não definido na obra permanece classificado.</p><div class="file-status"><div><span>ARQUIVO</span><b>ANT-DOOM-00</b></div><div><span>ORIGEM</span><b>ANTÁRTIDA</b></div><div><span>INTEGRIDADE</span><b>31%</b></div><div><span>RISCO</span><b>ÔMEGA</b></div></div></section>
+  <section class="section lab-section" aria-labelledby="lab-title"><p class="eyebrow reveal">Instalação recuperada // acesso interno</p><h2 class="reveal" id="lab-title">Mapa do laboratório</h2><div class="lab-shell reveal"><div class="lab-map" aria-label="Setores do laboratório Projeto DOOM"><button class="sector sector-reception active" type="button" data-sector="reception" aria-pressed="true"><span class="sector-code">SETOR 01</span><strong>Recepção</strong><span class="sector-state">ACESSO LIBERADO</span></button><button class="sector sector-observation" type="button" data-sector="observation" aria-pressed="false"><span class="sector-code">SETOR 02</span><strong>Observação</strong><span class="sector-state">LEITURA DISPONÍVEL</span></button><button class="sector sector-cryo" type="button" data-sector="cryo" aria-pressed="false"><span class="sector-code">SETOR 03</span><strong>Criogenia</strong><span class="sector-state">AMOSTRA REGISTRADA</span></button><button class="sector sector-tests locked-sector" type="button" data-sector="tests" aria-pressed="false"><span class="sector-code">SETOR 04</span><strong>Testes</strong><span class="sector-state">DADOS CORROMPIDOS</span></button><button class="sector sector-containment locked-sector" type="button" data-sector="containment" aria-pressed="false"><span class="sector-code">SETOR 05</span><strong>Contenção</strong><span class="sector-state">BLOQUEIO DE EMERGÊNCIA</span></button><button class="sector sector-archive" type="button" data-sector="archive" aria-pressed="false"><span class="sector-code">SETOR 06</span><strong>Arquivo central</strong><span class="sector-state">31% RECUPERADO</span></button></div><aside class="lab-console" aria-live="polite"><div class="console-head"><span>TERMINAL ANT-00</span><span>SISTEMA ON-LINE</span></div><div class="console-screen"><p class="console-label" id="console-label">SETOR 01 // AUTORIZADO</p><h3 id="console-title">Recepção técnica</h3><p id="console-description">Ponto inicial da instalação. O terminal reconheceu a credencial reconstruída e liberou a consulta aos setores parcialmente recuperados.</p><dl class="console-data" id="console-data"><div><dt>ESTADO</dt><dd>OPERACIONAL</dd></div><div><dt>ACESSO</dt><dd>NÍVEL 05</dd></div><div><dt>ALERTA</dt><dd>SEM SINAL</dd></div></dl></div><p class="console-log" id="console-log">Selecione um setor para inspecionar os registros.</p></aside></div></section>
+  <section class="section"><p class="eyebrow reveal">Cadeia de custódia</p><h2 class="reveal">Do gelo ao Dia Zero</h2><div class="chain"><article class="stage confirmed reveal"><time>MARCO 00 // CONFIRMADO</time><h3>Recuperação</h3><p>Um elemento viral desconhecido é encontrado preservado no gelo antártico e recebe a designação DOOM.</p></article><article class="stage locked reveal"><time>MARCO 01 // CLASSIFICADO</time><h3>Expedição</h3><p>Equipe responsável: <span class="redacted">██████████████</span>. Coordenadas e método de extração aguardam definição narrativa.</p></article><article class="stage locked reveal"><time>MARCO 02 // ARQUIVO AUSENTE</time><h3>Transporte</h3><p>Destino da amostra, rota e responsáveis ainda não foram estabelecidos.</p></article><article class="stage locked reveal"><time>MARCO 03 // CLASSIFICADO</time><h3>Pesquisa</h3><p>Testes, instalações e vínculo institucional permanecem bloqueados.</p></article><article class="stage locked reveal"><time>MARCO 04 // REGISTRO CORROMPIDO</time><h3>Ruptura</h3><p>A ligação entre o projeto e o início do surto será preenchida durante a reescrita da história.</p></article><article class="stage reveal"><time>DIA ZERO // CONSEQUÊNCIA</time><h3>DAY</h3><p>O dia do ápice do caos completa o significado de DOOMSDAY.</p></article></div></section>
+  <section class="section"><p class="eyebrow reveal">Documentos recuperados</p><h2 class="reveal">Anexos do projeto</h2><div class="document-grid"><article class="document reveal"><h3>Ficha da amostra</h3><p>Classificação científica provisória. A origem congelada é confirmada; comportamento e transmissão permanecem desconhecidos.</p><dl><div><dt>DESIGNAÇÃO</dt><dd>DOOM</dd></div><div><dt>TIPO</dt><dd>ELEMENTO VIRAL</dd></div><div><dt>IDADE</dt><dd>NÃO DETERMINADA</dd></div><div><dt>ESTADO</dt><dd>REGISTRO INCOMPLETO</dd></div></dl><span class="stamp">CONFIDENCIAL</span></article><article class="document reveal"><h3>Nota de continuidade</h3><p>Questões reservadas para a construção da história:</p><dl><div><dt>QUEM ENCONTROU?</dt><dd>PENDENTE</dd></div><div><dt>PARA ONDE FOI?</dt><dd>PENDENTE</dd></div><div><dt>QUEM AUTORIZOU?</dt><dd>PENDENTE</dd></div><div><dt>COMO ESCAPOU?</dt><dd>PENDENTE</dd></div></dl><span class="stamp">NÃO PUBLICAR</span></article></div></section>
+  <section class="section"><p class="access-note reveal">Este arquivo foi criado como estrutura narrativa expansível. Novos fatos devem ser adicionados somente quando forem confirmados na reescrita da obra.</p></section>
+</main>
+<footer>DoomsDay // Projeto DOOM // documento ultrassecreto</footer>
+<script>
+const bootLines=[
+  'INICIANDO PROTOCOLO DE ACESSO...',
+  'CONECTANDO AO SERVIDOR BLACK VAULT...',
+  'ARQUIVO LOCALIZADO: ANT-DOOM-00',
+  'NÍVEL DE ACESSO: 05 // ULTRASSECRETO',
+  'INTEGRIDADE DO ARQUIVO: 31%',
+  'VALIDANDO CREDENCIAIS...',
+  '> LABORATÓRIO AGUARDANDO AUTORIZAÇÃO'
+];
+const bootBox=document.getElementById('boot-box');
+const introEl=document.getElementById('intro');
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fragmentKey='dd_doom_fragments_v1';
+const unlockKey='dd_doom_lab_access_v1';
+const requiredFragments=['origin','sample','integrity','zero','risk'];
+const fragmentValues={origin:'ANT',sample:'00',integrity:'31',zero:'Z',risk:'OMEGA'};
+
+function readFragments(){try{return JSON.parse(localStorage.getItem(fragmentKey)||'[]')}catch{return[]}}
+function labIsUnlocked(){try{return localStorage.getItem(unlockKey)==='authorized'}catch{return false}}
+
+function wait(ms){return new Promise(resolve=>setTimeout(resolve,ms))}
+function typeLine(content,element){
+  if(reduceMotion){element.textContent=content;element.classList.add('shown');return Promise.resolve()}
+  return new Promise(resolve=>{
+    let index=0;
+    element.classList.add('shown');
+    const typing=setInterval(()=>{
+      element.textContent=content.slice(0,index);
+      index+=1;
+      if(index>content.length){clearInterval(typing);resolve()}
+    },22);
+  });
+}
+async function runBoot(){
+  for(const line of bootLines){
+    const row=document.createElement('div');
+    row.className='boot-line';
+    bootBox.appendChild(row);
+    await typeLine(line,row);
+    await wait(reduceMotion?35:220);
+  }
+  const button=document.createElement('button');
+  button.id='enter-btn';
+  button.type='button';
+  button.textContent=labIsUnlocked()?'ACESSAR PROJETO DOOM':'VERIFICAR CREDENCIAIS';
+  button.addEventListener('click',labIsUnlocked()?enterProject:showAccessGate);
+  bootBox.appendChild(button);
+  requestAnimationFrame(()=>{button.classList.add('show');button.focus()});
+}
+function showAccessGate(){
+  const collected=readFragments();
+  const total=requiredFragments.filter(id=>collected.includes(id)).length;
+  bootBox.innerHTML=`<section class="access-gate"><h2>LABORATÓRIO BLOQUEADO</h2><p>Cinco assinaturas foram espalhadas pelos arquivos públicos. Recupere os fragmentos e reconstrua a credencial na ordem correta.</p><div class="fragment-status" aria-label="${total} de 5 fragmentos encontrados">${requiredFragments.map((id,index)=>`<span class="${collected.includes(id)?'found':''}" title="Assinatura ${index+1}">${collected.includes(id)?fragmentValues[id]:'?'}</span>`).join('')}</div><p class="gate-hint">ORDEM: ORIGEM // AMOSTRA // INTEGRIDADE // DIA // RISCO</p><form class="gate-form"><label class="sr-only" for="doom-code">Credencial do laboratório</label><input id="doom-code" name="doom-code" autocomplete="off" spellcheck="false" placeholder="UNA OS FRAGMENTOS RECUPERADOS" aria-label="Credencial do laboratório"><button type="submit">AUTORIZAR</button></form><p class="gate-message" aria-live="polite">${total<5?`ASSINATURAS RECUPERADAS: ${total}/5`: 'TODAS AS ASSINATURAS RECUPERADAS // UNA OS CÓDIGOS ACIMA'}</p><a class="gate-back" href="home.html">← RETORNAR AOS ARQUIVOS</a></section>`;
+  const form=bootBox.querySelector('.gate-form');
+  const input=form.querySelector('input');
+  input.focus();
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    const message=bootBox.querySelector('.gate-message');
+    const current=readFragments();
+    if(!requiredFragments.every(id=>current.includes(id))){message.textContent='ACESSO NEGADO // LOCALIZE TODAS AS ASSINATURAS';return}
+    const normalized=input.value.toUpperCase().replace(/[^A-Z0-9]/g,'');
+    if(normalized!=='ANT0031ZOMEGA'){message.textContent='CREDENCIAL INVÁLIDA // ORDEM DOS FRAGMENTOS INCORRETA';input.select();return}
+    try{localStorage.setItem(unlockKey,'authorized')}catch{}
+    message.textContent='CREDENCIAL ACEITA // LABORATÓRIO LIBERADO';
+    message.classList.add('success');
+    form.querySelector('button').disabled=true;
+    setTimeout(enterProject,850);
+  });
+}
+function enterProject(){
+  introEl.classList.add('hidden');
+  document.body.classList.remove('locked');
+  setTimeout(()=>introEl.remove(),reduceMotion?0:700);
+}
+runBoot();
+
+const labSectors={
+  reception:{label:'SETOR 01 // AUTORIZADO',title:'Recepção técnica',description:'Ponto inicial da instalação. O terminal reconheceu a credencial reconstruída e liberou a consulta aos setores parcialmente recuperados.',data:[['ESTADO','OPERACIONAL'],['ACESSO','NÍVEL 05'],['ALERTA','SEM SINAL']],log:'Credencial aceita. Rotas internas parcialmente restauradas.'},
+  observation:{label:'SETOR 02 // SOMENTE LEITURA',title:'Câmara de observação',description:'Registros visuais da amostra ainda não foram anexados. O setor permanece preparado para receber imagens, anotações e gravações confirmadas durante a reescrita.',data:[['VIDROS','SELADOS'],['REGISTROS','AUSENTES'],['CAPTURA','PENDENTE']],log:'Nenhuma observação científica confirmada foi encontrada.'},
+  cryo:{label:'SETOR 03 // REGISTRO PARCIAL',title:'Unidade criogênica',description:'A origem congelada da amostra DOOM está confirmada. Equipamentos, temperatura de custódia e condições de preservação ainda permanecem classificados.',data:[['AMOSTRA','ANT-DOOM-00'],['ORIGEM','ANTÁRTIDA'],['ESTADO','INDETERMINADO']],log:'Assinatura biológica localizada no arquivo de recuperação.'},
+  tests:{label:'SETOR 04 // ARQUIVO CORROMPIDO',title:'Laboratório de testes',description:'Resultados, procedimentos e responsáveis não constam nos registros recuperados. O setor será aberto quando esses acontecimentos forem definidos na história.',data:[['ENSAIOS','████████'],['EQUIPE','████████'],['RESULTADO','CORROMPIDO']],log:'Acesso recusado. Integridade insuficiente para reconstrução.'},
+  containment:{label:'SETOR 05 // BLOQUEIO ATIVO',title:'Área de contenção',description:'A relação entre esta instalação e a ruptura que antecede o Dia Zero permanece desconhecida. Nenhum evento foi apresentado como fato confirmado.',data:[['PORTAS','SELADAS'],['INCIDENTE','NÃO CONFIRMADO'],['RISCO','ÔMEGA']],log:'Protocolo de emergência ativo. Autorização adicional exigida.'},
+  archive:{label:'SETOR 06 // 31% RECUPERADO',title:'Arquivo central',description:'Reúne a cadeia de custódia, a ficha provisória da amostra e as lacunas reservadas para a construção futura da narrativa.',data:[['ARQUIVO','ANT-DOOM-00'],['INTEGRIDADE','31%'],['CÓPIA','BLACK VAULT']],log:'Documentos recuperados disponíveis abaixo do mapa.'}
+};
+const sectorButtons=document.querySelectorAll('.sector');
+const consoleLabel=document.getElementById('console-label');
+const consoleTitle=document.getElementById('console-title');
+const consoleDescription=document.getElementById('console-description');
+const consoleData=document.getElementById('console-data');
+const consoleLog=document.getElementById('console-log');
+sectorButtons.forEach(button=>button.addEventListener('click',()=>{
+  const sector=labSectors[button.dataset.sector];
+  sectorButtons.forEach(item=>{const active=item===button;item.classList.toggle('active',active);item.setAttribute('aria-pressed',String(active))});
+  consoleLabel.textContent=sector.label;
+  consoleTitle.textContent=sector.title;
+  consoleDescription.textContent=sector.description;
+  consoleData.innerHTML=sector.data.map(([term,value])=>`<div><dt>${term}</dt><dd>${value}</dd></div>`).join('');
+  consoleLog.textContent=sector.log;
+}));
+
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+  if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}
+}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(element=>observer.observe(element));
+</script>
+<script src="cursor-site.js"></script>
+</body>
+</html>
