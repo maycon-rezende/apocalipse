@@ -157,6 +157,11 @@ analysisFilters.forEach(button=>button.addEventListener('click',()=>{
 }));
 </script>
 
+<script>
+const threatTheme=new Audio('audio/themeameaca.mp3');threatTheme.loop=true;threatTheme.preload='auto';
+const playThreatTheme=()=>threatTheme.play().catch(()=>{});playThreatTheme();
+document.addEventListener('pointerdown',playThreatTheme,{once:true});document.addEventListener('keydown',playThreatTheme,{once:true});
+</script>
 <script src="cursor-site.js"></script>
 <script src="doom-puzzle.js"></script>
 </body>
