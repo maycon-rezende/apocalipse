@@ -145,6 +145,8 @@ nav .links > a:hover{color:var(--amber);}
   transition:opacity .6s ease,transform .6s ease;overflow:hidden;
 }
 .archive-recovery.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.archive-recovery:not(.show),.captured-frame:not(.show),.hero .scroll-cue:not(.show){display:none}
+.archive-recovery.show{animation:archive-arrival .65s ease both}@keyframes archive-arrival{from{opacity:0;transform:translateY(18px);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
 .archive-recovery::before{content:"";position:absolute;left:0;right:0;top:-18%;height:18%;background:linear-gradient(transparent,rgba(232,163,61,.08),transparent);animation:archive-scan 2.8s linear infinite;pointer-events:none}
 .archive-recovery::after{content:"DD-01";position:absolute;right:.65rem;top:.4rem;color:rgba(232,163,61,.18);font-size:2rem;letter-spacing:.08em;pointer-events:none}
 .archive-head{display:flex;align-items:center;gap:.55rem;padding-bottom:.55rem;border-bottom:1px solid var(--line);color:var(--amber);font-size:1rem;letter-spacing:.12em;text-transform:uppercase}
@@ -159,6 +161,7 @@ nav .links > a:hover{color:var(--amber);}
 .archive-access{display:block;width:100%;margin-top:.7rem;padding:.62rem .8rem;border:1px solid var(--red-dim);background:rgba(122,21,28,.08);color:var(--ink-dim);font:1rem var(--f-term);letter-spacing:.11em;text-transform:uppercase;cursor:not-allowed;transition:.25s}
 .archive-access.ready{border-color:var(--amber);color:var(--amber);background:rgba(232,163,61,.07);cursor:pointer;box-shadow:inset 0 0 18px rgba(232,163,61,.035)}
 .archive-access.ready:hover,.archive-access.ready:focus-visible{color:var(--void);background:var(--amber);box-shadow:0 0 18px rgba(232,163,61,.3);outline:none}
+.archive-access.opening{border-color:var(--red);color:var(--red);cursor:wait}.dd-open-sequence{margin-top:.7rem;padding:.7rem;border:1px dashed var(--amber-dim);background:#080806;font:.82rem var(--f-term);letter-spacing:.07em;color:var(--ink-dim)}.dd-open-sequence[hidden]{display:none}.dd-open-sequence p{min-height:1.4em}.dd-open-sequence p::before{content:"> ";color:var(--amber)}
 @keyframes archive-scan{to{top:118%}}
 @keyframes archive-pulse{50%{opacity:.25}}
 
@@ -240,6 +243,7 @@ nav .links > a:hover{color:var(--amber);}
   letter-spacing:.08em; text-transform:uppercase; color:var(--red); border-bottom:1px solid var(--red-dim); padding-bottom:.2rem;
 }
 .teaser .more-link:hover{color:var(--amber);}
+.archive-testimony{margin-top:clamp(4rem,8vw,6rem);border-color:var(--red-dim);background:linear-gradient(180deg,rgba(13,15,12,.82),rgba(5,5,5,.96))}
 
 /* ===== DIA ZERO + MAPA OPERACIONAL ===== */
 .intel-section{padding:clamp(4rem,8vw,7rem) 6vw;border-top:1px solid var(--line);background:linear-gradient(180deg,#070807,var(--void))}.intel-grid{width:min(1180px,100%);margin:2rem auto 0;display:grid;grid-template-columns:minmax(0,.85fr) minmax(320px,1.15fr);gap:clamp(1.5rem,4vw,3.5rem)}.zero-log{display:grid;gap:.7rem}.zero-event{display:grid;grid-template-columns:72px 1fr;gap:1rem;padding:.9rem;border-left:2px solid var(--red-dim);background:rgba(255,255,255,.018)}.zero-event time{font:1.05rem var(--f-term);color:var(--amber)}.zero-event strong{display:block;font:.95rem var(--f-term);letter-spacing:.08em;color:var(--ink)}.zero-event p{font-size:.8rem;color:var(--ink-dim)}.contamination-map{position:relative;min-height:390px;border:1px solid #30362e;background:#080b09;overflow:hidden}.contamination-map svg{display:block;width:100%;height:100%;min-height:390px}.map-head{position:absolute;left:1rem;right:1rem;top:.8rem;z-index:2;display:flex;justify-content:space-between;font:.78rem var(--f-term);letter-spacing:.1em;color:var(--green)}.map-legend{position:absolute;left:1rem;bottom:.8rem;font:.72rem var(--f-term);letter-spacing:.08em;color:var(--ink-dim)}.map-pulse{transform-origin:center;animation:map-ping 2.4s ease-out infinite}@keyframes map-ping{0%{opacity:.9;transform:scale(.5)}100%{opacity:0;transform:scale(2.5)}}
@@ -249,6 +253,7 @@ nav .links > a:hover{color:var(--amber);}
 
 /* ===== EXPLORAR (directory) ===== */
 .explore{padding:6rem 6vw; max-width:1100px; margin:0 auto;}
+.explore.dd-locked{display:none}.explore.dd-unsealing{animation:directory-unseal .8s ease both}.explore.dd-unsealing::before{content:"DD-01 // ÍNDICE DESCOMPACTADO";display:block;margin-bottom:1.5rem;padding:.55rem;border-top:1px solid var(--amber-dim);border-bottom:1px solid var(--amber-dim);font:.82rem var(--f-term);letter-spacing:.14em;text-align:center;color:var(--amber)}@keyframes directory-unseal{from{opacity:0;transform:translateY(28px);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
 .explore .eyebrow{justify-content:flex-start;}
 .explore h2{font-family:var(--f-display); font-size:clamp(1.8rem,4vw,2.6rem); text-transform:uppercase; margin:.6rem 0 .35rem;}
 .explore-intro{max-width:62ch;margin-bottom:2.2rem;color:var(--ink-dim);font-size:.92rem}
@@ -270,6 +275,10 @@ nav .links > a:hover{color:var(--amber);}
 .sector-records{font: .8rem var(--f-term);letter-spacing:.08em;color:var(--sector)}
 .explore-card .go{font-family:var(--f-term);font-size:.9rem;color:var(--sector);letter-spacing:.06em;padding-top:.5rem;border-top:1px solid var(--line)}
 @keyframes sector-scan{to{top:115%}}
+
+/* ===== TRANSMISSÃO PRESIDENCIAL + SINAIS ===== */
+.presidential-broadcast{width:min(1100px,100%);margin:clamp(1.8rem,4vw,3rem) auto 0;text-align:left}.broadcast-alert{position:relative;width:100%;padding:1rem 1.25rem;border:1px solid #ff3946;background:linear-gradient(90deg,#5e0710,#c61724 48%,#5e0710);color:#fff;text-align:center;cursor:pointer;overflow:hidden;box-shadow:0 0 26px rgba(210,31,44,.28);animation:broadcast-pulse 1.35s steps(2) infinite}.broadcast-alert::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.18) 48%,transparent 65%);transform:translateX(-100%);animation:alert-scan 3s linear infinite}.broadcast-alert span,.broadcast-alert strong,.broadcast-alert small{position:relative;z-index:1;display:block}.broadcast-alert span{font:.72rem var(--f-term);letter-spacing:.18em}.broadcast-alert strong{margin:.3rem 0;font:clamp(1.35rem,3vw,2.2rem) var(--f-display);letter-spacing:.08em;text-transform:uppercase}.broadcast-alert small{font:.78rem var(--f-term);letter-spacing:.11em}.broadcast-alert[aria-expanded="true"]{animation:none;background:#690a12}.presidential-tv{position:relative;margin-top:1rem;border:8px solid #171817;outline:1px solid #3c3e3b;background:#020302;box-shadow:0 22px 55px rgba(0,0,0,.65);overflow:hidden}.presidential-tv[hidden]{display:none}.presidential-tv::before{content:"";position:absolute;z-index:3;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.026) 0 1px,transparent 1px 4px),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.72))}.tv-header{position:relative;z-index:4;display:flex;justify-content:space-between;gap:1rem;padding:.55rem 1rem;background:#9f101b;color:#fff;font:.72rem var(--f-term);letter-spacing:.11em}.tv-screen{position:relative;min-height:430px;padding:clamp(2rem,5vw,4rem);display:grid;grid-template-columns:minmax(150px,.34fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start;background:radial-gradient(circle at 18% 30%,rgba(201,205,190,.1),transparent 28%),#080a08}.presidential-seal{width:min(190px,100%);aspect-ratio:1;border:2px solid #a7aa9e;border-radius:50%;display:grid;place-items:center;text-align:center;color:#b6baac;box-shadow:0 0 0 8px #080a08,0 0 0 9px #686c63,inset 0 0 30px rgba(255,255,255,.08);font:1rem var(--f-display);letter-spacing:.08em}.presidential-seal::before{content:"★";display:block;font-size:2.7rem}.address-copy h3{font:clamp(1.35rem,3vw,2rem) var(--f-display);text-transform:uppercase}.address-meta{display:block;margin:.35rem 0 1.2rem;font:.75rem var(--f-term);letter-spacing:.1em;color:var(--red)}.address-copy p{margin-bottom:1rem;font-family:var(--f-mono);font-size:clamp(.92rem,1.6vw,1.05rem);line-height:1.72;color:#d0d2ca}.address-final{color:#fff!important}.broadcast-cut{position:relative;z-index:4;padding:.75rem 1rem;border-top:1px solid #4e1116;background:#120405;color:#ff3b48;text-align:center;font:.8rem var(--f-term);letter-spacing:.14em;animation:blink 1.2s steps(2) infinite}@keyframes broadcast-pulse{50%{box-shadow:0 0 42px rgba(255,32,47,.52)}}@keyframes alert-scan{to{transform:translateX(120%)}}
+.signal-center{margin-top:clamp(4rem,8vw,6rem);padding-top:2rem;border-top:1px solid var(--line)}.signal-heading{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.4rem}.signal-heading h3{font-family:var(--f-display);font-size:clamp(1.45rem,3vw,2rem);text-transform:uppercase}.signal-heading span{font:.8rem var(--f-term);letter-spacing:.1em;color:var(--red)}.signal-console{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);border:1px solid #343b33;background:#050706;overflow:hidden}.signal-radar{position:relative;min-height:360px;border-right:1px solid var(--line);background:radial-gradient(circle,rgba(61,220,132,.08),transparent 55%),#060a07;overflow:hidden}.radar-ring{position:absolute;left:50%;top:50%;width:62%;aspect-ratio:1;transform:translate(-50%,-50%);border:1px solid rgba(61,220,132,.25);border-radius:50%;box-shadow:0 0 0 42px rgba(61,220,132,.025),0 0 0 84px rgba(61,220,132,.018)}.radar-sweep{position:absolute;left:50%;top:50%;width:42%;height:2px;transform-origin:left;background:linear-gradient(90deg,var(--green),transparent);animation:radar-sweep 5s linear infinite}.radar-label{position:absolute;left:1rem;bottom:1rem;font:.72rem var(--f-term);color:var(--green)}@keyframes radar-sweep{to{transform:rotate(360deg)}}.signal-list{padding:1rem;display:grid;gap:.7rem;align-content:start}.signal-record{--signal-color:var(--red);border:1px solid var(--line);background:#0c0e0b}.signal-record.civil{--signal-color:#67a8c6}.signal-record.is-open{border-color:var(--signal-color);box-shadow:inset 3px 0 var(--signal-color)}.signal-summary{width:100%;display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;padding:1rem;border:0;background:transparent;color:inherit;text-align:left;cursor:pointer}.signal-frequency,.signal-state{font:.78rem var(--f-term);letter-spacing:.08em;color:var(--signal-color)}.signal-summary strong{display:block;font:.98rem var(--f-display);text-transform:uppercase}.signal-summary small{font:.72rem var(--f-term);color:var(--ink-dim)}.signal-transcript{padding:1rem;margin:0 1rem 1rem;border-top:1px dashed var(--line);font:.9rem var(--f-mono);color:var(--ink)}.signal-transcript[hidden]{display:none}.signal-transcript span{display:block;margin-top:.7rem;font:.72rem var(--f-term);color:var(--signal-color)}
 
 .priority-files{margin-top:clamp(4rem,8vw,6rem);padding-top:2rem;border-top:1px solid var(--line)}
 .priority-heading{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.4rem}
@@ -300,9 +309,9 @@ nav .links > a:hover{color:var(--amber);}
 .technical-mark{position:absolute;right:.55rem;bottom:.35rem;font:.7rem var(--f-term);color:rgba(101,185,223,.52);letter-spacing:.06em}
 
 footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);background:#030303}
-@media(max-width:700px){.priority-grid{grid-template-columns:1fr}.priority-card{grid-template-columns:minmax(115px,34%) 1fr}.priority-heading{align-items:flex-start;flex-direction:column}}
+@media(max-width:700px){.tv-screen{grid-template-columns:1fr;min-height:0}.presidential-seal{width:120px;margin:auto}.signal-heading{align-items:flex-start;flex-direction:column}.signal-console{grid-template-columns:1fr}.signal-radar{min-height:260px;border-right:0;border-bottom:1px solid var(--line)}}
 @media(max-width:760px){.intel-grid{grid-template-columns:1fr}.progress-grid{grid-template-columns:repeat(2,1fr)}.sector-preview{grid-template-columns:1fr}}
-@media(max-width:480px){nav{padding:.75rem 4vw}.hero{padding:7rem 4vw 4rem}.explore{padding:4rem 4vw}.explore-grid{grid-template-columns:minmax(0,1fr)}.captured-frame{width:min(420px,92vw)}#nav-toggle{min-width:44px;min-height:44px}.links{width:min(86vw,300px)}.archive-recovery{padding:.85rem}.archive-data{font-size:.82rem}.archive-recovery::after{font-size:1.5rem}.priority-card{grid-template-columns:1fr}.priority-photo{height:210px}.priority-info{min-height:245px}}
+@media(max-width:480px){nav{padding:.75rem 4vw}.hero{padding:7rem 4vw 4rem}.explore{padding:4rem 4vw}.explore-grid{grid-template-columns:minmax(0,1fr)}.captured-frame{width:min(420px,92vw)}#nav-toggle{min-width:44px;min-height:44px}.links{width:min(86vw,300px)}.archive-recovery{padding:.85rem}.archive-data{font-size:.82rem}.archive-recovery::after{font-size:1.5rem}.signal-summary{grid-template-columns:1fr}}
 @media(max-height:520px) and (orientation:landscape){.hero{padding-top:5rem}.crawl-outer{height:70dvh}.crawl-skip{bottom:2vh}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body,.grain,.rec-dot{animation:none!important}.reveal{opacity:1;transform:none;transition:none!important}}
 </style>
@@ -365,6 +374,24 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
   </div>
   <p class="tagline fade-block" id="hero-tagline">Era uma manhã como qualquer outra. Cinco helicópteros depois, nada mais seria.</p>
 
+  <section class="presidential-broadcast fade-block" id="hero-broadcast" aria-labelledby="broadcast-title">
+    <button class="broadcast-alert" id="broadcast-trigger" type="button" aria-expanded="false" aria-controls="presidential-tv"><span>⚠ ALERTA MÁXIMO ⚠</span><strong id="broadcast-title">Comunicado do Presidente dos Estados Unidos</strong><small>[ CLIQUE PARA INTERROMPER A PROGRAMAÇÃO E RECEBER A TRANSMISSÃO ]</small></button>
+    <div class="presidential-tv" id="presidential-tv" hidden>
+      <div class="tv-header"><span>SISTEMA NACIONAL DE EMERGÊNCIA</span><span>TRANSMISSÃO OBRIGATÓRIA</span></div>
+      <div class="tv-screen">
+        <div class="presidential-seal" aria-label="Selo presidencial estilizado">THE WHITE<br>HOUSE</div>
+        <div class="address-copy"><h3>Pronunciamento à nação</h3><span class="address-meta">CASA BRANCA // GABINETE PRESIDENCIAL // AO VIVO</span>
+          <p>“Meus queridos compatriotas, falo com vocês esta noite não apenas como Presidente, mas como cidadão, pai e marido. O que está acontecendo em nosso país ultrapassa tudo para o que fomos preparados. Não vou oferecer falsas garantias: as próximas horas serão difíceis, e muitas perguntas ainda não possuem resposta.</p>
+          <p>A partir deste momento, está decretada lei marcial em todo o território nacional. Permaneçam em suas casas. Trancem portas e janelas. Apaguem as luzes externas e afastem-se das ruas. As Forças Armadas assumiram a proteção das rotas essenciais e dos centros de emergência.</p>
+          <p>Eu sei que isso vai contra tudo o que há de humano em nós, mas preciso ser absolutamente claro: não deixem ninguém entrar. Nem desconhecidos, nem amigos, nem vizinhos — nem mesmo familiares — até terem certeza de que estão seguros. Não abram a porta apenas porque reconhecem uma voz.</p>
+          <p>Cuidem das crianças. Acolham os idosos que já estiverem com vocês. Dividam água, alimento e coragem. Se estiverem separados de quem amam, não saiam para procurá-los agora. A decisão mais dolorosa desta noite talvez seja permanecer onde estão. Essa decisão pode salvar a vida de vocês — e a deles.</p>
+          <p class="address-final">Nossa nação já atravessou guerras, perdas e dias em que a esperança parecia pequena demais. Hoje, ela vive dentro de cada casa que permanecer unida. Se esta for a última vez que minha voz chegar até vocês, quero que saibam: vocês não foram abandonados. Nós ainda estamos lutando. Que Deus proteja suas famílias, e que Deus proteja os Estados Unidos da Amé—”</p>
+        </div>
+      </div>
+      <div class="broadcast-cut">TRANSMISSÃO INTERROMPIDA // CONEXÃO COM A CASA BRANCA PERDIDA</div>
+    </div>
+  </section>
+
   <div class="archive-recovery" id="archive-recovery" aria-live="polite">
     <div class="archive-head"><span class="archive-pulse"></span><span>Arquivo DD-01 localizado</span></div>
     <div class="archive-data">
@@ -375,55 +402,42 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
     <div class="integrity-track"><span class="integrity-fill" id="integrity-fill"></span></div>
     <p class="archive-message" id="archive-message">INICIANDO RECUPERAÇÃO...</p>
     <button class="archive-access" id="archive-access" type="button" disabled>[ AGUARDE AUTORIZAÇÃO ]</button>
+    <div class="dd-open-sequence" id="dd-open-sequence" role="status" aria-live="polite" hidden><p id="dd-open-status">AGUARDANDO COMANDO...</p></div>
   </div>
 
   <div class="captured-frame fade-block" id="hero-frame">
     <div class="frame-bar">
-      <span>CÂMERA 04</span>
+      <span>CÂMERA URBANA // SETOR 04</span>
       <span class="rec"><span class="dot"></span>07:52:13</span>
     </div>
     <div class="art-wrap">
-      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMax slice">
+      <svg viewBox="0 0 400 500" role="img" aria-label="Uma manhã urbana normal durante o primeiro sobrevoo de helicóptero">
         <defs>
-          <radialGradient id="fog" cx="50%" cy="70%" r="70%">
-            <stop offset="0%" stop-color="#1a0508" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#030303" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#d21f2c" stop-opacity="0"/>
-            <stop offset="50%" stop-color="#d21f2c" stop-opacity=".55"/>
-            <stop offset="100%" stop-color="#d21f2c" stop-opacity="0"/>
-          </linearGradient>
+          <linearGradient id="morning-sky" x2="0" y2="1"><stop stop-color="#283832"/><stop offset="1" stop-color="#9a7650" stop-opacity=".45"/></linearGradient>
+          <linearGradient id="street-depth" x2="0" y2="1"><stop stop-color="#242824"/><stop offset="1" stop-color="#090b09"/></linearGradient>
+          <g id="first-heli"><ellipse rx="25" ry="9" fill="#080b09" stroke="#6f8076"/><path d="M-20 0L-42-8L-45-4L-25 5M23-2L38 0L42 4L21 4" fill="#080b09" stroke="#6f8076"/><path d="M-37-13V10M-48-1H-27M0-8V-16M-39-16H39" stroke="#8b9a91"/><circle cx="15" cy="2" r="2" fill="#d21f2c"/></g>
         </defs>
-        <rect x="0" y="0" width="400" height="500" fill="#050505"/>
-        <ellipse cx="200" cy="430" rx="220" ry="90" fill="url(#fog)"/>
-        <!-- silhueta -->
-        <g transform="translate(200,250)">
-          <ellipse cx="0" cy="-108" rx="30" ry="34" fill="#020202"/>
-          <path d="M -34 -80 Q -46 -20 -40 60 Q -30 150 -46 210 L -18 210 Q -6 140 0 90 Q 6 140 18 210 L 46 210 Q 30 150 40 60 Q 46 -20 34 -80 Q 0 -100 -34 -80 Z" fill="#020202"/>
-          <path d="M -34 -70 Q -70 -40 -78 20" stroke="#020202" stroke-width="20" fill="none" stroke-linecap="round"/>
-          <path d="M 34 -70 Q 64 -10 50 40" stroke="#020202" stroke-width="20" fill="none" stroke-linecap="round"/>
-          <ellipse cx="0" cy="-108" rx="30" ry="34" fill="url(#rim)" opacity=".5"/>
-          <circle cx="-10" cy="-112" r="2.6" fill="#d21f2c" opacity=".9"/>
-          <circle cx="9" cy="-115" r="2.4" fill="#d21f2c" opacity=".75"/>
-        </g>
-        <rect x="0" y="0" width="400" height="500" fill="url(#rim)" opacity=".12"/>
+        <rect width="400" height="500" fill="url(#morning-sky)"/>
+        <circle cx="65" cy="92" r="34" fill="#e6b66e" opacity=".22"/>
+        <g fill="#111612" stroke="#425047" stroke-width="1"><path d="M0 108H62V288H0Z"/><path d="M55 150H122V290H55Z"/><path d="M292 118H354V290H292Z"/><path d="M345 76H400V290H345Z"/></g>
+        <g fill="#c49b58" opacity=".42"><path d="M12 126h9v12h-9zm24 0h9v12h-9zm32 44h10v13H68zm27 0h10v13H95zm211-29h10v13h-10zm25 0h10v13h-10zm28-42h9v12h-9zm22 0h9v12h-9z"/></g>
+        <path d="M0 500V285H400V500Z" fill="url(#street-depth)"/><path d="M145 285L65 500M255 285L335 500" stroke="#687068" stroke-width="2"/><path d="M200 300V500" stroke="#b18a45" stroke-width="3" stroke-dasharray="18 14" opacity=".7"/>
+        <g fill="#c9ccc4" opacity=".72"><path d="M12 322h84v11H8zm-4 34h92v13H0zm304-34h80v11h-76zm-2 34h90v13h-94z"/></g>
+        <g transform="translate(280 80)"><use href="#first-heli"/><path d="M-65 0H-42M42 0H70" stroke="#d21f2c" stroke-dasharray="3 3"/><text x="-64" y="-26" fill="#e8a33d" font-family="monospace" font-size="10">1º SOBREVÔO</text></g>
+        <g fill="#111"><path d="M80 373h64l12 13v24H67v-24z"/><circle cx="86" cy="411" r="8"/><circle cx="139" cy="411" r="8"/><path d="M263 327h49l10 11v20h-69v-20z"/><circle cx="269" cy="359" r="7"/><circle cx="308" cy="359" r="7"/></g>
+        <g stroke="#080a08" stroke-width="6" stroke-linecap="round"><path d="M168 340v38m0-25l-12 17m12-17l12 17"/><circle cx="168" cy="330" r="7" fill="#080a08"/><path d="M228 372v42m0-27l-13 19m13-19l14 18"/><circle cx="228" cy="361" r="7" fill="#080a08"/></g>
+        <g transform="translate(34 205)"><rect x="0" y="0" width="12" height="54" fill="#090b09"/><circle cx="6" cy="8" r="4" fill="#421014"/><circle cx="6" cy="22" r="4" fill="#4b3714"/><circle cx="6" cy="36" r="4" fill="#3ddc84"/><path d="M6 54v30" stroke="#090b09" stroke-width="4"/></g>
+        <g transform="translate(16 18)"><rect width="156" height="70" fill="#050806" fill-opacity=".82" stroke="#59665e"/><text x="9" y="17" fill="#e8a33d" font-family="monospace" font-size="10">RELATO // M. BRADOCK</text><text x="9" y="34" fill="#c4c9c2" font-family="monospace" font-size="10">1º // AGORA</text><text x="9" y="49" fill="#c4c9c2" font-family="monospace" font-size="10">2º // +05 MIN</text><text x="9" y="64" fill="#d21f2c" font-family="monospace" font-size="10">TOTAL 05 // &lt;10 MIN</text></g>
+        <text x="16" y="480" fill="#9daf9f" font-family="monospace" font-size="10">TRÁFEGO NORMAL // PEDESTRES PRESENTES // NENHUM ALERTA EMITIDO</text>
       </svg>
       <div class="glitch-bar" style="top:22%;"></div>
       <div class="glitch-bar" style="top:61%; animation-delay:2.4s;"></div>
     </div>
-    <div class="caption">último quadro antes da perda de sinal</div>
+    <div class="caption">última manhã normal // primeiro sobrevoo // outros quatro em menos de dez minutos</div>
   </div>
 
   <div class="scroll-cue fade-block" id="hero-scroll-cue"><span class="bar-v"></span><span>Role para descriptografar</span></div>
 </header>
-
-<!-- ===== TESTEMUNHO TEASER ===== -->
-<section class="teaser">
-  <p class="quote reveal">"Não escrevo mais datas. Só quantos de nós ainda restam."</p>
-  <p class="attrib reveal">— Testemunho recuperado, Dia 6</p>
-  <a class="more-link reveal" href="historia.html#testemunhos">Ler outros relatos →</a>
-</section>
 
 <!-- ===== INTELIGÊNCIA DO DIA ZERO ===== -->
 <section class="intel-section" id="dia-zero">
@@ -432,7 +446,7 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
     <div class="zero-log reveal">
       <article class="zero-event"><time>07:42</time><div><strong>PRIMEIRO SINAL</strong><p>Chamado incompleto recebido. Origem e natureza ainda não confirmadas.</p></div></article>
       <article class="zero-event"><time>07:51</time><div><strong>INTERFERÊNCIA CRESCENTE</strong><p>Fragmentos de comunicação indicam perda progressiva de contato.</p></div></article>
-      <article class="zero-event"><time>08:03</time><div><strong>MOBILIZAÇÃO AÉREA</strong><p>Cinco helicópteros são registrados nos arquivos recuperados.</p></div></article>
+      <article class="zero-event"><time>07:52+</time><div><strong>SOBREVOOS SUCESSIVOS</strong><p>Mei observa o primeiro helicóptero. O segundo passa cinco minutos depois; em menos de dez minutos, cinco aeronaves já haviam sobrevoado a região.</p></div></article>
       <article class="zero-event"><time>--:--</time><div><strong>REGISTRO CORROMPIDO</strong><p>Os acontecimentos seguintes aguardam confirmação narrativa.</p></div></article>
     </div>
     <div class="contamination-map reveal" aria-label="Mapa operacional parcialmente recuperado">
@@ -447,10 +461,10 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
 </section>
 
 <!-- ===== EXPLORAR ===== -->
-<section class="explore" id="arquivos-recuperados">
-  <p class="eyebrow reveal">Navegar pelo arquivo</p>
-  <h2 class="reveal">Diretório recuperado</h2>
-  <p class="explore-intro reveal">Selecione um setor para consultar os fragmentos disponíveis. Parte do conteúdo permanece corrompida ou sob classificação militar.</p>
+<section class="explore dd-locked" id="arquivos-recuperados" aria-hidden="true">
+  <p class="eyebrow reveal">Índice do arquivo-mestre</p>
+  <h2 class="reveal">Conteúdo recuperado do DD-01</h2>
+  <p class="explore-intro reveal">Quatro setores foram localizados dentro do pacote clandestino. Selecione um índice reconstruído para consultar os fragmentos disponíveis.</p>
   <div class="explore-grid">
     <a class="explore-card reveal" href="historia.html">
       <span class="sector-bar"><span>SETOR 01</span><span class="sector-state">RECUPERADO</span></span>
@@ -488,42 +502,25 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
 
   <aside class="sector-preview reveal" id="sector-preview" aria-live="polite"><span class="sector-preview__code">SETOR 01</span><div><h3>História // registros narrativos</h3><p>Testemunhos e cenas recuperadas do primeiro dia.</p></div><span class="sector-preview__integrity">INTEGRIDADE 71%</span></aside>
 
-  <section class="investigation-progress reveal" aria-labelledby="progress-title"><h3 id="progress-title">Progresso da investigação</h3><div class="progress-grid"><div class="progress-item"><strong data-investigation-count="8">08</strong><span>PERSONAGENS LOCALIZADOS</span></div><div class="progress-item"><strong data-investigation-count="2">02</strong><span>ARQUIVOS SECRETOS</span></div><div class="progress-item"><strong data-investigation-count="26">26</strong><span>EVIDÊNCIAS CATALOGADAS</span></div><div class="progress-item"><strong data-investigation-count="4">04</strong><span>SETORES RECUPERADOS</span></div></div></section>
+  <section class="investigation-progress reveal" aria-labelledby="progress-title"><h3 id="progress-title">Progresso da investigação</h3><div class="progress-grid"><div class="progress-item"><strong data-investigation-count="8">08</strong><span>PERSONAGENS LOCALIZADOS</span></div><div class="progress-item"><strong data-investigation-count="4">04</strong><span>ARQUIVOS SECRETOS</span></div><div class="progress-item"><strong data-investigation-count="45">45</strong><span>EVIDÊNCIAS CATALOGADAS</span></div><div class="progress-item"><strong data-investigation-count="4">04</strong><span>SETORES RECUPERADOS</span></div></div></section>
 
-  <div class="priority-files" id="dossies-prioritarios">
-    <div class="priority-heading reveal">
-      <h3>Dossiês prioritários</h3>
-      <span>02 ARQUIVOS SECRETOS DISPONÍVEIS</span>
+  <section class="signal-center" id="sinais-recuperados" aria-labelledby="signal-title">
+    <div class="signal-heading reveal"><h3 id="signal-title">Central de sinais recuperados</h3><span>02 TRANSMISSÕES INTERCEPTADAS</span></div>
+    <div class="signal-console reveal">
+      <div class="signal-radar" aria-hidden="true"><div class="radar-ring"></div><div class="radar-sweep"></div><span class="radar-label">VARREDURA NACIONAL // REDE DE EMERGÊNCIA</span></div>
+      <div class="signal-list">
+        <article class="signal-record"><button class="signal-summary" type="button" aria-expanded="false"><span class="signal-frequency">WH-SITROOM</span><span><strong>Canal interno — Casa Branca</strong><small>WASHINGTON, D.C. // INTEGRIDADE 31%</small></span><span class="signal-state">[ PRIORIDADE MÁXIMA ]</span></button><div class="signal-transcript" hidden>“Equipe de proteção, confirme a transferência. Sala de Situação, responda. Temos o comboio, mas não temos confirmação do— Alguém localize o Presidente. Repito: localizem o...”<span>SINAL PERDIDO // PRESIDENTE: ??? // LOCALIZAÇÃO NÃO CONFIRMADA</span></div></article>
+        <article class="signal-record civil"><button class="signal-summary" type="button" aria-expanded="false"><span class="signal-frequency">CIV-406</span><span><strong>Frequência civil não identificada</strong><small>ORIGEM INDETERMINADA // INTEGRIDADE 14%</small></span><span class="signal-state">[ SINAL PERDIDO ]</span></button><div class="signal-transcript" hidden>“Se alguém ainda estiver recebendo... as linhas caíram. Disseram para esperar pelo comunicado, mas há alguma coisa do lado de fora. Nós vamos tentar chegar até...”<span>ARQUIVO CORROMPIDO // REMETENTE NÃO LOCALIZADO</span></div></article>
+      </div>
     </div>
-    <div class="priority-grid">
-      <article class="priority-card mick reveal">
-        <div class="priority-photo"><img src="img-bradock/mick.png" alt="Mick Bradock" loading="lazy"></div>
-        <div class="priority-info">
-          <span class="priority-code">DD-PERSONNEL // 001</span>
-          <h4>Mick Bradock</h4>
-          <span class="priority-role">Agente do FBI</span>
-          <span class="priority-status">SUBJECT TRACKED</span>
-          <p class="priority-copy">Registro tático, linha do tempo do Dia Zero e evidências anexadas ao caso.</p>
-          <button class="priority-open" type="button" aria-expanded="false">[ ANALISAR DOSSIÊ ] →</button>
-        </div>
-        <div class="priority-details" hidden><span>LOCALIZAÇÃO // NÃO CONFIRMADA</span><span>EVIDÊNCIAS // 06 REGISTROS</span><p>Perfil disciplinado, observador e protetor. A família permanece como prioridade operacional.</p><a href="personagem.html?id=mick&amp;from=home">[ AUTORIZAR ABERTURA DO ARQUIVO ] →</a></div>
-      </article>
+  </section>
 
-      <article class="priority-card mei reveal">
-        <div class="priority-photo"><img src="img-mei/mei1.png" alt="Melissa Mei Bradock" loading="lazy"></div>
-        <div class="priority-info">
-          <span class="priority-code">DD-PERSONNEL // 002</span>
-          <h4>Melissa “Mei” Bradock</h4>
-          <span class="priority-role">Arquiteta</span>
-          <span class="priority-status">EVIDÊNCIAS RESTRITAS</span>
-          <p class="priority-copy">Arquivo técnico, localização registrada e documentação fotográfica parcial.</p>
-          <button class="priority-open" type="button" aria-expanded="false">[ ANALISAR DOSSIÊ ] →</button>
-          <span class="technical-mark">X 042 // Y 117 // ESC 1:50</span>
-        </div>
-        <div class="priority-details" hidden><span>LOCALIZAÇÃO // REGISTRO INCOMPLETO</span><span>EVIDÊNCIAS // ACESSO RESTRITO</span><p>Arquivo arquitetônico, vínculos familiares e documentação técnica recuperada parcialmente.</p><a href="personagem.html?id=mei&amp;from=home">[ AUTORIZAR ABERTURA DO ARQUIVO ] →</a></div>
-      </article>
-    </div>
-  </div>
+  <!-- encerramento emocional do arquivo-mestre -->
+  <section class="teaser archive-testimony">
+    <p class="quote reveal">"Não escrevo mais datas. Só quantos de nós ainda restam."</p>
+    <p class="attrib reveal">— Testemunho recuperado, Dia 6</p>
+    <a class="more-link reveal" href="historia.html#testemunhos">Ler outros relatos →</a>
+  </section>
 </section>
 
 <section class="last-transmission"><strong>ÚLTIMA TRANSMISSÃO // CANAL 06</strong><p>“Se alguém receber esta mensagem, não siga pela—”</p><span class="signal-lost">[ SINAL INTERROMPIDO ]</span></section>
@@ -544,23 +541,39 @@ const links = document.getElementById('nav-links');
 toggle.addEventListener('click', () => links.classList.toggle('open'));
 links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
-/* prévia dos dossiês prioritários antes da abertura do arquivo */
-document.querySelectorAll('.priority-card').forEach(card=>{
-  const trigger=card.querySelector('.priority-open');
-  const details=card.querySelector('.priority-details');
+/* transmissão presidencial e sinais interceptados */
+const broadcastTrigger=document.getElementById('broadcast-trigger');
+const presidentialTv=document.getElementById('presidential-tv');
+const broadcastEnd=document.querySelector('.broadcast-cut');
+let archiveReleaseStarted=false;
+const broadcastEndObserver=new IntersectionObserver(entries=>{
+  if(entries.some(entry=>entry.isIntersecting)&&broadcastTrigger.getAttribute('aria-expanded')==='true'){
+    broadcastEndObserver.disconnect();
+    releaseArchiveAfterAddress();
+  }
+},{threshold:.65});
+broadcastEndObserver.observe(broadcastEnd);
+broadcastTrigger.addEventListener('click',()=>{
+  const opening=presidentialTv.hidden;
+  presidentialTv.hidden=!opening;
+  broadcastTrigger.setAttribute('aria-expanded',String(opening));
+  broadcastTrigger.querySelector('small').textContent=opening?'[ TRANSMISSÃO PRESIDENCIAL EM CURSO // CLIQUE PARA ENCERRAR ]':'[ CLIQUE PARA INTERROMPER A PROGRAMAÇÃO E RECEBER A TRANSMISSÃO ]';
+  if(opening)requestAnimationFrame(()=>presidentialTv.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}));
+});
+document.querySelectorAll('.signal-record').forEach(record=>{
+  const trigger=record.querySelector('.signal-summary');
+  const details=record.querySelector('.signal-transcript');
   trigger.addEventListener('click',()=>{
     const willOpen=details.hidden;
-    document.querySelectorAll('.priority-card.is-open').forEach(openCard=>{
-      if(openCard===card)return;
-      openCard.classList.remove('is-open');
-      openCard.querySelector('.priority-details').hidden=true;
-      openCard.querySelector('.priority-open').setAttribute('aria-expanded','false');
-      openCard.querySelector('.priority-open').textContent='[ ANALISAR DOSSIÊ ] →';
+    document.querySelectorAll('.signal-record.is-open').forEach(openRecord=>{
+      if(openRecord===record)return;
+      openRecord.classList.remove('is-open');
+      openRecord.querySelector('.signal-transcript').hidden=true;
+      openRecord.querySelector('.signal-summary').setAttribute('aria-expanded','false');
     });
     details.hidden=!willOpen;
-    card.classList.toggle('is-open',willOpen);
+    record.classList.toggle('is-open',willOpen);
     trigger.setAttribute('aria-expanded',String(willOpen));
-    trigger.textContent=willOpen?'[ RECOLHER DOSSIÊ ] ↑':'[ ANALISAR DOSSIÊ ] →';
   });
 });
 
@@ -568,7 +581,7 @@ document.querySelectorAll('.priority-card').forEach(card=>{
 const sectorPreview=document.getElementById('sector-preview');
 const sectorData=[
   ['SETOR 01','História // registros narrativos','Testemunhos e cenas recuperadas do primeiro dia.','INTEGRIDADE 71%'],
-  ['SETOR 02','Personagens // banco de sobreviventes','Oito identidades localizadas; dois arquivos secretos disponíveis.','INTEGRIDADE 86%'],
+  ['SETOR 02','Personagens // banco de sobreviventes','Oito identidades localizadas; quatro arquivos secretos disponíveis.','INTEGRIDADE 86%'],
   ['SETOR 03','Ameaça // risco biológico','Relatórios incompletos. Nível de risco permanece crítico.','INTEGRIDADE 43%'],
   ['SETOR 04','Galeria // arquivo visual','Referências e registros conceituais parcialmente recuperados.','INTEGRIDADE 58%']
 ];
@@ -610,15 +623,14 @@ scheduleSignal();
 /* retorno inteligente dos arquivos secretos */
 const returnedSubject=new URLSearchParams(location.search).get('returned');
 if(returnedSubject){
-  const dossierSection=document.getElementById('dossies-prioritarios');
+  unlockDirectory();
+  const directory=document.querySelector('.explore-grid');
   const notice=document.createElement('p');
   notice.className='return-notice';
   notice.textContent=`ARQUIVO ${returnedSubject.toUpperCase()} FECHADO // SESSÃO REGISTRADA`;
-  dossierSection.before(notice);
-  const returnedCard=document.querySelector(`.priority-card.${CSS.escape(returnedSubject)}`);
-  if(returnedCard)returnedCard.classList.add('returned');
-  history.replaceState(null,'',location.pathname+'#dossies-prioritarios');
-  requestAnimationFrame(()=>dossierSection.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
+  directory.before(notice);
+  history.replaceState(null,'',location.pathname+'#arquivos-recuperados');
+  requestAnimationFrame(()=>directory.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
 }
 
 /* scroll reveal (sessões abaixo da hero) */
@@ -661,6 +673,7 @@ const fireShadow = document.getElementById('fire-shadow');
 const bloodDrips = document.getElementById('blood-drips');
 const heroEyebrow = document.getElementById('hero-eyebrow');
 const heroTagline = document.getElementById('hero-tagline');
+const heroBroadcast = document.getElementById('hero-broadcast');
 const heroFrame = document.getElementById('hero-frame');
 const heroScrollCue = document.getElementById('hero-scroll-cue');
 const archiveRecovery = document.getElementById('archive-recovery');
@@ -668,6 +681,8 @@ const integrityValue = document.getElementById('integrity-value');
 const integrityFill = document.getElementById('integrity-fill');
 const archiveMessage = document.getElementById('archive-message');
 const archiveAccess = document.getElementById('archive-access');
+const ddOpenSequence = document.getElementById('dd-open-sequence');
+const ddOpenStatus = document.getElementById('dd-open-status');
 const openingSessionKey = 'doomsday-home-opening-seen';
 
 function wait(ms){ return new Promise(r => setTimeout(r, ms)); }
@@ -715,12 +730,50 @@ async function recoverArchive(){
   archiveMessage.textContent='RECUPERAÇÃO PARCIAL CONCLUÍDA // ACESSO LIBERADO';
   archiveAccess.disabled=false;
   archiveAccess.classList.add('ready');
-  archiveAccess.textContent='[ ACESSAR ARQUIVOS RECUPERADOS ]';
+  archiveAccess.textContent='[ ABRIR ARQUIVO-MESTRE DD-01 ]';
 }
 
-archiveAccess.addEventListener('click',()=>{
-  if(archiveAccess.disabled) return;
-  document.getElementById('arquivos-recuperados').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+async function releaseArchiveAfterAddress(){
+  if(archiveReleaseStarted)return;
+  archiveReleaseStarted=true;
+  await recoverArchive();
+  await wait(280);
+  heroFrame.classList.add('show');
+  await wait(260);
+  heroScrollCue.classList.add('show');
+}
+
+let directoryOpening=false;
+function unlockDirectory(){
+  const directorySection=document.getElementById('arquivos-recuperados');
+  directorySection.classList.remove('dd-locked');
+  directorySection.classList.add('dd-unsealing');
+  directorySection.setAttribute('aria-hidden','false');
+  return directorySection;
+}
+archiveAccess.addEventListener('click',async()=>{
+  if(archiveAccess.disabled)return;
+  if(archiveAccess.dataset.opened==='true'){
+    document.getElementById('arquivos-recuperados').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    return;
+  }
+  if(directoryOpening)return;
+  directoryOpening=true;
+  archiveAccess.disabled=true;
+  archiveAccess.classList.remove('ready');
+  archiveAccess.classList.add('opening');
+  ddOpenSequence.hidden=false;
+  const stages=['CREDENCIAL ACEITA','REMOVENDO CRIPTOGRAFIA GOVERNAMENTAL...','DESCOMPACTANDO PACOTE DD-01...','04 SETORES LOCALIZADOS','ÍNDICE PARCIALMENTE RECUPERADO'];
+  for(const stage of stages){ddOpenStatus.textContent=stage;await wait(matchMedia('(prefers-reduced-motion: reduce)').matches?80:520)}
+  const directorySection=unlockDirectory();
+  archiveAccess.disabled=false;
+  archiveAccess.classList.remove('opening');
+  archiveAccess.classList.add('ready');
+  archiveAccess.dataset.opened='true';
+  archiveAccess.textContent='[ DD-01 ABERTO // ACESSAR 04 SETORES ]';
+  directoryOpening=false;
+  await wait(180);
+  directorySection.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
 });
 
 function prepareCrawlDust(){
@@ -940,11 +993,8 @@ async function revealHero(){
   heroEyebrow.classList.add('show');
   await wait(220);
   heroTagline.classList.add('show');
-  await recoverArchive();
-  await wait(280);
-  heroFrame.classList.add('show');
-  await wait(260);
-  heroScrollCue.classList.add('show');
+  await wait(420);
+  heroBroadcast.classList.add('show');
   document.body.classList.remove('locked');
   startGlitchLoop();
 }
@@ -967,15 +1017,7 @@ function showCompletedHome(){
   spawnBloodDrips(false);
   heroEyebrow.classList.add('show');
   heroTagline.classList.add('show');
-  archiveRecovery.classList.add('show');
-  integrityValue.textContent = '63%';
-  integrityFill.style.width = '63%';
-  archiveMessage.textContent = 'RECUPERAÇÃO PARCIAL CONCLUÍDA // ACESSO LIBERADO';
-  archiveAccess.disabled = false;
-  archiveAccess.classList.add('ready');
-  archiveAccess.textContent = '[ ACESSAR ARQUIVOS RECUPERADOS ]';
-  heroFrame.classList.add('show');
-  heroScrollCue.classList.add('show');
+  heroBroadcast.classList.add('show');
   document.body.classList.remove('locked');
   startGlitchLoop();
 }

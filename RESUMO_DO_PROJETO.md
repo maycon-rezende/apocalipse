@@ -33,7 +33,7 @@ Por isso, o gelo e a neve da introdução representam a origem antártica de DOO
 - `personagens.html`: fichas pesquisáveis e filtráveis dos personagens.
 - `personagem.html`: arquivo secreto dinâmico de cada personagem.
 - `evidencias.html`: cofre dinâmico com os lotes completos de fotografias encontradas.
-- `acesso-restrito.html`: portal protegido do material ainda em construção da Melissa.
+- `acesso-restrito.html`: portal protegido do material ainda em construção de Mei.
 - `ameaca.html`: informações sobre a ameaça.
 - `projeto-doom.html`: arquivo ultrassecreto sobre a descoberta antártica e a cadeia de custódia incompleta de DOOM.
 - `galeria.html`: registros visuais do universo.
@@ -124,16 +124,26 @@ A antiga seção “Explorar” foi transformada em um diretório militar com qu
 
 Cada setor possui código, estado, cor própria, varredura ao interagir, descrição contextual e chamada de acesso específica. O setor de personagens apresenta um contador animado com os oito registros existentes.
 
-### Dossiês prioritários
+### Central de sinais recuperados
 
-A página principal agora oferece acesso direto aos arquivos secretos já disponíveis:
+A antiga seção de dossiês prioritários foi substituída por uma área de comunicações de emergência, evitando repetir na Home os arquivos já disponíveis em Personagens.
 
-- Mick Bradock: `personagem.html?id=mick`, com retrato, mira e indicação `SUBJECT TRACKED`;
-- Melissa “Mei” Bradock: `personagem.html?id=mei`, com grade arquitetônica, coordenadas técnicas e aviso de evidências restritas.
+O pronunciamento presidencial ganhou uma seção própria em formato de televisão de emergência, posicionada na abertura da Home imediatamente abaixo da frase “Era uma manhã como qualquer outra...”. Uma faixa vermelha pulsante de alerta máximo interrompe a programação e, ao ser acionada, revela uma mensagem extensa e humana à população, incluindo a decretação da lei marcial, instruções de isolamento e a orientação de não permitir a entrada de pessoas cuja segurança não possa ser confirmada. A transmissão termina abruptamente antes da conclusão.
 
-Os cards preservam as identidades visuais dos respectivos dossiês e se adaptam a telas menores.
+O painel de recuperação DD-01 e o registro visual seguinte permanecem totalmente ocultos enquanto o comunicado não é aberto. Depois que o usuário aciona o alerta e chega ao final do pronunciamento, a recuperação do arquivo começa automaticamente; quem ignora a transmissão não recebe acesso ao restante da abertura investigativa.
 
-Antes de navegar, cada card pode ser expandido para revelar uma prévia operacional, a quantidade de evidências e o comando final de autorização. Os acessos a Personagens e aos arquivos secretos usam uma transição compartilhada de rasgos e marcas de garras, como se a interface fosse violada por uma criatura.
+Depois da recuperação, o DD-01 funciona como porta efetiva para o diretório. O comando “Abrir arquivo-mestre” executa autenticação, remoção da criptografia, descompactação e localização dos quatro setores. O diretório permanece oculto até o fim dessa sequência e então surge identificado como “Conteúdo recuperado do DD-01”.
+
+O testemunho “Não escrevo mais datas...” deixou de aparecer imediatamente após a abertura presidencial. Ele agora encerra o conteúdo do arquivo-mestre, depois da Central de Sinais, funcionando como epílogo emocional antes da última transmissão e permanecendo oculto enquanto o DD-01 não for aberto.
+
+O antigo quadro da Câmera 04 com uma silhueta humanoide foi substituído por uma câmera urbana da última manhã normal, ligada diretamente ao subtítulo da Home. A captura mostra trânsito, pedestres e o primeiro helicóptero observado por Mei. O segundo sobrevoo acontece cinco minutos depois e, em menos de dez minutos, ela contabiliza cinco aeronaves — nunca as cinco juntas. A linha do tempo foi ajustada para preservar essa continuidade.
+
+A Central de Sinais permanece abaixo, com radar animado e duas transmissões expansíveis:
+
+- canal interno incompleto da Casa Branca, encerrado com a localização do presidente não confirmada;
+- frequência civil não identificada e interrompida.
+
+Os registros apresentam frequência, procedência, integridade e estado de autenticação. Os textos permanecem deliberadamente fragmentados para ampliar o mistério sem confirmar acontecimentos ainda indefinidos na história.
 
 A Home também passou a incluir:
 
@@ -197,7 +207,7 @@ O arquivo de nível 05 separa a origem do agente biológico do relatório geral 
 
 ## Continuidade da família Bradock
 
-- **Melissa “Mei” Bradock** substitui definitivamente o antigo nome Elisabeth;
+- **Mei Bradock** é o nome usado na interface; seu nome civil de nascimento é Melissa Akemi Collins;
 - os filhos de Mick e Mei são **Chris**, **Maya** e **Hanna**;
 - Maya substitui o antigo nome Diana;
 - Hanna substitui o antigo nome Emma.
@@ -216,7 +226,25 @@ A página contém:
 - blocos maiores para acomodar os retratos;
 - botão **Abrir arquivo secreto** ao lado do status, na parte inferior da ficha.
 
-No momento, Mick e Mei possuem arquivo secreto porque são os personagens que já têm conjuntos de imagens no projeto.
+No momento, Mick, Mei e James Hanson possuem arquivos secretos. Mick e Mei têm conjuntos fotográficos; Hanson já possui uma identificação principal, mas seu lote de evidências continua aguardando validação narrativa.
+
+O Capitão James William Hanson recebeu um dossiê dinâmico próprio em `personagem.html?id=hanson`. A antiga patente de General foi corrigida para Capitão e Stayci Hanson foi substituída por Natasha Becker Hanson. O arquivo reúne biografia, perfil operacional, especializações, identificação física e os acontecimentos confirmados do início do Dia D. A identificação principal utiliza `img-hanson/home.png`. Quatro evidências cronológicas mostram o ingresso no Exército, treinamento de resistência, instrução tática e promoção a Capitão. A imagem `jh.png`, ambientada durante o colapso urbano, permanece reservada até seu contexto narrativo ser confirmado.
+
+Natasha Evelyn Becker Hanson recebeu um dossiê próprio em `personagem.html?id=natasha`. A personagem foi definida como jornalista investigativa e virologista, com formação em Ciências Biomédicas por Harvard, pesquisa avançada em doenças infecciosas e Jornalismo Investigativo por Columbia. O arquivo preserva James William Hanson como nome canônico do marido e reúne sua investigação pré-Dia D sobre laboratórios privados, relatórios e pesquisadores desaparecidos. `img-nat/natstudy.png` é a capa; `img-nat/nat.png` e `img-nat/natstudy.png` aparecem como evidências. O tema exclusivo usa tons de biossegurança, varredura biológica e marcações de análise documental. A localização exata de Natasha na manhã do colapso permanece não confirmada.
+
+As galerias Hanson foram ampliadas. James possui agora dez evidências, incluindo retratos militares, café, licença nas montanhas, encontro com antigos companheiros e operação urbana. Natasha possui nove evidências, combinando investigação, laboratório, rotina doméstica, jardim, lazer e registros civis. A foto do bar não é descrita como consumo de álcool, preservando a definição canônica de que James nunca bebe. O contador da home foi atualizado para 45 evidências catalogadas.
+
+O tema exclusivo de Natasha foi aprofundado como uma interface de investigação biológica. Ele inclui cursor de amostragem com identificação dinâmica de evidências, varredura de biossegurança, moldura de fonte verificada, análise luminosa sobre documentos, pulsos celulares na cronologia e reações forenses nas fotografias e painéis. Os movimentos são desativados quando o sistema solicita redução de animações.
+
+Os cartões de James e Natasha na página `personagens.html` agora exibem retratos no mesmo padrão dos cartões em destaque de Mick e Mei. James usa `img-hanson/home.png` com identificação `SUBJECT_06 // U.S. ARMY`; Natasha usa `img-nat/natstudy.png` com identificação `SUBJECT_07 // BIOINT`. As mesmas imagens também alimentam o retrato do modal de ficha completa.
+
+As galerias de James e Natasha foram divididas entre dossiê público e cofre confidencial. Cada página principal exibe somente três imagens: James mantém ingresso, treinamento e promoção; Natasha mantém pesquisa documental, mural investigativo e laboratório. O restante está em `evidencias.html?id=hanson` (sete arquivos) e `evidencias.html?id=natasha` (seis arquivos), acessível pelo bloco de acesso restrito ao fim de cada dossiê. O cofre preserva temas visuais próprios para os arquivos militar e biológico. O total geral de 45 evidências não foi alterado.
+
+### Publicação no GitHub — 19/07/2026
+
+Esta atualização foi preparada para publicação na branch `main` do repositório `maycon-rezende/apocalipse`. O pacote inclui os dossiês completos de James e Natasha, seus efeitos exclusivos, cartões com retratos, novas imagens, separação das galerias públicas e confidenciais, atualização dos contadores da home e revisão deste resumo de continuidade.
+
+O tema exclusivo de Hanson representa uma central de comando tático: grade militar verde-oliva, varredura horizontal, rede de comando ativa, marcações angulares na identificação, pulsos de ordem na linha do tempo, leitura operacional nos painéis e cursor quadrado de seleção com direção em graus. Ao interagir, o cursor expande sobre alvos de comando e responde ao clique como emissão de uma ordem.
 
 ## Arquivos secretos — `personagem.html`
 
@@ -256,7 +284,7 @@ Por ser agente do FBI, o arquivo de Mick possui:
 - mudança da mira sobre elementos interativos;
 - pulso vermelho ao clicar.
 
-### Melissa “Mei” Bradock
+### Mei Bradock
 
 Por ser arquiteta, o arquivo de Mei possui:
 
@@ -269,6 +297,8 @@ Por ser arquiteta, o arquivo de Mei possui:
 - linhas de cotagem animadas nos documentos;
 - reação visual técnica sobre as evidências.
 
+O dossiê também registra seu background completo: nascimento em Kyoto, educação bilíngue, influência profissional de Daniel Collins e Aiko Sato Collins, perda dos pais aos 12 e 15 anos, mudança para Seattle, convivência com William e Margaret Collins, amizade e namoro com Mick, formação em Arquitetura e fundação do Bradock Atelier aos 28 anos. Na interface ela aparece somente como **Mei Bradock**; o nome Melissa é preservado apenas no campo civil confidencial.
+
 O sistema já aplica os temas automaticamente conforme o parâmetro `id` da URL.
 
 ## Evidências encontradas
@@ -276,18 +306,19 @@ O sistema já aplica os temas automaticamente conforme o parâmetro `id` da URL.
 Os arquivos individuais possuem um segundo nível de material em `evidencias.html`:
 
 - Mick possui seis registros fotográficos disponíveis;
-- Melissa possui vinte registros catalogados;
+- Mei possui vinte registros catalogados;
+- Hanson possui quatro registros cronológicos disponíveis no dossiê principal;
 - cada item recebe número de evidência e código de lote;
 - as imagens preservam sua proporção original;
 - os registros aparecem conforme a rolagem;
 - clicar em uma fotografia abre a evidência em tela cheia;
 - o botão de retorno leva ao dossiê correto.
 
-No arquivo de Melissa, a terceira evidência preliminar exibida em `personagem.html` usa atualmente `img-mei/meicaseira.png`.
+No arquivo de Mei, a terceira evidência preliminar exibida em `personagem.html` usa atualmente `img-mei/meicaseira.png`.
 
-## Acesso restrito da Melissa
+## Acesso restrito de Mei
 
-Enquanto as fotografias de Melissa ainda estão sendo preparadas:
+Enquanto as fotografias de Mei ainda estão sendo preparadas:
 
 - o acesso visível foi substituído por um símbolo arquitetônico discreto `⌖`;
 - o símbolo abre `acesso-restrito.html`;
@@ -296,7 +327,7 @@ Enquanto as fotografias de Melissa ainda estão sendo preparadas:
 - a senha é comparada por hash e não aparece em texto aberto no código;
 - uma tentativa incorreta exibe “Acesso negado”;
 - a autorização é mantida apenas durante a sessão do navegador;
-- abrir diretamente as evidências de Melissa sem autorização redireciona para o portal restrito.
+- abrir diretamente as evidências de Mei sem autorização redireciona para o portal restrito.
 
 Esta proteção é adequada apenas para a fase atual de demonstração do site estático. Antes de uma publicação profissional, o material deverá ser liberado ou protegido por autenticação no servidor.
 
@@ -389,7 +420,7 @@ Após o envio, o commit local e `origin/main` foram conferidos e estavam sincron
 
 Esta versão também foi preparada e sincronizada com o GitHub na branch `main`. A atualização inclui:
 
-- correção de continuidade: Elisabeth passa definitivamente a ser Melissa “Mei” Bradock;
+- correção de continuidade: Elisabeth passa definitivamente a ser Mei Bradock;
 - atualização dos nomes das filhas para Maya e Hanna;
 - remoção das fotografias de Mei da Galeria, que será reconstruída futuramente com imagens do apocalipse e do caos;
 - criação do arquivo ultrassecreto `projeto-doom.html`;
