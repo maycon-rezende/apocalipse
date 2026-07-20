@@ -103,6 +103,7 @@ function showAccessGate(){
   });
 }
 function showFacilityIncomplete(){
+  switchToLaboratoryTheme();
   bootBox.innerHTML=`<section class="facility-incomplete"><div class="facility-head"><span>BLACK VAULT // SUBNÍVEL ANT-00</span><b>ACESSO SUSPENSO</b></div><h2>Instalação incompleta</h2><p>A credencial é autêntica. No entanto, a reconstrução deste setor ainda não foi concluída. Arquivos científicos, registros de contenção e a cadeia de eventos permanecem indisponíveis.</p><div class="lab-preview" aria-hidden="true"><div class="containment-chamber"></div><div class="sample-rack"><i></i><i></i><i></i></div></div><div class="facility-status"><span>SETOR DE TESTES<b>EM CONSTRUÇÃO</b></span><span>ARQUIVO BIOLÓGICO<b>NÃO RECUPERADO</b></span><span>CONTENÇÃO<b>SELADA</b></span></div><div class="facility-actions"><a href="home.html">← RETORNAR AOS ARQUIVOS</a><a href="ameaca.html">CONSULTAR RELATÓRIO DE AMEAÇA</a></div></section>`;
   bootBox.querySelector('a').focus();
 }
@@ -143,9 +144,12 @@ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
 document.querySelectorAll('.reveal').forEach(element=>observer.observe(element));
 </script>
 <script>
-const laboratoryTheme=new Audio('audio/themelab.mp3');laboratoryTheme.loop=true;laboratoryTheme.preload='auto';
-const playLaboratoryTheme=()=>laboratoryTheme.play().catch(()=>{});playLaboratoryTheme();
-document.addEventListener('pointerdown',playLaboratoryTheme,{once:true});document.addEventListener('keydown',playLaboratoryTheme,{once:true});
+const restrictedTheme=new Audio('audio/themeameaca.mp3');restrictedTheme.loop=true;restrictedTheme.preload='auto';restrictedTheme.volume=.72;
+const laboratoryTheme=new Audio('audio/themelab.mp3');laboratoryTheme.loop=true;laboratoryTheme.preload='auto';laboratoryTheme.volume=.72;
+const playRestrictedTheme=()=>restrictedTheme.play().catch(()=>{});
+const switchToLaboratoryTheme=()=>{restrictedTheme.pause();restrictedTheme.currentTime=0;laboratoryTheme.play().catch(()=>{});};
+playRestrictedTheme();
+document.addEventListener('pointerdown',playRestrictedTheme,{once:true});document.addEventListener('keydown',playRestrictedTheme,{once:true});
 </script>
 <script src="cursor-site.js"></script>
 </body>

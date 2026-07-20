@@ -5,7 +5,7 @@
   const clues={
     'home.html':{id:'origin',fragment:'ANT',label:'Fragmento de origem',host:'.investigation-progress'},
     'personagens.html':{id:'integrity',fragment:'31',label:'Fragmento de integridade',host:'.dossier.featured'},
-    'ameaca.html':{id:'risk',fragment:'OMEGA',label:'Fragmento de risco',host:'.origin-file'}
+    'ameaca.html':{id:'risk',fragment:'OMEGA',label:'Fragmento de risco',host:'.field-file'}
   };
   if(page==='personagem.html'){
     if(params.get('id')==='mick')clues[page]={id:'zero',fragment:'Z',label:'Fragmento operacional',host:'.warning'};

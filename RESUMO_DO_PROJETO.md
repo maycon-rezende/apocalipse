@@ -182,19 +182,29 @@ A Galeria foi transformada em um arquivo visual recuperado com:
 
 ## Ameaça — `ameaca.html`
 
-A página de Ameaça foi transformada em um relatório científico-militar sobre DOOM. Ela apresenta:
+A página de Ameaça é um relatório público de sobrevivência sobre os infectados, sem revelar o Projeto DOOM. Ela apresenta:
 
-- designação DOOM e origem confirmada na Antártida;
-- representação técnica da amostra preservada no gelo;
-- ficha de recuperação com equipe e coordenadas classificadas;
-- separação entre dados confirmados, informações em análise e arquivos bloqueados;
-- filtros interativos para os três estados de conhecimento;
-- cadeia de custódia do gelo ao Dia Zero, mantendo em aberto transporte, pesquisa e falha de contenção;
-- remoção das antigas afirmações sobre transmissão, comportamento e vulnerabilidades que ainda não foram definidas na história.
+- progressão observada entre alteração inicial, ruptura, conversão e variações avançadas;
+- padrões de campo como atração por estímulos, resposta imprevisível e formação de aglomerações;
+- hipóteses sobre memória residual, adaptação e evoluções ainda não classificadas;
+- separação interativa entre observações confirmadas, dados em análise e ocorrências não identificadas;
+- aviso explícito de que a origem do fenômeno não foi determinada;
+- remoção de toda referência pública à Antártida, amostra, cadeia de custódia, falha de contenção e designação DOOM;
+- ausência de ligação direta para o arquivo ultrassecreto, preservando sua descoberta como parte do puzzle.
+
+A atmosfera de `ameaca.html` foi aprofundada para acompanhar `themeameaca.mp3`. Névoa contaminada, sombras de infectados nas bordas, faixa de alerta, pulsos orgânicos e falhas breves no título tornam o relatório progressivamente mais inquietante. Um visor de proximidade reage à rolagem e aos cartões inspecionados, elevando o risco diante de padrões não identificados. Os registros ganham varredura e profundidade no hover, a cronologia reage à aproximação e um cursor de rastreamento informa dinamicamente o alcance da evidência observada. Movimentos intensos são desativados quando o sistema solicita animações reduzidas.
+
+A entrada da página passou a usar uma intro obrigatória em tela cheia. `img-ameaca/zumbi.jpg` ocupa o fundo sob baixa luminosidade, névoa animada e alertas graduais de imagens sensíveis, sinal contaminado, movimento detectado e risco desconhecido. O visitante precisa acionar `ACESSAR RELATÓRIO DE AMEAÇA`; o clique abre a névoa, libera a rolagem e garante uma tentativa de reprodução de `themeameaca.mp3` dentro de uma interação autorizada pelo navegador.
+
+Logo após o cabeçalho, a seção `Antes de Chamarem de Surto` reconstrói as 72 horas anteriores ao reconhecimento público da crise. Seis transmissões ficcionais registram desaparecimentos na Costa Oeste, suspeita de canibalismo na Europa Central, pacientes violentos no Leste Asiático, corpos desaparecidos na América do Sul, ataques familiares na Costa Leste e uma evacuação final em local não confirmado. A linguagem inicial usa termos como agressores, pacientes, droga sintética e falha documental, sem mencionar zumbis, explicar a origem ou expor o Projeto DOOM. Uma faixa de notícias, estados de retenção e reação do visor de proximidade reforçam a escalada. O painel identifica explicitamente o material como ficcional e mantém locais e datas exatas não recuperados.
+
+`img-ameaca/zumbi.jpg` foi incorporada após a progressão observada como `EVENTO 04 // AGLOMERAÇÃO`. O registro fotográfico é tratado com baixa luminosidade, dessaturação, enquadramento técnico, varredura vermelha e metadados de cerco. A imagem ganha detalhes e movimento de paralaxe durante a inspeção; ao aproximar o cursor, o visor de risco muda para `CERCO IMINENTE` e o rastreador marca alcance crítico. A composição central da imagem recebe a mensagem de que o campo de visão foi comprometido segundos após a captura.
+
+A página termina com o arquivo selado `img-ameaca/primeiraevidencia.avif`. Antes da imagem, o visitante encontra apenas a pergunta `O primeiro registro?` e a hipótese de que o arquivo seja anterior às primeiras transmissões oficiais, embora seus metadados tenham sido destruídos. O comando `RECUPERAR EVIDÊNCIA VISUAL` expande o encerramento e revela a imagem com baixa luminosidade, aproximação lenta, ruído e moldura cinematográfica. A legenda usa o próprio nome do arquivo — `PRIMEIRA EVIDÊNCIA` — acompanhada de autoria, local e momento desconhecidos. Durante a revelação, o visor muda para `REGISTRO ANTERIOR DETECTADO`; a imagem pode ser novamente ocultada pelo mesmo controle.
 
 ## Projeto DOOM — `projeto-doom.html`
 
-O arquivo de nível 05 separa a origem do agente biológico do relatório geral de ameaça. Ele apresenta:
+O arquivo de nível 05 concentra com exclusividade as informações secretas sobre a origem do agente biológico. Ele apresenta:
 
 - descoberta confirmada da amostra no gelo antártico;
 - protocolo de acesso obrigatório com inicialização digitada, cinco fragmentos escondidos pelo site e credencial persistente do laboratório;
@@ -203,14 +213,23 @@ O arquivo de nível 05 separa a origem do agente biológico do relatório geral 
 - cadeia de custódia expansível entre recuperação, expedição, transporte, pesquisa, ruptura e Dia Zero;
 - documentos classificados e perguntas de continuidade ainda pendentes;
 - campos preparados para receber fatos novos durante a reescrita, sem antecipar respostas;
-- acesso pela navegação da Home e pelo relatório de Ameaça.
+- acesso protegido pelo protocolo do Projeto DOOM; o relatório público de Ameaça não conduz mais diretamente a este arquivo.
 
 ## Continuidade da família Bradock
 
-- **Mei Bradock** é o nome usado na interface; seu nome civil de nascimento é Melissa Akemi Collins;
-- os filhos de Mick e Mei são **Chris**, **Maya** e **Hanna**;
+- **Mei Bradock** é o único nome usado nos arquivos acessíveis; seu registro civil completo é um segredo conhecido apenas por Mick;
+- da mesma forma, somente Mei conhece o nome completo de Mick, que permanece ausente dos arquivos;
+- os filhos usam a herança materna e paterna nos nomes: **Chris Sato Bradock**, **Maya Sato Bradock** e **Hanna Sato Bradock**;
 - Maya substitui o antigo nome Diana;
 - Hanna substitui o antigo nome Emma.
+
+Chris Sato Bradock recebeu um dossiê próprio em `personagem.html?id=chris`. Ele tem 17 anos, é o primogênito de Mick e Mei, mantém uma relação excelente com os pais e as irmãs Maya e Hanna e herdou do pai o impulso de proteger pessoas vulneráveis. No início do Dia D, começava seu primeiro ano na universidade, ainda sem profissão ou curso confirmados. Chris é músico amador, toca guitarra e usa a música como forma de expressão. Namora Suyang Lee, uma jovem coreana cuja casa foi projetada e construída por Mei. `img-chris/chris.png` é a identificação principal; guitarra, registro com Mick e retrato individual formam as três evidências públicas. O arquivo `evidencias.html?id=chris` possui agora sete registros: dois com Suyang, um com Mick e quatro novos fragmentos de sua rotina (`chris0.png` a `chris3.png`). A identidade visual exclusiva transforma o quarto de músico em um palco interativo: tons violetas, cordas de guitarra, equalizador, iluminação que acompanha o cursor, palheta reativa e notas que surgem nos cliques. Uma pedaleira visual oferece os modos `CLEAN`, `DRIVE` e `ECHO`; cada modo altera cores, vibração, intensidade, sombras e rastros da interface. Os efeitos mais fortes são removidos quando o visitante prefere movimentos reduzidos.
+
+O arquivo restrito de Chris também recebeu uma atmosfera musical própria, tratada como uma sessão privada recuperada. Cordas de guitarra atravessam o cofre, um equalizador acompanha a interface e cada fotografia é apresentada como um `TAKE`. Ao passar sobre os registros surgem marcações de braço de guitarra e o comando `PLAY TRACK`; o cursor-palheta identifica dinamicamente o número da evidência. Clicar em uma imagem produz palhetada e notas visuais, enquanto o visualizador abre sob iluminação violeta de palco. As animações são reduzidas ou removidas conforme a preferência de acessibilidade.
+
+Maya Sato Bradock recebeu um dossiê próprio em `personagem.html?id=maya`. Ela é a segunda filha de Mick e Mei, tem 15 anos e está próxima de completar 16, sendo dois anos mais nova que Chris. Maya é uma adolescente moderna, ligada às tendências e apaixonada por moda; usa roupas, cores e acessórios como expressão de identidade e independência. As fotografias também preservam sua rotina de livros, anotações e concentração. `img-maya/maya.png` é a identificação principal e `maya1.png`, `maya2.png` e `maya3.png` compõem as três evidências da página. Seis imagens familiares e sociais ficam em `evidencias.html?id=maya`, incluindo registros com Mei e amigos. A página principal funciona como um `lookbook` editorial: passarela ao fundo, faixa de coleção, molduras de revista, marcações `VIEW LOOK`, paleta interativa com os modos âmbar, rosa, azul e monocromático, além de um cursor de prova que identifica cada evidência como um look. Os efeitos respeitam a preferência por movimentos reduzidos.
+
+O arquivo restrito de Maya funciona como um closet pessoal misturado a recortes de revista, amizades e lembranças familiares. A interface inclui fita métrica lateral, painel de referências, amostras de tecido, etiquetas coloridas e fotografias identificadas como `PRIVATE LOOK`. Ao inspecionar uma imagem, aparecem moldura editorial e o comando `OPEN EDIT`; o cursor em forma de alfinete identifica dinamicamente o número do registro. Abrir uma fotografia produz um flash e transforma o visualizador em uma página editorial iluminada. As animações são reduzidas quando solicitado pelo sistema.
 
 ## Personagens — `personagens.html`
 
@@ -238,13 +257,13 @@ O tema exclusivo de Natasha foi aprofundado como uma interface de investigação
 
 O tema de Natasha passou a unir biologia, natureza e jornalismo investigativo. A atmosfera inclui células flutuantes, folhas orgânicas, uma hélice de DNA discreta, fio de notícias confidenciais, credencial de imprensa, documentos tratados como notas de campo e mensagens alternadas entre a mesa de virologia e a redação. A intenção narrativa é apresentá-la como uma repórter científica corajosa, elegante e obstinada, com energia de grande jornalista investigativa sem reproduzir diretamente uma personagem existente.
 
-O cofre de Natasha recebeu um teste de “Protocolo Fonte Protegida” com `img-nat/proibido.png` e `img-nat/proibido1.png`. Os dois arquivos aparecem como cartões censurados, sem carregar as imagens enquanto bloqueados. Ao clicar, o visitante deve reconstruir a credencial `FONTE → AMOSTRA → VERDADE`. A autorização fica registrada na sessão do navegador e revela os arquivos com animação de desclassificação. A galeria confidencial de Natasha passa a ter oito registros, e o contador geral da home foi atualizado de 45 para 47 evidências.
+O cofre de Natasha usa o “Protocolo Fonte Protegida”. Os arquivos `proibido.png`, `proibido1.png` e cinco novas fotografias únicas (`bhn.png` e `natasha1.png` a `natasha4.png`) aparecem como sete cartões censurados, sem carregar as imagens enquanto bloqueados. Ao clicar, o visitante deve reconstruir a credencial `FONTE → AMOSTRA → VERDADE`. A autorização fica registrada na sessão do navegador e revela os arquivos com animação de desclassificação. `nats.png` e `nbh.png` não são exibidos separadamente porque são cópias byte a byte de `natasha3.png` e `natasha4.png`. Somados aos seis registros comuns, o cofre de Natasha possui treze evidências.
 
 O modelo de arquivos especiais foi aplicado à galeria de Mei com identidade arquitetônica. Onze imagens profissionais, urbanas e cotidianas permanecem visíveis. Nove registros pessoais das séries `mell` e `mellissa` foram movidos para um “Arquivo Estrutural Privado”, sem duplicação na galeria comum. O desbloqueio exige a sequência `PLANTA → ESTRUTURA → ABRIGO`, utiliza grade de projeto em azul técnico e salva a autorização apenas durante a sessão. `mel.png`, por ser um retrato urbano, permanece entre os arquivos comuns. O total de evidências de Mei continua em 20.
 
 A evidência `EVID. 002`, identificada originalmente como `LOTE DD-MEI // ARQ_002` (`img-mei/mei0.png`), foi incorporada ao Arquivo Estrutural Privado. As evidências `EVID. 003` e `EVID. 004` permanecem visíveis normalmente. A galeria usa uma sequência unificada de registros públicos e privados, mantendo posição e numeração originais. Mei possui dez arquivos especiais dentro das mesmas 20 evidências.
 
-Novas trilhas foram associadas às páginas conforme seus nomes. `themehanson.mp3` toca no dossiê de James, `thememei.mp3` no de Mei, `themenat.mp3` no de Natasha, `themeameaca.mp3` em `ameaca.html` e `themelab.mp3` em `projeto-doom.html`. O dossiê dinâmico mantém também `thememick.mp3` para Mick. Todas as trilhas usam repetição contínua, tentativa de reprodução automática e nova tentativa no primeiro clique ou tecla quando o navegador bloqueia autoplay.
+Novas trilhas foram associadas às páginas conforme seus nomes. `themehanson.mp3` toca no dossiê de James, `thememei.mp3` no de Mei, `themenat.mp3` no de Natasha e `thememick.mp3` no de Mick. `themeameaca.mp3` voltou a acompanhar `ameaca.html`, em loop, enquanto `themelab.mp3` permanece ligado à antecâmara do Projeto DOOM. Todas as trilhas usam repetição contínua, tentativa de reprodução automática e nova tentativa no primeiro clique ou tecla quando o navegador bloqueia autoplay.
 
 O Projeto DOOM deixou de reutilizar uma autorização permanente salva no navegador. A chave legada `dd_doom_lab_access_v1` é removida, e toda nova entrada em `projeto-doom.html` passa obrigatoriamente pelo protocolo de inicialização e pela reconstrução da credencial. Os cinco fragmentos encontrados continuam armazenados para preservar o progresso da investigação; somente o passe direto para o laboratório foi eliminado.
 
@@ -265,6 +284,28 @@ As galerias de James e Natasha foram divididas entre dossiê público e cofre co
 Esta atualização foi publicada com sucesso na branch `main` do repositório `maycon-rezende/apocalipse`. O envio foi concluído no commit `df56ddb` (`Atualiza dossies de James e Natasha`), avançando o repositório remoto de `abc1634` para `df56ddb`. Após o `push`, a branch local `main` e `origin/main` foram verificadas e estavam sincronizadas.
 
 O pacote publicado inclui os dossiês completos de James e Natasha, seus efeitos exclusivos, cartões com retratos, novas imagens, separação das galerias públicas e confidenciais, atualização dos contadores da home e revisão deste resumo de continuidade.
+
+### Segunda publicação no GitHub — 19/07/2026
+
+As atualizações posteriores desta sessão também foram publicadas com sucesso na branch `main` do repositório `maycon-rezende/apocalipse`. O commit `3d5882e` (`Expande galerias e protocolos do projeto`) avançou o repositório remoto de `df56ddb` para `3d5882e`. Depois do envio, `main` e `origin/main` foram verificadas e estavam sincronizadas.
+
+Esse pacote publicado reúne:
+
+- uniformização dos cards de personagens, deixando os retratos para o modal de ficha rápida;
+- protocolos privados e independentes para Natasha e Mei;
+- bloqueio `FONTE → AMOSTRA → VERDADE` no arquivo protegido de Natasha;
+- bloqueio `PLANTA → ESTRUTURA → ABRIGO` no Arquivo Estrutural Privado de Mei;
+- preservação da numeração original dos registros públicos e privados da galeria de Mei;
+- inclusão das imagens `proibido` da Natasha e de novos ativos ainda reservados;
+- efeitos exclusivos do FBI no cofre de Mick e efeitos arquitetônicos no cofre de Mei;
+- novas trilhas para James, Natasha, Mei, Ameaça e laboratório;
+- remoção do passe permanente do Projeto DOOM;
+- exigência da credencial em toda entrada no projeto;
+- bloqueio narrativo do interior do laboratório por meio da tela “Instalação incompleta”;
+- atualização do total geral para 47 evidências catalogadas;
+- preservação inicial das imagens de Chris em `img-chris/` para desenvolvimento futuro.
+
+Os novos arquivos de áudio publicados foram `themeameaca.mp3`, `themehanson.mp3`, `themelab.mp3`, `thememei.mp3` e `themenat.mp3`. Os ativos `img-nat/ensaio.png`, `img-nat/meifantasia.png`, `img-nat/proibido0.png`, `img-nat/proibido2.png`, `img-chris/chris.png` e `img-chris/chrisguitar.png` foram enviados como material reservado e ainda não possuem exibição definitiva no site.
 
 O tema exclusivo de Hanson representa uma central de comando tático: grade militar verde-oliva, varredura horizontal, rede de comando ativa, marcações angulares na identificação, pulsos de ordem na linha do tempo, leitura operacional nos painéis e cursor quadrado de seleção com direção em graus. Ao interagir, o cursor expande sobre alvos de comando e responde ao clique como emissão de uma ordem.
 
@@ -319,7 +360,7 @@ Por ser arquiteta, o arquivo de Mei possui:
 - linhas de cotagem animadas nos documentos;
 - reação visual técnica sobre as evidências.
 
-O dossiê também registra seu background completo: nascimento em Kyoto, educação bilíngue, influência profissional de Daniel Collins e Aiko Sato Collins, perda dos pais aos 12 e 15 anos, mudança para Seattle, convivência com William e Margaret Collins, amizade e namoro com Mick, formação em Arquitetura e fundação do Bradock Atelier aos 28 anos. Na interface ela aparece somente como **Mei Bradock**; o nome Melissa é preservado apenas no campo civil confidencial.
+O dossiê também registra seu background: nascimento em Kyoto, educação bilíngue, influência profissional de Daniel Collins e Aiko Sato Collins, perda dos pais aos 12 e 15 anos, mudança para Seattle, convivência com William e Margaret Collins, amizade e namoro com Mick, formação em Arquitetura e fundação do Bradock Atelier aos 28 anos. Na interface ela aparece somente como **Mei Bradock**; seu nome civil não é exibido nem mesmo no campo confidencial e permanece conhecido apenas por Mick.
 
 O sistema já aplica os temas automaticamente conforme o parâmetro `id` da URL.
 
