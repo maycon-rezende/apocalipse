@@ -68,7 +68,7 @@ main{width:min(1180px,88vw);margin:0 auto;padding:4.5rem 0 6rem}.clearance{color
 const records={
   mick:{name:'Mick Bradock',alias:'Mick',role:'Agente Especial — FBI',subject:'SUBJECT_01 / FBI',cover:'img-bradock/mick4.png',history:'Reservado desde a escola, Mick sempre foi ligado à tecnologia e às artes marciais. O impulso de proteger pessoas vulneráveis definiu sua juventude e, mais tarde, sua carreira no FBI. Casado com Mei, é pai de Chris, Maya e Hanna.',note:'Perfil disciplinado, observador e protetor. A família é seu ponto de equilíbrio e também sua maior vulnerabilidade operacional.',events:[['ANTES DO ALERTA','Rotina interrompida','O registro oficial das primeiras horas ainda não foi anexado ao arquivo.'],['HORA DO SURTO','Localização não confirmada','Há uma lacuna entre o primeiro alerta e o contato com a família Bradock.'],['ÚLTIMO REGISTRO','Comunicação fragmentada','Trechos do relatório permanecem classificados.']],photos:['img-bradock/mick.png','img-bradock/mick2.png','img-bradock/mick3.png']},
   mei:{
-    name:'Mei Bradock',alias:'Mei',role:'Arquiteta — Fundadora do Bradock Atelier',subject:'SUBJECT_02 / BRADOCK',cover:'img-mei/meiurbana.png',quote:'“Não viva presa ao passado. Construa um futuro do qual seu pai teria orgulho.”',
+    name:'Mei Bradock',alias:'Mei',role:'Arquiteta — Fundadora do Bradock Atelier',subject:'SUBJECT_02 / BRADOCK',cover:'img-mei/arquiteta2.png',quote:'“Não viva presa ao passado. Construa um futuro do qual seu pai teria orgulho.”',
     history:[
       'Mei nasceu em Kyoto, no Japão, em 14 de maio. Filha do arquiteto americano Daniel Collins e da advogada japonesa Aiko Sato Collins, cresceu em uma casa cercada por livros de arquitetura, engenharia, história, filosofia, direito e arte. Daniel a levava para visitar obras e lhe ensinou que arquitetura era desenhar a vida das pessoas; Aiko lhe ensinou que conhecimento era algo que ninguém poderia tirar dela.',
       'Aos doze anos, Mei perdeu o pai para um infarto fulminante. Poucos meses depois, Aiko foi diagnosticada com câncer. Durante quase três anos, Mei conciliou os estudos com os cuidados da mãe, aprendendo cedo a administrar a casa, as contas e o próprio tempo. Aiko morreu quando a filha tinha quinze anos, deixando-lhe como último conselho que construísse um futuro do qual Daniel se orgulharia.',
@@ -83,7 +83,7 @@ const records={
       ['Família e formação',['Pai: Daniel Collins — arquiteto','Mãe: Aiko Sato Collins — advogada','Avô: William Collins — engenheiro civil','Avó: Margaret Collins — professora','Marido: Mick Bradock','Formação: Arquitetura']],
       ['Bradock Atelier',['Fundado por Mei aos 28 anos','Arquitetura contemporânea','Interiores de luxo','Mansões e hotéis','Condomínios exclusivos','Referência entre clientes de alto perfil']]
     ],
-    photos:['img-mei/mei1.png','img-mei/meiurbana2.png','img-mei/meicaseira.png']
+    photos:['img-mei/arquiteta1.png','img-mei/arquiteta3.png','img-mei/arquitetamei.png']
   },
   chris:{
     name:'Chris Sato Bradock',alias:'Chris',role:'Universitário — Músico',subject:'SUBJECT_03 / BRADOCK',cover:'img-chris/chris.png',quote:'“O primeiro a quem pediriam para crescer rápido demais.”',
@@ -167,7 +167,7 @@ const records={
                                                                                             }
                                                                                             document.body.classList.add(`theme-${records[key] ? key : 'mick'}`);
                                                                                             document.getElementById('secret-evidence-link').href=`evidencias.html?id=${records[key] ? key : 'mick'}`;
-const characterThemes={mick:'thememick.mp3',mei:'thememei.mp3',hanson:'themehanson.mp3',natasha:'themenat.mp3'};
+const characterThemes={mick:'thememick.mp3',mei:'thememei.mp3',chris:'themechris.mp3',maya:'thememaya.mp3',hanson:'themehanson.mp3',natasha:'themenat.mp3'};
 const activeCharacter=records[key]?key:'mick';
 if(characterThemes[activeCharacter]){
   const characterTheme=new Audio(`audio/${characterThemes[activeCharacter]}`);

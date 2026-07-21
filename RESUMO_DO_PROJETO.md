@@ -540,6 +540,36 @@ As galerias restritas foram atualizadas com os arquivos recentes das respectivas
 
 O cofre arquitetônico de Mei também foi ampliado de 20 para 24 registros. As novas imagens `mei4.png`, `bradock.png`, `bradockmei.png` e `meibradocl.png` foram classificadas como registros comuns por mostrarem trabalho, estudo e identidade familiar sem expor o nome civil secreto. O conjunto associado a `mell/mellissa` e o registro `mei0` continuam protegidos pela credencial `PLANTA → ESTRUTURA → ABRIGO`.
 
+### Publicação no GitHub — 21 de julho de 2026
+
+As ampliações e identidades visuais das galerias privadas foram publicadas com sucesso na branch `main` do repositório `maycon-rezende/apocalipse`. O commit `b6ef02c` (`Amplia galerias privadas dos personagens`) avançou o repositório remoto de `f625342` para `b6ef02c`.
+
+O pacote publicado contém a reformulação militar do cofre de James, a correção da revelação gradual das fotografias, o novo cofre eco-investigativo de Natasha, a trilha exclusiva dela, quatro fontes protegidas adicionais e a ampliação dos arquivos de Mick, Chris, Maya e Mei. Foram enviados 16 arquivos, com 82 inserções, nove remoções e 14 novas imagens incorporadas às galerias.
+
+Após o `push`, `HEAD` e `origin/main` foram conferidos e apontavam para o mesmo hash completo: `b6ef02c3e373c74166f8063dab0aaa4489438a47`. Esta anotação foi acrescentada ao resumo local depois da publicação e será incluída no próximo envio ao GitHub.
+
+### Autorização individual das fontes de Natasha — 21 de julho de 2026
+
+O protocolo das fotografias proibidas de Natasha deixou de autorizar o conjunto inteiro. Cada execução correta de `FONTE → AMOSTRA → VERDADE` libera somente a evidência que originou o puzzle; todas as outras permanecem censuradas e exigem suas próprias verificações. A antiga autorização global foi substituída por uma lista individual de registros autorizados na sessão.
+
+A primeira autorização ainda mantém a fotografia fortemente desfocada e identificada como `FONTE PARCIAL`. A revelação integral depende da consulta aos quatro setores recuperados da home — História, Personagens, Ameaças e Galeria — aproveitando o sistema de exploração que o projeto já registrava. O lightbox preserva o blur e informa claramente o requisito enquanto a investigação estiver incompleta.
+
+### Trilhas exclusivas de Chris e Maya — 21 de julho de 2026
+
+Chris e Maya receberam trilhas próprias no mesmo sistema musical dos demais personagens. `audio/themechris.mp3` toca em loop no dossiê e no cofre musical de Chris; `audio/thememaya.mp3` acompanha o dossiê e o closet restrito de Maya. As páginas tentam iniciar a reprodução automaticamente e repetem a tentativa na primeira interação ou tecla caso o navegador bloqueie o autoplay.
+
+### Autorização individual dos projetos de Mei — 21 de julho de 2026
+
+O conjunto privado de Mei passou a seguir a mesma progressão individual criada para Natasha. O portal de entrada do cofre continua obrigatório, mas cada fotografia privada exige separadamente a sequência `PLANTA → ESTRUTURA → ABRIGO`; concluir um puzzle não libera os demais projetos.
+
+O primeiro nível mostra somente uma versão fortemente desfocada, marcada como `PROJETO PARCIAL`. O cartão e o lightbox usam linguagem arquitetônica azul própria, com o aviso `PLANTA INCOMPLETA`. A imagem integral é revelada apenas após a consulta aos quatro setores recuperados da home. A autorização global antiga de Mei foi substituída por uma lista individual de projetos liberados durante a sessão.
+
+### Reclassificação visual de Mei — 21 de julho de 2026
+
+O card de Mei em `personagens.html` e o dossiê em `personagem.html?id=mei` passaram a usar somente retratos profissionais ligados à arquitetura e ao Bradock Atelier. O card utiliza `arquiteta2.png`; o dossiê usa a mesma imagem como capa e mantém `arquiteta1.png`, `arquiteta3.png` e `arquitetamei.png` como evidências públicas.
+
+Os registros com shorts curtos, roupas íntimas, saias curtas ou decotes acentuados foram transferidos para o modo proibido do cofre. A galeria de Mei agora possui 29 registros: quatro projetos profissionais visíveis e 25 imagens privadas, cada uma sujeita ao desbloqueio individual, ao blur parcial e à exploração dos quatro setores. A chave individual foi atualizada para `dd_mei_private_items_v3` para impedir que autorizações antigas apontem para fotografias diferentes após a reorganização.
+
 ## Próximos passos possíveis
 
 - Testar a posição do sangue em diferentes tamanhos de tela.
