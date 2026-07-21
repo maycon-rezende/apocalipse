@@ -499,6 +499,47 @@ Esta versão também foi preparada e sincronizada com o GitHub na branch `main`.
 
 Com esta sincronização, o resumo do projeto e o repositório GitHub voltam a representar o mesmo estado do site.
 
+### Publicação no GitHub — 20 de julho de 2026
+
+As atualizações recentes do site foram publicadas com sucesso na branch `main` do repositório `maycon-rezende/apocalipse`. O envio avançou o repositório de `3d5882e` para o commit `f625342` (`Expande ameacas e dossies da familia Bradock`). O commit reuniu 49 arquivos, com 310 inserções e 82 remoções.
+
+A publicação incluiu:
+
+- reconstrução pública de `ameaca.html` como relatório sobre comportamento e evolução dos infectados, sem revelar a origem ou o Projeto DOOM;
+- transferência da origem antártica, amostra, contenção e cadeia de custódia para o arquivo secreto do projeto;
+- intro de perigo em tela cheia, trilha `themeameaca.mp3`, névoa, silhuetas, visor de proximidade e cursor de rastreamento;
+- painel ficcional de notícias das 72 horas anteriores ao reconhecimento do surto;
+- incorporação de `img-ameaca/zumbi.jpg` como evento de aglomeração e `primeiraevidencia.avif` como encerramento selado;
+- criação e aprofundamento dos dossiês de Chris Sato Bradock e Maya Sato Bradock;
+- atualização dos nomes de Chris, Maya e Hanna com o sobrenome materno `Sato`;
+- preservação de Mei apenas como `Mei Bradock`, mantendo os nomes civis completos dela e de Mick fora dos arquivos acessíveis;
+- identidade musical de Chris com cordas, equalizador, palheta, pedaleira `CLEAN / DRIVE / ECHO` e cofre em formato de sessão privada;
+- identidade de moda de Maya com lookbook, passarela, paletas editoriais e cofre em formato de closet pessoal;
+- ampliação das galerias de Chris e Maya com registros pessoais, familiares e sociais;
+- ampliação do protocolo censurado de Natasha, mantendo as novas imagens protegidas até a credencial correta;
+- manutenção do interior do Projeto DOOM selado e da credencial obrigatória a cada nova entrada;
+- inclusão das novas imagens reservadas nas pastas de Chris, Maya, Natasha, Hanson e Ameaças.
+
+Após o `push`, `HEAD` e `origin/main` foram conferidos e apontavam para o mesmo hash completo: `f62534237e85f994b65d4270f030f5dd7f1ed37a`. A árvore de trabalho estava limpa imediatamente após a publicação. Esta anotação foi acrescentada localmente depois dessa conferência e será incluída no próximo envio ao GitHub.
+
+### Cofre militar de James Hanson — 21 de julho de 2026
+
+A galeria confidencial de James em `evidencias.html?id=hanson` recebeu uma identidade militar completa. O cofre agora funciona como um arquivo de inteligência visual do Exército: grade cartográfica, orientação em graus, varredura tática, marcações de alvo, identificação operacional dos registros, paleta verde-oliva e cursor de comando que reconhece cada evidência. A trilha `themehanson.mp3` também acompanha essa área.
+
+As fotografias são desclassificadas gradualmente quando entram no campo de visão. Cada registro começa escuro, dessaturado e encoberto, sendo revelado lentamente por uma linha de varredura; os cartões entram em sequência, com atrasos progressivos, em vez de surgirem todos ao mesmo tempo. A ampliação preserva a mesma linguagem de reconhecimento militar.
+
+### Cofre eco-investigativo de Natasha — 21 de julho de 2026
+
+A galeria restrita de Natasha em `evidencias.html?id=natasha` ganhou uma atmosfera exclusiva que combina jornalismo investigativo, inteligência biológica e natureza. O ambiente possui rede de fontes, células orgânicas, partículas flutuantes, linhas de pauta, varredura de análise, identificação `SOURCE MATERIAL // N.B.H.`, cursor em forma de lente investigativa e a trilha `themenat.mp3`. Os cartões reagem como materiais sendo verificados e o lightbox revela as fotografias como registros em desenvolvimento.
+
+Quatro novas imagens foram incorporadas ao conteúdo protegido: `hansinatasha.png`, `hanson.png`, `onça.png` e `proibido3.png`. Seguindo a regra definida para os novos registros de Natasha, todas permanecem censuradas até a credencial `FONTE → AMOSTRA → VERDADE`. O cofre passa a reunir 17 evidências, sendo seis registros visíveis e onze fontes protegidas.
+
+### Ampliação dos cofres de James e da família Bradock — 21 de julho de 2026
+
+As galerias restritas foram atualizadas com os arquivos recentes das respectivas pastas. James recebeu `cjh.jpg`, elevando seu cofre militar para oito registros. Mick recebeu `mickpraia.png`, totalizando sete evidências no arquivo do FBI. Chris passou de sete para doze registros com novas fotografias ligadas a Suyang e à rotina universitária. Maya passou de seis para dezoito registros, reunindo novas imagens de amizade, escola, irmãos, música e vida social no seu closet pessoal. As fotografias principais dos dossiês continuam separadas para evitar repetição direta entre a página pública e o cofre.
+
+O cofre arquitetônico de Mei também foi ampliado de 20 para 24 registros. As novas imagens `mei4.png`, `bradock.png`, `bradockmei.png` e `meibradocl.png` foram classificadas como registros comuns por mostrarem trabalho, estudo e identidade familiar sem expor o nome civil secreto. O conjunto associado a `mell/mellissa` e o registro `mei0` continuam protegidos pela credencial `PLANTA → ESTRUTURA → ABRIGO`.
+
 ## Próximos passos possíveis
 
 - Testar a posição do sangue em diferentes tamanhos de tela.
@@ -506,6 +547,6 @@ Com esta sincronização, o resumo do projeto e o repositório GitHub voltam a r
 - Testar visualmente as novas transições de poeira, recuperação e diretório em diferentes navegadores.
 - Definir onde Mick e Mei estavam exatamente no Dia Zero.
 - Criar imagens e arquivos secretos para os demais personagens.
-- Criar efeitos exclusivos para Chris, Maya, Hanna, James, Stayci e Samuel.
+- Criar o dossiê e os efeitos exclusivos de Hanna; revisar os personagens secundários ainda sem página própria.
 - Revisar o tempo completo das animações de `index.html` e `home.html`.
 - Fazer uma revisão final de desempenho, acessibilidade e responsividade.
