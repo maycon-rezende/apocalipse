@@ -570,6 +570,12 @@ O card de Mei em `personagens.html` e o dossiê em `personagem.html?id=mei` pass
 
 Os registros com shorts curtos, roupas íntimas, saias curtas ou decotes acentuados foram transferidos para o modo proibido do cofre. A galeria de Mei agora possui 29 registros: quatro projetos profissionais visíveis e 25 imagens privadas, cada uma sujeita ao desbloqueio individual, ao blur parcial e à exploração dos quatro setores. A chave individual foi atualizada para `dd_mei_private_items_v3` para impedir que autorizações antigas apontem para fotografias diferentes após a reorganização.
 
+### Nova apresentação elegante de Mei — 22 de julho de 2026
+
+O card e a capa do dossiê de Mei passaram a usar `elegante2.png`. As três fotografias exibidas em sua página principal agora são `elegante.png`, `elegante1.png` e `elegante2.png`, escolhidas por mostrarem a rotina profissional no Bradock Atelier, uma visita técnica à obra e sua imagem executiva. Os registros anteriores da página — `arquiteta1.png`, `arquiteta2.png`, `arquiteta3.png` e `arquitetamei.png` — permanecem no cofre como material comum, sem censura.
+
+As imagens `elegante3.png` a `elegante6.png` foram incorporadas ao modo proibido por apresentarem um tom mais pessoal ou decotes destacados. O cofre de Mei passa a reunir 33 registros. `elegante7.png` foi encontrada na pasta, mas permaneceu fora do site porque o conjunto solicitado terminava no número 6.
+
 ## Próximos passos possíveis
 
 - Testar a posição do sangue em diferentes tamanhos de tela.
