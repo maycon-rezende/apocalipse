@@ -576,7 +576,33 @@ O card e a capa do dossiê de Mei passaram a usar `elegante2.png`. As três foto
 
 As imagens `elegante3.png` a `elegante6.png` foram incorporadas ao modo proibido por apresentarem um tom mais pessoal ou decotes destacados. O cofre de Mei passa a reunir 33 registros. `elegante7.png` foi encontrada na pasta, mas permaneceu fora do site porque o conjunto solicitado terminava no número 6.
 
+### Vidas Paralelas — transformação de `galeria.html` — 22 de julho de 2026
+
+A antiga galeria concentrada em Mick foi reconstruída como `VIDAS PARALELAS // ARQUIVO_DD`. A página agora documenta três núcleos que não possuíam qualquer ligação antes do Dia D: Bradock como núcleo civil, Hanson como núcleo operacional e Jordan como núcleo institucional. As linhas permanecem visualmente separadas e convergem somente no marcador do Dia Zero, representando o mesmo colapso atingindo vidas independentes — não um encontro prévio entre as famílias.
+
+O arquivo reúne 13 fotografias recuperadas dos Bradock e Hanson, organizadas por família, trabalho e rotina. Cada registro possui código, integridade, pessoas identificadas, vínculo interno, período e descrição investigativa em um novo lightbox. A família Jordan possui três lacunas catalogadas para Samuel, sua esposa e seus filhos, apresentadas como material visual ainda não recuperado. A página também recebeu filtros por núcleo e categoria, contadores dinâmicos, painel de convergência e encerramento narrativo próprio.
+
+Após a primeira montagem, a exposição foi enxugada para evitar dezenas de fotografias soltas na mesma tela. A entrada de `galeria.html` agora funciona como um diretório com apenas três grandes blocos — Bradock, Hanson e Jordan — cada um contendo uma prévia compacta. Ao selecionar um núcleo, a própria página abre em `?familia=...` e exibe exclusivamente as evidências correspondentes, com filtros internos por família, trabalho e rotina e um comando para retornar ao diretório. Os Jordan continuam acessíveis como três lacunas, sem rostos inventados.
+
+### Novos registros elegantes de Mei — 22 de julho de 2026
+
+As imagens `elegante7.png`, `elegante8.png`, `elegante9.png` e `elegante10.png` foram adicionadas à galeria de Mei como registros comuns. Elas não passam pelo protocolo individual, não recebem blur e podem ser abertas diretamente no lightbox. O cofre passa de 33 para 37 registros. `ajeitada.png`, por possuir outra nomenclatura, permaneceu fora até receber uma classificação específica.
+
 ## Próximos passos possíveis
+
+### Galerias familiares Bradock e Hanson — 23 de julho de 2026
+
+O diretório `VIDAS PARALELAS` foi aprofundado para que cada núcleo possua uma função narrativa própria. O retorno das páginas internas foi corrigido em dois níveis: o comando dentro do arquivo e o botão do menu superior agora voltam diretamente ao diretório dos três núcleos em `galeria.html`, sem redirecionar para a home ou para o topo introdutório da página.
+
+O arquivo da Família Bradock passou a utilizar exclusivamente as imagens de `img-familyb`. As fotografias deixaram de funcionar como retratos soltos e formam uma cronologia visual da última manhã normal da família: café da manhã, saída da residência, entrada no veículo, trânsito progressivamente interrompido, helicópteros, Mick deixando o carro e a revelação do caos na avenida. A grade foi alterada para leitura horizontal por linhas — `01 | 02`, `03 | 04` e assim por diante — preservando a ordem correta também no celular. O conjunto possui 12 evidências; as antigas imagens `familiabradock.png` e `familiabradock1.png` permanecem na pasta, mas foram retiradas da página para evitar repetição.
+
+O arquivo da Família Hanson agora utiliza as 15 imagens de `img-familyh`. Diferentemente dos Bradock, esse conjunto não representa o Dia D: trata-se de um álbum anterior ao colapso, dedicado à vida de James e Natasha como casal. Os registros incluem a chegada de James uniformizado, reencontros, cenas na residência, vida social e cafés da manhã. A página informa explicitamente que as datas são indeterminadas e que nenhuma dessas fotografias integra a cronologia do fatídico dia. Futuras imagens identificadas pelo nome ou pela legenda como pertencentes ao Dia D deverão formar uma sequência separada.
+
+A entrada da galeria também foi atualizada com prévias extraídas das novas pastas e contadores de `12 EVIDÊNCIAS` para os Bradock e `15 EVIDÊNCIAS` para os Hanson. Os filtros sem registros são ocultados dentro de cada núcleo, e todos os arquivos continuam disponíveis no lightbox com identificação das pessoas, vínculo interno, contexto e integridade.
+
+### Publicação no GitHub — 23 de julho de 2026
+
+As atualizações acumuladas desde o commit `171e952` foram preparadas para publicação na branch `main` do repositório `maycon-rezende/apocalipse`. O pacote reúne a expansão recente do cofre de Mei, os ajustes locais das evidências privadas, a reconstrução de `galeria.html`, as pastas familiares `img-familyb` e `img-familyh` e os novos recursos visuais adicionados ao projeto. Esta seção integra o próprio envio para que o repositório remoto e o resumo local permaneçam sincronizados.
 
 - Testar a posição do sangue em diferentes tamanhos de tela.
 - Refinar o alinhamento da sombra “APOCALIPSEZ” em celulares.
