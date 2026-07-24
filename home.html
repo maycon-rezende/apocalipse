@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DOOMSDAY // ARQUIVO_DD</title>
+<title>AGE OF DOOMSDAY // A ERA DO APOCALIPSE Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
@@ -107,6 +107,7 @@ nav .links > a:hover{color:var(--amber);}
 .title-letter{display:inline-block;opacity:0;filter:blur(9px);transform:scale(.88);text-shadow:0 0 18px rgba(230,227,214,.2)}
 .title-letter.formed{animation:dust-letter-form .72s cubic-bezier(.18,.8,.2,1) forwards}
 .z .title-letter{color:var(--red);text-shadow:0 0 28px rgba(210,31,44,.42)}
+.title-letter.doom-ice{color:#dff8ff;background:linear-gradient(180deg,#fff 0%,#dff8ff 30%,#86cbe2 72%,#3d829f 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 7px rgba(146,224,255,.55))}
 @keyframes dust-letter-form{0%{opacity:0;filter:blur(9px);transform:scale(.88)}45%{opacity:.55;filter:blur(4px);transform:scale(.96)}100%{opacity:1;filter:blur(0);transform:scale(1)}}
 .hero h1 .z-letter.glow{ animation:z-glow 2.4s ease-in-out infinite; }
 .fire-shadow{position:absolute;z-index:-1;left:50%;top:62%;width:max-content;opacity:0;transform:translateX(-50%) scaleY(.86);transition:opacity .8s ease .25s;font-family:var(--f-display);font-size:clamp(2.5rem,9.2vw,5.9rem);line-height:1;letter-spacing:.015em;filter:blur(.25px)}.fire-shadow.revealed{opacity:.82}.fire-letter{position:relative;display:inline-block;color:#ffcc67;background:linear-gradient(0deg,#7d0909 4%,#ef3b12 36%,#ffc53d 68%,#fff3b0 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 9px 13px rgba(0,0,0,.85);animation:letter-fire 1.25s ease-in-out infinite alternate}.fire-letter:nth-child(2n){animation-delay:-.45s}.fire-letter:nth-child(3n){animation-delay:-.8s}.fire-letter::after{content:attr(data-char);position:absolute;inset:0;-webkit-text-fill-color:transparent;text-shadow:0 -7px 12px rgba(255,77,10,.7),0 -16px 25px rgba(255,160,20,.3);opacity:.7;animation:flame-shadow .7s ease-in-out infinite alternate;pointer-events:none}
@@ -115,12 +116,13 @@ nav .links > a:hover{color:var(--amber);}
 .fire-shadow .fire-letter{opacity:0;transform:translateY(-105px) scaleY(.45);animation:none}.fire-shadow.dropping .fire-letter{animation:shadow-letter-drop 1.35s cubic-bezier(.18,.72,.18,1) calc(var(--i)*.34s) forwards}.fire-shadow .fire-letter.settled{opacity:1;transform:none;animation:letter-fire 1.25s ease-in-out infinite alternate}.fire-shadow .fire-letter.settled:nth-child(2n){animation-delay:-.45s}.fire-shadow .fire-letter.settled:nth-child(3n){animation-delay:-.8s}.fire-shadow .fire-letter.zero-day{color:var(--red);filter:drop-shadow(0 0 9px rgba(210,31,44,.8));margin-left:.035em}
 @keyframes shadow-letter-drop{0%{opacity:0;transform:translateY(-105px) scaleY(.45);filter:brightness(2) blur(3px)}55%{opacity:1;transform:translateY(8px) scaleY(1.08);filter:brightness(1.35) blur(0)}75%{transform:translateY(-4px) scaleY(.97)}100%{opacity:1;transform:translateY(0) scaleY(1);filter:brightness(1)}}
 .fire-shadow{left:0;top:96%;width:100%;display:flex;justify-content:space-between;align-items:flex-start;transform:perspective(520px) rotateX(40deg) skewX(-9deg) scaleY(1.05);font-size:clamp(2.15rem,8.3vw,5.35rem)}.fire-shadow .fire-letter{flex:0 0 auto;background:#403a35;-webkit-text-stroke:1px rgba(190,180,160,.28);text-shadow:4px 11px 8px rgba(0,0,0,.88)}.fire-shadow .fire-letter::after{opacity:0;animation:none}.fire-shadow .fire-letter.settled{animation:none}.fire-shadow .fire-letter.burning{background:linear-gradient(0deg,#7d0909 4%,#ef3b12 36%,#ffc53d 68%,#fff3b0 100%);-webkit-text-stroke:1px rgba(255,132,35,.32);text-shadow:0 -4px 9px rgba(255,88,10,.7),4px 11px 8px rgba(0,0,0,.82);animation:letter-fire 1.25s ease-in-out infinite alternate}.fire-shadow .fire-letter.burning::after{opacity:.7;animation:flame-shadow .7s ease-in-out infinite alternate}.fire-shadow .fire-letter.burning:nth-child(2n){animation-delay:-.45s}.fire-shadow .fire-letter.burning:nth-child(3n){animation-delay:-.8s}
+.age-stack{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;margin-bottom:.45rem;color:var(--ink-dim);font:clamp(1rem,2.7vw,1.75rem)/.8 var(--f-display);letter-spacing:.3em;text-transform:uppercase}.age-stack>span:first-child{color:var(--red);text-shadow:0 0 18px rgba(210,31,44,.68)}.age-stack>span:last-child{margin-top:.5rem;font-size:.66em;letter-spacing:.48em;color:#dff8ff;filter:drop-shadow(0 0 6px rgba(146,224,255,.72))}.age-letter{display:inline-block;opacity:0;filter:blur(9px);transform:scale(.88)}.age-letter.formed{animation:dust-letter-form .72s cubic-bezier(.18,.8,.2,1) forwards}.age-stack>span:last-child .age-letter{background:linear-gradient(180deg,#fff 0%,#dff8ff 34%,#86cbe2 72%,#3d829f 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @keyframes z-glow{
   0%,100%{ text-shadow:0 0 18px rgba(210,31,44,.45); }
   50%{ text-shadow:0 0 42px rgba(210,31,44,.85); }
 }
 
-.blood-drips{position:absolute; top:8%; left:4%; right:4%; height:0; pointer-events:none; z-index:3;}
+.blood-drips{position:absolute;top:0;left:0;width:100%;height:0;pointer-events:none;z-index:3;}
 .drip{
   position:absolute; top:0; width:3px;
   background:linear-gradient(to bottom, var(--red) 0%, #6e0f16 75%, transparent 100%);
@@ -352,7 +354,7 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
 </div>
 
 <nav>
-  <div class="logo">DOOMS<span>DAY</span></div>
+  <div class="logo">AGE OF DOOMS<span>DAY</span></div>
   <button id="nav-toggle" aria-label="Abrir menu">☰</button>
   <div class="links" id="nav-links">
     <a href="historia.html">História</a>
@@ -365,8 +367,8 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
 
 <!-- ===== HERO ===== -->
 <header class="hero">
-  <p class="eyebrow fade-block" id="hero-eyebrow">Arquivo recuperado // DD-01</p>
   <div class="title-wrap" id="title-wrap">
+    <div class="age-stack" aria-label="Age of"><span>Age</span><span>of</span></div>
     <h1 id="movie-title"></h1>
     <div class="fire-shadow" id="fire-shadow" aria-label="Apocalipse Z"></div>
     <canvas id="title-canvas"></canvas>
@@ -667,6 +669,7 @@ const crawlStage = document.getElementById('crawl-stage');
 const crawlText = document.getElementById('crawl-text');
 const crawlDustCanvas = document.getElementById('crawl-dust-canvas');
 const movieTitle = document.getElementById('movie-title');
+const ageStack = document.querySelector('.age-stack');
 const titleCanvas = document.getElementById('title-canvas');
 const titleWrap = document.getElementById('title-wrap');
 const fireShadow = document.getElementById('fire-shadow');
@@ -860,8 +863,10 @@ async function dissolveCrawlToDust(){
 }
 
 function buildTitle(){
-  const makeLetters = word => word.split('').map(ch => `<span class="title-letter">${ch}</span>`).join('');
-  movieTitle.innerHTML = `<span class="glitch" data-text="DOOMS">${makeLetters('DOOMS')}</span><span class="z z-letter glitch" data-text="DAY">${makeLetters('DAY')}</span>`;
+  const makeLetters = (word,iceCount=0) => word.split('').map((ch,index) => `<span class="title-letter${index<iceCount?' doom-ice':''}">${ch}</span>`).join('');
+  const makeAgeLetters = word => word.split('').map(ch => `<span class="age-letter">${ch}</span>`).join('');
+  ageStack.innerHTML=`<span>${makeAgeLetters('AGE')}</span><span>${makeAgeLetters('OF')}</span>`;
+  movieTitle.innerHTML = `<span class="glitch" data-text="DOOMS">${makeLetters('DOOMS',4)}</span><span class="z z-letter glitch" data-text="DAY">${makeLetters('DAY')}</span>`;
   fireShadow.innerHTML = 'APOCALIPSEZ'.split('').map((ch,index,array) => `<span class="fire-letter${index===array.length-1?' zero-day':''}" style="--i:${index}" data-char="${ch}">${ch}</span>`).join('');
 }
 
@@ -877,6 +882,11 @@ function startGlitchLoop(){
 /* partículas de cinza/brasa convergindo pra formar o título (tipo estalo ao contrário) */
 async function assembleTitleParticles(){
   await (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve());
+  for(const letter of ageStack.querySelectorAll('.age-letter')){
+    letter.classList.add('formed');
+    await wait(95);
+  }
+  await wait(180);
   movieTitle.classList.add('revealed');
   const rect = movieTitle.getBoundingClientRect();
   const wrapRect = titleWrap.getBoundingClientRect();
@@ -953,6 +963,11 @@ async function assembleTitleParticles(){
 }
 
 function spawnBloodDrips(animate = true){
+  const titleRect=movieTitle.getBoundingClientRect();
+  const wrapRect=titleWrap.getBoundingClientRect();
+  bloodDrips.style.top=`${titleRect.top-wrapRect.top}px`;
+  bloodDrips.style.left=`${titleRect.left-wrapRect.left}px`;
+  bloodDrips.style.width=`${titleRect.width}px`;
   const width = movieTitle.offsetWidth;
   const count = Math.max(6, Math.floor(width / 70));
   for(let i = 0; i < count; i++){
@@ -1002,6 +1017,7 @@ async function revealHero(){
 function showCompletedHome(){
   crawlStage.style.display = 'none';
   buildTitle();
+  ageStack.querySelectorAll('.age-letter').forEach(letter=>{letter.classList.add('formed');letter.style.animation='none';letter.style.opacity='1';letter.style.filter='none';letter.style.transform='none'});
   movieTitle.classList.add('revealed');
   movieTitle.querySelectorAll('.title-letter').forEach(letter => {
     letter.classList.add('formed');

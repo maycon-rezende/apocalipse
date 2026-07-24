@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DOOMSDAY</title>
+<title>AGE OF DOOMSDAY // A ERA DO APOCALIPSE Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
@@ -86,14 +86,16 @@ h1.movie-title{
   color:var(--ink);
   line-height:.9;
 }
+.age-prefix{position:relative;top:clamp(-1.4rem,-2vw,-.8rem);display:flex;flex-direction:column;align-items:center;margin-bottom:clamp(.8rem,1.8vw,1.25rem);font-family:var(--f-display);font-size:clamp(1rem,2.5vw,1.65rem);line-height:1;letter-spacing:.28em;color:var(--ink-dim);text-transform:uppercase;opacity:0;transform:translateY(10px);animation:age-prefix-in 1s ease 1.1s forwards}.age-prefix>span{display:flex;justify-content:center}.age-prefix>span:first-child{color:var(--red-bright);text-shadow:0 0 18px rgba(200,30,44,.65)}.age-prefix>span:last-child{margin-top:.65rem;padding-bottom:.08em;font-size:.72em;line-height:1.15;letter-spacing:.42em;color:#dff8ff;filter:drop-shadow(0 0 6px rgba(146,224,255,.72))}.age-prefix>span:last-child .age-letter{background:linear-gradient(180deg,#fff 0%,#dff8ff 35%,#86cbe2 74%,#3d829f 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.age-letter{position:relative;display:inline-block;min-width:.72em;font-style:normal}@keyframes age-prefix-in{to{opacity:1;transform:none}}
 h1.movie-title .letter{
   position:relative; display:inline-block; opacity:0; transform:translateY(18px) scale(1.08); filter:blur(4px);
   animation: letter-in .9s cubic-bezier(.2,.8,.2,1) forwards;
 }
 @keyframes letter-in{ to{ opacity:1; transform:translateY(0) scale(1); filter:blur(0); } }
 h1.movie-title .z-letter{color:var(--red-bright); text-shadow:0 0 0 rgba(200,30,44,0);}
+h1.movie-title .letter.doom-ice{color:#dff8ff;background:linear-gradient(180deg,#fff 0%,#dff8ff 30%,#86cbe2 72%,#3d829f 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 7px rgba(146,224,255,.55))}
 h1.movie-title .z-letter.glow{ animation: letter-in .9s cubic-bezier(.2,.8,.2,1) forwards, z-glow 2.4s ease-in-out .9s infinite; }
-.movie-title .letter.morph-out{animation:morph-out .42s ease-in forwards!important}.movie-title .letter.morph-in{animation:morph-in .55s ease-out forwards!important;color:var(--ink)}.snow-field{position:fixed;inset:0;z-index:38;pointer-events:none;overflow:hidden}.snowflake{position:absolute;top:-5vh;width:5px;height:5px;border-radius:50%;background:#eafcff;box-shadow:0 0 7px rgba(210,245,255,.9);animation:snowfall var(--fall) linear forwards}.snowflake:nth-child(3n){filter:blur(1px);opacity:.65}.snowflake:nth-child(4n){width:8px;height:8px}
+.movie-title .letter.morph-out,.age-prefix .letter.morph-out{animation:morph-out .42s ease-in forwards!important}.movie-title .letter.morph-in,.age-prefix .letter.morph-in{animation:morph-in .55s ease-out forwards!important}.movie-title .letter.morph-in{color:var(--ink)}.snow-field{position:fixed;inset:0;z-index:38;pointer-events:none;overflow:hidden}.snowflake{position:absolute;top:-5vh;width:5px;height:5px;border-radius:50%;background:#eafcff;box-shadow:0 0 7px rgba(210,245,255,.9);animation:snowfall var(--fall) linear forwards}.snowflake:nth-child(3n){filter:blur(1px);opacity:.65}.snowflake:nth-child(4n){width:8px;height:8px}
 .movie-title .letter.zero-letter{color:var(--red-bright);margin-left:.045em;text-shadow:0 0 24px rgba(200,30,44,.58)}
 .movie-title .letter::before{
   content:attr(data-char); position:absolute; inset:0; z-index:2; pointer-events:none;
@@ -165,6 +167,7 @@ h1.movie-title .z-letter.glow{ animation: letter-in .9s cubic-bezier(.2,.8,.2,1)
   <p class="testimony" id="testimony-line"></p>
 
   <div id="title-wrap">
+    <div class="age-prefix" id="age-prefix" aria-label="Age of"><span><i class="letter age-letter">A</i><i class="letter age-letter">G</i><i class="letter age-letter">E</i><i class="letter age-letter"></i></span><span><i class="letter age-letter">O</i><i class="letter age-letter">F</i></span></div>
     <h1 class="movie-title" id="movie-title"></h1>
     <p class="movie-tagline" id="movie-tagline">Baseado em uma queda que ninguém viu chegar.</p>
   </div>
@@ -178,6 +181,7 @@ const bgAudio = document.getElementById('bg-audio');
 const testimonyEl = document.getElementById('testimony-line');
 const titleWrap = document.getElementById('title-wrap');
 const titleEl = document.getElementById('movie-title');
+const agePrefix = document.getElementById('age-prefix');
 const taglineEl = document.getElementById('movie-tagline');
 const bloodWipe = document.getElementById('blood-wipe');
 const enterPrompt = document.getElementById('enter-prompt');
@@ -224,9 +228,9 @@ function buildTitle(){
   const word1 = "DOOMS";
   const word2 = "DAY";
   let delay = 0;
-  word1.split('').forEach((ch) => {
+  word1.split('').forEach((ch,index) => {
     const span = document.createElement('span');
-    span.className = 'letter';
+    span.className = `letter${index<4?' doom-ice':''}`;
     span.textContent = ch;
     span.style.animationDelay = delay + 's';
     titleEl.appendChild(span);
@@ -253,7 +257,23 @@ function spawnSnow(){
   setInterval(addFlake,95);
 }
 
+async function transformAgePrefix(){
+  const target='AERADO';
+  const letters=[...agePrefix.querySelectorAll('.age-letter')];
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for(let index=0;index<target.length;index++){
+    const letter=letters[index];
+    if(!reduced&&letter.textContent){letter.classList.add('morph-out');await wait(270)}
+    letter.textContent=target[index];
+    letter.className='letter age-letter morph-in';
+    if(reduced){letter.style.opacity='1';letter.style.transform='none';letter.style.filter='none'}
+    await wait(reduced?0:115);
+  }
+  agePrefix.setAttribute('aria-label','A Era do');
+}
+
 async function transformTitle(){
+  const ageTransition=transformAgePrefix();
   const target='APOCALIPSEZ';
   const current=[...titleEl.querySelectorAll('.letter')];
   for(let index=0;index<target.length;index++){
@@ -263,6 +283,7 @@ async function transformTitle(){
     await wait(115);
   }
   await wait(350);
+  await ageTransition;
   const frozenLetters=[...titleEl.querySelectorAll('.letter')];
   frozenLetters.forEach((letter,index)=>setTimeout(()=>letter.classList.add('frozen'),index*85));
 }
