@@ -604,6 +604,26 @@ A entrada da galeria também foi atualizada com prévias extraídas das novas pa
 
 As atualizações acumuladas desde o commit `171e952` foram preparadas para publicação na branch `main` do repositório `maycon-rezende/apocalipse`. O pacote reúne a expansão recente do cofre de Mei, os ajustes locais das evidências privadas, a reconstrução de `galeria.html`, as pastas familiares `img-familyb` e `img-familyh` e os novos recursos visuais adicionados ao projeto. Esta seção integra o próprio envio para que o repositório remoto e o resumo local permaneçam sincronizados.
 
+### Identidade `Age of Doomsday` — 24 de julho de 2026
+
+A intro e a Home receberam a identidade ampliada `AGE OF DOOMSDAY`, preservando a estrutura original do projeto. `DOOMSDAY` continua sendo o título central e a transformação para `APOCALIPSE Z` permanece intacta; `AGE / OF` foi acrescentado acima do nome, em duas linhas. Na intro, o complemento também se transforma de forma sincronizada em `A ERA / DO`, formando ao final `A ERA DO APOCALIPSE Z`.
+
+As letras de `AGE OF → A ERA DO` passaram a utilizar as mesmas classes, keyframes, durações, desfoque e deslocamento vertical empregados em `DOOMSDAY → APOCALIPSE Z`. `AGE` e `A ERA` usam vermelho; `OF` e `DO` usam gelo. As quatro letras de `DOOM` também receberam o tom congelado como pista visual da origem antártica do vírus, enquanto `DAY` permanece vermelho e representa o dia do colapso.
+
+Na Home, `AGE / OF` agora se forma progressivamente antes de `DOOMSDAY`, usando o mesmo princípio de letras desfocadas que convergem para a forma final. O sangue foi reposicionado com base no retângulo real do título, passando a cair exatamente do topo das letras de `DOOMSDAY` em qualquer tamanho de tela.
+
+### Novas rotinas Bradock e Dia D de Natasha — 24 de julho de 2026
+
+A galeria de Vidas Paralelas passou a oferecer apenas os filtros `Família` e `Rotina`; `Todos` e `Trabalho` foram removidos. `Família` é a visualização inicial. Os registros anteriores de cada núcleo foram reunidos nessa categoria, enquanto os conjuntos adicionados nesta atualização foram isolados em `Rotina`.
+
+O núcleo Bradock recebeu nove imagens de Mei com Maya e Hanna, armazenadas em `img-familyb` e apresentadas como momentos domésticos entre mãe e filhas. A sequência principal da última manhã normal permanece preservada em `Família`. O arquivo `natashavendonoticiario.png`, embora esteja fisicamente em `img-familyb`, não foi exibido entre os Bradock por pertencer à personagem Natasha e duplicar o registro de noticiário do núcleo Hanson. O núcleo Bradock totaliza 21 evidências catalogadas.
+
+O núcleo Hanson recebeu sete imagens que acompanham Natasha no Dia D. A sequência começa no apartamento dos pais, passa pelo mercado e pelas últimas compras, mostra seu retorno com os mantimentos e o noticiário assistido com os pais, e termina com Natasha observando pela janela o surto alcançar o bairro. Esses registros foram ordenados de `01` a `07` dentro de `Rotina`; as 15 memórias anteriores de James e Natasha permanecem em `Família`. O lightbox agora informa períodos específicos — manhã, tarde e anoitecer do Dia D — em vez de classificar todas as imagens como anteriores ao colapso. O núcleo Hanson totaliza 22 evidências.
+
+### Publicação no GitHub — 24 de julho de 2026
+
+As novas imagens familiares, a sequência do Dia D de Natasha, os filtros revisados e a identidade `Age of Doomsday` foram publicados na branch `main` do repositório `maycon-rezende/apocalipse`. O commit `991523d` (`Amplia rotinas familiares e identidade Age of Doomsday`) avançou o repositório remoto de `78470ba` para `991523d`. Após o envio, `HEAD` e `origin/main` apontavam para `991523d8ee0e92b427dc8eeb793a257005621a2a` e a árvore de trabalho estava limpa.
+
 - Testar a posição do sangue em diferentes tamanhos de tela.
 - Refinar o alinhamento da sombra “APOCALIPSEZ” em celulares.
 - Testar visualmente as novas transições de poeira, recuperação e diretório em diferentes navegadores.
