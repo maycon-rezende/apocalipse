@@ -1005,7 +1005,7 @@ async function revealHero(){
   zSpan.classList.add('glow');
   spawnBloodDrips();
   await wait(500);
-  heroEyebrow.classList.add('show');
+  heroEyebrow?.classList.add('show');
   await wait(220);
   heroTagline.classList.add('show');
   await wait(420);
@@ -1031,7 +1031,7 @@ function showCompletedHome(){
   titleCanvas.style.display = 'none';
   movieTitle.querySelector('.z-letter').classList.add('glow');
   spawnBloodDrips(false);
-  heroEyebrow.classList.add('show');
+  heroEyebrow?.classList.add('show');
   heroTagline.classList.add('show');
   heroBroadcast.classList.add('show');
   document.body.classList.remove('locked');
