@@ -632,3 +632,31 @@ As novas imagens familiares, a sequência do Dia D de Natasha, os filtros revisa
 - Criar o dossiê e os efeitos exclusivos de Hanna; revisar os personagens secundários ainda sem página própria.
 - Revisar o tempo completo das animações de `index.html` e `home.html`.
 - Fazer uma revisão final de desempenho, acessibilidade e responsividade.
+
+### Galeria sonora e abertura de Vidas Paralelas — 25 de julho de 2026
+
+`galeria.html` recebeu uma abertura cinematográfica intitulada `Vidas interrompidas`, com flashes de evidências, vinheta, ruído, rastreamento vermelho e acesso por clique. A trilha `resident-evil.mp3` acompanha somente essa abertura e desaparece gradualmente quando o diretório é revelado. A segunda parte usa `vidas-paralelas.mp3` enquanto o visitante escolhe entre os núcleos familiares.
+
+Os núcleos possuem entradas próprias com o comando `INICIAR RECONSTRUÇÃO`, garantindo a autorização de áudio exigida pelos navegadores. `familym.mp3` acompanha os Bradock e `familyh.mp3` acompanha os Hanson. O efeito `clique.mp3` confirma o acesso antes de a trilha familiar entrar em fade. `halloween.mp3`, inicialmente testada na galeria, foi transferida para `historia.html`, onde toca sem indicador visual de áudio.
+
+### Família, Rotina e Dia D — 25 de julho de 2026
+
+Os arquivos familiares foram reorganizados nas categorias `Família`, `Rotina` e `Dia D`. Os retratos familiares permanecem separados das cenas cotidianas e da cronologia do colapso. O núcleo Bradock passou a apresentar dois retratos de família, nove registros de Mei com as filhas, sete novos registros de Mick com Chris e a sequência completa do Dia D, do café da manhã ao caos na avenida.
+
+O núcleo Hanson preserva as memórias de James e Natasha em `Família`. `Dia D` reúne duas linhas paralelas: Natasha no apartamento dos pais, mercado, noticiário e chegada do surto; James retornando de missão, passando pela enfermaria, apresentando-se ao comando, acompanhando os primeiros relatórios e atravessando a instalação durante a mobilização de emergência. As sequências usam códigos `N` e `J`. O arquivo `enfermaria.png` não foi catalogado por ser uma cópia binariamente idêntica de `indo-para-enfermaria.png`.
+
+### Família Salazar — Samuel e Elena — 25 de julho de 2026
+
+O antigo agrupamento `Pentágono` em `personagens.html` foi renomeado para `Família Salazar`. Samuel Jordan Salazar e Elena Morales Salazar receberam cards completos e páginas individuais. Samuel é Coronel do Exército dos Estados Unidos, Oficial Sênior de Planejamento Estratégico do Departamento de Defesa e integrante de uma força-tarefa internacional vinculada à ONU no Dia D. Elena é psicóloga clínica especializada em trauma, TEPT, luto, ansiedade e intervenção em crises. Sua ficha registra fluência em catalão, espanhol, inglês, italiano, francês e alemão.
+
+A página de Samuel recebeu identidade de comando estratégico: radar, grade de coordenadas, enquadramento `COLONEL // O-6`, painéis táticos e cursor de aquisição. A página de Elena utiliza respiração visual, pulsos de estabilidade, linguagem clínica e cursor de escuta. Os backgrounds completos, a relação do casal, os três filhos e a separação da família durante o início do surto foram incorporados sem manter campos provisórios.
+
+### Cofres restritos de Samuel e Elena — 25 de julho de 2026
+
+`evidencias.html` passou a reconhecer `?id=samuel` e `?id=elena`. O cofre de Samuel reúne as quatro imagens disponíveis em uma interface de inteligência estratégica com radar, nós de ameaça, coordenadas dinâmicas, confirmação de alvo e decodificação do lightbox. O cofre de Elena reúne as dez imagens disponíveis em um prontuário protegido com círculos de respiração, onda de equilíbrio, cursor de memória e recuperação gradual de foco. O conjunto inclui os novos registros de Elena com seus irmãos.
+
+As duas galerias usam revelação progressiva, respeitam `prefers-reduced-motion` e estão preparadas para receber novas imagens sem alteração estrutural.
+
+### Correção e publicação anterior da Home — 24 de julho de 2026
+
+A remoção manual do parágrafo `// ARQUIVO RECUPERADO // DD-01` deixou uma referência JavaScript obrigatória e interrompia a abertura da Home. As chamadas foram protegidas com optional chaining. A correção foi publicada no commit `2e48126` (`Corrige abertura da home sem cabecalho recuperado`) e o GitHub Pages foi verificado com resposta HTTP 200.

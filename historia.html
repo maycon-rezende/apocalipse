@@ -87,6 +87,7 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
 <link rel="stylesheet" href="cursor-site.css">
 </head>
 <body>
+<audio id="history-theme" src="audio/halloween.mp3" preload="auto" loop></audio>
 
 <div class="crt-overlay"></div>
 <div class="vignette"></div>
@@ -186,6 +187,12 @@ footer{padding:3rem 6vw; text-align:center; font-family:var(--f-term); font-size
 <footer>DoomsDay — Obra original — Dossiê não oficial do universo do livro</footer>
 
 <script>
+const historyTheme=document.getElementById('history-theme');
+historyTheme.volume=.38;
+const beginHistoryTheme=()=>historyTheme.play().catch(()=>{});
+beginHistoryTheme();
+document.addEventListener('pointerdown',beginHistoryTheme,{once:true});
+document.addEventListener('keydown',beginHistoryTheme,{once:true});
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){ entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
