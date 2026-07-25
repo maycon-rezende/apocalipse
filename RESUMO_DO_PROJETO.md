@@ -637,7 +637,7 @@ As novas imagens familiares, a sequência do Dia D de Natasha, os filtros revisa
 
 `galeria.html` recebeu uma abertura cinematográfica intitulada `Vidas interrompidas`, com flashes de evidências, vinheta, ruído, rastreamento vermelho e acesso por clique. A trilha `resident-evil.mp3` acompanha somente essa abertura e desaparece gradualmente quando o diretório é revelado. A segunda parte usa `vidas-paralelas.mp3` enquanto o visitante escolhe entre os núcleos familiares.
 
-Os núcleos possuem entradas próprias com o comando `INICIAR RECONSTRUÇÃO`, garantindo a autorização de áudio exigida pelos navegadores. `familym.mp3` acompanha os Bradock e `familyh.mp3` acompanha os Hanson. O efeito `clique.mp3` confirma o acesso antes de a trilha familiar entrar em fade. `halloween.mp3`, inicialmente testada na galeria, foi transferida para `historia.html`, onde toca sem indicador visual de áudio.
+Os núcleos possuem entradas próprias com o comando `INICIAR RECONSTRUÇÃO`, garantindo a autorização de áudio exigida pelos navegadores. `familym.mp3` acompanha os Bradock e `familyhanson.mp3` acompanha os Hanson. A primeira faixa testada nos Hanson foi retirada da página por não corresponder ao núcleo. O efeito `clique.mp3` confirma o acesso antes de a trilha familiar entrar em fade. `halloween.mp3`, inicialmente testada na galeria, foi transferida para `historia.html`, onde toca sem indicador visual de áudio.
 
 ### Família, Rotina e Dia D — 25 de julho de 2026
 
