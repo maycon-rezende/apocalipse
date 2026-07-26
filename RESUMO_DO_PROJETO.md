@@ -660,3 +660,9 @@ As duas galerias usam revelação progressiva, respeitam `prefers-reduced-motion
 ### Correção e publicação anterior da Home — 24 de julho de 2026
 
 A remoção manual do parágrafo `// ARQUIVO RECUPERADO // DD-01` deixou uma referência JavaScript obrigatória e interrompia a abertura da Home. As chamadas foram protegidas com optional chaining. A correção foi publicada no commit `2e48126` (`Corrige abertura da home sem cabecalho recuperado`) e o GitHub Pages foi verificado com resposta HTTP 200.
+
+### Ampliação dos cofres Salazar — 25 de julho de 2026
+
+O cofre estratégico de Samuel recebeu seis novas imagens — leitura, paisagem, descanso e novos retratos — e passou de quatro para dez evidências. O prontuário protegido de Elena recebeu sete novos registros e passou de dez para dezessete evidências. Toda a pasta de cada personagem foi comparada com o manifesto de `evidencias.html`; nenhuma imagem ficou fora e não há referências duplicadas.
+
+As ampliações foram publicadas na branch `main` no commit `ebd5f83` (`Amplia cofres visuais de Samuel e Elena`). O GitHub Pages concluiu a implantação com sucesso na execução `30182170435`, usando o hash completo `ebd5f83d797e8e75a2a6127bedd2430ef7164970`.
