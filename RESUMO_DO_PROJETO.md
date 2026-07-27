@@ -219,11 +219,12 @@ O arquivo de nível 05 concentra com exclusividade as informações secretas sob
 
 - **Mei Bradock** é o único nome usado nos arquivos acessíveis; seu registro civil completo é um segredo conhecido apenas por Mick;
 - da mesma forma, somente Mei conhece o nome completo de Mick, que permanece ausente dos arquivos;
-- os filhos usam a herança materna e paterna nos nomes: **Chris Sato Bradock**, **Maya Sato Bradock** e **Hanna Sato Bradock**;
+- os quatro filhos usam a herança materna e paterna nos nomes: **Chris Sato Bradock**, **Maya Sato Bradock**, **Hanna Sato Bradock** e **Elisabeth "Elisa" Sato Bradock**;
 - Maya substitui o antigo nome Diana;
-- Hanna substitui o antigo nome Emma.
+- Hanna substitui o antigo nome Emma;
+- Elisabeth é a quarta e mais nova filha dos Bradock e usa **Elisa** como apelido.
 
-Chris Sato Bradock recebeu um dossiê próprio em `personagem.html?id=chris`. Ele tem 17 anos, é o primogênito de Mick e Mei, mantém uma relação excelente com os pais e as irmãs Maya e Hanna e herdou do pai o impulso de proteger pessoas vulneráveis. No início do Dia D, começava seu primeiro ano na universidade, ainda sem profissão ou curso confirmados. Chris é músico amador, toca guitarra e usa a música como forma de expressão. Namora Suyang Lee, uma jovem coreana cuja casa foi projetada e construída por Mei. `img-chris/chris.png` é a identificação principal; guitarra, registro com Mick e retrato individual formam as três evidências públicas. O arquivo `evidencias.html?id=chris` possui agora sete registros: dois com Suyang, um com Mick e quatro novos fragmentos de sua rotina (`chris0.png` a `chris3.png`). A identidade visual exclusiva transforma o quarto de músico em um palco interativo: tons violetas, cordas de guitarra, equalizador, iluminação que acompanha o cursor, palheta reativa e notas que surgem nos cliques. Uma pedaleira visual oferece os modos `CLEAN`, `DRIVE` e `ECHO`; cada modo altera cores, vibração, intensidade, sombras e rastros da interface. Os efeitos mais fortes são removidos quando o visitante prefere movimentos reduzidos.
+Chris Sato Bradock recebeu um dossiê próprio em `personagem.html?id=chris`. Ele tem 17 anos, é o primogênito de Mick e Mei, mantém uma relação excelente com os pais e as irmãs Maya, Hanna e Elisabeth e herdou do pai o impulso de proteger pessoas vulneráveis. No início do Dia D, começava seu primeiro ano na universidade, ainda sem profissão ou curso confirmados. Chris é músico amador, toca guitarra e usa a música como forma de expressão. Namora Suyang Lee, uma jovem coreana cuja casa foi projetada e construída por Mei. `img-chris/chris.png` é a identificação principal; guitarra, registro com Mick e retrato individual formam as três evidências públicas. O arquivo `evidencias.html?id=chris` possui agora sete registros: dois com Suyang, um com Mick e quatro novos fragmentos de sua rotina (`chris0.png` a `chris3.png`). A identidade visual exclusiva transforma o quarto de músico em um palco interativo: tons violetas, cordas de guitarra, equalizador, iluminação que acompanha o cursor, palheta reativa e notas que surgem nos cliques. Uma pedaleira visual oferece os modos `CLEAN`, `DRIVE` e `ECHO`; cada modo altera cores, vibração, intensidade, sombras e rastros da interface. Os efeitos mais fortes são removidos quando o visitante prefere movimentos reduzidos.
 
 O arquivo restrito de Chris também recebeu uma atmosfera musical própria, tratada como uma sessão privada recuperada. Cordas de guitarra atravessam o cofre, um equalizador acompanha a interface e cada fotografia é apresentada como um `TAKE`. Ao passar sobre os registros surgem marcações de braço de guitarra e o comando `PLAY TRACK`; o cursor-palheta identifica dinamicamente o número da evidência. Clicar em uma imagem produz palhetada e notas visuais, enquanto o visualizador abre sob iluminação violeta de palco. As animações são reduzidas ou removidas conforme a preferência de acessibilidade.
 
@@ -616,7 +617,7 @@ Na Home, `AGE / OF` agora se forma progressivamente antes de `DOOMSDAY`, usando 
 
 A galeria de Vidas Paralelas passou a oferecer apenas os filtros `Família` e `Rotina`; `Todos` e `Trabalho` foram removidos. `Família` é a visualização inicial. Os registros anteriores de cada núcleo foram reunidos nessa categoria, enquanto os conjuntos adicionados nesta atualização foram isolados em `Rotina`.
 
-O núcleo Bradock recebeu nove imagens de Mei com Maya e Hanna, armazenadas em `img-familyb` e apresentadas como momentos domésticos entre mãe e filhas. A sequência principal da última manhã normal permanece preservada em `Família`. O arquivo `natashavendonoticiario.png`, embora esteja fisicamente em `img-familyb`, não foi exibido entre os Bradock por pertencer à personagem Natasha e duplicar o registro de noticiário do núcleo Hanson. O núcleo Bradock totaliza 21 evidências catalogadas.
+O núcleo Bradock recebeu nove imagens de Mei com as filhas, armazenadas em `img-familyb` e apresentadas como momentos domésticos em família. As crianças não são individualizadas nas legendas ou metadados. A sequência principal da última manhã normal permanece preservada em `Família`. O arquivo `natashavendonoticiario.png`, embora esteja fisicamente em `img-familyb`, não foi exibido entre os Bradock por pertencer à personagem Natasha e duplicar o registro de noticiário do núcleo Hanson. O núcleo Bradock totaliza 21 evidências catalogadas.
 
 O núcleo Hanson recebeu sete imagens que acompanham Natasha no Dia D. A sequência começa no apartamento dos pais, passa pelo mercado e pelas últimas compras, mostra seu retorno com os mantimentos e o noticiário assistido com os pais, e termina com Natasha observando pela janela o surto alcançar o bairro. Esses registros foram ordenados de `01` a `07` dentro de `Rotina`; as 15 memórias anteriores de James e Natasha permanecem em `Família`. O lightbox agora informa períodos específicos — manhã, tarde e anoitecer do Dia D — em vez de classificar todas as imagens como anteriores ao colapso. O núcleo Hanson totaliza 22 evidências.
 
@@ -629,7 +630,7 @@ As novas imagens familiares, a sequência do Dia D de Natasha, os filtros revisa
 - Testar visualmente as novas transições de poeira, recuperação e diretório em diferentes navegadores.
 - Definir onde Mick e Mei estavam exatamente no Dia Zero.
 - Criar imagens e arquivos secretos para os demais personagens.
-- Criar o dossiê e os efeitos exclusivos de Hanna; revisar os personagens secundários ainda sem página própria.
+- Revisar os personagens secundários ainda sem página própria; Hanna e Elisabeth permanecerão deliberadamente sem dossiês ou galerias individuais enquanto forem crianças.
 - Revisar o tempo completo das animações de `index.html` e `home.html`.
 - Fazer uma revisão final de desempenho, acessibilidade e responsividade.
 
@@ -688,3 +689,27 @@ Esta atualização reúne `ameaca.html`, `galeria.html`, `RESUMO_DO_PROJETO.md`,
 ### Publicação da investigação analógica — 27 de julho de 2026
 
 A transformação da Galeria, a expansão investigativa de Ameaças, a Memória Contaminada e os novos arquivos familiares foram publicados na branch `main` do repositório `maycon-rezende/apocalipse`. O commit `fef33f7` (`Transforma galeria em arquivo analog horror`) avançou o repositório remoto de `abc10dc` para `fef33f7`, incluindo 28 arquivos, 347 inserções, 11 remoções e 25 novas imagens familiares.
+
+### Quatro filhos Bradock e proteção das crianças — 27 de julho de 2026
+
+A continuidade oficial da família foi corrigida: Mick e Mei possuem quatro filhos, na ordem **Chris**, **Maya**, **Hanna** e **Elisabeth “Elisa” Sato Bradock**. Chris permanece o primogênito, Maya é a segunda filha, Hanna é a terceira e Elisa é a caçula.
+
+Hanna e Elisa não possuem cards, páginas individuais, galerias restritas ou fotografias isoladas. Enquanto forem crianças, aparecerão somente em imagens familiares acompanhadas pelos pais ou irmãos. As legendas da Galeria deixam de identificar individualmente as crianças e usam `filhas Bradock` ou `Família Bradock`. Essa é uma regra editorial permanente do projeto para evitar exposição e impedir que a interface incentive a procura por imagens individuais das duas.
+
+### Fita de identificação — Personagens em analog horror — 27 de julho de 2026
+
+`personagens.html` recebeu uma abertura própria em formato de fita de reconhecimento. O terminal monta o diretório, verifica os núcleos familiares, informa que registros de menores foram ocultados e libera oito perfis autorizados. A abertura é exibida uma vez por sessão e usa o clique de acesso para iniciar `themepersona.mp3` dentro das regras de reprodução dos navegadores.
+
+Depois da abertura, um HUD VHS permanece sobre a página com estado de gravação, contador e identificação `MINORS REDACTED`. Os dossiês recebem varredura durante a interação e, ocasionalmente, um dos oito perfis adultos ou adolescentes apresenta uma falha breve de checksum acompanhada por mensagens de integridade parcial. Essas interferências são apenas visuais e nunca criam arquivos, cards ou identidades individuais para Hanna e Elisa. Animações intensas são desativadas quando o visitante solicita movimento reduzido.
+
+### Fitas individuais dos sujeitos — 27 de julho de 2026
+
+`personagem.html` também passou a integrar a linguagem analog horror. Antes de cada dossiê, o sistema abre uma fita de sujeito gerada dinamicamente com nome, função, código operacional, fotografia de identificação e cor ligada à identidade visual daquele personagem. Mick, Mei, Chris, Maya, James, Natasha, Samuel e Elena mantêm seus efeitos exclusivos; a fita funciona como uma camada comum de autenticação e não substitui suas atmosferas próprias.
+
+Cada fita é mostrada uma vez por personagem durante a sessão. Após a autenticação, o arquivo exibe HUD de gravação, contador e código do sujeito. Em intervalos discretos surgem avisos de memória incompatível, trecho removido, data sobrescrita ou arquivamento desconhecido pelo próprio personagem. As evidências fotográficas também recebem uma falha curta ao serem abertas, reforçando que são anexos recuperados e não galerias pessoais.
+
+### Câmara oculta de Mei — 27 de julho de 2026
+
+As seis fotografias individuais de Mei durante a gravidez foram retiradas da fita familiar Bradock e transferidas para o arquivo visual normal da personagem. A galeria familiar volta a concentrar registros do núcleo e de sua rotina conjunta.
+
+O cofre de Mei foi dividido em arquivo comum e câmara oculta. Todas as imagens anteriormente marcadas como privadas deixaram de aparecer entre os registros normais. A entrada da câmara foi incorporada à página como um detalhe arquitetônico discreto e exige três verificações sucessivas antes de revelar o anexo não catalogado. Mesmo após a abertura, cada fotografia privada preserva sua credencial individual e o desfoque condicionado à exploração dos quatro setores. As respostas e o ponto exato de entrada não são documentados neste resumo.

@@ -47,6 +47,9 @@ a{color:inherit; text-decoration:none;}
 @keyframes flicker{0%,100%{opacity:1;}92%{opacity:1;}93%{opacity:.82;}94%{opacity:1;}96%{opacity:.9;}97%{opacity:1;}}
 body{animation:flicker 7s infinite;}
 @keyframes blink{50%{opacity:0;}}
+@keyframes warningPulse{50%{color:#f08a92;text-shadow:0 0 16px rgba(210,31,44,.7);box-shadow:0 0 24px rgba(210,31,44,.18)}}
+
+.personnel-intro{position:fixed;z-index:4000;inset:0;display:grid;place-items:center;overflow:hidden;background:#020302;transition:opacity 1s,visibility 1s}.personnel-intro::before{content:'';position:absolute;inset:-4%;background:linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.45),rgba(0,0,0,.95)),url('img-bradock/mick4.png') 18% center/34% auto no-repeat,url('img-hanson/home.png') 50% center/34% auto no-repeat,url('img-samuel/capa.png') 82% center/34% auto no-repeat;filter:grayscale(1) contrast(1.35) brightness(.22);animation:personnel-drift 8s ease-in-out infinite alternate}.personnel-intro::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.05) 3px 4px),radial-gradient(circle,transparent 8%,rgba(0,0,0,.92) 78%)}.personnel-intro.dismissed{opacity:0;visibility:hidden;pointer-events:none}.personnel-boot{position:relative;z-index:2;width:min(720px,88vw);padding:1.4rem;border-block:1px solid #5a171d;background:rgba(2,3,2,.67);text-align:center}.personnel-boot>span{color:var(--red);font:1rem var(--f-term);letter-spacing:.2em}.personnel-boot h1{margin:.55rem 0;font:clamp(3rem,9vw,7rem)/.9 var(--f-display);text-transform:uppercase}.boot-log{display:grid;gap:.25rem;max-width:520px;margin:1rem auto;text-align:left;color:#77766e;font:.9rem var(--f-term);letter-spacing:.06em}.boot-log i{font-style:normal;opacity:0;animation:boot-line .15s forwards}.boot-log i:nth-child(2){animation-delay:.55s}.boot-log i:nth-child(3){animation-delay:1.1s}.boot-log i:nth-child(4){animation-delay:1.65s;color:var(--amber)}.personnel-enter{margin-top:.6rem;padding:.7rem 1.2rem;border:1px solid #782029;background:#100507;color:#d8d4ca;font:1.1rem var(--f-term);letter-spacing:.13em;cursor:pointer;opacity:.3;pointer-events:none;transition:.3s}.personnel-enter.ready{opacity:1;pointer-events:auto;animation:warningPulse 1.5s infinite}.personnel-hud{position:fixed;z-index:995;inset:0;pointer-events:none;color:rgba(230,227,214,.5);font:1rem var(--f-term);letter-spacing:.1em;text-shadow:1px 1px #000}.personnel-hud .ph-rec{position:absolute;left:1.2rem;top:4.8rem}.personnel-hud .ph-rec::before{content:'';display:inline-block;width:7px;height:7px;margin-right:.45rem;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red);animation:blink 1s infinite}.personnel-hud .ph-time{position:absolute;right:1.2rem;top:4.8rem;text-align:right}.personnel-hud .ph-source{position:absolute;right:1.2rem;bottom:1rem}.personnel-alert{position:fixed;z-index:1200;left:50%;top:50%;width:min(680px,86vw);padding:.7rem;border-block:1px solid #7a1e26;background:rgba(0,0,0,.82);color:#d54b56;font:1.05rem var(--f-term);letter-spacing:.13em;text-align:center;opacity:0;pointer-events:none;transform:translate(-50%,-50%)}.personnel-alert.visible{animation:personnel-alert .65s steps(2)}.dossier::after{content:'';position:absolute;z-index:8;left:0;right:0;top:-20%;height:22%;pointer-events:none;background:linear-gradient(transparent,rgba(232,163,61,.12),transparent);opacity:0}.dossier:hover::after{opacity:1;animation:dossier-scan 1.4s linear infinite}.dossier.identity-unstable{animation:identity-shift .55s steps(2)}.dossier.identity-unstable .path{color:var(--red)!important}.dossier.identity-unstable .path::after{content:' // CHECKSUM ERROR'}.dossier.accessing{box-shadow:0 0 0 1px var(--red),0 0 25px rgba(210,31,44,.18)}@keyframes personnel-drift{to{transform:scale(1.04) translateX(-.5%);filter:grayscale(1) contrast(1.5) brightness(.16)}}@keyframes boot-line{to{opacity:1}}@keyframes personnel-alert{0%,100%{opacity:0}15%,75%{opacity:.9}}@keyframes dossier-scan{to{top:100%}}@keyframes identity-shift{0%,100%{transform:translate(0)}25%{transform:translate(-4px,1px)}50%{transform:translate(5px,-1px);filter:contrast(1.6)}75%{transform:translate(-2px)}}@media(max-width:620px){.personnel-hud .ph-rec,.personnel-hud .ph-time{top:4rem}.personnel-hud .ph-source{display:none}.personnel-intro::before{background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.35),rgba(0,0,0,.85)),url('img-bradock/mick4.png') center/cover}}
 
 .eyebrow{
   font-family:var(--f-term); letter-spacing:.2em; text-transform:uppercase; color:var(--amber);
@@ -204,13 +207,16 @@ footer{
 .dossier:focus-visible{outline:2px solid var(--amber);outline-offset:3px}.dossier.empty-result{display:none}.dossier.featured{border-color:var(--amber-dim)}.dossier.featured .titlebar{background:linear-gradient(180deg,rgba(5,5,5,.94),rgba(5,5,5,.55),transparent)}
 .modal-layout{display:grid;grid-template-columns:minmax(190px,240px) minmax(0,1fr)}.modal-portrait{min-height:100%;background:var(--void);border-right:1px solid var(--line)}.modal-portrait img{width:100%;height:100%;min-height:430px;display:block;object-fit:cover;object-position:center top;filter:saturate(.75) contrast(1.08)}.modal-nav{display:flex;gap:.7rem;margin-top:1.5rem}.modal-nav button{min-height:44px;flex:1;border:1px solid var(--line);background:transparent;color:var(--amber);font:1rem var(--f-term);cursor:pointer}.modal-nav button:hover,.modal-nav button:focus-visible{border-color:var(--amber);background:rgba(232,163,61,.07)}
 @media(max-width:620px){.page-tools{align-items:stretch}.result-count{text-align:center}.modal-layout{grid-template-columns:1fr}.modal-portrait{border-right:0;border-bottom:1px solid var(--line);max-height:36dvh}.modal-portrait img{min-height:0;height:36dvh;object-position:center 20%}.portrait{aspect-ratio:4/3}}
+@media(prefers-reduced-motion:reduce){.personnel-intro::before,.personnel-enter.ready,.personnel-hud .ph-rec::before,.dossier:hover::after,.dossier.identity-unstable{animation:none}.boot-log i{opacity:1;animation:none}}
 .portrait{aspect-ratio:16/7}.portrait-file{display:none}.card-actions{display:flex;align-items:center;justify-content:space-between;gap:.8rem;margin-top:1.2rem}.card-actions .status{margin-top:0;flex:0 0 auto}.secret-link{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:.25rem .65rem;border:1px solid var(--red);color:var(--ink);background:rgba(210,31,44,.07);font:.95rem var(--f-term);letter-spacing:.06em;text-transform:uppercase;transition:.2s}.secret-link:hover,.secret-link:focus-visible{background:var(--red);color:#fff;outline:none}.secret-link::after{content:' →';margin-left:.35rem;color:var(--amber)}
 @media(max-width:440px){.card-actions{align-items:stretch;flex-direction:column}.secret-link{width:100%}}
+.personnel-intro::before{background:linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.45),rgba(0,0,0,.95)),url('img-bradock/mick4.png') 18% center/34% auto no-repeat,url('img-hanson/home.png') 50% center/34% auto no-repeat,url('img-samuel/samuel1.png') 82% center/34% auto no-repeat}
 </style>
 <link rel="stylesheet" href="cursor-site.css">
 <link rel="stylesheet" href="page-transition.css">
 </head>
 <body>
+<div class="personnel-intro" id="personnel-intro" role="dialog" aria-modal="true" aria-labelledby="personnel-intro-title"><div class="personnel-boot"><span>IDENTIFICATION TAPE // DD-PERSONNEL</span><h1 id="personnel-intro-title">Registros de pessoal</h1><div class="boot-log"><i>&gt; MONTANDO DIRETÓRIO DE SOBREVIVENTES...</i><i>&gt; VERIFICANDO NÚCLEOS FAMILIARES...</i><i>&gt; OCULTANDO REGISTROS DE MENORES...</i><i>&gt; 08 PERFIS AUTORIZADOS // INTEGRIDADE PARCIAL</i></div><button class="personnel-enter" id="personnel-enter" type="button">ACESSAR FITA DE IDENTIFICAÇÃO</button></div></div>
 
 <audio id="bg-audio" autoplay loop hidden>
   <source src="audio/themepersona.mp3" type="audio/mpeg" />
@@ -219,6 +225,7 @@ footer{
 <div class="crt-overlay"></div>
 <div class="vignette"></div>
 <div class="grain"></div>
+<div class="personnel-hud" aria-hidden="true"><span class="ph-rec">REC // PERSONNEL</span><span class="ph-time"><b id="personnel-counter">00:00:00</b><br>SEP 13 20--</span><span class="ph-source">VHS-C // 08 PERFIS // MINORS REDACTED</span></div><div class="personnel-alert" id="personnel-alert" aria-hidden="true"></div>
 
 <nav>
   <div class="logo">DOOMS<span>DAY</span></div>
@@ -244,9 +251,9 @@ footer{
   <div class="family-label reveal">Família Bradock</div>
   <div class="dossier-grid">
     <div class="dossier reveal" data-family="bradock" data-image="img-bradock/mick.png"
-      data-nome="Mick Bradock" data-cargo="Agente Especial — FBI" data-familia="Casado, 3 filhos"
+      data-nome="Mick Bradock" data-cargo="Agente Especial — FBI" data-familia="Casado, 4 filhos"
       data-idade="Dado não divulgado" data-papel="Protagonista — um homem reservado, movido desde jovem pelo instinto de proteger quem não consegue se defender"
-      data-conexoes="Mei (esposa), Chris, Maya e Hanna (filhos)"
+      data-conexoes="Mei (esposa), Chris, Maya, Hanna e Elisabeth (filhos)"
       data-status="vivo" data-status-label="Vivo"
       data-bio="Reservado desde a escola, Mick era nerd, geek e apaixonado por tecnologia. Mesmo jogando futebol americano, preferia a companhia dos amigos nerds e nunca se identificou com o grupo popular. Seu instinto de proteger os mais vulneráveis o levava a enfrentar valentões e a praticar artes marciais desde cedo. No FBI, transformou inteligência, disciplina e senso de justiça em ferramentas para ajudar pessoas — sem deixar de ser alguém que prefere ficar na dele.">
       <div class="titlebar"><div class="dots"><span></span><span></span><span></span></div><span class="path">~/arquivo/ficha_01.dat</span></div>
@@ -254,7 +261,7 @@ footer{
         <h3>Mick Bradock</h3>
         <div class="role">Agente Especial — FBI</div>
         <div class="field"><b>Função</b><span>Protagonista</span></div>
-        <div class="field"><b>Família</b><span>Casado, 3 filhos</span></div>
+        <div class="field"><b>Família</b><span>Casado, 4 filhos</span></div>
         <p class="bio">Nerd, reservado e apaixonado por tecnologia. Desde jovem, enfrenta valentões e protege quem não consegue se defender.</p>
         <div class="expand-hint">Clique no card para revelar retrato e ficha →</div>
         <div class="card-actions"><span class="status vivo">Vivo</span><a class="secret-link" href="personagem.html?id=mick" aria-label="Abrir arquivo secreto de Mick Bradock">Abrir arquivo secreto</a></div>
@@ -264,7 +271,7 @@ footer{
     <div class="dossier reveal" data-family="bradock" data-image="img-mei/elegante2.png"
       data-nome="Mei Bradock" data-cargo="Arquiteta — Fundadora do Bradock Atelier" data-familia="Collins / Bradock"
       data-idade="Aniversário: 14 de maio" data-papel="O centro emocional e estratégico da família; uma arquiteta que passou a vida criando lugares seguros e agora precisa sobreviver em um mundo onde nenhum lugar é seguro"
-      data-conexoes="Mick (marido), Chris, Maya e Hanna (filhos)"
+      data-conexoes="Mick (marido), Chris, Maya, Hanna e Elisabeth (filhos)"
       data-status="classificado" data-status-label="Classificado"
       data-bio="Nascida em Kyoto, Mei possui nacionalidade japonesa e americana e fala os dois idiomas fluentemente. Perdeu Daniel Collins aos 12 anos e Aiko Sato Collins aos 15. Em Seattle, transformou os ensinamentos dos pais em uma carreira de destaque e fundou o Bradock Atelier.">
       <div class="titlebar"><div class="dots"><span></span><span></span><span></span></div><span class="path">~/arquivo/ficha_02.dat</span></div>
@@ -281,7 +288,7 @@ footer{
     <div class="dossier reveal" data-family="bradock" data-image="img-chris/chris.png"
       data-nome="Chris Sato Bradock" data-cargo="Universitário — músico" data-familia="Sato Bradock"
       data-idade="17 anos — primeiro ano na universidade" data-papel="Primogênito protetor da família Bradock"
-      data-conexoes="Mick e Mei (pais), Maya e Hanna (irmãs), Suyang Lee (namorada)"
+      data-conexoes="Mick e Mei (pais), Maya, Hanna e Elisabeth (irmãs), Suyang Lee (namorada)"
       data-status="classificado" data-status-label="Classificado"
       data-bio="Primogênito de Mick e Mei, inicia seu primeiro ano na universidade. Toca guitarra, namora Suyang Lee e herdou do pai o impulso de proteger quem está ao seu redor.">
       <div class="titlebar"><div class="dots"><span></span><span></span><span></span></div><span class="path">~/arquivo/ficha_03.dat</span></div>
@@ -297,7 +304,7 @@ footer{
     <div class="dossier reveal" data-family="bradock" data-image="img-maya/maya.png"
       data-nome="Maya Sato Bradock" data-cargo="Estudante — moda e estilo" data-familia="Sato Bradock"
       data-idade="15 anos — próxima de completar 16" data-papel="Segunda filha dos Bradock; jovem moderna e apaixonada por moda"
-      data-conexoes="Mick e Mei (pais), Chris e Hanna (irmãos)"
+      data-conexoes="Mick e Mei (pais), Chris, Hanna e Elisabeth (irmãos)"
       data-status="classificado" data-status-label="Classificado"
       data-bio="Dois anos mais nova que Chris, Maya é uma adolescente moderna que usa roupas, cores e tendências como forma de expressão e independência.">
       <div class="titlebar"><div class="dots"><span></span><span></span><span></span></div><span class="path">~/arquivo/ficha_04.dat</span></div>
@@ -310,22 +317,7 @@ footer{
       </div>
     </div>
 
-    <div class="dossier reveal" data-family="bradock"
-      data-nome="Hanna Sato Bradock" data-cargo="Filha mais nova" data-familia="Sato Bradock"
-      data-idade="[?]" data-papel="A que todo mundo tenta proteger primeiro"
-      data-conexoes="Mick e Mei (pais), Chris e Maya (irmãos)"
-      data-status="classificado" data-status-label="Classificado"
-      data-bio="A que todo mundo tenta proteger primeiro — e, muitas vezes, o motivo pelo qual os outros encontram forças pra continuar.">
-      <div class="titlebar"><div class="dots"><span></span><span></span><span></span></div><span class="path">~/arquivo/ficha_05.dat</span></div>
-      <div class="body">
-        <h3>Hanna Sato Bradock</h3>
-        <div class="role">Filha mais nova</div>
-        <div class="field"><b>Família</b><span>Sato Bradock</span></div>
-        <p class="bio">O motivo pelo qual os outros encontram forças pra continuar.</p>
-        <span class="status classificado">Classificado</span>
-        <div class="expand-hint">Clique para abrir ficha completa →</div>
-      </div>
-    </div>  </div>
+  </div>
 
   <div class="family-label reveal">Família Hanson</div>
   <div class="dossier-grid">
@@ -511,5 +503,8 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 <script src="cursor-site.js"></script>
 <script src="doom-puzzle.js"></script>
 <script src="page-transition.js"></script>
+<script>
+(()=>{const intro=document.getElementById('personnel-intro'),enter=document.getElementById('personnel-enter'),audio=document.getElementById('bg-audio'),counter=document.getElementById('personnel-counter'),alertBox=document.getElementById('personnel-alert'),seen=sessionStorage.getItem('dd_personnel_intro_seen')==='true';let seconds=0,timer=null,anomalyTimer=null;audio.volume=.38;function startArchive(){if(timer)return;timer=setInterval(()=>{seconds++;const h=String(Math.floor(seconds/3600)).padStart(2,'0'),m=String(Math.floor(seconds%3600/60)).padStart(2,'0'),s=String(seconds%60).padStart(2,'0');counter.textContent=`${h}:${m}:${s}`},1000);if(!matchMedia('(prefers-reduced-motion:reduce)').matches)anomalyTimer=setInterval(()=>{const available=[...document.querySelectorAll('.dossier:not(.empty-result)')];if(!available.length)return;const card=available[Math.floor(Math.random()*available.length)],messages=['CHECKSUM DE IDENTIDADE INCOMPLETO','ESTE REGISTRO FOI ALTERADO APÓS O DIA D','UM NOME FOI REMOVIDO DESTA FITA','RECONHECIMENTO FACIAL // CONFIANÇA PARCIAL'];card.classList.add('identity-unstable');alertBox.textContent=messages[Math.floor(Math.random()*messages.length)];alertBox.classList.remove('visible');void alertBox.offsetWidth;alertBox.classList.add('visible');setTimeout(()=>card.classList.remove('identity-unstable'),720)},14200)}function dismiss(){sessionStorage.setItem('dd_personnel_intro_seen','true');intro.classList.add('dismissed');document.body.style.overflow='';audio.play().catch(()=>{});startArchive();setTimeout(()=>intro.remove(),1050)}if(seen){intro.remove();startArchive();audio.play().catch(()=>{});document.addEventListener('pointerdown',()=>audio.play().catch(()=>{}),{once:true})}else{document.body.style.overflow='hidden';setTimeout(()=>{enter.classList.add('ready');enter.focus()},1900);enter.addEventListener('click',dismiss,{once:true})}document.querySelectorAll('.dossier').forEach(card=>card.addEventListener('click',()=>{card.classList.add('accessing');setTimeout(()=>card.classList.remove('accessing'),650)},{capture:true}));addEventListener('pagehide',()=>{clearInterval(timer);clearInterval(anomalyTimer);audio.pause()},{once:true})})();
+</script>
 </body>
 </html>
