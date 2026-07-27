@@ -681,7 +681,7 @@ A Fita Ø foi implementada como índice órfão. Seu puzzle somente é liberado 
 
 A Memória Contaminada é ativada somente depois da Fita Ø. Um registro específico de cada família passa a apresentar falhas: o interior do carro dos Bradock, Natasha diante da janela e o novo pôr do sol dos Salazar. O visitante pode abrir um comparador deslizante entre versão anterior e versão atual, registrar a divergência e enviar a descoberta ao quadro de evidências.
 
-O núcleo Bradock recebeu 20 memórias anteriores ao Dia D: seis registros da gravidez de Mei, sete fotografias de viagens de Mick e Mei e sete retratos do casal, incluindo quatro registros de um jantar. O núcleo Salazar recebeu `ferias4.png` como quinto registro da fita de férias. A legenda desse novo arquivo usa apenas `Família Salazar`, pois a quantidade de filhos mostrada visualmente precisa ser reconciliada futuramente com a ficha textual que atualmente informa três filhos.
+O núcleo Bradock recebeu 21 memórias anteriores ao Dia D: seis registros da gravidez de Mei, oito fotografias de viagens de Mick e Mei — incluindo um novo retrato de inverno — e sete retratos do casal, incluindo quatro registros de um jantar. O núcleo Salazar recebeu `ferias4.png` como quinto registro da fita de férias. A legenda desse novo arquivo usa apenas `Família Salazar`, pois a quantidade de filhos mostrada visualmente precisa ser reconciliada futuramente com a ficha textual que atualmente informa três filhos.
 
 Esta atualização reúne `ameaca.html`, `galeria.html`, `RESUMO_DO_PROJETO.md`, as novas imagens Bradock e a pasta `img-familys`. O duplicado `img-familyh/enfermaria.png` continua deliberadamente fora do catálogo e da publicação porque replica `indo-para-enfermaria.png`.
 
