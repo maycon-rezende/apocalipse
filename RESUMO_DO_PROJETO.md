@@ -684,3 +684,7 @@ A Memória Contaminada é ativada somente depois da Fita Ø. Um registro especí
 O núcleo Bradock recebeu 20 memórias anteriores ao Dia D: seis registros da gravidez de Mei, sete fotografias de viagens de Mick e Mei e sete retratos do casal, incluindo quatro registros de um jantar. O núcleo Salazar recebeu `ferias4.png` como quinto registro da fita de férias. A legenda desse novo arquivo usa apenas `Família Salazar`, pois a quantidade de filhos mostrada visualmente precisa ser reconciliada futuramente com a ficha textual que atualmente informa três filhos.
 
 Esta atualização reúne `ameaca.html`, `galeria.html`, `RESUMO_DO_PROJETO.md`, as novas imagens Bradock e a pasta `img-familys`. O duplicado `img-familyh/enfermaria.png` continua deliberadamente fora do catálogo e da publicação porque replica `indo-para-enfermaria.png`.
+
+### Publicação da investigação analógica — 27 de julho de 2026
+
+A transformação da Galeria, a expansão investigativa de Ameaças, a Memória Contaminada e os novos arquivos familiares foram publicados na branch `main` do repositório `maycon-rezende/apocalipse`. O commit `fef33f7` (`Transforma galeria em arquivo analog horror`) avançou o repositório remoto de `abc10dc` para `fef33f7`, incluindo 28 arquivos, 347 inserções, 11 remoções e 25 novas imagens familiares.
