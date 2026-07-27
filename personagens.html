@@ -214,6 +214,7 @@ footer{
 </style>
 <link rel="stylesheet" href="cursor-site.css">
 <link rel="stylesheet" href="page-transition.css">
+<link rel="stylesheet" href="experience-mode.css"><script src="experience-mode.js"></script>
 </head>
 <body>
 <div class="personnel-intro" id="personnel-intro" role="dialog" aria-modal="true" aria-labelledby="personnel-intro-title"><div class="personnel-boot"><span>IDENTIFICATION TAPE // DD-PERSONNEL</span><h1 id="personnel-intro-title">Registros de pessoal</h1><div class="boot-log"><i>&gt; MONTANDO DIRETÓRIO DE SOBREVIVENTES...</i><i>&gt; VERIFICANDO NÚCLEOS FAMILIARES...</i><i>&gt; OCULTANDO REGISTROS DE MENORES...</i><i>&gt; 08 PERFIS AUTORIZADOS // INTEGRIDADE PARCIAL</i></div><button class="personnel-enter" id="personnel-enter" type="button">ACESSAR FITA DE IDENTIFICAÇÃO</button></div></div>
@@ -504,7 +505,9 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 <script src="doom-puzzle.js"></script>
 <script src="page-transition.js"></script>
 <script>
+if(window.DD_ANALOG_MODE){
 (()=>{const intro=document.getElementById('personnel-intro'),enter=document.getElementById('personnel-enter'),audio=document.getElementById('bg-audio'),counter=document.getElementById('personnel-counter'),alertBox=document.getElementById('personnel-alert'),seen=sessionStorage.getItem('dd_personnel_intro_seen')==='true';let seconds=0,timer=null,anomalyTimer=null;audio.volume=.38;function startArchive(){if(timer)return;timer=setInterval(()=>{seconds++;const h=String(Math.floor(seconds/3600)).padStart(2,'0'),m=String(Math.floor(seconds%3600/60)).padStart(2,'0'),s=String(seconds%60).padStart(2,'0');counter.textContent=`${h}:${m}:${s}`},1000);if(!matchMedia('(prefers-reduced-motion:reduce)').matches)anomalyTimer=setInterval(()=>{const available=[...document.querySelectorAll('.dossier:not(.empty-result)')];if(!available.length)return;const card=available[Math.floor(Math.random()*available.length)],messages=['CHECKSUM DE IDENTIDADE INCOMPLETO','ESTE REGISTRO FOI ALTERADO APÓS O DIA D','UM NOME FOI REMOVIDO DESTA FITA','RECONHECIMENTO FACIAL // CONFIANÇA PARCIAL'];card.classList.add('identity-unstable');alertBox.textContent=messages[Math.floor(Math.random()*messages.length)];alertBox.classList.remove('visible');void alertBox.offsetWidth;alertBox.classList.add('visible');setTimeout(()=>card.classList.remove('identity-unstable'),720)},14200)}function dismiss(){sessionStorage.setItem('dd_personnel_intro_seen','true');intro.classList.add('dismissed');document.body.style.overflow='';audio.play().catch(()=>{});startArchive();setTimeout(()=>intro.remove(),1050)}if(seen){intro.remove();startArchive();audio.play().catch(()=>{});document.addEventListener('pointerdown',()=>audio.play().catch(()=>{}),{once:true})}else{document.body.style.overflow='hidden';setTimeout(()=>{enter.classList.add('ready');enter.focus()},1900);enter.addEventListener('click',dismiss,{once:true})}document.querySelectorAll('.dossier').forEach(card=>card.addEventListener('click',()=>{card.classList.add('accessing');setTimeout(()=>card.classList.remove('accessing'),650)},{capture:true}));addEventListener('pagehide',()=>{clearInterval(timer);clearInterval(anomalyTimer);audio.pause()},{once:true})})();
+}else{document.getElementById('personnel-intro')?.remove();document.querySelector('.personnel-hud')?.remove();document.getElementById('personnel-alert')?.remove()}
 </script>
 </body>
 </html>

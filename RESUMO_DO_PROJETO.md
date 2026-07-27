@@ -713,3 +713,15 @@ Cada fita é mostrada uma vez por personagem durante a sessão. Após a autentic
 As seis fotografias individuais de Mei durante a gravidez foram retiradas da fita familiar Bradock e transferidas para o arquivo visual normal da personagem. A galeria familiar volta a concentrar registros do núcleo e de sua rotina conjunta.
 
 O cofre de Mei foi dividido em arquivo comum e câmara oculta. Todas as imagens anteriormente marcadas como privadas deixaram de aparecer entre os registros normais. A entrada da câmara foi incorporada à página como um detalhe arquitetônico discreto e exige três verificações sucessivas antes de revelar o anexo não catalogado. Mesmo após a abertura, cada fotografia privada preserva sua credencial individual e o desfoque condicionado à exploração dos quatro setores. As respostas e o ponto exato de entrada não são documentados neste resumo.
+
+### Dois modos de experiência — 27 de julho de 2026
+
+O projeto passou a possuir uma base global para duas apresentações simultâneas. O **Arquivo Original** é o modo padrão e preserva a navegação narrativa sem obrigar o visitante a assistir às fitas, HUDs, interferências e anomalias analog horror. Na Home, o controle `ACESSAR TRANSMISSÃO CORROMPIDA` ativa conscientemente a **Experiência Analog Horror**.
+
+A escolha é persistida no navegador e acompanha o visitante em todas as páginas por meio de `experience-mode.js` e `experience-mode.css`. Fora da Home, um controle discreto permite ativar ou desativar a transmissão. As introduções analog horror de `personagens.html`, `personagem.html` e `galeria.html` agora respeitam a preferência global; no modo original elas não bloqueiam a tela nem iniciam suas rotinas de anomalia. Essa infraestrutura será a chave para desenvolver cada nova seção nos dois modos sem duplicar páginas ou conteúdo.
+
+As transmissões corrompidas foram preservadas como elemento compartilhado pelos dois modos. No Arquivo Original, interferências mais raras atravessam a página como vazamentos de origem desconhecida; na Experiência Analog Horror, o intervalo diminui e as mensagens se tornam mais específicas e ameaçadoras. Assim, a versão normal mantém o mistério sem assumir toda a apresentação VHS.
+
+Na Galeria, a separação foi aprofundada por `gallery-mode.js`. O Arquivo Original remove o reprodutor familiar, os rolos, os comandos `PLAY/REW`, o relógio comparador e as identificações VHS; os núcleos voltam a funcionar como arquivos fotográficos diretos. As trilhas deixam de depender do botão de reprodução da fita: `vidas-paralelas.mp3` acompanha o diretório, `familym.mp3` acompanha os Bradock, `familyhanson.mp3` acompanha os Hanson e a trilha paralela permanece como ambiente provisório dos Salazar. O modo Analog Horror conserva integralmente a videoteca e seus controles.
+
+O núcleo Bradock recebeu oito novos registros anteriores ao Dia D: `family.png` foi catalogado como retrato familiar, `ferias-casal.png` como memória de viagem de Mick e Mei e a sequência `mae&filha.png` até `mae&filha5.png` como rotina de Mei com uma das filhas. As legendas preservam a regra editorial de não individualizar crianças nas imagens.
