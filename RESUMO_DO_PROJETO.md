@@ -1,6 +1,6 @@
 # DoomsDay — resumo do projeto
 
-Última atualização: 17 de julho de 2026.
+Última atualização: 27 de julho de 2026.
 
 ## Conceito geral
 
@@ -666,3 +666,21 @@ A remoção manual do parágrafo `// ARQUIVO RECUPERADO // DD-01` deixou uma ref
 O cofre estratégico de Samuel recebeu seis novas imagens — leitura, paisagem, descanso e novos retratos — e passou de quatro para dez evidências. O prontuário protegido de Elena recebeu sete novos registros e passou de dez para dezessete evidências. Toda a pasta de cada personagem foi comparada com o manifesto de `evidencias.html`; nenhuma imagem ficou fora e não há referências duplicadas.
 
 As ampliações foram publicadas na branch `main` no commit `ebd5f83` (`Amplia cofres visuais de Samuel e Elena`). O GitHub Pages concluiu a implantação com sucesso na execução `30182170435`, usando o hash completo `ebd5f83d797e8e75a2a6127bedd2430ef7164970`.
+
+### Investigação analógica e expansão de Vidas Paralelas — 27 de julho de 2026
+
+`ameaca.html` foi aprofundada como uma investigação analógica conduzida de forma anônima. A página ganhou casos anteriores ao Dia D, matérias expansíveis, documentos conectáveis, fórum ficcional, central de investigação e interações que permitem ao visitante participar da apuração sem revelar de imediato que Natasha está por trás da pesquisa. A primeira evidência foi reposicionada para não cobrir a fotografia, a imagem passou a ser apresentada integralmente e o ambiente recebeu efeitos de fundo, névoa e interferência compatíveis com a trilha de ameaça.
+
+`galeria.html` passou de arquivo fotográfico para uma videoteca de memórias familiares em estilo analog horror. A abertura identifica uma fita-mestre recuperada; cada núcleo aparece como uma fita VHS própria e as páginas internas possuem reprodutor com avanço, pausa, retrocesso, progresso, filtros e marcação individual de frames. A Família Salazar deixou o estado de sinal ausente e recebeu sua fita familiar com os registros de férias de `img-familys`.
+
+O arquivo recebeu um modo de inspeção óptica. Uma lente móvel permite varrer cada fotografia e localizar uma instabilidade exclusiva daquele frame. As descobertas ficam salvas durante a sessão, entram em uma linha temporal fragmentada e podem ser comparadas entre Bradock, Hanson e Salazar. Frames intrusos também surgem por aproximadamente um segundo durante a reprodução; capturá-los exige reação rápida e registra contaminações entre fitas.
+
+O Quadro de Evidências reúne automaticamente descobertas da lente e frames corrompidos. O visitante escolhe dois cartões e solicita uma correlação. O terminal diferencia vínculo interno, correlação insuficiente, janela temporal compatível, sobreposição entre fitas e repetição crítica da mesma imagem em núcleos diferentes. As conexões analisadas permanecem arquivadas na sessão.
+
+A Fita Ø foi implementada como índice órfão. Seu puzzle somente é liberado depois de três frames corrompidos, inspeções em dois núcleos e duas correlações arquivadas. O desafio pede a identificação do frame que não pertence à sequência familiar. A reprodução correta mostra apenas um corredor de origem desconhecida, data ilegível anterior ao Dia D, perda de sinal e a mensagem de que a fita não foi encontrada com as outras. O conteúdo principal permanece inacessível para não antecipar a história. Depois da reprodução, `ORIGEM Ø // SEM PROPRIETÁRIO` entra no quadro.
+
+A Memória Contaminada é ativada somente depois da Fita Ø. Um registro específico de cada família passa a apresentar falhas: o interior do carro dos Bradock, Natasha diante da janela e o novo pôr do sol dos Salazar. O visitante pode abrir um comparador deslizante entre versão anterior e versão atual, registrar a divergência e enviar a descoberta ao quadro de evidências.
+
+O núcleo Bradock recebeu 20 memórias anteriores ao Dia D: seis registros da gravidez de Mei, sete fotografias de viagens de Mick e Mei e sete retratos do casal, incluindo quatro registros de um jantar. O núcleo Salazar recebeu `ferias4.png` como quinto registro da fita de férias. A legenda desse novo arquivo usa apenas `Família Salazar`, pois a quantidade de filhos mostrada visualmente precisa ser reconciliada futuramente com a ficha textual que atualmente informa três filhos.
+
+Esta atualização reúne `ameaca.html`, `galeria.html`, `RESUMO_DO_PROJETO.md`, as novas imagens Bradock e a pasta `img-familys`. O duplicado `img-familyh/enfermaria.png` continua deliberadamente fora do catálogo e da publicação porque replica `indo-para-enfermaria.png`.
