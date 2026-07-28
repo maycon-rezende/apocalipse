@@ -727,3 +727,25 @@ Na Galeria, a separação foi aprofundada por `gallery-mode.js`. O Arquivo Origi
 O núcleo Bradock recebeu oito novos registros anteriores ao Dia D: `family.png` foi catalogado como retrato familiar, `ferias-casal.png` como memória de viagem de Mick e Mei e a sequência `mae&filha.png` até `mae&filha5.png` como rotina de Mei com uma das filhas. As legendas preservam a regra editorial de não individualizar crianças nas imagens.
 
 Dois arquivos adicionais que estavam na pasta Hanson foram reorganizados em `img-familyb`: `mei-gravida.png` entrou como registro normal da galeria de Mei, acompanhando o conjunto de maternidade, e `passeio-bradocks.png` entrou em Família no núcleo Bradock. `img-familyh/enfermaria.png` não recebeu um segundo cartão porque seu conteúdo e hash são idênticos a `indo-para-enfermaria.png`, já catalogado como `J-02 // Enfermaria` no Dia D de James Hanson.
+
+### Transformação cinematográfica da Home — 27 de julho de 2026
+
+A troca entre Arquivo Original e Experiência Analog Horror deixou de ser um simples recarregamento. `home-mode.js` e `home-mode.css` introduzem uma sequência própria de invasão do sinal: rupturas horizontais, terminal de sobrescrita, progresso de sincronização, clarões e mensagens escalonadas antecedem a entrada no modo corrompido. O retorno possui uma restauração mais curta, com linguagem e cor distintas. A preferência continua persistida pelo controlador global.
+
+Quando a Home recarrega em Analog Horror, ela recebe HUD `MIRROR FEED`, relógio de gravação, estado de transmissão sincronizada, interferências ocasionais, navegação rebatizada como setores e instabilidade no título. O comunicado presidencial conserva integralmente o pronunciamento, mas passa a exibir marcas de cópia desviada e origem não confirmada. Seções investigativas recebem uma malha técnica discreta e anotações da transmissão alternativa. O Arquivo Original não carrega esses elementos, mantendo apenas os vazamentos corrompidos globais anteriormente aprovados.
+
+A integração também corrigiu o bloqueio da abertura original: o controlador de modos não remove mais `body.locked` enquanto o crawl da Home está em execução. O seletor permanece fora da navegação por teclado até ser revelado junto da tagline, e a abertura só é marcada como concluída depois de terminar. Em preferência de movimento reduzido, o crawl e a troca de modo usam sequências curtas, sem a espera de dezenove segundos.
+
+### Novos registros de Mei e do casal Bradock — 28 de julho de 2026
+
+`img-mei/mei-gravida.png` e `img-mei/poses.png` foram incorporados como registros normais da galeria de Mei. Ambos pertencem ao conjunto do chá de bebê de Chris e permanecem fora da câmara privada, seguindo a classificação já adotada para as demais fotografias de maternidade.
+
+A sequência `img-familyb/chadebebe.png` até `chadebebe4.png` foi catalogada em Família no núcleo Bradock. Os cinco registros mostram Mick e Mei durante o chá de bebê do primogênito e foram organizados em ordem documental, com legendas que situam o evento anos antes do Dia D.
+
+`img-familyb/casal-bradock1.png` também foi incorporado em Família como uma memória noturna de Mick e Mei durante um jantar em casa, anterior ao Dia D e independente das sequências de viagem e maternidade.
+
+### Novos registros da rotina do casal Hanson — 28 de julho de 2026
+
+O núcleo Hanson recebeu oito novas fotografias de James e Natasha em `Rotina`, todas anteriores ao Dia D. A sequência `casal-hanson.png`, `casal-hanson1.png`, `casal-hanson2.png`, `casal-hanson3.png`, `casal-hanso4.png`, `casal-hanson4.png`, `casal-hanson5.png` e `casal-hanson6.png` reúne uma cerimônia militar, momentos domésticos, café da manhã, viagem às montanhas, passeio pela cidade, jantar e descanso do casal.
+
+Os novos registros usam os códigos `H-R01` a `H-R08` e permanecem separados tanto das memórias gerais de `Família` quanto das duas cronologias de `Dia D`. As oito imagens foram verificadas e são distintas. O arquivo `img-familyh/enfermaria.png` continua sem um segundo cartão por ser duplicata exata de `indo-para-enfermaria.png`.

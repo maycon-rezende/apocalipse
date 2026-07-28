@@ -1,11 +1,12 @@
 (function(){
   const STORAGE_KEY='dd_experience_mode_v1';
-  const enabled=localStorage.getItem(STORAGE_KEY)==='analog';
+  let storedMode='original';try{storedMode=localStorage.getItem(STORAGE_KEY)||'original'}catch(error){}
+  const enabled=storedMode==='analog';
   window.DD_ANALOG_MODE=enabled;
   document.documentElement.classList.add(enabled?'analog-experience':'original-experience');
 
   function applyMode(next,reload=true){
-    localStorage.setItem(STORAGE_KEY,next?'analog':'original');
+    try{localStorage.setItem(STORAGE_KEY,next?'analog':'original')}catch(error){}
     window.DD_ANALOG_MODE=next;
     document.documentElement.classList.toggle('analog-experience',next);
     document.documentElement.classList.toggle('original-experience',!next);
@@ -13,9 +14,9 @@
   }
 
   function mountControls(){
+    const pageName=location.pathname.split('/').pop().toLowerCase(),isOpeningPage=pageName==='home.html'||pageName==='index.html';
     if(!enabled){
-      document.body.style.overflow='';
-      document.body.classList.remove('locked');
+      if(!isOpeningPage){document.body.style.overflow='';document.body.classList.remove('locked')}
       document.querySelectorAll('.personnel-intro,.personnel-hud,.personnel-alert,.subject-tape,.subject-hud,.subject-corruption,.gallery-intro,.family-entry,.memory-frame,.memory-tracking,.memory-hud,.memory-anomaly').forEach(element=>element.remove());
       ['gallery-intro-theme','parallel-theme'].forEach(id=>document.getElementById(id)?.pause());
     }
@@ -25,12 +26,15 @@
       homeControl.querySelector('[data-experience-title]').textContent=enabled?'TRANSMISSÃO CORROMPIDA ATIVA':'ACESSAR TRANSMISSÃO CORROMPIDA';
       homeControl.querySelector('[data-experience-copy]').textContent=enabled?'Retornar ao arquivo original':'Iniciar experiência Analog Horror';
       homeControl.addEventListener('click',()=>{
+        const nextMode=!enabled;
+        homeControl.disabled=true;homeControl.setAttribute('aria-busy','true');
         document.body.classList.add('experience-changing');
-        setTimeout(()=>applyMode(!enabled),650);
+        document.dispatchEvent(new CustomEvent('dd:experience-changing',{detail:{analog:nextMode}}));
+        const delay=nextMode?Number(document.body.dataset.experienceEnterMs)||650:Number(document.body.dataset.experienceExitMs)||650;
+        setTimeout(()=>applyMode(nextMode),delay);
       });
     }
 
-    const pageName=location.pathname.split('/').pop().toLowerCase();
     if(pageName!=='home.html'&&pageName!=='index.html'&&pageName!==''){
       const toggle=document.createElement('button');
       toggle.type='button';
@@ -46,7 +50,7 @@
     document.head.appendChild(transmissionStyle);
     const transmission=document.createElement('aside');
     transmission.className='global-corrupt-transmission';
-    transmission.setAttribute('aria-live','polite');
+    transmission.setAttribute('aria-live',enabled?'polite':'off');
     transmission.setAttribute('aria-atomic','true');
     transmission.innerHTML='<small>TRANSMISSÃO NÃO SOLICITADA // CANAL --</small><strong></strong><span>SINAL INSTÁVEL</span>';
     document.body.appendChild(transmission);
