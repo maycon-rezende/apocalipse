@@ -749,3 +749,13 @@ A sequência `img-familyb/chadebebe.png` até `chadebebe4.png` foi catalogada em
 O núcleo Hanson recebeu oito novas fotografias de James e Natasha em `Rotina`, todas anteriores ao Dia D. A sequência `casal-hanson.png`, `casal-hanson1.png`, `casal-hanson2.png`, `casal-hanson3.png`, `casal-hanso4.png`, `casal-hanson4.png`, `casal-hanson5.png` e `casal-hanson6.png` reúne uma cerimônia militar, momentos domésticos, café da manhã, viagem às montanhas, passeio pela cidade, jantar e descanso do casal.
 
 Os novos registros usam os códigos `H-R01` a `H-R08` e permanecem separados tanto das memórias gerais de `Família` quanto das duas cronologias de `Dia D`. As oito imagens foram verificadas e são distintas. O arquivo `img-familyh/enfermaria.png` continua sem um segundo cartão por ser duplicata exata de `indo-para-enfermaria.png`.
+
+### Capítulo 1 — novo leitor da História — 29 de julho de 2026
+
+`historia.html` deixou de usar depoimentos e horários provisórios inventados e passou a funcionar como um leitor canônico do manuscrito em andamento. A página apresenta os três núcleos do Dia D sem misturá-los: Mick Bradock e James Hanson possuem trechos já escritos e expansíveis; Samuel Jordan Salazar permanece visível como a terceira perspectiva, porém bloqueado com o estado `EM REDAÇÃO`, sem antecipar acontecimentos do Pentágono.
+
+A cronologia pública começa com os relatos anteriores às 05h00, acompanha Hanson no centro de controle, a corrida dos Bradock às 06h00, a ordem militar das 06h40, a lei marcial depois das 07h00 e os cinco helicópteros observados por Mei em menos de dez minutos. Oito segundos aparecem somente como um intervalo biológico censurado. A origem antártica do DOOM, o retorno dos soldados contaminados, a queda da base, o conteúdo de Samuel e os destinos dos personagens continuam protegidos como spoilers.
+
+O Arquivo Original ganhou uma apresentação de manuscrito literário, enquanto a Experiência Analog Horror converte o mesmo conteúdo em transmissão recuperada com CRT, ruído, HUD e mensagens de corrupção. A trilha `halloween.mp3` foi preservada sem controle de áudio visível. Abas acessíveis, expansão individual dos trechos, navegação pela linha do tempo, persistência da perspectiva durante a sessão, movimento reduzido e adaptação para telas menores foram incorporados.
+
+A revisão ortográfica do material recebido foi armazenada em `textos/Age of DOOMSDAY - Capitulo 1 - revisao.md`; o arquivo RTF original do autor não foi sobrescrito. A revisão confirma Old City, Filadélfia, como local de Suyang e registra a continuidade planejada: Samuel no Pentágono, conclusão de Hanson e retorno à perspectiva de Mick. Esta atualização permanece local até uma futura solicitação de publicação no GitHub.
