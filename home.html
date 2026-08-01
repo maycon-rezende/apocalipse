@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-i18n-ready="full">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AGE OF DOOMSDAY // A ERA DO APOCALIPSE Z</title>
+<meta name="description" content="Age of DoomsDay — uma experiência narrativa sobre a manhã em que o mundo começou a desmoronar." data-i18n-attr="content:home.meta.description">
+<title data-i18n="home.meta.title">AGE OF DOOMSDAY // A ERA DO APOCALIPSE Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
@@ -315,12 +316,20 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
 @media(max-width:760px){.intel-grid{grid-template-columns:1fr}.progress-grid{grid-template-columns:repeat(2,1fr)}.sector-preview{grid-template-columns:1fr}}
 @media(max-width:480px){nav{padding:.75rem 4vw}.hero{padding:7rem 4vw 4rem}.explore{padding:4rem 4vw}.explore-grid{grid-template-columns:minmax(0,1fr)}.captured-frame{width:min(420px,92vw)}#nav-toggle{min-width:44px;min-height:44px}.links{width:min(86vw,300px)}.archive-recovery{padding:.85rem}.archive-data{font-size:.82rem}.archive-recovery::after{font-size:1.5rem}.signal-summary{grid-template-columns:1fr}}
 @media(max-height:520px) and (orientation:landscape){.hero{padding-top:5rem}.crawl-outer{height:70dvh}.crawl-skip{bottom:2vh}}
+.explore-card.is-visited .sector-state::after{content:attr(data-visited-label)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}body,.grain,.rec-dot{animation:none!important}.reveal{opacity:1;transform:none;transition:none!important}}
+.explore.dd-unsealing::before{content:attr(data-unseal-label)}
+.tv-header{flex-wrap:wrap}
+.signal-transcript .signal-transcript-copy{display:inline;margin:0;font:inherit;color:inherit}
+@media(max-width:900px){html[lang="en"] .signal-summary{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="cursor-site.css">
 <link rel="stylesheet" href="page-transition.css">
 <link rel="stylesheet" href="experience-mode.css">
 <link rel="stylesheet" href="home-mode.css">
+<script src="i18n/pt-BR.js"></script>
+<script src="i18n/en.js"></script>
+<script src="i18n/core.js"></script>
 <script src="experience-mode.js"></script>
 </head>
 <body class="locked">
@@ -347,76 +356,76 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
 
   <div class="crawl-outer">
     <div class="crawl-text" id="crawl-text">
-      <p>Era mais um dia comum numa cidade da Califórnia.</p>
-      <p>Horas antes de tudo desmoronar, o Capitão Hanson — ainda não General — recebeu os primeiros relatos de um surto que ninguém sabia nomear.</p>
-      <p>No Pentágono, Samuel já sabia o suficiente pra agir. Sua prioridade não era entender o vírus. Era manter o Presidente vivo.</p>
-      <p>Enquanto isso, a família Bradock corria pelas ruas, tentando atravessar o caos antes que ele os alcançasse.</p>
-      <p class="hook">Isso é o ...</p>
+      <p data-i18n="home.opening.1">Era mais um dia comum numa cidade da Califórnia.</p>
+      <p data-i18n="home.opening.2">Horas antes de tudo desmoronar, o Capitão Hanson — ainda não General — recebeu os primeiros relatos de um surto que ninguém sabia nomear.</p>
+      <p data-i18n="home.opening.3">No Pentágono, Samuel já sabia o suficiente pra agir. Sua prioridade não era entender o vírus. Era manter o Presidente vivo.</p>
+      <p data-i18n="home.opening.4">Enquanto isso, a família Bradock corria pelas ruas, tentando atravessar o caos antes que ele os alcançasse.</p>
+      <p class="hook" data-i18n="home.opening.hook">Isso é o ...</p>
     </div>
   </div>
 </div>
 
 <nav>
   <div class="logo">AGE OF DOOMS<span>DAY</span></div>
-  <button id="nav-toggle" aria-label="Abrir menu">☰</button>
+  <button id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" data-i18n-attr="aria-label:home.nav.open">☰</button>
   <div class="links" id="nav-links">
-    <a href="historia.html">História</a>
-    <a href="personagens.html">Personagens</a>
-    <a href="ameaca.html">Ameaça</a>
-    <a href="projeto-doom.html">Projeto DOOM</a>
-    <a href="galeria.html">Galeria</a>
+    <a href="historia.html" data-i18n="home.nav.history">História</a>
+    <a href="personagens.html" data-i18n="home.nav.characters">Personagens</a>
+    <a href="ameaca.html" data-i18n="home.nav.threat">Ameaça</a>
+    <a href="projeto-doom.html" data-i18n="home.nav.doom">Projeto DOOM</a>
+    <a href="galeria.html" data-i18n="home.nav.gallery">Galeria</a>
   </div>
 </nav>
 <!-- ===== HERO ===== -->
 <header class="hero">
   <div class="title-wrap" id="title-wrap">
-    <div class="age-stack" aria-label="Age of"><span>Age</span><span>of</span></div>
+    <div class="age-stack" aria-label="Age of" data-i18n-attr="aria-label:home.title.ageLabel"><span>Age</span><span>of</span></div>
     <h1 id="movie-title"></h1>
-    <div class="fire-shadow" id="fire-shadow" aria-label="Apocalipse Z"></div>
+    <div class="fire-shadow" id="fire-shadow" aria-label="Apocalipse Z" data-i18n-attr="aria-label:home.title.apocalypseLabel"></div>
     <canvas id="title-canvas"></canvas>
     <div class="blood-drips" id="blood-drips"></div>
   </div>
-  <p class="tagline fade-block" id="hero-tagline">Era uma manhã como qualquer outra. Cinco helicópteros depois, nada mais seria.</p>
+  <p class="tagline fade-block" id="hero-tagline" data-i18n="home.hero.tagline">Era uma manhã como qualquer outra. Cinco helicópteros depois, nada mais seria.</p>
   <button class="experience-switch fade-block" id="experience-switch" type="button" tabindex="-1" aria-hidden="true"><span aria-hidden="true"></span><span><strong data-experience-title>ACESSAR TRANSMISSÃO CORROMPIDA</strong><small data-experience-copy>Iniciar experiência Analog Horror</small></span></button>
 
   <section class="presidential-broadcast fade-block" id="hero-broadcast" aria-labelledby="broadcast-title">
-    <button class="broadcast-alert" id="broadcast-trigger" type="button" aria-expanded="false" aria-controls="presidential-tv"><span>⚠ ALERTA MÁXIMO ⚠</span><strong id="broadcast-title">Comunicado do Presidente dos Estados Unidos</strong><small>[ CLIQUE PARA INTERROMPER A PROGRAMAÇÃO E RECEBER A TRANSMISSÃO ]</small></button>
+    <button class="broadcast-alert" id="broadcast-trigger" type="button" aria-expanded="false" aria-controls="presidential-tv"><span data-i18n="home.broadcast.maxAlert">⚠ ALERTA MÁXIMO ⚠</span><strong id="broadcast-title" data-i18n="home.broadcast.title">Comunicado do Presidente dos Estados Unidos</strong><small data-i18n="home.broadcast.prompt">[ CLIQUE PARA INTERROMPER A PROGRAMAÇÃO E RECEBER A TRANSMISSÃO ]</small></button>
     <div class="presidential-tv" id="presidential-tv" hidden>
-      <div class="tv-header"><span>SISTEMA NACIONAL DE EMERGÊNCIA</span><span>TRANSMISSÃO OBRIGATÓRIA</span></div>
+      <div class="tv-header"><span data-i18n="home.broadcast.emergencySystem">SISTEMA NACIONAL DE EMERGÊNCIA</span><span data-i18n="home.broadcast.mandatory">TRANSMISSÃO OBRIGATÓRIA</span></div>
       <div class="tv-screen">
-        <div class="presidential-seal" aria-label="Selo presidencial estilizado">THE WHITE<br>HOUSE</div>
-        <div class="address-copy"><h3>Pronunciamento à nação</h3><span class="address-meta">CASA BRANCA // GABINETE PRESIDENCIAL // AO VIVO</span>
-          <p>“Meus queridos compatriotas, falo com vocês esta noite não apenas como Presidente, mas como cidadão, pai e marido. O que está acontecendo em nosso país ultrapassa tudo para o que fomos preparados. Não vou oferecer falsas garantias: as próximas horas serão difíceis, e muitas perguntas ainda não possuem resposta.</p>
-          <p>A partir deste momento, está decretada lei marcial em todo o território nacional. Permaneçam em suas casas. Trancem portas e janelas. Apaguem as luzes externas e afastem-se das ruas. As Forças Armadas assumiram a proteção das rotas essenciais e dos centros de emergência.</p>
-          <p>Eu sei que isso vai contra tudo o que há de humano em nós, mas preciso ser absolutamente claro: não deixem ninguém entrar. Nem desconhecidos, nem amigos, nem vizinhos — nem mesmo familiares — até terem certeza de que estão seguros. Não abram a porta apenas porque reconhecem uma voz.</p>
-          <p>Cuidem das crianças. Acolham os idosos que já estiverem com vocês. Dividam água, alimento e coragem. Se estiverem separados de quem amam, não saiam para procurá-los agora. A decisão mais dolorosa desta noite talvez seja permanecer onde estão. Essa decisão pode salvar a vida de vocês — e a deles.</p>
-          <p class="address-final">Nossa nação já atravessou guerras, perdas e dias em que a esperança parecia pequena demais. Hoje, ela vive dentro de cada casa que permanecer unida. Se esta for a última vez que minha voz chegar até vocês, quero que saibam: vocês não foram abandonados. Nós ainda estamos lutando. Que Deus proteja suas famílias, e que Deus proteja os Estados Unidos da Amé—”</p>
+        <div class="presidential-seal" aria-label="Selo presidencial estilizado" data-i18n-attr="aria-label:home.broadcast.sealLabel">THE WHITE<br>HOUSE</div>
+        <div class="address-copy"><h3 data-i18n="home.broadcast.addressTitle">Pronunciamento à nação</h3><span class="address-meta" data-i18n="home.broadcast.addressMeta">CASA BRANCA // GABINETE PRESIDENCIAL // AO VIVO</span>
+          <p data-i18n="home.broadcast.speech1">“Meus queridos compatriotas, falo com vocês esta noite não apenas como Presidente, mas como cidadão, pai e marido. O que está acontecendo em nosso país ultrapassa tudo para o que fomos preparados. Não vou oferecer falsas garantias: as próximas horas serão difíceis, e muitas perguntas ainda não possuem resposta.</p>
+          <p data-i18n="home.broadcast.speech2">A partir deste momento, está decretada lei marcial em todo o território nacional. Permaneçam em suas casas. Trancem portas e janelas. Apaguem as luzes externas e afastem-se das ruas. As Forças Armadas assumiram a proteção das rotas essenciais e dos centros de emergência.</p>
+          <p data-i18n="home.broadcast.speech3">Eu sei que isso vai contra tudo o que há de humano em nós, mas preciso ser absolutamente claro: não deixem ninguém entrar. Nem desconhecidos, nem amigos, nem vizinhos — nem mesmo familiares — até terem certeza de que estão seguros. Não abram a porta apenas porque reconhecem uma voz.</p>
+          <p data-i18n="home.broadcast.speech4">Cuidem das crianças. Acolham os idosos que já estiverem com vocês. Dividam água, alimento e coragem. Se estiverem separados de quem amam, não saiam para procurá-los agora. A decisão mais dolorosa desta noite talvez seja permanecer onde estão. Essa decisão pode salvar a vida de vocês — e a deles.</p>
+          <p class="address-final" data-i18n="home.broadcast.speech5">Nossa nação já atravessou guerras, perdas e dias em que a esperança parecia pequena demais. Hoje, ela vive dentro de cada casa que permanecer unida. Se esta for a última vez que minha voz chegar até vocês, quero que saibam: vocês não foram abandonados. Nós ainda estamos lutando. Que Deus proteja suas famílias, e que Deus proteja os Estados Unidos da Amé—”</p>
         </div>
       </div>
-      <div class="broadcast-cut">TRANSMISSÃO INTERROMPIDA // CONEXÃO COM A CASA BRANCA PERDIDA</div>
+      <div class="broadcast-cut" data-i18n="home.broadcast.cut">TRANSMISSÃO INTERROMPIDA // CONEXÃO COM A CASA BRANCA PERDIDA</div>
     </div>
   </section>
 
   <div class="archive-recovery" id="archive-recovery" aria-live="polite">
-    <div class="archive-head"><span class="archive-pulse"></span><span>Arquivo DD-01 localizado</span></div>
+    <div class="archive-head"><span class="archive-pulse"></span><span data-i18n="home.archive.located">Arquivo DD-01 localizado</span></div>
     <div class="archive-data">
-      <span>ORIGEM</span><strong>SETOR DE CONTENÇÃO</strong>
-      <span>CLASSIFICAÇÃO</span><strong>NÍVEL VERMELHO</strong>
+      <span data-i18n="home.archive.origin">ORIGEM</span><strong data-i18n="home.archive.originValue">SETOR DE CONTENÇÃO</strong>
+      <span data-i18n="home.archive.classification">CLASSIFICAÇÃO</span><strong data-i18n="home.archive.classificationValue">NÍVEL VERMELHO</strong>
     </div>
-    <div class="integrity-row"><span>INTEGRIDADE DOS DADOS</span><strong id="integrity-value">00%</strong></div>
+    <div class="integrity-row"><span data-i18n="home.archive.integrity">INTEGRIDADE DOS DADOS</span><strong id="integrity-value">00%</strong></div>
     <div class="integrity-track"><span class="integrity-fill" id="integrity-fill"></span></div>
-    <p class="archive-message" id="archive-message">INICIANDO RECUPERAÇÃO...</p>
-    <button class="archive-access" id="archive-access" type="button" disabled>[ AGUARDE AUTORIZAÇÃO ]</button>
-    <div class="dd-open-sequence" id="dd-open-sequence" role="status" aria-live="polite" hidden><p id="dd-open-status">AGUARDANDO COMANDO...</p></div>
+    <p class="archive-message" id="archive-message" data-i18n="home.archive.initiating">INICIANDO RECUPERAÇÃO...</p>
+    <button class="archive-access" id="archive-access" type="button" disabled data-i18n="home.archive.waitAuthorization">[ AGUARDE AUTORIZAÇÃO ]</button>
+    <div class="dd-open-sequence" id="dd-open-sequence" role="status" aria-live="polite" hidden><p id="dd-open-status" data-i18n="home.archive.waitCommand">AGUARDANDO COMANDO...</p></div>
   </div>
 
   <div class="captured-frame fade-block" id="hero-frame">
     <div class="frame-bar">
-      <span>CÂMERA URBANA // SETOR 04</span>
+      <span data-i18n="home.frame.camera">CÂMERA URBANA // SETOR 04</span>
       <span class="rec"><span class="dot"></span>07:52:13</span>
     </div>
     <div class="art-wrap">
-      <svg viewBox="0 0 400 500" role="img" aria-label="Uma manhã urbana normal durante o primeiro sobrevoo de helicóptero">
+      <svg viewBox="0 0 400 500" role="img" aria-label="Uma manhã urbana normal durante o primeiro sobrevoo de helicóptero" data-i18n-attr="aria-label:home.frame.imageLabel">
         <defs>
           <linearGradient id="morning-sky" x2="0" y2="1"><stop stop-color="#283832"/><stop offset="1" stop-color="#9a7650" stop-opacity=".45"/></linearGradient>
           <linearGradient id="street-depth" x2="0" y2="1"><stop stop-color="#242824"/><stop offset="1" stop-color="#090b09"/></linearGradient>
@@ -428,111 +437,118 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
         <g fill="#c49b58" opacity=".42"><path d="M12 126h9v12h-9zm24 0h9v12h-9zm32 44h10v13H68zm27 0h10v13H95zm211-29h10v13h-10zm25 0h10v13h-10zm28-42h9v12h-9zm22 0h9v12h-9z"/></g>
         <path d="M0 500V285H400V500Z" fill="url(#street-depth)"/><path d="M145 285L65 500M255 285L335 500" stroke="#687068" stroke-width="2"/><path d="M200 300V500" stroke="#b18a45" stroke-width="3" stroke-dasharray="18 14" opacity=".7"/>
         <g fill="#c9ccc4" opacity=".72"><path d="M12 322h84v11H8zm-4 34h92v13H0zm304-34h80v11h-76zm-2 34h90v13h-94z"/></g>
-        <g transform="translate(280 80)"><use href="#first-heli"/><path d="M-65 0H-42M42 0H70" stroke="#d21f2c" stroke-dasharray="3 3"/><text x="-64" y="-26" fill="#e8a33d" font-family="monospace" font-size="10">1º SOBREVÔO</text></g>
+        <g transform="translate(280 80)"><use href="#first-heli"/><path d="M-65 0H-42M42 0H70" stroke="#d21f2c" stroke-dasharray="3 3"/><text x="-64" y="-26" fill="#e8a33d" font-family="monospace" font-size="10" data-i18n="home.frame.flyover">1º SOBREVÔO</text></g>
         <g fill="#111"><path d="M80 373h64l12 13v24H67v-24z"/><circle cx="86" cy="411" r="8"/><circle cx="139" cy="411" r="8"/><path d="M263 327h49l10 11v20h-69v-20z"/><circle cx="269" cy="359" r="7"/><circle cx="308" cy="359" r="7"/></g>
         <g stroke="#080a08" stroke-width="6" stroke-linecap="round"><path d="M168 340v38m0-25l-12 17m12-17l12 17"/><circle cx="168" cy="330" r="7" fill="#080a08"/><path d="M228 372v42m0-27l-13 19m13-19l14 18"/><circle cx="228" cy="361" r="7" fill="#080a08"/></g>
         <g transform="translate(34 205)"><rect x="0" y="0" width="12" height="54" fill="#090b09"/><circle cx="6" cy="8" r="4" fill="#421014"/><circle cx="6" cy="22" r="4" fill="#4b3714"/><circle cx="6" cy="36" r="4" fill="#3ddc84"/><path d="M6 54v30" stroke="#090b09" stroke-width="4"/></g>
-        <g transform="translate(16 18)"><rect width="156" height="70" fill="#050806" fill-opacity=".82" stroke="#59665e"/><text x="9" y="17" fill="#e8a33d" font-family="monospace" font-size="10">RELATO // M. BRADOCK</text><text x="9" y="34" fill="#c4c9c2" font-family="monospace" font-size="10">1º // AGORA</text><text x="9" y="49" fill="#c4c9c2" font-family="monospace" font-size="10">2º // +05 MIN</text><text x="9" y="64" fill="#d21f2c" font-family="monospace" font-size="10">TOTAL 05 // &lt;10 MIN</text></g>
-        <text x="16" y="480" fill="#9daf9f" font-family="monospace" font-size="10">TRÁFEGO NORMAL // PEDESTRES PRESENTES // NENHUM ALERTA EMITIDO</text>
+        <g transform="translate(16 18)"><rect width="156" height="70" fill="#050806" fill-opacity=".82" stroke="#59665e"/><text x="9" y="17" fill="#e8a33d" font-family="monospace" font-size="10" data-i18n="home.frame.report">RELATO // M. BRADOCK</text><text x="9" y="34" fill="#c4c9c2" font-family="monospace" font-size="10" data-i18n="home.frame.now">1º // AGORA</text><text x="9" y="49" fill="#c4c9c2" font-family="monospace" font-size="10" data-i18n="home.frame.plusFive">2º // +05 MIN</text><text x="9" y="64" fill="#d21f2c" font-family="monospace" font-size="10" data-i18n="home.frame.total">TOTAL 05 // &lt;10 MIN</text></g>
+        <text x="16" y="480" fill="#9daf9f" font-family="monospace" font-size="10" data-i18n="home.frame.traffic">TRÁFEGO NORMAL // PEDESTRES PRESENTES // NENHUM ALERTA EMITIDO</text>
       </svg>
       <div class="glitch-bar" style="top:22%;"></div>
       <div class="glitch-bar" style="top:61%; animation-delay:2.4s;"></div>
     </div>
-    <div class="caption">última manhã normal // primeiro sobrevoo // outros quatro em menos de dez minutos</div>
+    <div class="caption" data-i18n="home.frame.caption">última manhã normal // primeiro sobrevoo // outros quatro em menos de dez minutos</div>
   </div>
 
-  <div class="scroll-cue fade-block" id="hero-scroll-cue"><span class="bar-v"></span><span>Role para descriptografar</span></div>
+  <div class="scroll-cue fade-block" id="hero-scroll-cue"><span class="bar-v"></span><span data-i18n="home.hero.scroll">Role para descriptografar</span></div>
 </header>
 
 <!-- ===== INTELIGÊNCIA DO DIA ZERO ===== -->
 <section class="intel-section" id="dia-zero">
-  <p class="eyebrow reveal">Fragmentos cronológicos</p>
+  <p class="eyebrow reveal" data-i18n="home.dayzero.kicker">Fragmentos cronológicos</p>
   <div class="intel-grid">
     <div class="zero-log reveal">
-      <article class="zero-event"><time>07:42</time><div><strong>PRIMEIRO SINAL</strong><p>Chamado incompleto recebido. Origem e natureza ainda não confirmadas.</p></div></article>
-      <article class="zero-event"><time>07:51</time><div><strong>INTERFERÊNCIA CRESCENTE</strong><p>Fragmentos de comunicação indicam perda progressiva de contato.</p></div></article>
-      <article class="zero-event"><time>07:52+</time><div><strong>SOBREVOOS SUCESSIVOS</strong><p>Mei observa o primeiro helicóptero. O segundo passa cinco minutos depois; em menos de dez minutos, cinco aeronaves já haviam sobrevoado a região.</p></div></article>
-      <article class="zero-event"><time>--:--</time><div><strong>REGISTRO CORROMPIDO</strong><p>Os acontecimentos seguintes aguardam confirmação narrativa.</p></div></article>
+      <article class="zero-event"><time>07:42</time><div><strong data-i18n="home.dayzero.event1.title">PRIMEIRO SINAL</strong><p data-i18n="home.dayzero.event1.copy">Chamado incompleto recebido. Origem e natureza ainda não confirmadas.</p></div></article>
+      <article class="zero-event"><time>07:51</time><div><strong data-i18n="home.dayzero.event2.title">INTERFERÊNCIA CRESCENTE</strong><p data-i18n="home.dayzero.event2.copy">Fragmentos de comunicação indicam perda progressiva de contato.</p></div></article>
+      <article class="zero-event"><time>07:52+</time><div><strong data-i18n="home.dayzero.event3.title">SOBREVOOS SUCESSIVOS</strong><p data-i18n="home.dayzero.event3.copy">Mei observa o primeiro helicóptero. O segundo passa cinco minutos depois; em menos de dez minutos, cinco aeronaves já haviam sobrevoado a região.</p></div></article>
+      <article class="zero-event"><time>--:--</time><div><strong data-i18n="home.dayzero.event4.title">REGISTRO CORROMPIDO</strong><p data-i18n="home.dayzero.event4.copy">Os acontecimentos seguintes aguardam confirmação narrativa.</p></div></article>
     </div>
-    <div class="contamination-map reveal" aria-label="Mapa operacional parcialmente recuperado">
-      <div class="map-head"><span>MAPA // DD-CAL-01</span><span>SINAL INSTÁVEL</span></div>
-      <svg viewBox="0 0 620 390" role="img" aria-label="Mapa técnico com zonas não confirmadas">
+    <div class="contamination-map reveal" aria-label="Mapa operacional parcialmente recuperado" data-i18n-attr="aria-label:home.map.label">
+      <div class="map-head"><span data-i18n="home.map.code">MAPA // DD-CAL-01</span><span data-i18n="home.map.unstable">SINAL INSTÁVEL</span></div>
+      <svg viewBox="0 0 620 390" role="img" aria-label="Mapa técnico com zonas não confirmadas" data-i18n-attr="aria-label:home.map.imageLabel">
         <defs><pattern id="map-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#263029" stroke-width="1"/></pattern><radialGradient id="danger-zone"><stop offset="0" stop-color="#d21f2c" stop-opacity=".55"/><stop offset="1" stop-color="#d21f2c" stop-opacity="0"/></radialGradient></defs>
-        <rect width="620" height="390" fill="url(#map-grid)"/><path d="M80 318L116 275 101 222 153 181 146 118 202 74 278 88 329 61 398 92 474 76 535 124 516 181 552 228 491 268 466 326 383 309 328 344 258 316 190 337Z" fill="#111813" stroke="#526558" stroke-width="2" stroke-dasharray="7 5"/><path d="M105 260L190 233 252 252 327 187 410 203 514 142M164 115L231 168 327 187 385 292" fill="none" stroke="#63766a" stroke-width="2"/><circle cx="327" cy="187" r="92" fill="url(#danger-zone)"/><circle class="map-pulse" cx="327" cy="187" r="28" fill="none" stroke="#d21f2c" stroke-width="3"/><circle cx="327" cy="187" r="5" fill="#e8a33d"/><text x="342" y="177" fill="#e8a33d" font-family="monospace" font-size="13">ORIGEM NÃO CONFIRMADA</text><text x="120" y="292" fill="#8fa397" font-family="monospace" font-size="12">ROTA INTERROMPIDA</text><text x="405" y="300" fill="#d21f2c" font-family="monospace" font-size="12">SETOR SEM SINAL</text>
+        <rect width="620" height="390" fill="url(#map-grid)"/><path d="M80 318L116 275 101 222 153 181 146 118 202 74 278 88 329 61 398 92 474 76 535 124 516 181 552 228 491 268 466 326 383 309 328 344 258 316 190 337Z" fill="#111813" stroke="#526558" stroke-width="2" stroke-dasharray="7 5"/><path d="M105 260L190 233 252 252 327 187 410 203 514 142M164 115L231 168 327 187 385 292" fill="none" stroke="#63766a" stroke-width="2"/><circle cx="327" cy="187" r="92" fill="url(#danger-zone)"/><circle class="map-pulse" cx="327" cy="187" r="28" fill="none" stroke="#d21f2c" stroke-width="3"/><circle cx="327" cy="187" r="5" fill="#e8a33d"/><text x="342" y="177" fill="#e8a33d" font-family="monospace" font-size="13" data-i18n="home.map.origin">ORIGEM NÃO CONFIRMADA</text><text x="120" y="292" fill="#8fa397" font-family="monospace" font-size="12" data-i18n="home.map.route">ROTA INTERROMPIDA</text><text x="405" y="300" fill="#d21f2c" font-family="monospace" font-size="12" data-i18n="home.map.noSignal">SETOR SEM SINAL</text>
       </svg>
-      <span class="map-legend">● ATIVIDADE &nbsp; ◌ PROPAGAÇÃO ESTIMADA &nbsp; ┄ DADOS PARCIAIS</span>
+      <span class="map-legend" data-i18n="home.map.legend">● ATIVIDADE &nbsp; ◌ PROPAGAÇÃO ESTIMADA &nbsp; ┄ DADOS PARCIAIS</span>
     </div>
   </div>
 </section>
 
 <!-- ===== EXPLORAR ===== -->
-<section class="explore dd-locked" id="arquivos-recuperados" aria-hidden="true">
-  <p class="eyebrow reveal">Índice do arquivo-mestre</p>
-  <h2 class="reveal">Conteúdo recuperado do DD-01</h2>
-  <p class="explore-intro reveal">Quatro setores foram localizados dentro do pacote clandestino. Selecione um índice reconstruído para consultar os fragmentos disponíveis.</p>
+<section class="explore dd-locked" id="arquivos-recuperados" aria-hidden="true" data-unseal-label="DD-01 // ÍNDICE DESCOMPACTADO" data-i18n-attr="data-unseal-label:home.directory.unsealed">
+  <p class="eyebrow reveal" data-i18n="home.directory.kicker">Índice do arquivo-mestre</p>
+  <h2 class="reveal" data-i18n="home.directory.title">Conteúdo recuperado do DD-01</h2>
+  <p class="explore-intro reveal" data-i18n="home.directory.intro">Quatro setores foram localizados dentro do pacote clandestino. Selecione um índice reconstruído para consultar os fragmentos disponíveis.</p>
   <div class="explore-grid">
     <a class="explore-card reveal" href="historia.html">
-      <span class="sector-bar"><span>SETOR 01</span><span class="sector-state">RECUPERADO</span></span>
+      <span class="sector-bar"><span data-i18n="home.sector.1.code">SETOR 01</span><span class="sector-state" data-i18n="home.sector.1.state" data-visited-label=" // CONSULTADO" data-i18n-attr="data-visited-label:home.sector.visited">RECUPERADO</span></span>
       <span class="icon">◍</span>
-      <h3>História</h3>
-      <p>Sinopse, cenas recuperadas do primeiro dia e testemunhos de sobreviventes.</p>
-      <span class="sector-records">REGISTROS NARRATIVOS</span>
-      <span class="go">[ ABRIR TESTEMUNHOS ] →</span>
+      <h3 data-i18n="home.sector.1.title">História</h3>
+      <p data-i18n="home.sector.1.copy">Sinopse, cenas recuperadas do primeiro dia e testemunhos de sobreviventes.</p>
+      <span class="sector-records" data-i18n="home.sector.1.records">REGISTROS NARRATIVOS</span>
+      <span class="go" data-i18n="home.sector.1.open">[ ABRIR TESTEMUNHOS ] →</span>
     </a>
     <a class="explore-card reveal" href="personagens.html">
-      <span class="sector-bar"><span>SETOR 02</span><span class="sector-state">ATIVO</span></span>
+      <span class="sector-bar"><span data-i18n="home.sector.2.code">SETOR 02</span><span class="sector-state" data-i18n="home.sector.2.state" data-visited-label=" // CONSULTADO" data-i18n-attr="data-visited-label:home.sector.visited">ATIVO</span></span>
       <span class="icon">☰</span>
-      <h3>Personagens</h3>
-      <p>Fichas de quem sobreviveu ao primeiro dia — e de quem tomou as decisões.</p>
-      <span class="sector-records"><strong class="record-count" data-count="8">00</strong> REGISTROS LOCALIZADOS</span>
-      <span class="go">[ ABRIR BANCO DE PERSONAGENS ] →</span>
+      <h3 data-i18n="home.sector.2.title">Personagens</h3>
+      <p data-i18n="home.sector.2.copy">Fichas de quem sobreviveu ao primeiro dia — e de quem tomou as decisões.</p>
+      <span class="sector-records"><strong class="record-count" data-count="8">00</strong> <span data-i18n="home.sector.2.records">REGISTROS LOCALIZADOS</span></span>
+      <span class="go" data-i18n="home.sector.2.open">[ ABRIR BANCO DE PERSONAGENS ] →</span>
     </a>
     <a class="explore-card reveal" href="ameaca.html">
-      <span class="sector-bar"><span>SETOR 03</span><span class="sector-state">CRÍTICO</span></span>
+      <span class="sector-bar"><span data-i18n="home.sector.3.code">SETOR 03</span><span class="sector-state" data-i18n="home.sector.3.state" data-visited-label=" // CONSULTADO" data-i18n-attr="data-visited-label:home.sector.visited">CRÍTICO</span></span>
       <span class="icon">⚠</span>
-      <h3>Ameaça</h3>
-      <p>Relatório biológico sobre o que está do lado de fora, e os locais afetados.</p>
-      <span class="sector-records">RISCO BIOLÓGICO ATIVO</span>
-      <span class="go">[ CONSULTAR RELATÓRIO ] →</span>
+      <h3 data-i18n="home.sector.3.title">Ameaça</h3>
+      <p data-i18n="home.sector.3.copy">Relatório biológico sobre o que está do lado de fora, e os locais afetados.</p>
+      <span class="sector-records" data-i18n="home.sector.3.records">RISCO BIOLÓGICO ATIVO</span>
+      <span class="go" data-i18n="home.sector.3.open">[ CONSULTAR RELATÓRIO ] →</span>
     </a>
     <a class="explore-card reveal" href="galeria.html">
-      <span class="sector-bar"><span>SETOR 04</span><span class="sector-state">PARCIAL</span></span>
+      <span class="sector-bar"><span data-i18n="home.sector.4.code">SETOR 04</span><span class="sector-state" data-i18n="home.sector.4.state" data-visited-label=" // CONSULTADO" data-i18n-attr="data-visited-label:home.sector.visited">PARCIAL</span></span>
       <span class="icon">▣</span>
-      <h3>Galeria</h3>
-      <p>Referências de arte conceitual do universo de DoomsDay.</p>
-      <span class="sector-records">ARQUIVO VISUAL</span>
-      <span class="go">[ ANALISAR REGISTROS ] →</span>
+      <h3 data-i18n="home.sector.4.title">Galeria</h3>
+      <p data-i18n="home.sector.4.copy">Referências de arte conceitual do universo de DoomsDay.</p>
+      <span class="sector-records" data-i18n="home.sector.4.records">ARQUIVO VISUAL</span>
+      <span class="go" data-i18n="home.sector.4.open">[ ANALISAR REGISTROS ] →</span>
     </a>
   </div>
 
-  <aside class="sector-preview reveal" id="sector-preview" aria-live="polite"><span class="sector-preview__code">SETOR 01</span><div><h3>História // registros narrativos</h3><p>Testemunhos e cenas recuperadas do primeiro dia.</p></div><span class="sector-preview__integrity">INTEGRIDADE 71%</span></aside>
+  <aside class="sector-preview reveal" id="sector-preview" aria-live="polite"><span class="sector-preview__code" data-i18n="home.sector.1.code">SETOR 01</span><div><h3 data-i18n="home.preview.1.title">História // registros narrativos</h3><p data-i18n="home.preview.1.copy">Testemunhos e cenas recuperadas do primeiro dia.</p></div><span class="sector-preview__integrity" data-i18n="home.preview.1.integrity">INTEGRIDADE 71%</span></aside>
 
-  <section class="investigation-progress reveal" aria-labelledby="progress-title"><h3 id="progress-title">Progresso da investigação</h3><div class="progress-grid"><div class="progress-item"><strong data-investigation-count="8">08</strong><span>PERSONAGENS LOCALIZADOS</span></div><div class="progress-item"><strong data-investigation-count="4">04</strong><span>ARQUIVOS SECRETOS</span></div><div class="progress-item"><strong data-investigation-count="47">47</strong><span>EVIDÊNCIAS CATALOGADAS</span></div><div class="progress-item"><strong data-investigation-count="4">04</strong><span>SETORES RECUPERADOS</span></div></div></section>
+  <section class="investigation-progress reveal" aria-labelledby="progress-title"><h3 id="progress-title" data-i18n="home.progress.title">Progresso da investigação</h3><div class="progress-grid"><div class="progress-item"><strong data-investigation-count="8">08</strong><span data-i18n="home.progress.characters">PERSONAGENS LOCALIZADOS</span></div><div class="progress-item"><strong data-investigation-count="4">04</strong><span data-i18n="home.progress.secrets">ARQUIVOS SECRETOS</span></div><div class="progress-item"><strong data-investigation-count="47">47</strong><span data-i18n="home.progress.evidence">EVIDÊNCIAS CATALOGADAS</span></div><div class="progress-item"><strong data-investigation-count="4">04</strong><span data-i18n="home.progress.sectors">SETORES RECUPERADOS</span></div></div></section>
 
   <section class="signal-center" id="sinais-recuperados" aria-labelledby="signal-title">
-    <div class="signal-heading reveal"><h3 id="signal-title">Central de sinais recuperados</h3><span>02 TRANSMISSÕES INTERCEPTADAS</span></div>
+    <div class="signal-heading reveal"><h3 id="signal-title" data-i18n="home.signals.title">Central de sinais recuperados</h3><span data-i18n="home.signals.count">02 TRANSMISSÕES INTERCEPTADAS</span></div>
     <div class="signal-console reveal">
-      <div class="signal-radar" aria-hidden="true"><div class="radar-ring"></div><div class="radar-sweep"></div><span class="radar-label">VARREDURA NACIONAL // REDE DE EMERGÊNCIA</span></div>
+      <div class="signal-radar" aria-hidden="true"><div class="radar-ring"></div><div class="radar-sweep"></div><span class="radar-label" data-i18n="home.signals.radar">VARREDURA NACIONAL // REDE DE EMERGÊNCIA</span></div>
       <div class="signal-list">
-        <article class="signal-record"><button class="signal-summary" type="button" aria-expanded="false"><span class="signal-frequency">WH-SITROOM</span><span><strong>Canal interno — Casa Branca</strong><small>WASHINGTON, D.C. // INTEGRIDADE 31%</small></span><span class="signal-state">[ PRIORIDADE MÁXIMA ]</span></button><div class="signal-transcript" hidden>“Equipe de proteção, confirme a transferência. Sala de Situação, responda. Temos o comboio, mas não temos confirmação do— Alguém localize o Presidente. Repito: localizem o...”<span>SINAL PERDIDO // PRESIDENTE: ??? // LOCALIZAÇÃO NÃO CONFIRMADA</span></div></article>
-        <article class="signal-record civil"><button class="signal-summary" type="button" aria-expanded="false"><span class="signal-frequency">CIV-406</span><span><strong>Frequência civil não identificada</strong><small>ORIGEM INDETERMINADA // INTEGRIDADE 14%</small></span><span class="signal-state">[ SINAL PERDIDO ]</span></button><div class="signal-transcript" hidden>“Se alguém ainda estiver recebendo... as linhas caíram. Disseram para esperar pelo comunicado, mas há alguma coisa do lado de fora. Nós vamos tentar chegar até...”<span>ARQUIVO CORROMPIDO // REMETENTE NÃO LOCALIZADO</span></div></article>
+        <article class="signal-record"><button class="signal-summary" type="button" aria-expanded="false"><span class="signal-frequency">WH-SITROOM</span><span><strong data-i18n="home.signals.whiteHouse">Canal interno — Casa Branca</strong><small data-i18n="home.signals.whiteHouseMeta">WASHINGTON, D.C. // INTEGRIDADE 31%</small></span><span class="signal-state" data-i18n="home.signals.maxPriority">[ PRIORIDADE MÁXIMA ]</span></button><div class="signal-transcript" hidden><span class="signal-transcript-copy" data-i18n="home.signals.whiteHouseTranscript">“Equipe de proteção, confirme a transferência. Sala de Situação, responda. Temos o comboio, mas não temos confirmação do— Alguém localize o Presidente. Repito: localizem o...”</span><span data-i18n="home.signals.presidentLost">SINAL PERDIDO // PRESIDENTE: ??? // LOCALIZAÇÃO NÃO CONFIRMADA</span></div></article>
+        <article class="signal-record civil"><button class="signal-summary" type="button" aria-expanded="false"><span class="signal-frequency">CIV-406</span><span><strong data-i18n="home.signals.civil">Frequência civil não identificada</strong><small data-i18n="home.signals.civilMeta">ORIGEM INDETERMINADA // INTEGRIDADE 14%</small></span><span class="signal-state" data-i18n="home.signals.lost">[ SINAL PERDIDO ]</span></button><div class="signal-transcript" hidden><span class="signal-transcript-copy" data-i18n="home.signals.civilTranscript">“Se alguém ainda estiver recebendo... as linhas caíram. Disseram para esperar pelo comunicado, mas há alguma coisa do lado de fora. Nós vamos tentar chegar até...”</span><span data-i18n="home.signals.corrupted">ARQUIVO CORROMPIDO // REMETENTE NÃO LOCALIZADO</span></div></article>
       </div>
     </div>
   </section>
 
   <!-- encerramento emocional do arquivo-mestre -->
   <section class="teaser archive-testimony">
-    <p class="quote reveal">"Não escrevo mais datas. Só quantos de nós ainda restam."</p>
-    <p class="attrib reveal">— Testemunho recuperado, Dia 6</p>
-    <a class="more-link reveal" href="historia.html#testemunhos">Ler outros relatos →</a>
+    <p class="quote reveal" data-i18n="home.teaser.quote">"Não escrevo mais datas. Só quantos de nós ainda restam."</p>
+    <p class="attrib reveal" data-i18n="home.teaser.attribution">— Testemunho recuperado, Dia 6</p>
+    <a class="more-link reveal" href="historia.html#testemunhos" data-i18n="home.teaser.more">Ler outros relatos →</a>
   </section>
 </section>
 
-<section class="last-transmission"><strong>ÚLTIMA TRANSMISSÃO // CANAL 06</strong><p>“Se alguém receber esta mensagem, não siga pela—”</p><span class="signal-lost">[ SINAL INTERROMPIDO ]</span></section>
-<footer>DoomsDay — Obra original — Dossiê não oficial do universo do livro</footer>
+<section class="last-transmission"><strong data-i18n="home.last.title">ÚLTIMA TRANSMISSÃO // CANAL 06</strong><p data-i18n="home.last.copy">“Se alguém receber esta mensagem, não siga pela—”</p><span class="signal-lost" data-i18n="home.last.lost">[ SINAL INTERROMPIDO ]</span></section>
+<footer data-i18n="home.footer">DoomsDay — Obra original — Dossiê não oficial do universo do livro</footer>
 <div class="signal-toast" id="signal-toast" role="status" aria-live="polite"></div>
 
 <script>
+const homeT = (key, variables, fallback) => {
+  if(!window.DoomsdayI18n) return fallback || key;
+  const value = window.DoomsdayI18n.t(key, variables);
+  return value === key && fallback ? fallback : value;
+};
+if(window.DoomsdayI18n) window.DoomsdayI18n.apply(document);
+
 /* fallback: se o autoplay for bloqueado (ex: acesso direto ao index sem passar pela intro), toca no primeiro toque/clique */
 const bgAudio = document.getElementById('bg-audio');
 const tryPlay = () => bgAudio.play().catch(() => {});
@@ -543,8 +559,16 @@ document.addEventListener('keydown', tryPlay, { once: true });
 /* nav mobile */
 const toggle = document.getElementById('nav-toggle');
 const links = document.getElementById('nav-links');
-toggle.addEventListener('click', () => links.classList.toggle('open'));
-links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+toggle.addEventListener('click', () => {
+  const open=links.classList.toggle('open');
+  toggle.setAttribute('aria-label',homeT(open?'home.nav.close':'home.nav.open',null,open?'Fechar menu':'Abrir menu'));
+  toggle.setAttribute('aria-expanded',String(open));
+});
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  links.classList.remove('open');
+  toggle.setAttribute('aria-expanded','false');
+  toggle.setAttribute('aria-label',homeT('home.nav.open',null,'Abrir menu'));
+}));
 
 /* transmissão presidencial e sinais interceptados */
 const broadcastTrigger=document.getElementById('broadcast-trigger');
@@ -562,7 +586,7 @@ broadcastTrigger.addEventListener('click',()=>{
   const opening=presidentialTv.hidden;
   presidentialTv.hidden=!opening;
   broadcastTrigger.setAttribute('aria-expanded',String(opening));
-  broadcastTrigger.querySelector('small').textContent=opening?'[ TRANSMISSÃO PRESIDENCIAL EM CURSO // CLIQUE PARA ENCERRAR ]':'[ CLIQUE PARA INTERROMPER A PROGRAMAÇÃO E RECEBER A TRANSMISSÃO ]';
+  broadcastTrigger.querySelector('small').textContent=homeT(opening?'home.broadcast.activePrompt':'home.broadcast.prompt');
   if(opening)requestAnimationFrame(()=>presidentialTv.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}));
 });
 document.querySelectorAll('.signal-record').forEach(record=>{
@@ -584,12 +608,12 @@ document.querySelectorAll('.signal-record').forEach(record=>{
 
 /* painel contextual e memória dos setores consultados */
 const sectorPreview=document.getElementById('sector-preview');
-const sectorData=[
-  ['SETOR 01','História // registros narrativos','Testemunhos e cenas recuperadas do primeiro dia.','INTEGRIDADE 71%'],
-  ['SETOR 02','Personagens // banco de sobreviventes','Oito identidades localizadas; quatro arquivos secretos disponíveis.','INTEGRIDADE 86%'],
-  ['SETOR 03','Ameaça // risco biológico','Relatórios incompletos. Nível de risco permanece crítico.','INTEGRIDADE 43%'],
-  ['SETOR 04','Galeria // arquivo visual','Referências e registros conceituais parcialmente recuperados.','INTEGRIDADE 58%']
-];
+const sectorData=[1,2,3,4].map(number=>[
+  homeT(`home.sector.${number}.code`),
+  homeT(`home.preview.${number}.title`),
+  homeT(`home.preview.${number}.copy`),
+  homeT(`home.preview.${number}.integrity`)
+]);
 let visitedSectors=[];
 try{visitedSectors=JSON.parse(sessionStorage.getItem('doomsday-visited-sectors')||'[]')}catch(error){}
 document.querySelectorAll('.explore-card').forEach((card,index)=>{
@@ -611,7 +635,7 @@ document.querySelectorAll('.explore-card').forEach((card,index)=>{
 
 /* transmissões atmosféricas ocasionais */
 const signalToast=document.getElementById('signal-toast');
-const signalMessages=['> Movimento detectado fora do perímetro','> Sinal de rádio perdido // canal 06','> Registro DD-08 parcialmente recuperado','> Identidade detectada // confirmação pendente'];
+const signalMessages=[1,2,3,4].map(number=>homeT(`home.toast.${number}`));
 let signalIndex=0;
 function scheduleSignal(){
   setTimeout(()=>{
@@ -632,9 +656,12 @@ if(returnedSubject){
   const directory=document.querySelector('.explore-grid');
   const notice=document.createElement('p');
   notice.className='return-notice';
-  notice.textContent=`ARQUIVO ${returnedSubject.toUpperCase()} FECHADO // SESSÃO REGISTRADA`;
+  notice.textContent=homeT('home.return.notice',{subject:returnedSubject.toUpperCase()});
   directory.before(notice);
-  history.replaceState(null,'',location.pathname+'#arquivos-recuperados');
+  const cleanReturnUrl=new URL(location.href);
+  cleanReturnUrl.searchParams.delete('returned');
+  cleanReturnUrl.hash='arquivos-recuperados';
+  history.replaceState(null,'',cleanReturnUrl.pathname+cleanReturnUrl.search+cleanReturnUrl.hash);
   requestAnimationFrame(()=>directory.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
 }
 
@@ -727,17 +754,17 @@ async function recoverArchive(){
         const value=Math.min(63,Math.floor(eased*63));
         integrityValue.textContent=String(value).padStart(2,'0')+'%';
         integrityFill.style.width=value+'%';
-        archiveMessage.textContent=value<22?'LOCALIZANDO FRAGMENTOS...':value<48?'RECONSTRUINDO REGISTROS...':'VALIDANDO CREDENCIAIS...';
+        archiveMessage.textContent=homeT(value<22?'home.archive.locating':value<48?'home.archive.reconstructing':'home.archive.validating');
         if(progress<1) requestAnimationFrame(update); else resolve();
       }
       requestAnimationFrame(update);
     });
   }
 
-  archiveMessage.textContent='RECUPERAÇÃO PARCIAL CONCLUÍDA // ACESSO LIBERADO';
+  archiveMessage.textContent=homeT('home.archive.complete');
   archiveAccess.disabled=false;
   archiveAccess.classList.add('ready');
-  archiveAccess.textContent='[ ABRIR ARQUIVO-MESTRE DD-01 ]';
+  archiveAccess.textContent=homeT('home.archive.openMaster');
 }
 
 async function releaseArchiveAfterAddress(){
@@ -770,14 +797,14 @@ archiveAccess.addEventListener('click',async()=>{
   archiveAccess.classList.remove('ready');
   archiveAccess.classList.add('opening');
   ddOpenSequence.hidden=false;
-  const stages=['CREDENCIAL ACEITA','REMOVENDO CRIPTOGRAFIA GOVERNAMENTAL...','DESCOMPACTANDO PACOTE DD-01...','04 SETORES LOCALIZADOS','ÍNDICE PARCIALMENTE RECUPERADO'];
+  const stages=[1,2,3,4,5].map(number=>homeT(`home.archive.stage.${number}`));
   for(const stage of stages){ddOpenStatus.textContent=stage;await wait(matchMedia('(prefers-reduced-motion: reduce)').matches?80:520)}
   const directorySection=unlockDirectory();
   archiveAccess.disabled=false;
   archiveAccess.classList.remove('opening');
   archiveAccess.classList.add('ready');
   archiveAccess.dataset.opened='true';
-  archiveAccess.textContent='[ DD-01 ABERTO // ACESSAR 04 SETORES ]';
+  archiveAccess.textContent=homeT('home.archive.opened');
   directoryOpening=false;
   await wait(180);
   directorySection.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
@@ -786,6 +813,7 @@ archiveAccess.addEventListener('click',async()=>{
 function prepareCrawlDust(){
   crawlText.querySelectorAll('p').forEach(paragraph=>{
     const text=paragraph.textContent;
+    paragraph.removeAttribute('data-i18n');
     paragraph.textContent='';
     text.split(/(\s+)/).forEach(token=>{
       if(!token.trim()){
@@ -871,7 +899,7 @@ function buildTitle(){
   const makeAgeLetters = word => word.split('').map(ch => `<span class="age-letter">${ch}</span>`).join('');
   ageStack.innerHTML=`<span>${makeAgeLetters('AGE')}</span><span>${makeAgeLetters('OF')}</span>`;
   movieTitle.innerHTML = `<span class="glitch" data-text="DOOMS">${makeLetters('DOOMS',4)}</span><span class="z z-letter glitch" data-text="DAY">${makeLetters('DAY')}</span>`;
-  fireShadow.innerHTML = 'APOCALIPSEZ'.split('').map((ch,index,array) => `<span class="fire-letter${index===array.length-1?' zero-day':''}" style="--i:${index}" data-char="${ch}">${ch}</span>`).join('');
+  fireShadow.innerHTML = homeT('home.title.fireWord',null,'APOCALIPSEZ').split('').map((ch,index,array) => `<span class="fire-letter${index===array.length-1?' zero-day':''}" style="--i:${index}" data-char="${ch}">${ch}</span>`).join('');
 }
 
 function startGlitchLoop(){

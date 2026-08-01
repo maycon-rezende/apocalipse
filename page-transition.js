@@ -1,4 +1,5 @@
 (() => {
+  const t=(key,fallback)=>window.DoomsdayI18n?window.DoomsdayI18n.t(key):fallback;
   const overlay=document.createElement('div');
   overlay.className='page-tear';
   overlay.setAttribute('aria-hidden','true');
@@ -6,7 +7,7 @@
     <span class="page-tear__slash" style="--top:23%;--rot:-12deg;--delay:0s"></span>
     <span class="page-tear__slash" style="--top:43%;--rot:-9deg;--delay:.08s"></span>
     <span class="page-tear__slash" style="--top:63%;--rot:-15deg;--delay:.16s"></span>
-    <span class="page-tear__label">ARQUIVO SENDO VIOLADO...</span>`;
+    <span class="page-tear__label">${t('global.pageTransition.violation','ARQUIVO SENDO VIOLADO...')}</span>`;
   document.body.appendChild(overlay);
 
   const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)');

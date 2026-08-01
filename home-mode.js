@@ -1,4 +1,9 @@
 (function(){
+  const t=(key,variables,fallback)=>{
+    if(!window.DoomsdayI18n)return fallback||key;
+    const value=window.DoomsdayI18n.t(key,variables);
+    return value===key&&fallback?fallback:value;
+  };
   document.body.classList.add('home-experience-transition');
   const reducedMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
   document.body.dataset.experienceEnterMs=reducedMotion?'1200':'4700';
@@ -8,23 +13,35 @@
   transition.className='home-mode-transition';
   transition.setAttribute('role','status');
   transition.setAttribute('aria-live','assertive');
-  transition.innerHTML=`<i class="home-mode-transition__tear" style="--tear-y:18%;--tear-h:32px;--tear-x:-8%;--tear-delay:.4s"></i><i class="home-mode-transition__tear" style="--tear-y:54%;--tear-h:46px;--tear-x:11%;--tear-delay:1.1s"></i><i class="home-mode-transition__tear" style="--tear-y:78%;--tear-h:24px;--tear-x:-5%;--tear-delay:1.8s"></i><div class="home-mode-transition__panel"><span class="home-mode-transition__code">SINAL ALTERNATIVO // AGUARDANDO</span><h2>Transmissão corrompida</h2><p>O arquivo oficial será substituído temporariamente por uma cópia recuperada.</p><div class="home-mode-log"><i>&gt; INTERCEPTANDO FREQUÊNCIA NÃO CATALOGADA...</i><i>&gt; SOBRESCREVENDO ÍNDICE VISUAL...</i><i>&gt; SINCRONIZANDO REGISTROS INCOMPATÍVEIS...</i><i>&gt; NÃO CONFIE EM TODAS AS IMAGENS.</i></div><div class="home-mode-progress"><i></i></div></div><div class="home-mode-transition__flash"></div>`;
+  transition.innerHTML=`<i class="home-mode-transition__tear" style="--tear-y:18%;--tear-h:32px;--tear-x:-8%;--tear-delay:.4s"></i><i class="home-mode-transition__tear" style="--tear-y:54%;--tear-h:46px;--tear-x:11%;--tear-delay:1.1s"></i><i class="home-mode-transition__tear" style="--tear-y:78%;--tear-h:24px;--tear-x:-5%;--tear-delay:1.8s"></i><div class="home-mode-transition__panel"><span class="home-mode-transition__code">${t('home.mode.waiting')}</span><h2>${t('home.mode.corrupted')}</h2><p>${t('home.mode.initialCopy')}</p><div class="home-mode-log"><i>${t('home.mode.activateLog.1')}</i><i>${t('home.mode.activateLog.2')}</i><i>${t('home.mode.activateLog.3')}</i><i>${t('home.mode.activateLog.4')}</i></div><div class="home-mode-progress"><i></i></div></div><div class="home-mode-transition__flash"></div>`;
   document.body.appendChild(transition);
 
   document.addEventListener('dd:experience-changing',event=>{
     const activating=Boolean(event.detail?.analog),code=transition.querySelector('.home-mode-transition__code'),title=transition.querySelector('h2'),copy=transition.querySelector('p'),lines=transition.querySelectorAll('.home-mode-log i');
     transition.classList.remove('activating','restoring');transition.classList.add('active',activating?'activating':'restoring');
-    code.textContent=activating?'SINAL ALTERNATIVO // INVASÃO EM CURSO':'ARQUIVO PRIMÁRIO // RESTAURAÇÃO EM CURSO';
-    title.textContent=activating?'Transmissão corrompida':'Restaurando arquivo';
-    copy.textContent=activating?'O arquivo oficial está sendo substituído por uma cópia recuperada.':'Removendo interferências e reconstruindo a versão oficial.';
-    if(!activating){lines[0].textContent='> ISOLANDO FREQUÊNCIA ALTERNATIVA...';lines[1].textContent='> REMOVENDO CAMADAS CORROMPIDAS...';lines[2].textContent='> RESTAURANDO ÍNDICE VISUAL...';lines[3].textContent='> ARQUIVO ORIGINAL LOCALIZADO.'}
+    code.textContent=t(activating?'home.mode.activateCode':'home.mode.restoreCode');
+    title.textContent=t(activating?'home.mode.corrupted':'home.mode.restoring');
+    copy.textContent=t(activating?'home.mode.activateCopy':'home.mode.restoreCopy');
+    const logMode=activating?'activateLog':'restoreLog';
+    lines.forEach((line,index)=>{line.textContent=t(`home.mode.${logMode}.${index+1}`)});
   });
 
+  const analogLabels=[
+    [document.querySelector('nav .logo'),'analogLabel','home.mode.mirrorFeed'],
+    [document.querySelector('.title-wrap'),'analogLabel','home.mode.titleAltered'],
+    [document.querySelector('.tagline'),'analogPrefix','home.mode.recoveredTranscript'],
+    [document.querySelector('.presidential-broadcast'),'analogLabel','home.mode.signalCopy'],
+    [document.querySelector('.address-meta'),'analogTail','home.mode.divertedFeed'],
+    [document.querySelector('.last-transmission'),'analogWarning','home.mode.channelWarning']
+  ];
+  analogLabels.forEach(([element,dataKey,key])=>{if(element)element.dataset[dataKey]=t(key)});
+  document.querySelectorAll('.eyebrow').forEach(element=>{element.dataset.analogIndex=t('home.mode.alternateIndex')});
+
   if(!window.DD_ANALOG_MODE)return;
-  const hud=document.createElement('div');hud.className='analog-home-hud';hud.setAttribute('aria-hidden','true');hud.innerHTML='<span class="ah-rec">REC // MIRROR FEED</span><span class="ah-time"><b>00:00:00</b><br>DD-HOME // COPY 02</span><span class="ah-source">UNVERIFIED TRANSMISSION // SIGNAL 31%</span>';document.body.appendChild(hud);
-  const status=document.createElement('div');status.className='home-mode-status';status.textContent='TRANSMISSÃO ALTERNATIVA SINCRONIZADA';document.body.appendChild(status);
+  const hud=document.createElement('div');hud.className='analog-home-hud';hud.setAttribute('aria-hidden','true');hud.innerHTML=`<span class="ah-rec">${t('home.mode.hudRec')}</span><span class="ah-time"><b>00:00:00</b><br>${t('home.mode.hudCopy')}</span><span class="ah-source">${t('home.mode.hudSource')}</span>`;document.body.appendChild(hud);
+  const status=document.createElement('div');status.className='home-mode-status';status.textContent=t('home.mode.status');document.body.appendChild(status);
   const tear=document.createElement('div');tear.className='home-signal-tear';tear.setAttribute('aria-hidden','true');document.body.appendChild(tear);
-  const compact=matchMedia('(max-width:800px)').matches,navLabels=[['historia.html',compact?'01 // HISTÓRIA':'SETOR 01 // HISTÓRIA','História — setor 01'],['personagens.html',compact?'02 // PESSOAL':'SETOR 02 // PESSOAL','Personagens — setor 02'],['ameaca.html',compact?'03 // AMEAÇA':'SETOR 03 // AMEAÇA','Ameaça — setor 03'],['projeto-doom.html',compact?'?? // DOOM':'SETOR ?? // DOOM','Projeto DOOM — setor não identificado'],['galeria.html',compact?'04 // GALERIA':'SETOR 04 // GALERIA','Galeria — setor 04']];navLabels.forEach(([href,label,accessible])=>{const link=document.querySelector(`nav a[href="${href}"]`);if(link){link.textContent=label;link.setAttribute('aria-label',accessible)}});
+  const compact=matchMedia('(max-width:1180px)').matches,navLabels=[['historia.html','history'],['personagens.html','characters'],['ameaca.html','threat'],['projeto-doom.html','doom'],['galeria.html','gallery']];navLabels.forEach(([href,key])=>{const link=document.querySelector(`nav a[href="${href}"]`);if(link){const textKey=`home.mode.nav.${key}${compact?'Compact':''}`,labelKey=`home.mode.nav.${key}Label`;link.dataset.i18n=textKey;link.dataset.i18nAttr=`aria-label:${labelKey}`;link.textContent=t(textKey);link.setAttribute('aria-label',t(labelKey))}});
   let seconds=0,tearTimer=null;const counter=hud.querySelector('b');setInterval(()=>{seconds++;counter.textContent=`${String(Math.floor(seconds/3600)).padStart(2,'0')}:${String(Math.floor(seconds%3600/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`},1000);
   const scheduleTear=()=>{clearTimeout(tearTimer);tearTimer=setTimeout(()=>{if(!document.hidden&&!document.querySelector('[aria-modal="true"].open')&&document.body.style.overflow!=='hidden'){tear.style.top=`${18+Math.random()*64}%`;tear.classList.remove('visible');void tear.offsetWidth;tear.classList.add('visible')}scheduleTear()},7200+Math.random()*7400)};scheduleTear();addEventListener('pagehide',()=>clearTimeout(tearTimer),{once:true});
 })();

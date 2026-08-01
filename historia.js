@@ -1,4 +1,9 @@
 (function(){
+  const t=(key,fallback)=>{
+    if(!window.DoomsdayI18n)return fallback||key;
+    const value=window.DoomsdayI18n.t(key);
+    return value===key&&fallback?fallback:value;
+  };
   const theme=document.getElementById('history-theme');
   if(theme){
     theme.volume=.38;
@@ -61,7 +66,10 @@
       button.setAttribute('aria-expanded',String(opening));
       button.classList.toggle('is-open',opening);
       button.querySelector('b').textContent=opening?'−':'+';
-      button.querySelector('span').textContent=opening?'Recolher trecho':button.dataset.readerToggle.startsWith('hanson')?'Abrir registro da Avenida Taylor':'Continuar trecho disponível';
+      const isHanson=button.dataset.readerToggle.startsWith('hanson');
+      button.querySelector('span').textContent=opening
+        ?t(isHanson?'history.hanson.collapse':'history.mick.collapse','Recolher trecho')
+        :t(isHanson?'history.hanson.open':'history.mick.continue',isHanson?'Abrir registro da Avenida Taylor':'Continuar trecho disponível');
       if(opening&&!reducedMotion)target.animate([{opacity:0,transform:'translateY(-8px)'},{opacity:1,transform:'none'}],{duration:420,easing:'ease-out'});
     });
   });
@@ -91,7 +99,7 @@
   const corruption=document.querySelector('.story-corruption');
   let corruptionTimer=null;
   if(corruption&&window.DD_ANALOG_MODE&&!reducedMotion){
-    const messages=['O TERCEIRO RELÓGIO AINDA NÃO FOI RECUPERADO','ESTE CAPÍTULO TERMINA EM MAIS DE UM LUGAR','O ÁUDIO DA AVENIDA TAYLOR NÃO ESTAVA NO ARQUIVO','CINCO AERONAVES // UM ÚNICO TRAJETO','TRECHO SEGUINTE AINDA ESTÁ SENDO ESCRITO'];
+    const messages=[0,1,2,3,4].map(index=>t(`history.corruption.${index}`));
     let index=0;
     const schedule=()=>{
       clearTimeout(corruptionTimer);

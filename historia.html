@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-i18n-ready="full">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Capítulo 1 — Dia D. Três perspectivas de uma mesma manhã em Age of DoomsDay.">
-<title>HISTÓRIA // CAPÍTULO 1 — DIA D</title>
+<meta name="description" content="Capítulo 1 — Dia D. Três perspectivas de uma mesma manhã em Age of DoomsDay." data-i18n-attr="content:history.meta.description">
+<title data-i18n="history.meta.title">HISTÓRIA // CAPÍTULO 1 — DIA D</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=VT323&display=swap" rel="stylesheet">
@@ -12,11 +12,14 @@
 <link rel="stylesheet" href="page-transition.css">
 <link rel="stylesheet" href="experience-mode.css">
 <link rel="stylesheet" href="historia.css">
+<script src="i18n/pt-BR.js"></script>
+<script src="i18n/en.js"></script>
+<script src="i18n/core.js"></script>
 <script src="experience-mode.js"></script>
 <noscript><style>.story-reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body class="story-page">
-<a class="story-skip" href="#conteudo">Pular para o conteúdo</a>
+<a class="story-skip" href="#conteudo" data-i18n="history.skip">Pular para o conteúdo</a>
 <audio id="history-theme" src="audio/halloween.mp3" preload="auto" loop></audio>
 
 <div class="story-atmosphere" aria-hidden="true">
@@ -28,204 +31,208 @@
 <div class="story-signal-hud" aria-hidden="true">
   <span class="signal-rec">REC // DD-HISTORY-01</span>
   <span class="signal-clock">00:00:00</span>
-  <span class="signal-source">MANUSCRIPT FEED // PARTIAL</span>
+  <span class="signal-source" data-i18n="history.signal.source">FLUXO DO MANUSCRITO // PARCIAL</span>
 </div>
 <aside class="story-corruption" aria-live="polite" aria-atomic="true">
-  <small>FRAGMENTO NÃO INDEXADO</small>
+  <small data-i18n="history.corruption.fragment">FRAGMENTO NÃO INDEXADO</small>
   <strong></strong>
 </aside>
 
-<nav class="story-nav" aria-label="Navegação da História">
-  <a class="brand" href="home.html" aria-label="Age of DoomsDay — página inicial">AGE OF <span>DOOMS</span>DAY</a>
-  <a class="nav-back" href="home.html">← Voltar ao arquivo</a>
+<nav class="story-nav" aria-label="Navegação da História" data-i18n-attr="aria-label:history.nav.label">
+  <a class="brand" href="home.html" aria-label="Age of DoomsDay — página inicial" data-i18n-attr="aria-label:history.nav.brandLabel">
+    <span class="brand-age">AGE</span>
+    <span class="brand-of">OF</span>
+    <span class="brand-doomsday"><span class="brand-doom">DOOM</span><span class="brand-s">S</span><span class="brand-day">DAY</span></span>
+  </a>
+  <a class="nav-back" href="home.html" data-i18n="history.nav.back">← Voltar ao arquivo</a>
 </nav>
 
 <main id="conteudo">
   <header class="story-hero" id="abertura">
-    <p class="story-kicker story-reveal">Manuscrito em andamento // 13 de abril de 2012</p>
+    <p class="story-kicker story-reveal" data-i18n="history.hero.kicker">Manuscrito em andamento // 13 de abril de 2012</p>
     <h1 class="story-title story-reveal">
-      <span class="title-chapter">Capítulo 1</span>
-      <strong class="title-day">Dia D</strong>
+      <span class="title-chapter" data-i18n="history.hero.chapter">Capítulo 1</span>
+      <strong class="title-day" aria-label="Dia D" data-i18n-attr="aria-label:history.hero.dayLabel"><span class="title-fire" data-text="DIA" aria-hidden="true" data-i18n="history.hero.dayFire" data-i18n-attr="data-text:history.hero.dayFire">DIA</span><span class="title-last" aria-hidden="true" data-i18n="history.hero.dayLast">D</span></strong>
     </h1>
-    <p class="story-lead story-reveal">Uma manhã comum termina antes que alguém compreenda o que realmente começou.</p>
-    <p class="story-premise story-reveal">Mick Bradock tenta manter Mei e os quatro filhos vivos quando a cidade desaba diante deles. Em uma instalação militar, o capitão James Hanson retorna de uma missão e encontra relatos de pessoas atacando pessoas — ocorrências ainda tratadas como isoladas, embora já se multipliquem rápido demais. Uma terceira perspectiva, ligada ao Pentágono, continua sendo escrita.</p>
+    <p class="story-lead story-reveal" data-i18n="history.hero.lead">Uma manhã comum termina antes que alguém compreenda o que realmente começou.</p>
+    <p class="story-premise story-reveal" data-i18n="history.hero.premise">Mick Bradock tenta manter Mei e os quatro filhos vivos quando a cidade desaba diante deles. Em uma instalação militar, o capitão James Hanson retorna de uma missão e encontra relatos de pessoas atacando pessoas — ocorrências ainda tratadas como isoladas, embora já se multipliquem rápido demais. Uma terceira perspectiva, ligada ao Pentágono, continua sendo escrita.</p>
 
     <div class="manuscript-alert story-reveal" role="note">
-      <strong>Obra em construção</strong>
-      <p>Esta página apresenta somente trechos canônicos já escritos. O capítulo ainda receberá a perspectiva de Samuel e as continuações de Hanson e Mick.</p>
+      <strong data-i18n="history.alert.title">Obra em construção</strong>
+      <p data-i18n="history.alert.copy">Esta página apresenta somente trechos canônicos já escritos. O capítulo ainda receberá a perspectiva de Samuel e as continuações de Hanson e Mick.</p>
     </div>
 
-    <div class="story-status story-reveal" aria-label="Estado do manuscrito">
-      <article><span>CAPÍTULO</span><strong>01 // DIA D</strong></article>
-      <article><span>PERSPECTIVAS</span><strong>2 DE 3 RECEBIDAS</strong></article>
-      <article><span>MANUSCRITO</span><strong>EM ANDAMENTO</strong></article>
-      <article><span>CONTINUIDADE</span><strong>CANÔNICA</strong></article>
+    <div class="story-status story-reveal" aria-label="Estado do manuscrito" data-i18n-attr="aria-label:history.status.label">
+      <article><span data-i18n="history.status.chapter">CAPÍTULO</span><strong data-i18n="history.status.chapterValue">01 // DIA D</strong></article>
+      <article><span data-i18n="history.status.perspectives">PERSPECTIVAS</span><strong data-i18n="history.status.perspectivesValue">2 DE 3 RECEBIDAS</strong></article>
+      <article><span data-i18n="history.status.manuscript">MANUSCRITO</span><strong data-i18n="history.status.inProgress">EM ANDAMENTO</strong></article>
+      <article><span data-i18n="history.status.continuity">CONTINUIDADE</span><strong data-i18n="history.status.canonical">CANÔNICA</strong></article>
     </div>
     <div class="progress-shell story-reveal">
-      <div class="progress-copy"><span>Perspectivas disponíveis</span><strong>02 / 03</strong></div>
-      <div class="progress-track" role="progressbar" aria-label="Perspectivas escritas" aria-valuemin="0" aria-valuemax="3" aria-valuenow="2"><i class="progress-bar"></i></div>
+      <div class="progress-copy"><span data-i18n="history.progress.copy">Perspectivas disponíveis</span><strong>02 / 03</strong></div>
+      <div class="progress-track" role="progressbar" aria-label="Perspectivas escritas" aria-valuemin="0" aria-valuemax="3" aria-valuenow="2" data-i18n-attr="aria-label:history.progress.label"><i class="progress-bar"></i></div>
     </div>
   </header>
 
-  <nav class="story-index" aria-label="Índice do capítulo">
-    <a href="#abertura">Abertura</a>
-    <a href="#perspectivas">Perspectivas</a>
-    <a href="#cronologia">Cronologia</a>
-    <a href="#evidencias">Registros</a>
-    <a href="#andamento">Em escrita</a>
+  <nav class="story-index" aria-label="Índice do capítulo" data-i18n-attr="aria-label:history.index.label">
+    <a href="#abertura" data-i18n="history.index.opening">Abertura</a>
+    <a href="#perspectivas" data-i18n="history.index.perspectives">Perspectivas</a>
+    <a href="#cronologia" data-i18n="history.index.timeline">Cronologia</a>
+    <a href="#evidencias" data-i18n="history.index.records">Registros</a>
+    <a href="#andamento" data-i18n="history.index.writing">Em escrita</a>
   </nav>
 
   <section class="story-section" id="perspectivas" aria-labelledby="perspectivas-titulo">
     <div class="section-heading story-reveal">
-      <p class="section-kicker">Três núcleos // uma mesma queda</p>
-      <h2 class="section-title" id="perspectivas-titulo">Leitor de perspectivas</h2>
-      <p class="section-copy">Selecione um núcleo para abrir os fragmentos já recebidos do capítulo. O texto permanece o mesmo nos dois modos; apenas a forma de apresentá-lo muda.</p>
+      <p class="section-kicker" data-i18n="history.perspectives.kicker">Três núcleos // uma mesma queda</p>
+      <h2 class="section-title" id="perspectivas-titulo" data-i18n="history.perspectives.title">Leitor de perspectivas</h2>
+      <p class="section-copy" data-i18n="history.perspectives.copy">Selecione um núcleo para abrir os fragmentos já recebidos do capítulo. O texto permanece o mesmo nos dois modos; apenas a forma de apresentá-lo muda.</p>
     </div>
 
-    <div class="perspective-tabs story-reveal" role="tablist" aria-label="Perspectivas do Capítulo 1">
+    <div class="perspective-tabs story-reveal" role="tablist" aria-label="Perspectivas do Capítulo 1" data-i18n-attr="aria-label:history.perspectives.tabsLabel">
       <button class="perspective-tab active" id="tab-mick" type="button" role="tab" aria-selected="true" aria-controls="reader-mick" tabindex="0" data-perspective="mick" data-state="available">
-        <span>01 // 06H00</span><strong>Mick Bradock</strong><small>Trecho disponível</small>
+        <span data-i18n="history.tab.mick.code">01 // 06H00</span><strong>Mick Bradock</strong><small data-i18n="history.tab.mick.status">Trecho disponível</small>
       </button>
       <button class="perspective-tab" id="tab-hanson" type="button" role="tab" aria-selected="false" aria-controls="reader-hanson" tabindex="-1" data-perspective="hanson" data-state="partial">
-        <span>02 // 05H00</span><strong>James Hanson</strong><small>Registro parcial</small>
+        <span data-i18n="history.tab.hanson.code">02 // 05H00</span><strong>James Hanson</strong><small data-i18n="history.tab.hanson.status">Registro parcial</small>
       </button>
       <button class="perspective-tab" id="tab-samuel" type="button" role="tab" aria-selected="false" aria-controls="reader-samuel" tabindex="-1" data-perspective="samuel" data-state="locked">
-        <span>03 // --H--</span><strong>Samuel Salazar</strong><small>Em redação</small>
+        <span data-i18n="history.tab.samuel.code">03 // --H--</span><strong>Samuel Salazar</strong><small data-i18n="history.tab.samuel.status">Em redação</small>
       </button>
     </div>
 
     <div class="reader-stage story-reveal" aria-live="polite">
       <article class="perspective-reader" id="reader-mick" role="tabpanel" aria-labelledby="tab-mick" data-reader="mick">
         <header class="reader-header">
-          <div class="reader-identity"><span class="reader-code">NÚCLEO BRADOCK // TRECHO 01</span><h3>Mick Bradock</h3><p>Primeira pessoa // testemunho familiar</p></div>
-          <div><span class="reader-time">06H00 → 07H40</span><strong class="reader-state">DISPONÍVEL</strong></div>
+          <div class="reader-identity"><span class="reader-code" data-i18n="history.mick.code">NÚCLEO BRADOCK // TRECHO 01</span><h3>Mick Bradock</h3><p data-i18n="history.mick.pov">Primeira pessoa // testemunho familiar</p></div>
+          <div><span class="reader-time" data-i18n="history.mick.time">06H00 → 07H40</span><strong class="reader-state" data-i18n="history.mick.state">DISPONÍVEL</strong></div>
         </header>
-        <p class="reader-intro">A manhã começa com uma corrida, provocações entre irmãos e um café em família. Quando o noticiário anuncia a lei marcial, nenhum deles imagina que a explicação já está a caminho.</p>
+        <p class="reader-intro" data-i18n="history.mick.intro">A manhã começa com uma corrida, provocações entre irmãos e um café em família. Quando o noticiário anuncia a lei marcial, nenhum deles imagina que a explicação já está a caminho.</p>
 
         <div class="excerpt-block">
-          <span class="excerpt-label">EXCERTO A // DEPOIS DAS 07H00</span>
-          <p>Já passava das sete quando nos reunimos à mesa da cozinha. Enquanto as crianças comiam, eu ouvia o noticiário na televisão. Em uma das notícias, escutamos que o governo havia decretado lei marcial. Só não ouvi o motivo.</p>
-          <p>— Papai, o que é lei marcial? — perguntou Elisa, a caçula.</p>
-          <p>— Bom, querida, lei marcial é como as leis que o papai e a mamãe fazem aqui em casa sobre o que vocês podem ou não podem fazer.</p>
-          <p>— É, a não ser que você seja como a Maya, que não gosta muito dessas leis e sempre tenta quebrá-las — provocou Chris, rindo.</p>
-          <p>— Cala a boca, moleque idiota! — respondeu Maya, dando-lhe um chute na perna por baixo da mesa.</p>
-          <p>— Ei, ei, ei! Sem briga. Comam para nós sairmos — advertiu Mei.</p>
+          <span class="excerpt-label" data-i18n="history.mick.excerptA">EXCERTO A // DEPOIS DAS 07H00</span>
+          <p data-i18n="history.mick.p1">Já passava das sete quando nos reunimos à mesa da cozinha. Enquanto as crianças comiam, eu ouvia o noticiário na televisão. Em uma das notícias, escutamos que o governo havia decretado lei marcial. Só não ouvi o motivo.</p>
+          <p data-i18n="history.mick.p2">— Papai, o que é lei marcial? — perguntou Elisa, a caçula.</p>
+          <p data-i18n="history.mick.p3">— Bom, querida, lei marcial é como as leis que o papai e a mamãe fazem aqui em casa sobre o que vocês podem ou não podem fazer.</p>
+          <p data-i18n="history.mick.p4">— É, a não ser que você seja como a Maya, que não gosta muito dessas leis e sempre tenta quebrá-las — provocou Chris, rindo.</p>
+          <p data-i18n="history.mick.p5">— Cala a boca, moleque idiota! — respondeu Maya, dando-lhe um chute na perna por baixo da mesa.</p>
+          <p data-i18n="history.mick.p6">— Ei, ei, ei! Sem briga. Comam para nós sairmos — advertiu Mei.</p>
         </div>
 
-        <button class="reader-continue" type="button" aria-expanded="false" aria-controls="mick-continuation" data-reader-toggle="mick-continuation"><span>Continuar trecho disponível</span><b>+</b></button>
+        <button class="reader-continue" type="button" aria-expanded="false" aria-controls="mick-continuation" data-reader-toggle="mick-continuation"><span data-i18n="history.mick.continue">Continuar trecho disponível</span><b>+</b></button>
         <div class="reader-continuation" id="mick-continuation" hidden>
-          <div class="reader-divider"><span>07H40 // TRÂNSITO INTERROMPIDO</span></div>
+          <div class="reader-divider"><span data-i18n="history.mick.divider">07H40 // TRÂNSITO INTERROMPIDO</span></div>
           <div class="excerpt-block">
-            <span class="excerpt-label">EXCERTO B // CINCO HELICÓPTEROS</span>
-            <p>Durante o engarrafamento, um primeiro helicóptero passou sobre nós. Cerca de cinco minutos depois, um segundo cruzou o céu na mesma direção. Antes que dez minutos se completassem, outros três repetiram o trajeto.</p>
-            <p>Passamos mais alguns minutos naquela interação em família, até que uma motocicleta surgiu em alta velocidade e arrancou o retrovisor do carro, assustando todos nós.</p>
-            <p>— Meu Deus... — disse Mei, assustada.</p>
-            <p>Depois do susto, ela fez uma observação interessante:</p>
-            <p>— Esse já é o quinto helicóptero que passa por nós. O que será que está acontecendo?</p>
+            <span class="excerpt-label" data-i18n="history.mick.excerptB">EXCERTO B // CINCO HELICÓPTEROS</span>
+            <p data-i18n="history.mick.p7">Durante o engarrafamento, um primeiro helicóptero passou sobre nós. Cerca de cinco minutos depois, um segundo cruzou o céu na mesma direção. Antes que dez minutos se completassem, outros três repetiram o trajeto.</p>
+            <p data-i18n="history.mick.p8">Passamos mais alguns minutos naquela interação em família, até que uma motocicleta surgiu em alta velocidade e arrancou o retrovisor do carro, assustando todos nós.</p>
+            <p data-i18n="history.mick.p9">— Meu Deus... — disse Mei, assustada.</p>
+            <p data-i18n="history.mick.p10">Depois do susto, ela fez uma observação interessante:</p>
+            <p data-i18n="history.mick.p11">— Esse já é o quinto helicóptero que passa por nós. O que será que está acontecendo?</p>
           </div>
-          <div class="reader-interruption"><span>TRECHO INTERROMPIDO</span><p>O registro seguinte começa quando a normalidade já não pode mais ser recuperada.</p></div>
+          <div class="reader-interruption"><span data-i18n="history.mick.interrupted">TRECHO INTERROMPIDO</span><p data-i18n="history.mick.interruptedCopy">O registro seguinte começa quando a normalidade já não pode mais ser recuperada.</p></div>
         </div>
       </article>
 
       <article class="perspective-reader" id="reader-hanson" role="tabpanel" aria-labelledby="tab-hanson" data-reader="hanson" hidden>
         <header class="reader-header">
-          <div class="reader-identity"><span class="reader-code">NÚCLEO HANSON // TRECHO 01</span><h3>Capitão James Hanson</h3><p>Terceira pessoa // resposta militar</p></div>
-          <div><span class="reader-time">05H00 → 06H40</span><strong class="reader-state">PARCIAL</strong></div>
+          <div class="reader-identity"><span class="reader-code" data-i18n="history.hanson.code">NÚCLEO HANSON // TRECHO 01</span><h3 data-i18n="history.hanson.name">Capitão James Hanson</h3><p data-i18n="history.hanson.pov">Terceira pessoa // resposta militar</p></div>
+          <div><span class="reader-time" data-i18n="history.hanson.time">05H00 → 06H40</span><strong class="reader-state" data-i18n="history.hanson.state">PARCIAL</strong></div>
         </header>
-        <p class="reader-intro">Hanson retorna de uma missão e é convocado pelo general Anderson. Dentro do centro de controle, ocorrências tratadas como violência comum começam a formar um padrão.</p>
+        <p class="reader-intro" data-i18n="history.hanson.intro">Hanson retorna de uma missão e é convocado pelo general Anderson. Dentro do centro de controle, ocorrências tratadas como violência comum começam a formar um padrão.</p>
 
         <div class="excerpt-block">
-          <span class="excerpt-label">EXCERTO A // CENTRO DE CONTROLE</span>
-          <p>Hanson e Anderson saíram da sala e foram diretamente para o centro de controle. Normalmente, o ambiente era calmo e tranquilo, mas, por algum motivo, havia um grande alvoroço entre os soldados.</p>
-          <p>— O que está acontecendo, general? Os homens estão um pouco... agitados.</p>
-          <p>— É isso que quero lhe mostrar, capitão. Veja.</p>
-          <p>Anderson exibiu na tela uma série de relatos. Várias pessoas diziam estar sendo atacadas por outras pessoas.</p>
-          <p>— Esses relatos estão aumentando cada vez mais. Suspeitamos de algum novo surto de raiva.</p>
-          <p>Hanson examinou o relatório e analisou as mensagens gravadas.</p>
-          <p>— Isso tudo é de hoje, general?</p>
-          <p>— Esses que estão em suas mãos e na tela... Sim, são de agora.</p>
+          <span class="excerpt-label" data-i18n="history.hanson.excerptA">EXCERTO A // CENTRO DE CONTROLE</span>
+          <p data-i18n="history.hanson.p1">Hanson e Anderson saíram da sala e foram diretamente para o centro de controle. Normalmente, o ambiente era calmo e tranquilo, mas, por algum motivo, havia um grande alvoroço entre os soldados.</p>
+          <p data-i18n="history.hanson.p2">— O que está acontecendo, general? Os homens estão um pouco... agitados.</p>
+          <p data-i18n="history.hanson.p3">— É isso que quero lhe mostrar, capitão. Veja.</p>
+          <p data-i18n="history.hanson.p4">Anderson exibiu na tela uma série de relatos. Várias pessoas diziam estar sendo atacadas por outras pessoas.</p>
+          <p data-i18n="history.hanson.p5">— Esses relatos estão aumentando cada vez mais. Suspeitamos de algum novo surto de raiva.</p>
+          <p data-i18n="history.hanson.p6">Hanson examinou o relatório e analisou as mensagens gravadas.</p>
+          <p data-i18n="history.hanson.p7">— Isso tudo é de hoje, general?</p>
+          <p data-i18n="history.hanson.p8">— Esses que estão em suas mãos e na tela... Sim, são de agora.</p>
         </div>
 
-        <button class="reader-continue" type="button" aria-expanded="false" aria-controls="hanson-continuation" data-reader-toggle="hanson-continuation"><span>Abrir registro da Avenida Taylor</span><b>+</b></button>
+        <button class="reader-continue" type="button" aria-expanded="false" aria-controls="hanson-continuation" data-reader-toggle="hanson-continuation"><span data-i18n="history.hanson.open">Abrir registro da Avenida Taylor</span><b>+</b></button>
         <div class="reader-continuation" id="hanson-continuation" hidden>
-          <div class="reader-divider"><span>ÁUDIO INTERCEPTADO // HORÁRIO NÃO CONFIRMADO</span></div>
+          <div class="reader-divider"><span data-i18n="history.hanson.divider">ÁUDIO INTERCEPTADO // HORÁRIO NÃO CONFIRMADO</span></div>
           <div class="excerpt-block">
-            <span class="excerpt-label">EXCERTO B // DD-RADIO-TAYLOR</span>
-            <p>O general reproduziu um áudio interceptado do rádio de um dos policiais:</p>
-            <blockquote>— Precisamos de reforços! Repito: precisamos de reforços aqui na Avenida Taylor! Há alguma coisa errada. Pessoas estão atacando pessoas e... Ei, não se aproxime! Eu vou atirar... Eu disse... Ei... N-não... Aaah!</blockquote>
-            <p>O áudio terminou ao som de tiros ao fundo.</p>
-            <p>As imagens de segurança mostravam três pessoas avançando contra o policial mesmo depois de serem baleadas.</p>
-            <p>— General, já vi muitas coisas nesta carreira e isto... Isto vai além de qualquer coisa que eu já tenha visto. Eles levaram tiros à queima-roupa e não caíram...</p>
-            <p>— Devemos emitir um alerta vermelho e tentar conter isso antes que se espalhe.</p>
+            <span class="excerpt-label" data-i18n="history.hanson.excerptB">EXCERTO B // DD-RADIO-TAYLOR</span>
+            <p data-i18n="history.hanson.p9">O general reproduziu um áudio interceptado do rádio de um dos policiais:</p>
+            <blockquote data-i18n="history.hanson.quote">— Precisamos de reforços! Repito: precisamos de reforços aqui na Avenida Taylor! Há alguma coisa errada. Pessoas estão atacando pessoas e... Ei, não se aproxime! Eu vou atirar... Eu disse... Ei... N-não... Aaah!</blockquote>
+            <p data-i18n="history.hanson.p10">O áudio terminou ao som de tiros ao fundo.</p>
+            <p data-i18n="history.hanson.p11">As imagens de segurança mostravam três pessoas avançando contra o policial mesmo depois de serem baleadas.</p>
+            <p data-i18n="history.hanson.p12">— General, já vi muitas coisas nesta carreira e isto... Isto vai além de qualquer coisa que eu já tenha visto. Eles levaram tiros à queima-roupa e não caíram...</p>
+            <p data-i18n="history.hanson.p13">— Devemos emitir um alerta vermelho e tentar conter isso antes que se espalhe.</p>
           </div>
-          <div class="reader-interruption"><span>06H40 // ORDEM DE DESLOCAMENTO</span><p>Hanson recebe a relação das ocorrências e envia os soldados. A continuação deste núcleo ainda está sendo escrita.</p></div>
+          <div class="reader-interruption"><span data-i18n="history.hanson.order">06H40 // ORDEM DE DESLOCAMENTO</span><p data-i18n="history.hanson.orderCopy">Hanson recebe a relação das ocorrências e envia os soldados. A continuação deste núcleo ainda está sendo escrita.</p></div>
         </div>
       </article>
 
       <article class="perspective-reader locked-reader" id="reader-samuel" role="tabpanel" aria-labelledby="tab-samuel" data-reader="samuel" hidden>
         <div class="lock-seal" aria-hidden="true"><span>03</span></div>
         <header class="reader-header">
-          <div class="reader-identity"><span class="reader-code">PENTÁGONO // REGISTRO NÃO ANEXADO</span><h3>Samuel Jordan Salazar</h3><p>Terceira perspectiva // conteúdo em elaboração</p></div>
-          <div><span class="reader-time">--H--</span><strong class="reader-state">EM REDAÇÃO</strong></div>
+          <div class="reader-identity"><span class="reader-code" data-i18n="history.samuel.code">PENTÁGONO // REGISTRO NÃO ANEXADO</span><h3>Samuel Jordan Salazar</h3><p data-i18n="history.samuel.pov">Terceira perspectiva // conteúdo em elaboração</p></div>
+          <div><span class="reader-time" data-i18n="history.samuel.time">--H--</span><strong class="reader-state" data-i18n="history.samuel.state">EM REDAÇÃO</strong></div>
         </header>
         <div class="manuscript-alert">
-          <strong>Nenhuma transcrição canônica disponível</strong>
-          <p>A perspectiva de Samuel está sendo escrita pelo autor. Este espaço permanecerá visível, mas não apresentará acontecimentos provisórios como se fossem parte definitiva da história.</p>
+          <strong data-i18n="history.samuel.alert">Nenhuma transcrição canônica disponível</strong>
+          <p data-i18n="history.samuel.alertCopy">A perspectiva de Samuel está sendo escrita pelo autor. Este espaço permanecerá visível, mas não apresentará acontecimentos provisórios como se fossem parte definitiva da história.</p>
         </div>
-        <div class="reader-interruption"><span>AGUARDANDO MANUSCRITO</span><p>O arquivo será integrado quando o próximo trecho for recebido e revisado.</p></div>
+        <div class="reader-interruption"><span data-i18n="history.samuel.waiting">AGUARDANDO MANUSCRITO</span><p data-i18n="history.samuel.waitingCopy">O arquivo será integrado quando o próximo trecho for recebido e revisado.</p></div>
       </article>
     </div>
   </section>
 
   <section class="story-section" id="cronologia" aria-labelledby="cronologia-titulo">
     <div class="section-heading story-reveal">
-      <p class="section-kicker">A mesma manhã // relógios diferentes</p>
-      <h2 class="section-title" id="cronologia-titulo">Linha temporal do Dia D</h2>
-      <p class="section-copy">Os horários abaixo conectam somente acontecimentos confirmados no manuscrito. Selecione um registro para abrir sua perspectiva.</p>
+      <p class="section-kicker" data-i18n="history.timeline.kicker">A mesma manhã // relógios diferentes</p>
+      <h2 class="section-title" id="cronologia-titulo" data-i18n="history.timeline.title">Linha temporal do Dia D</h2>
+      <p class="section-copy" data-i18n="history.timeline.copy">Os horários abaixo conectam somente acontecimentos confirmados no manuscrito. Selecione um registro para abrir sua perspectiva.</p>
     </div>
     <ol class="timeline-list story-reveal">
-      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time>ANTES DAS 05H</time><span class="event-copy"><strong>Primeiros ataques registrados</strong><small>Ocorrências ainda tratadas como comuns e isoladas.</small></span><span class="event-owner owner-hanson">COMANDO</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time>05H00</time><span class="event-copy"><strong>Hanson retorna à base</strong><small>O capitão é convocado pelo general Anderson.</small></span><span class="event-owner owner-hanson">HANSON</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time>&lt; 06H00</time><span class="event-copy"><strong>Avenida Taylor</strong><small>Um pedido de reforços termina em tiros e perda do rádio.</small></span><span class="event-owner owner-hanson">HANSON</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="mick"><time>06H00</time><span class="event-copy"><strong>A última corrida normal</strong><small>Mick, Mei e Chris saem antes do café da manhã.</small></span><span class="event-owner owner-mick">BRADOCK</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time>06H40</time><span class="event-copy"><strong>Equipes são despachadas</strong><small>Hanson recebe a relação dos locais atingidos.</small></span><span class="event-owner owner-hanson">HANSON</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="mick"><time>&gt; 07H00</time><span class="event-copy"><strong>Lei marcial no noticiário</strong><small>A família ouve o comunicado durante o café.</small></span><span class="event-owner owner-mick">BRADOCK</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="mick"><time>07H40</time><span class="event-copy"><strong>Cinco helicópteros</strong><small>Cinco aeronaves repetem o trajeto em menos de dez minutos.</small></span><span class="event-owner owner-mick">BRADOCK</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="samuel"><time>--H--</time><span class="event-copy"><strong>Registro do Pentágono</strong><small>Horário e conteúdo ainda não recebidos.</small></span><span class="event-owner owner-samuel">SALAZAR</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time>ANTES DAS 05H</time><span class="event-copy"><strong data-i18n="history.timeline.before5.title">Primeiros ataques registrados</strong><small data-i18n="history.timeline.before5.copy">Ocorrências ainda tratadas como comuns e isoladas.</small></span><span class="event-owner owner-hanson" data-i18n="history.timeline.command">COMANDO</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time>05H00</time><span class="event-copy"><strong data-i18n="history.timeline.0500.title">Hanson retorna à base</strong><small data-i18n="history.timeline.0500.copy">O capitão é convocado pelo general Anderson.</small></span><span class="event-owner owner-hanson">HANSON</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time>&lt; 06H00</time><span class="event-copy"><strong data-i18n="history.timeline.taylor.title">Avenida Taylor</strong><small data-i18n="history.timeline.taylor.copy">Um pedido de reforços termina em tiros e perda do rádio.</small></span><span class="event-owner owner-hanson">HANSON</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="mick"><time>06H00</time><span class="event-copy"><strong data-i18n="history.timeline.0600.title">A última corrida normal</strong><small data-i18n="history.timeline.0600.copy">Mick, Mei e Chris saem antes do café da manhã.</small></span><span class="event-owner owner-mick">BRADOCK</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time>06H40</time><span class="event-copy"><strong data-i18n="history.timeline.0640.title">Equipes são despachadas</strong><small data-i18n="history.timeline.0640.copy">Hanson recebe a relação dos locais atingidos.</small></span><span class="event-owner owner-hanson">HANSON</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="mick"><time>&gt; 07H00</time><span class="event-copy"><strong data-i18n="history.timeline.martial.title">Lei marcial no noticiário</strong><small data-i18n="history.timeline.martial.copy">A família ouve o comunicado durante o café.</small></span><span class="event-owner owner-mick">BRADOCK</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="mick"><time>07H40</time><span class="event-copy"><strong data-i18n="history.timeline.0740.title">Cinco helicópteros</strong><small data-i18n="history.timeline.0740.copy">Cinco aeronaves repetem o trajeto em menos de dez minutos.</small></span><span class="event-owner owner-mick">BRADOCK</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="samuel"><time>--H--</time><span class="event-copy"><strong data-i18n="history.timeline.pentagon.title">Registro do Pentágono</strong><small data-i18n="history.timeline.pentagon.copy">Horário e conteúdo ainda não recebidos.</small></span><span class="event-owner owner-samuel">SALAZAR</span></button></li>
     </ol>
   </section>
 
   <section class="story-section" id="evidencias" aria-labelledby="evidencias-titulo">
     <div class="section-heading story-reveal">
-      <p class="section-kicker">Elementos extraídos do texto</p>
-      <h2 class="section-title" id="evidencias-titulo">Registros do manuscrito</h2>
-      <p class="section-copy">Estes anexos não ampliam o enredo: apenas reorganizam informações que já aparecem nos trechos escritos.</p>
+      <p class="section-kicker" data-i18n="history.records.kicker">Elementos extraídos do texto</p>
+      <h2 class="section-title" id="evidencias-titulo" data-i18n="history.records.title">Registros do manuscrito</h2>
+      <p class="section-copy" data-i18n="history.records.copy">Estes anexos não ampliam o enredo: apenas reorganizam informações que já aparecem nos trechos escritos.</p>
     </div>
     <div class="evidence-grid">
-      <article class="evidence-card story-reveal"><header><span class="evidence-code">DD-NEWS-0700</span><strong class="evidence-status">CONFIRMADO</strong></header><div class="evidence-body"><h3>Lei marcial decretada</h3><p>Transmissão televisiva ouvida pelos Bradock depois das 07h00. O motivo não foi captado por Mick.</p></div></article>
-      <article class="evidence-card story-reveal"><header><span class="evidence-code">DD-RADIO-TAYLOR</span><strong class="evidence-status">INTERROMPIDO</strong></header><div class="evidence-body"><h3>Pedido de reforços</h3><div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>O policial ordena que alguém não se aproxime. A transmissão termina com gritos e disparos.</p></div></article>
-      <article class="evidence-card story-reveal"><header><span class="evidence-code">DD-AIR-05</span><strong class="evidence-status">VISUAL</strong></header><div class="evidence-body"><h3>Cinco aeronaves</h3><p>Primeiro helicóptero. Cinco minutos depois, o segundo. Outros três antes que dez minutos se completassem.</p></div></article>
-      <article class="evidence-card story-reveal"><header><span class="evidence-code">DD-ORDER-0640</span><strong class="evidence-status">MILITAR</strong></header><div class="evidence-body"><h3>Ordem de deslocamento</h3><p>Às 06h40, Hanson recebe os pontos das ocorrências e envia soldados para averiguação.</p></div></article>
-      <article class="evidence-card evidence-redacted story-reveal"><header><span class="evidence-code">DD-INTERVAL-0008</span><strong class="evidence-status">RESTRITO</strong></header><div class="evidence-body"><h3>Intervalo observado</h3><p><span class="redacted">NATUREZA DO EVENTO NÃO INDEXADA</span></p><strong class="interval-mark">00:00:08</strong></div></article>
-      <article class="evidence-card evidence-missing story-reveal"><header><span class="evidence-code">DD-PENTAGON---</span><strong class="evidence-status">AUSENTE</strong></header><div class="evidence-body"><h3>Perspectiva Salazar</h3><p>Nenhum horário, diálogo ou acontecimento foi publicado. Aguardando o texto do autor.</p></div></article>
+      <article class="evidence-card story-reveal"><header><span class="evidence-code">DD-NEWS-0700</span><strong class="evidence-status" data-i18n="history.records.confirmed">CONFIRMADO</strong></header><div class="evidence-body"><h3 data-i18n="history.records.martial.title">Lei marcial decretada</h3><p data-i18n="history.records.martial.copy">Transmissão televisiva ouvida pelos Bradock depois das 07h00. O motivo não foi captado por Mick.</p></div></article>
+      <article class="evidence-card story-reveal"><header><span class="evidence-code">DD-RADIO-TAYLOR</span><strong class="evidence-status" data-i18n="history.records.interrupted">INTERROMPIDO</strong></header><div class="evidence-body"><h3 data-i18n="history.records.reinforcements.title">Pedido de reforços</h3><div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p data-i18n="history.records.reinforcements.copy">O policial ordena que alguém não se aproxime. A transmissão termina com gritos e disparos.</p></div></article>
+      <article class="evidence-card story-reveal"><header><span class="evidence-code">DD-AIR-05</span><strong class="evidence-status" data-i18n="history.records.visual">VISUAL</strong></header><div class="evidence-body"><h3 data-i18n="history.records.aircraft.title">Cinco aeronaves</h3><p data-i18n="history.records.aircraft.copy">Primeiro helicóptero. Cinco minutos depois, o segundo. Outros três antes que dez minutos se completassem.</p></div></article>
+      <article class="evidence-card story-reveal"><header><span class="evidence-code">DD-ORDER-0640</span><strong class="evidence-status" data-i18n="history.records.military">MILITAR</strong></header><div class="evidence-body"><h3 data-i18n="history.records.order.title">Ordem de deslocamento</h3><p data-i18n="history.records.order.copy">Às 06h40, Hanson recebe os pontos das ocorrências e envia soldados para averiguação.</p></div></article>
+      <article class="evidence-card evidence-redacted story-reveal"><header><span class="evidence-code">DD-INTERVAL-0008</span><strong class="evidence-status" data-i18n="history.records.restricted">RESTRITO</strong></header><div class="evidence-body"><h3 data-i18n="history.records.interval.title">Intervalo observado</h3><p><span class="redacted" data-i18n="history.records.interval.redacted">NATUREZA DO EVENTO NÃO INDEXADA</span></p><strong class="interval-mark">00:00:08</strong></div></article>
+      <article class="evidence-card evidence-missing story-reveal"><header><span class="evidence-code">DD-PENTAGON---</span><strong class="evidence-status" data-i18n="history.records.missing">AUSENTE</strong></header><div class="evidence-body"><h3 data-i18n="history.records.salazar.title">Perspectiva Salazar</h3><p data-i18n="history.records.salazar.copy">Nenhum horário, diálogo ou acontecimento foi publicado. Aguardando o texto do autor.</p></div></article>
     </div>
   </section>
 
   <section class="story-section" id="andamento" aria-labelledby="andamento-titulo">
     <div class="section-heading story-reveal">
-      <p class="section-kicker">Estado real da escrita</p>
-      <h2 class="section-title" id="andamento-titulo">O que ainda está sendo construído</h2>
-      <p class="section-copy">A página crescerá junto com o livro. Nenhum espaço pendente será preenchido com acontecimentos inventados.</p>
+      <p class="section-kicker" data-i18n="history.writing.kicker">Estado real da escrita</p>
+      <h2 class="section-title" id="andamento-titulo" data-i18n="history.writing.title">O que ainda está sendo construído</h2>
+      <p class="section-copy" data-i18n="history.writing.copy">A página crescerá junto com o livro. Nenhum espaço pendente será preenchido com acontecimentos inventados.</p>
     </div>
     <div class="writing-board story-reveal">
-      <article class="writing-step is-partial"><span>01</span><div><strong>Mick Bradock</strong><p>Primeiro fragmento recebido. A narrativa retornará a Mick depois dos outros núcleos.</p></div><small>PARCIAL</small></article>
-      <article class="writing-step is-partial"><span>02</span><div><strong>James Hanson</strong><p>Primeiro fragmento recebido. A conclusão da sequência militar permanece em escrita.</p></div><small>PARCIAL</small></article>
-      <article class="writing-step is-writing"><span>03</span><div><strong>Samuel Salazar</strong><p>Perspectiva do Pentágono sendo escrita agora. Nenhum trecho canônico anexado.</p></div><small>EM REDAÇÃO</small></article>
+      <article class="writing-step is-partial"><span>01</span><div><strong>Mick Bradock</strong><p data-i18n="history.writing.mick">Primeiro fragmento recebido. A narrativa retornará a Mick depois dos outros núcleos.</p></div><small data-i18n="history.writing.partial">PARCIAL</small></article>
+      <article class="writing-step is-partial"><span>02</span><div><strong>James Hanson</strong><p data-i18n="history.writing.hanson">Primeiro fragmento recebido. A conclusão da sequência militar permanece em escrita.</p></div><small data-i18n="history.writing.partial">PARCIAL</small></article>
+      <article class="writing-step is-writing"><span>03</span><div><strong>Samuel Salazar</strong><p data-i18n="history.writing.samuel">Perspectiva do Pentágono sendo escrita agora. Nenhum trecho canônico anexado.</p></div><small data-i18n="history.writing.inProgress">EM REDAÇÃO</small></article>
     </div>
   </section>
 </main>
 
-<footer class="story-footer"><strong>AGE OF DOOMSDAY</strong><span>Obra original // Capítulo 1 em andamento</span></footer>
+<footer class="story-footer"><strong>AGE OF DOOMSDAY</strong><span data-i18n="history.footer">Obra original // Capítulo 1 em andamento</span></footer>
 
 <script src="historia.js"></script>
 <script src="cursor-site.js"></script>

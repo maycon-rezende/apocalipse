@@ -1,0 +1,374 @@
+/*
+ * Ameaças possui duas leituras do mesmo dossiê.
+ * O conteúdo e o progresso são compartilhados; apenas a linguagem visual muda.
+ */
+
+html[data-threat-mode="original"] {
+  --threat-paper: #d8d0bd;
+  --threat-paper-dim: #a9a18f;
+  --threat-desk: #0b0c0a;
+  --threat-sheet: #11130f;
+  --threat-sheet-raised: #161912;
+  --threat-rule: #34382d;
+  --threat-field: #8ba078;
+  --threat-field-dim: #56634a;
+  --threat-rust: #a94b42;
+  color-scheme: dark;
+}
+
+html[data-threat-mode="original"] body {
+  background-color: var(--threat-desk);
+  background-image:
+    linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px),
+    radial-gradient(circle at 14% 4%, rgba(139,160,120,.075), transparent 30rem),
+    linear-gradient(105deg, #090a08, #0e100c 48%, #090a08);
+  background-size: 100% 44px, auto, auto;
+  color: var(--threat-paper);
+  animation: none !important;
+}
+
+/* Elementos de fita e ameaça pertencem exclusivamente à experiência Analog. */
+html[data-threat-mode="original"] .threat-intro,
+html[data-threat-mode="original"] .crt-overlay,
+html[data-threat-mode="original"] .vignette,
+html[data-threat-mode="original"] .grain,
+html[data-threat-mode="original"] .analog-frame,
+html[data-threat-mode="original"] .vhs-hud,
+html[data-threat-mode="original"] .tracking-noise,
+html[data-threat-mode="original"] .analog-anomaly,
+html[data-threat-mode="original"] .tracking-console,
+html[data-threat-mode="original"] .investigation-depth,
+html[data-threat-mode="original"] .threat-atmosphere,
+html[data-threat-mode="original"] .threat-proximity,
+html[data-threat-mode="original"] .threat-cursor {
+  display: none !important;
+}
+
+html[data-threat-mode="original"] body,
+html[data-threat-mode="original"] body a,
+html[data-threat-mode="original"] body button {
+  cursor: auto !important;
+}
+
+html[data-threat-mode="original"] body a,
+html[data-threat-mode="original"] body button,
+html[data-threat-mode="original"] .case-file {
+  cursor: pointer !important;
+}
+
+html[data-threat-mode="original"] nav {
+  background: rgba(10,11,9,.96);
+  border-bottom-color: var(--threat-rule);
+  box-shadow: 0 10px 28px rgba(0,0,0,.24);
+  backdrop-filter: blur(8px);
+}
+
+html[data-threat-mode="original"] nav .logo::after {
+  content: "DOSSIÊ CIVIL // CAMPO";
+  margin-left: .8rem;
+  padding-left: .8rem;
+  border-left: 1px solid var(--threat-rule);
+  color: var(--threat-field);
+  font: .76rem var(--f-term);
+  letter-spacing: .13em;
+}
+
+html[data-threat-mode="original"] nav .back {
+  color: var(--threat-paper-dim);
+}
+
+html[data-threat-mode="original"] nav .back:hover,
+html[data-threat-mode="original"] nav .back:focus-visible {
+  color: var(--threat-field);
+}
+
+html[data-threat-mode="original"] .section {
+  isolation: isolate;
+}
+
+html[data-threat-mode="original"] .section + .section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 6vw;
+  right: 6vw;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--threat-rule) 8% 92%, transparent);
+}
+
+html[data-threat-mode="original"] .threat-hero {
+  padding-top: 10rem;
+}
+
+html[data-threat-mode="original"] .threat-hero::before {
+  content: "DOSSIÊ DE INVESTIGAÇÃO INDEPENDENTE // EXEMPLAR DE TRABALHO";
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  padding: .35rem .65rem;
+  border: 1px solid var(--threat-field-dim);
+  color: var(--threat-field);
+  background: rgba(139,160,120,.045);
+  font: .78rem var(--f-term);
+  letter-spacing: .13em;
+}
+
+html[data-threat-mode="original"] .eyebrow,
+html[data-threat-mode="original"] .archive-strip strong,
+html[data-threat-mode="original"] .field-file dt,
+html[data-threat-mode="original"] .chain-event time,
+html[data-threat-mode="original"] .case-date {
+  color: var(--threat-field);
+}
+
+html[data-threat-mode="original"] .field-title {
+  color: var(--threat-paper);
+  text-shadow: none;
+}
+
+html[data-threat-mode="original"] .field-title .designation-z {
+  color: var(--threat-rust);
+}
+
+html[data-threat-mode="original"] .origin-summary,
+html[data-threat-mode="original"] .investigation-lead,
+html[data-threat-mode="original"] .tape-intro {
+  color: var(--threat-paper-dim);
+}
+
+html[data-threat-mode="original"] .archive-strip,
+html[data-threat-mode="original"] .archive-strip div,
+html[data-threat-mode="original"] .field-file,
+html[data-threat-mode="original"] .chain-event,
+html[data-threat-mode="original"] .threat-card,
+html[data-threat-mode="original"] .location-card {
+  border-color: var(--threat-rule);
+  background: var(--threat-sheet);
+}
+
+html[data-threat-mode="original"] .archive-strip {
+  gap: 0;
+  background: transparent;
+}
+
+html[data-threat-mode="original"] .archive-strip div + div {
+  border-left: 1px solid var(--threat-rule);
+}
+
+html[data-threat-mode="original"] .evolution-display {
+  border-color: var(--threat-rule);
+  background:
+    linear-gradient(rgba(139,160,120,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139,160,120,.04) 1px, transparent 1px),
+    #0d0f0c;
+  background-size: 42px 42px;
+}
+
+html[data-threat-mode="original"] .stage-figure {
+  border-color: rgba(139,160,120,.55);
+  background: linear-gradient(180deg, rgba(139,160,120,.14), rgba(86,99,74,.26));
+  animation: none !important;
+  filter: none !important;
+}
+
+html[data-threat-mode="original"] .evolution-label,
+html[data-threat-mode="original"] .data-state,
+html[data-threat-mode="original"] .threat-card .level {
+  color: var(--threat-rust);
+}
+
+html[data-threat-mode="original"] .origin-note,
+html[data-threat-mode="original"] .investigation-result,
+html[data-threat-mode="original"] .hub-dossier-copy {
+  border-left-color: var(--threat-field);
+  background: rgba(139,160,120,.045);
+}
+
+html[data-threat-mode="original"] .analysis-filter.active,
+html[data-threat-mode="original"] .analysis-filter:hover,
+html[data-threat-mode="original"] .analysis-filter:focus-visible {
+  border-color: var(--threat-field);
+  color: var(--threat-field);
+}
+
+html[data-threat-mode="original"] .threat-card::before,
+html[data-threat-mode="original"] .news-item::after,
+html[data-threat-mode="original"] .field-capture::after {
+  display: none;
+}
+
+html[data-threat-mode="original"] .threat-card:hover {
+  border-color: var(--threat-field-dim);
+  box-shadow: 0 15px 36px rgba(0,0,0,.3);
+  transform: translateY(-2px);
+}
+
+html[data-threat-mode="original"] .chain-event:hover {
+  border-color: var(--threat-field-dim);
+  background: var(--threat-sheet-raised);
+  transform: translateX(3px);
+}
+
+html[data-threat-mode="original"] .news-wire,
+html[data-threat-mode="original"] .deadwire-shell,
+html[data-threat-mode="original"] .hub-shell,
+html[data-threat-mode="original"] .tape-machine,
+html[data-threat-mode="original"] .eco-station,
+html[data-threat-mode="original"] .morgue-station {
+  border-color: var(--threat-rule);
+  background: rgba(17,19,15,.94);
+  box-shadow: 0 18px 45px rgba(0,0,0,.2);
+}
+
+html[data-threat-mode="original"] .news-ticker {
+  border-bottom-color: var(--threat-rule);
+  color: var(--threat-rust);
+  background: #0d0f0c;
+}
+
+html[data-threat-mode="original"] .news-ticker span {
+  padding-left: 1rem;
+  animation: none !important;
+}
+
+html[data-threat-mode="original"] .news-grid {
+  background: var(--threat-rule);
+}
+
+html[data-threat-mode="original"] .news-item,
+html[data-threat-mode="original"] .news-item:hover {
+  background: var(--threat-sheet);
+}
+
+html[data-threat-mode="original"] .case-file {
+  border-color: var(--threat-rule);
+  background: linear-gradient(145deg, #15170f, #10110d);
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+}
+
+html[data-threat-mode="original"] .case-file:hover,
+html[data-threat-mode="original"] .case-file:focus-visible,
+html[data-threat-mode="original"] .case-file.selected {
+  border-color: var(--threat-field-dim);
+}
+
+html[data-threat-mode="original"] .connection-board {
+  filter: saturate(.74) contrast(.96);
+}
+
+html[data-threat-mode="original"] .field-capture {
+  border-color: var(--threat-rule);
+  box-shadow: 0 18px 45px rgba(0,0,0,.32);
+}
+
+html[data-threat-mode="original"] .field-capture img,
+html[data-threat-mode="original"] .field-capture:hover img {
+  filter: grayscale(.25) sepia(.09) saturate(.78) contrast(1.06) brightness(.7);
+  transform: none;
+}
+
+html[data-threat-mode="original"] .capture-frame {
+  border-color: rgba(139,160,120,.36);
+}
+
+html[data-threat-mode="original"] footer {
+  border-top-color: var(--threat-rule);
+}
+
+/* Analog Horror: a camada de fita é mantida, mas sem invadir os controles globais. */
+html[data-threat-mode="analog"] body {
+  background-image:
+    radial-gradient(circle at 50% 18%, rgba(80,8,12,.12), transparent 38rem),
+    linear-gradient(#050505, #030303);
+}
+
+html[data-threat-mode="analog"] nav .logo::after {
+  content: "TRANSMISSÃO 09";
+  margin-left: .7rem;
+  color: var(--red);
+  font: .76rem var(--f-term);
+  letter-spacing: .13em;
+}
+
+html[data-threat-mode="analog"] .threat-proximity {
+  bottom: 4.6rem;
+}
+
+html[data-threat-mode="analog"] .threat-hero {
+  text-shadow: 0 0 20px rgba(210,31,44,.07);
+}
+
+html[data-threat-mode="analog"] .investigation-hub,
+html[data-threat-mode="analog"] .deadwire,
+html[data-threat-mode="analog"] .tape-section {
+  background-image: linear-gradient(90deg, transparent, rgba(210,31,44,.018), transparent);
+}
+
+html[data-threat-mode="analog"] .experience-corner-toggle {
+  box-shadow: 0 0 20px rgba(210,31,44,.12);
+}
+
+@media (max-width: 700px) {
+  html[data-threat-mode="original"] nav .logo::after,
+  html[data-threat-mode="analog"] nav .logo::after {
+    display: none;
+  }
+
+  html[data-threat-mode="original"] .threat-hero {
+    padding-top: 8rem;
+  }
+
+  html[data-threat-mode="original"] .section + .section::before {
+    left: 4vw;
+    right: 4vw;
+  }
+
+  html[data-threat-mode="original"] .archive-strip div:nth-child(odd) {
+    border-left: 0;
+  }
+
+  html[data-threat-mode="original"] .archive-strip div:nth-child(n+3) {
+    border-top: 1px solid var(--threat-rule);
+  }
+
+  html[data-threat-mode="analog"] .threat-proximity {
+    bottom: 4.2rem;
+  }
+}
+
+@media (max-width: 430px) {
+  html[data-threat-mode="analog"] .threat-proximity {
+    display: none;
+  }
+
+  html[data-threat-mode="analog"] .tracking-console {
+    bottom: 4.2rem;
+  }
+
+  html[data-threat-mode="original"] .threat-hero::before {
+    font-size: .68rem;
+    letter-spacing: .09em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-threat-mode] *,
+  html[data-threat-mode] *::before,
+  html[data-threat-mode] *::after {
+    scroll-behavior: auto !important;
+  }
+
+  html[data-threat-mode="analog"] .threat-intro-bg,
+  html[data-threat-mode="analog"] .threat-intro::before,
+  html[data-threat-mode="analog"] .threat-intro::after,
+  html[data-threat-mode="analog"] .crt-overlay,
+  html[data-threat-mode="analog"] .grain,
+  html[data-threat-mode="analog"] .tracking-noise,
+  html[data-threat-mode="analog"] .threat-atmosphere::before,
+  html[data-threat-mode="analog"] .threat-atmosphere::after,
+  html[data-threat-mode="analog"] .infected-shadow,
+  html[data-threat-mode="analog"] .stage-figure,
+  html[data-threat-mode="analog"] .field-capture::after {
+    animation: none !important;
+  }
+}

@@ -761,3 +761,27 @@ O Arquivo Original ganhou uma apresentação de manuscrito literário, enquanto 
 A revisão ortográfica do material recebido foi armazenada em `textos/Age of DOOMSDAY - Capitulo 1 - revisao.md`; o arquivo RTF original do autor não foi sobrescrito. A revisão confirma Old City, Filadélfia, como local de Suyang e registra a continuidade planejada: Samuel no Pentágono, conclusão de Hanson e retorno à perspectiva de Mick.
 
 A nova página História, seus estilos, interações, manuscrito revisado e esta atualização do resumo foram publicados na branch `main` do repositório `maycon-rezende/apocalipse`. O commit principal da transformação é `434a2be` (`Transforma pagina Historia em leitor canonico`).
+
+### Ameaças em dois modos e base bilíngue — 29 de julho de 2026
+
+`ameaca.html` passou a possuir duas apresentações realmente distintas sem duplicar conteúdo ou progresso. No **Arquivo Original**, a página assume a forma de um dossiê civil de investigação, com papel escuro, tons de campo, leitura jornalística e biológica e acesso direto ao relatório. A introdução de perigo, o enquadramento VHS, o HUD, o tracking, a névoa, o medidor de proximidade, o cursor de mira e as anomalias intensas ficam exclusivos da **Experiência Analog Horror**. As transmissões corrompidas globais e mais raras continuam atravessando o modo original como vazamentos deliberados.
+
+Os dois modos utilizam a mesma investigação, os mesmos casos, fórum, fitas, puzzles, trilha e estado salvo em `dd_threat_investigation_v1`. Alternar a experiência não reinicia descobertas nem cria duas versões divergentes da narrativa. O comportamento foi isolado por `threat-mode.js` e `threat-mode.css`, enquanto as rotinas intensas somente são iniciadas quando o modo analógico está ativo e a preferência de movimento do visitante permite.
+
+O projeto também recebeu a primeira infraestrutura compartilhada para português e inglês. O seletor `PT // EN` foi incorporado ao controle global de experiência e funciona nas mesmas páginas, sem criar cópias `-en`. A escolha usa `dd_locale_v1`; o parâmetro `?lang=en` ou `?lang=pt-BR` possui prioridade e permite compartilhar um endereço em idioma específico. Idioma e modo são independentes, formando quatro combinações possíveis: Original/PT, Original/EN, Analog/PT e Analog/EN. A troca de idioma preserva os demais estados salvos no navegador.
+
+`historia.html` é a primeira página integralmente internacionalizada. Navegação, metadados, introdução, perspectivas, trechos canônicos do manuscrito, cronologia, registros, estados de escrita, mensagens dinâmicas e acessibilidade possuem equivalentes em inglês. Em português, o título permanece `DIA D`, com `DIA` em fogo e o último `D` vermelho; em inglês, torna-se `D-DAY`, com `D-` em fogo e `DAY` vermelho. Códigos de arquivo, nomes próprios, IDs, respostas de puzzles e chaves de persistência não são traduzidos.
+
+Nas páginas ainda não internacionalizadas, o seletor informa que apenas a interface global está disponível no idioma escolhido. Essa decisão permite ampliar o inglês página por página sem exibir uma tradução incompleta como se fosse integral. A estrutura atual está em `i18n/core.js`, `i18n/pt-BR.js` e `i18n/en.js`, com 186 chaves equivalentes em cada idioma.
+
+A implementação foi validada estruturalmente e em renders locais de Ameaças nos dois modos e História em inglês. Scripts, scripts embutidos, destinos de `aria-controls`, IDs, recursos locais, chaves de tradução e blocos CSS passaram nas verificações. Estas alterações integram o pacote de publicação registrado em 1º de agosto de 2026.
+
+### Home bilíngue e quatro combinações de experiência — 1º de agosto de 2026
+
+`home.html` tornou-se a segunda página pública integralmente internacionalizada. A abertura, a navegação, o título, o comunicado presidencial completo, o arquivo DD-01, a cronologia do Dia Zero, o diretório de setores, a Central de Sinais, o testemunho final, mensagens dinâmicas, estados de retorno, cursores, transições e textos de acessibilidade possuem equivalentes em português e inglês.
+
+O título em chamas preserva `APOCALIPSE Z` em português e assume `APOCALYPSE Z` em inglês. A Experiência Analog Horror também foi traduzida por completo: HUD, terminal de sincronização, identificação dos setores, marcas da transmissão desviada e avisos de integridade acompanham o idioma escolhido. Em larguras intermediárias, os nomes dos setores passam a usar versões compactas para preservar a navegação.
+
+O parâmetro válido `?lang=` agora também atualiza `dd_locale_v1`. Assim, um endereço compartilhado em inglês ou português mantém o idioma ao navegar para outra página. A alteração não modifica códigos, puzzles, áudios, chaves narrativas nem estados salvos; Arquivo Original e Analog Horror continuam utilizando o mesmo conteúdo e progresso.
+
+Os catálogos compartilhados foram ampliados de 186 para 391 chaves equivalentes em cada idioma. A Home foi verificada nas combinações Original/PT, Original/EN e Analog/EN, incluindo desktop, tela móvel e abertura do pronunciamento presidencial. A checagem estrutural confirmou 179 referências de tradução, 39 IDs, 17 recursos locais, sintaxe válida dos scripts e integridade dos blocos CSS.
