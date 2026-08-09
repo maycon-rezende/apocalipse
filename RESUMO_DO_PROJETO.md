@@ -827,3 +827,196 @@ As revisões editoriais foram salvas em `textos/Daniel Turner - revisao canonica
 `personagens.html` passou de oito para dez registros e recebeu o filtro **Registros classificados**, com os cards `ficha_10.dat` de Daniel e `ficha_11.dat` de Sophie. Os cards revelam somente a camada autorizada. `personagem.html?id=daniel` e `personagem.html?id=grey` receberam biografias, cronologias, perfis operacionais, anexos e atmosferas exclusivas: inteligência clandestina e redações para Daniel; laboratório e análise biomédica para Grey. O cofre de evidências reconhece os dois novos sujeitos e usa apenas a imagem sanitizada no arquivo de Sophie.
 
 O diretório, os dossiês e os cofres foram ampliados em português e inglês. IDs, rotas, chaves de armazenamento, puzzles existentes e os oito personagens anteriores foram preservados. A existência da Dominus, a natureza dos experimentos, qualquer ligação com a Antártida ou com DOOM, a identidade dos responsáveis pelo ataque e o destino de Daniel e Sophie continuam classificados.
+
+### DD-01 // Simulação de Contenção — 9 de agosto de 2026
+
+O site recebeu seu primeiro minigame em `simulacao.html`, apresentado como um executável tático recuperado do pacote DD-01. A página usa Canvas com pixel art totalmente procedural, sem engine, biblioteca ou imagens externas. A experiência funciona como um shooter vertical de arena: o jogador precisa permanecer em movimento, administrar munição e habilidade e neutralizar três ondas formadas por errantes, corredores e brutos. Kits médicos e caixas de munição podem ser recuperados durante a partida; pontuação, combo, vitória, derrota, reinício e recorde individual completam o ciclo de aproximadamente dois a quatro minutos.
+
+Três unidades estão disponíveis. Mick Bradock é equilibrado e usa **Foco Tático**, que acelera e perfura disparos; Mei Bradock privilegia mobilidade e sobrevivência com **Impulso Evasivo**; o Major Hanson possui a maior resistência e poder de impacto, ativando **Última Linha**. Vida, velocidade, dano, cadência, carregador, reserva, recarga e habilidade são parâmetros reais do jogo, não apenas descrições visuais.
+
+Os controles de desktop usam WASD ou setas, Espaço, R, Shift e Esc/P. Telas sensíveis ao toque recebem direcional, tiro, recarga, habilidade e pausa com alvos de pelo menos 48 pixels. A simulação pausa ao perder foco ou ocultar a aba, preserva o comportamento padrão de botões e possui live regions, resumos acessíveis dos personagens, foco visível e suporte a movimento reduzido. Os efeitos sonoros são sintetizados com Web Audio somente após uma ação do visitante e podem ser silenciados. Apenas `dd_simulation_records_v1` e `dd_simulation_settings_v1` são armazenados localmente; nenhum dado da partida é transmitido.
+
+O Arquivo Original apresenta um treinamento militar retrô e legível. A Experiência Analog Horror mantém exatamente as mesmas regras e dificuldade, alterando somente paleta, CRT, interferência e mensagens narrativas. Durante uma partida, as transmissões globais são temporariamente suspensas para não cobrir a arena nem interferir nos comandos.
+
+A Home reconhece cinco setores e dez personagens. O quinto setor evoluiu para **Protocolos interativos** e a Simulação de Contenção permanece disponível como `DD-01` dentro dessa central; a navegação analógica agora a identifica como `SETOR 05 // PROTOCOLOS`. Os módulos `i18n/simulation-pt-BR.js` e `i18n/simulation-en.js` possuem 121 chaves equivalentes. Após a inclusão do segundo protocolo, `/en-preview/` passou a conter treze páginas. A auditoria global mais recente confirmou 617 vínculos i18n, 211 referências locais e 1.628 chaves combinadas, além de sintaxe válida, IDs sem duplicatas e rotas inglesas preservadas. A conexão do navegador visual não iniciou neste ambiente; permanece recomendado um playtest manual antes da próxima publicação.
+
+#### Guia técnico — como o minigame foi construído
+
+O minigame foi desenvolvido diretamente sobre a estrutura do site, usando apenas tecnologias nativas do navegador. Não foi instalada nenhuma engine, framework ou biblioteca de jogos. Também não foram usados sprites, imagens externas ou arquivos de áudio adicionais: personagens, infectados, projéteis, itens, cenário e efeitos são desenhados por código, enquanto os sons são sintetizados no momento da partida.
+
+**Tecnologias utilizadas**
+
+- HTML5 semântico para seleção de personagem, HUD, overlays, botões, instruções e regiões acessíveis;
+- CSS3 com Grid, Flexbox, media queries, custom properties e `image-rendering: pixelated`;
+- JavaScript puro, sem dependências;
+- Canvas 2D para desenho, animação, partículas, projéteis, personagens e infectados;
+- `requestAnimationFrame` para o loop principal do jogo;
+- Web Audio API para tiros, impactos, recarga, habilidades, alertas, vitória e derrota;
+- Pointer Events para os controles de toque;
+- `localStorage` exclusivamente para recordes e preferência de áudio;
+- infraestrutura i18n já existente no projeto para português e inglês;
+- `experience-mode.js` e as classes globais do projeto para alternar Arquivo Original e Analog Horror;
+- scripts Node.js do próprio repositório para gerar e verificar `/en-preview/`.
+
+**Passo a passo da implementação**
+
+1. **Definição do escopo.** O primeiro protótipo foi limitado a três personagens, três ondas e três tipos de infectados. A meta foi criar partidas de aproximadamente dois a quatro minutos, com começo, progressão e resultado completos, sem transformar o site em uma aplicação pesada.
+
+2. **Criação da página.** `simulacao.html` recebeu uma navegação de retorno à Home, controle de áudio, título do protocolo, seleção de unidades, área de jogo, HUDs laterais, instruções, controles mobile, overlays de contagem regressiva, pausa e resultado, além de uma região invisível para avisos de leitores de tela.
+
+3. **Montagem do visual.** `simulacao.css` criou a aparência de terminal militar retrô, os cards dos personagens, os retratos em pixel art feitos com elementos CSS, a moldura do monitor, o painel de vida e munição, os controles de toque e os layouts responsivos. O modo analógico utiliza a mesma página, acrescentando CRT, interferência, vinheta, contraste e tons vermelhos.
+
+4. **Definição da resolução lógica.** O Canvas trabalha internamente em `320 × 480` pixels. O CSS amplia essa área para o tamanho disponível na tela, mantendo `imageSmoothingEnabled = false` e `image-rendering: pixelated`. Dessa maneira, os gráficos continuam nítidos e deliberadamente pixelados em monitores e celulares diferentes.
+
+5. **Criação dos personagens por dados.** O objeto `CHARACTERS` centraliza vida, velocidade, dano, intervalo entre tiros, tamanho do carregador, reserva de munição, tempo de recarga, duração e espera da habilidade, além das cores de cada unidade. Isso permite balancear o jogo sem reescrever suas funções.
+
+6. **Especialização das unidades.** Mick foi configurado como personagem equilibrado e recebeu **Foco Tático**; Mei possui menos vida, grande mobilidade e **Impulso Evasivo**; o Major Hanson é mais lento, porém possui maior vida, dano e a habilidade **Última Linha**. As diferenças modificam de fato o comportamento da partida.
+
+7. **Construção da máquina de estados.** O motor controla os estados `select`, `countdown`, `running`, `paused` e `result`. Cada transição mostra e oculta somente os elementos necessários, direciona o foco do teclado, interrompe comandos indevidos e impede que duas partidas continuem simultaneamente.
+
+8. **Loop principal.** `requestAnimationFrame` calcula o intervalo entre quadros, atualiza movimento, disparos, recarga, habilidades, ondas, inimigos, itens, partículas, combo e colisões e, por fim, redesenha o Canvas. O delta de tempo é limitado para evitar saltos bruscos quando o navegador sofre uma pequena interrupção.
+
+9. **Criação dos infectados.** O objeto `ENEMY_TYPES` define errantes, corredores e brutos. Cada categoria possui vida, velocidade, dano, tamanho, valor de pontuação e cor próprios. Os infectados surgem fora da área visível e perseguem a posição atual do jogador.
+
+10. **Sistema de ondas.** O array `WAVES` informa quantidade total, intervalo de surgimento e proporção de cada tipo de infectado. A primeira onda apresenta principalmente errantes; a segunda introduz corredores e brutos; a terceira aumenta a quantidade e a presença dos inimigos mais perigosos.
+
+11. **Combate e colisões.** Os tiros avançam verticalmente, verificam interseção com os infectados e aplicam o dano do personagem escolhido. Contato com um inimigo reduz a vida e ativa um pequeno período de invulnerabilidade, evitando que todos os pontos de vida sejam removidos no mesmo quadro. Projéteis, partículas, inimigos derrotados e objetos que deixam a arena são removidos das listas.
+
+12. **Itens, pontuação e combo.** Infectados podem liberar caixas de munição ou kits médicos. Abates consecutivos aumentam o combo enquanto o jogador continua acertando dentro do intervalo previsto. O resultado final e o maior recorde de cada personagem aparecem no overlay de encerramento.
+
+13. **Áudio procedural.** A Web Audio API cria os efeitos usando osciladores, curvas de frequência, ganho e ruído sintetizado. Hanson recebe disparos mais graves, Mei sons mais rápidos e Mick um perfil intermediário. O contexto de áudio só é criado depois de um clique ou toque, respeitando as regras de reprodução automática dos navegadores.
+
+14. **Controles de desktop.** WASD e setas movimentam; Espaço dispara; `R` recarrega; Shift ativa a habilidade; Esc ou `P` pausa. O listener ignora comandos de jogo quando o foco está em botões, links ou campos interativos, permitindo usar Espaço e Enter normalmente na interface.
+
+15. **Controles mobile.** Pointer Events controlam o direcional e os botões de tiro, recarga e habilidade. `pointerdown`, `pointerup`, `pointercancel` e perda de captura impedem comandos presos. Todos os alvos essenciais possuem pelo menos `48 × 48` pixels, e o bloqueio de gesto ocorre apenas sobre o Canvas e os controles.
+
+16. **Pausa segura.** A partida pausa quando o usuário pressiona o comando, muda de janela ou oculta a aba. A contagem regressiva também é cancelada e reconstruída corretamente. Durante o jogo, `body.locked` impede que as transmissões globais e o dock de experiência cubram a arena.
+
+17. **Acessibilidade.** Os cards funcionam como um grupo de seleção por rádio, possuem resumos textuais dos atributos e aceitam navegação por setas. Vida usa `progress`, mudanças importantes são anunciadas por `aria-live`, todos os botões mantêm foco visível e `prefers-reduced-motion` desativa movimentos e flashes não essenciais.
+
+18. **Arquivo Original e Analog Horror.** O estado vem de `window.DD_ANALOG_MODE` e das classes `original-experience` ou `analog-experience`. Apenas a apresentação é alterada; quantidade de inimigos, dano, velocidade, colisões, recordes e dificuldade permanecem idênticos nos dois modos.
+
+19. **Internacionalização.** Textos estáticos e dinâmicos usam chaves `simulation.*`. Os módulos `simulation-pt-BR.js` e `simulation-en.js` possuem a mesma estrutura e são carregados antes de `i18n/core.js`. Assim, troca de idioma, atributos ARIA, HUD, avisos, resultados e nomes das habilidades permanecem sincronizados.
+
+20. **Integração com a Home.** Um sexto link foi adicionado à navegação e um quinto card ao diretório DD-01. Com a criação de mais protocolos, `home-mode.js` passou a reconhecer `protocolos.html` e transforma o link em `SETOR 05 // PROTOCOLOS` quando a experiência analógica está ativa. O painel contextual, a memória de setores consultados e os contadores também foram ampliados. `simulacao.html` retorna à central, enquanto a marca Age of Doomsday continua levando à Home.
+
+21. **Geração da edição inglesa.** `scripts/build-en-preview.js` passou a reconhecer `simulacao.html` e o módulo `simulation`. O gerador cria `en-preview/simulacao.html`, bloqueia o idioma em inglês e reescreve o retorno para `en-preview/home.html`, compartilhando os mesmos estilos, scripts e recordes da edição principal.
+
+22. **Validação.** A sintaxe foi verificada com `node --check`; as 121 chaves do módulo foram comparadas nos dois idiomas; os 40 IDs da página foram auditados para impedir duplicatas e referências ausentes; scripts embutidos foram compilados; o gerador internacional e `scripts/qa-en-preview.js` foram executados; e `git diff --check` confirmou a integridade textual dos arquivos.
+
+**Mapa dos arquivos do minigame**
+
+- `simulacao.html`: estrutura, HUD, seleção, overlays, instruções e controles;
+- `simulacao.css`: visual, pixel art CSS, responsividade, acessibilidade visual e modo analógico;
+- `simulacao.js`: regras, loop, renderização Canvas, áudio, entrada, ondas, colisões e persistência;
+- `i18n/simulation-pt-BR.js`: textos em português;
+- `i18n/simulation-en.js`: textos em inglês;
+- `home.html`: entrada visual e link do Setor 05;
+- `home-mode.js`: identificação analógica do novo setor;
+- `scripts/build-en-preview.js`: geração da página inglesa;
+- `scripts/qa-en-preview.js`: auditoria da edição internacional.
+
+**Dados preservados no navegador**
+
+- `dd_simulation_records_v1`: melhor pontuação de Mick, Mei e Hanson;
+- `dd_simulation_settings_v1`: preferência de áudio do minigame;
+- `dd_experience_mode_v1`: modo Original ou Analog Horror, compartilhado com o restante do site;
+- `dd_locale_v1`: idioma escolhido, compartilhado com o restante do site.
+
+**Comandos para validar ou continuar o trabalho**
+
+```powershell
+node --check simulacao.js
+node --check i18n/simulation-pt-BR.js
+node --check i18n/simulation-en.js
+node --check home-mode.js
+node scripts/build-en-preview.js
+node scripts/qa-en-preview.js
+git diff --check
+```
+
+### Ampliação do arquivo visual de Sophie Grey — 9 de agosto de 2026
+
+O dossiê de Sophie Grey passou a usar três imagens na consulta principal: o retrato biomédico sanitizado e dois registros urbanos sem referências à instituição classificada. O cofre `evidencias.html?id=grey` reúne dez imagens correlacionadas, preservando o tema exclusivo de análise biomédica e mantendo o material doméstico e pessoal fora da ficha comum.
+
+As imagens `img-sophie/agente-grey.png` e `img-sophie/medica-grey.png` continuam deliberadamente fora das páginas e da publicação. A primeira pertence à versão não canônica em que Grey seria agente; a segunda revela nomes e elementos classificados antes do momento correto da história. A capa pública permanece `img-sophie/sophie-grey-public.png`, derivada e sanitizada para não expor esses spoilers.
+
+Ao modificar atributos dos personagens, inimigos ou ondas, editar primeiro os objetos `CHARACTERS`, `ENEMY_TYPES` e `WAVES` em `simulacao.js`. Depois, executar os comandos de validação, gerar novamente `/en-preview/` e realizar pelo menos uma partida manual com cada personagem em desktop e celular.
+
+### Setor 05 e DD-02 // Frequência Morta — 9 de agosto de 2026
+
+O quinto setor foi transformado em `protocolos.html`, uma central própria para experiências jogáveis e investigativas. A Home não recebeu novos links para cada minigame: o único acesso global continua sendo **Protocolos**, evitando o crescimento descontrolado da navegação. Dentro da central, `DD-01 // Simulação de Contenção` e `DD-02 // Frequência Morta` aparecem como executáveis disponíveis; `DD-03` e `DD-04` são apenas espaços bloqueados, sem títulos ou pistas que antecipem conteúdo futuro.
+
+A central lê defensivamente os recordes `dd_simulation_records_v1` e o estado `dd_dead_frequency_v1`. Ela mostra a melhor pontuação geral e os recordes de Mick, Mei e Hanson, além do número real de etapas concluídas no DD-02. Os valores não são aceitos apenas porque o armazenamento afirma `complete: true`: frequência, ganho, fase, ordem dos fragmentos e retransmissor são normalizados e comparados às soluções. JSON quebrado, números inválidos, etapas fora de sequência e snapshots forjados retornam para um estado seguro. Os painéis são atualizados em `pageshow`, no evento `storage` e após troca de idioma.
+
+#### Estrutura do DD-02
+
+`frequencia-morta.html` funciona como um console investigativo sem cronômetro. O visitante pode concluir as quatro operações no próprio ritmo, e o áudio é apenas atmosférico. Cada etapa desbloqueia a próxima, salva o estado local e direciona o foco para o novo título. Tentativas incorretas liberam três níveis progressivos de dicas, sem remover pontos nem reiniciar o progresso.
+
+1. **Sintonia primária.** O receptor cobre de `40.00` a `43.00 MHz`, com passo de `0.01`. A instrução não entrega a solução; qualidade do sinal e mensagens indicam a aproximação. A primeira dica explica o ajuste pelas setas, a segunda reduz o intervalo e a terceira informa `41.73 MHz`. A confirmação só aceita o alvo dentro da tolerância de `0.005`.
+
+2. **Sincronia de portadora.** Um Canvas desenha simultaneamente a onda de referência e a recebida. Os controles de ganho e fase modificam o traço, uma porcentagem informa a correspondência e uma descrição textual comunica os mesmos valores para quem não enxerga ou não possui Canvas. A solução canônica é ganho `68%` e fase `126°`, com tolerâncias de dois pontos de ganho e três graus.
+
+3. **Buffer de transmissão.** Quatro fragmentos começam na ordem `gamma → alpha → delta → beta`. Cada item possui botões próprios para mover acima ou abaixo; arrastar não é necessário. A sequência correta pode ser deduzida pelos horários `23:41:08`, `23:41:11`, `23:41:16` e `23:41:22`, resultando em `alpha → beta → gamma → delta`.
+
+4. **Triangulação de eco.** O mapa abstrato apresenta Alexandria, Fairfax, Arlington e McLean. Cada nó informa força, atraso e número de vetores coincidentes. Arlington A-17 combina sinal de `96%`, eco de `18 ms` e os três vetores, sendo a única origem intermediária coerente. O grupo utiliza semântica de rádio, aceita clique, Tab, setas, Home e End e exige confirmação separada.
+
+Ao final, o arquivo revela uma transmissão federal incompleta anterior ao Dia D. Ela confirma alerta vermelho e ocorrências simultâneas, mas não identifica a voz, não menciona Samuel, Dominus, Projeto Omega, Antártida ou Projeto DOOM. O resultado registra apenas que o pacote atravessou o retransmissor Arlington A-17. Dessa forma, o puzzle acrescenta atmosfera e continuidade sem entregar o responsável pela mensagem.
+
+#### Como o DD-02 foi construído
+
+- `frequencia-morta.html` contém missão, progresso global, quatro fieldsets sequenciais, Canvas, lista de fragmentos, mapa, resultado e live regions;
+- `frequencia-morta.css` constrói receptor, dial, monitor, fragmentos, mapa, retransmissores, estados bloqueado/ativo/concluído, responsividade e aparência analógica;
+- `frequencia-morta.js` controla estado, normalização, validações, dicas, Canvas, Web Audio, foco, eventos, persistência e conclusão;
+- `i18n/frequency-pt-BR.js` e `i18n/frequency-en.js` possuem 124 chaves equivalentes;
+- o Canvas da segunda etapa usa senoides calculadas por ganho e fase, limita o DPR a dois e redesenha após mudanças ou redimensionamento;
+- a Web Audio API sintetiza portadora, estática, sucesso e erro somente depois de ação do visitante;
+- Pointer Events não são necessários para resolver o puzzle: ranges, botões e radios funcionam igualmente com mouse, teclado e toque;
+- `prefers-reduced-motion` remove transições não essenciais, `forced-colors` recebe ajustes e todos os alvos interativos possuem pelo menos 48 pixels;
+- `window.confirm` protege o reset completo contra acionamento acidental;
+- bindings `data-i18n` são removidos dos nós hidratados dinamicamente para impedir que uma troca de idioma sobrescreva seus estados calculados.
+
+#### Estado local do DD-02
+
+```js
+{
+  version: 1,
+  frequency: 40.00..43.00,
+  gain: 0..100,
+  phase: 0..180,
+  order: ["alpha", "beta", "gamma", "delta"],
+  selectedRelay: null | "alexandria" | "fairfax" | "arlington" | "mclean",
+  solved: [boolean, boolean, boolean, boolean],
+  complete: boolean,
+  attempts: [integer, integer, integer, integer],
+  muted: boolean
+}
+```
+
+Ao restaurar o estado, cada etapa depende da anterior e também de sua resposta real. `complete` deriva da quarta etapa validada; por isso, um estado inconsistente como `solved[3] = true` e `complete = false` reabre a triangulação em vez de ocultar o resultado ou criar um soft-lock.
+
+#### Arquivos da central e do puzzle
+
+- `protocolos.html`, `protocolos.css` e `protocolos.js` — central, cards, recordes e progresso;
+- `i18n/protocols-pt-BR.js` e `i18n/protocols-en.js` — 47 chaves equivalentes da central;
+- `frequencia-morta.html`, `frequencia-morta.css` e `frequencia-morta.js` — puzzle completo;
+- `i18n/frequency-pt-BR.js` e `i18n/frequency-en.js` — tradução integral do DD-02;
+- `home.html` e `home-mode.js` — acesso e identificação do Setor 05;
+- `simulacao.html` — retorno atualizado para a central;
+- `scripts/build-en-preview.js` e `scripts/qa-en-preview.js` — geração e auditoria das duas novas páginas inglesas.
+
+`scripts/build-en-preview.js` agora gera treze páginas e carrega os módulos `protocols` e `frequency`. A execução de `scripts/qa-en-preview.js` confirmou 617 bindings, 211 referências locais e 1.628 chaves PT/EN combinadas. Também foram verificados sintaxe, 50 IDs obrigatórios do DD-02, 124/124 chaves, ordem solucionável dos fragmentos, tolerâncias alcançáveis, estados corrompidos, rotas inglesas e integridade textual. O backend do navegador visual permaneceu indisponível; portanto, a inspeção manual de layout e uma resolução completa em desktop e celular continuam recomendadas antes da publicação.
+
+**Comandos de validação do Setor 05**
+
+```powershell
+node --check protocolos.js
+node --check frequencia-morta.js
+node --check i18n/protocols-pt-BR.js
+node --check i18n/protocols-en.js
+node --check i18n/frequency-pt-BR.js
+node --check i18n/frequency-en.js
+node scripts/build-en-preview.js
+node scripts/qa-en-preview.js
+git diff --check
+```

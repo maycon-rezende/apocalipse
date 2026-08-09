@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-i18n-ready="full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080b0a">
+  <meta name="description" content="Simulação de contenção DD-01 em pixel art." data-i18n-attr="content:simulation.meta.description">
+  <title data-i18n="simulation.meta.title">DD-01 // Simulação de Contenção</title>
+  <link rel="stylesheet" href="experience-mode.css">
+  <link rel="stylesheet" href="simulacao.css">
+  <script defer src="i18n/pt-BR.js"></script>
+  <script defer src="i18n/en.js"></script>
+  <script defer src="i18n/simulation-pt-BR.js"></script>
+  <script defer src="i18n/simulation-en.js"></script>
+  <script defer src="i18n/core.js"></script>
+  <script defer src="experience-mode.js"></script>
+  <script defer src="simulacao.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#simulation-app" data-i18n="simulation.a11y.skip">Pular para a simulação</a>
+
+  <header class="site-header">
+    <a class="brand" href="home.html" aria-label="Age of Doomsday — início" data-i18n-attr="aria-label:simulation.nav.brandLabel">
+      <span>AGE OF</span>
+      <strong>DOOMS<span>DAY</span></strong>
+    </a>
+    <nav aria-label="Navegação da simulação" data-i18n-attr="aria-label:simulation.nav.label">
+      <a href="protocolos.html" data-i18n="simulation.nav.protocols">← Voltar aos protocolos</a>
+      <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false">
+        <span class="sound-led" aria-hidden="true"></span>
+        <span data-sound-label data-i18n="simulation.sound.enable">Ativar áudio</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="simulation-app" class="simulation-shell" data-state="select">
+    <section class="simulation-heading" aria-labelledby="simulation-title">
+      <p class="kicker" data-i18n="simulation.hero.kicker">ARQUIVO TÁTICO // TREINAMENTO RECUPERADO</p>
+      <h1 id="simulation-title" data-i18n="simulation.hero.title">DD-01 // SIMULAÇÃO DE CONTENÇÃO</h1>
+      <p class="hero-copy" data-i18n="simulation.hero.copy">Escolha uma unidade, contenha três ondas e permaneça em movimento.</p>
+      <div class="signal-line" aria-hidden="true"><i></i><span></span><i></i></div>
+    </section>
+
+    <section class="selection-screen" id="selection-screen" aria-labelledby="selection-title">
+      <div class="section-heading">
+        <span data-i18n="simulation.selection.step">ETAPA 01</span>
+        <h2 id="selection-title" data-i18n="simulation.selection.title">Selecione a unidade</h2>
+        <p data-i18n="simulation.selection.copy">Cada sobrevivente altera de verdade a velocidade, resistência, arma e habilidade da partida.</p>
+      </div>
+
+      <div class="character-grid" role="radiogroup" aria-label="Personagens disponíveis" data-i18n-attr="aria-label:simulation.selection.groupLabel">
+        <button class="character-card is-selected" type="button" role="radio" aria-checked="true" data-character="mick">
+          <span class="sr-only" data-i18n="simulation.character.mick.summary">Mick: 100 de vida, velocidade equilibrada, 24 de dano, carregador de 12 tiros. Foco Tático acelera os disparos e permite perfuração.</span>
+          <span class="card-code">DD-U01</span>
+          <span class="pixel-portrait pixel-mick" aria-hidden="true"><i></i><b></b><em></em></span>
+          <span class="card-copy">
+            <strong data-i18n="simulation.character.mick.name">Mick Bradock</strong>
+            <small data-i18n="simulation.character.mick.role">AGENTE // EQUILÍBRIO TÁTICO</small>
+          </span>
+          <span class="stat-list" aria-hidden="true">
+            <span><i data-i18n="simulation.stat.vitality">VITALIDADE</i><b style="--stat:70%"></b></span>
+            <span><i data-i18n="simulation.stat.mobility">MOBILIDADE</i><b style="--stat:70%"></b></span>
+            <span><i data-i18n="simulation.stat.firepower">PODER DE FOGO</i><b style="--stat:72%"></b></span>
+          </span>
+          <span class="ability-copy"><i data-i18n="simulation.stat.ability">HABILIDADE</i><b data-i18n="simulation.character.mick.ability">FOCO TÁTICO</b></span>
+        </button>
+
+        <button class="character-card" type="button" role="radio" aria-checked="false" data-character="mei">
+          <span class="sr-only" data-i18n="simulation.character.mei.summary">Mei: 78 de vida, velocidade muito alta, 18 de dano, carregador de 16 tiros. Impulso Evasivo aumenta a velocidade, protege e abre o disparo.</span>
+          <span class="card-code">DD-U02</span>
+          <span class="pixel-portrait pixel-mei" aria-hidden="true"><i></i><b></b><em></em></span>
+          <span class="card-copy">
+            <strong data-i18n="simulation.character.mei.name">Mei Bradock</strong>
+            <small data-i18n="simulation.character.mei.role">CIVIL // MOBILIDADE ELEVADA</small>
+          </span>
+          <span class="stat-list" aria-hidden="true">
+            <span><i data-i18n="simulation.stat.vitality">VITALIDADE</i><b style="--stat:52%"></b></span>
+            <span><i data-i18n="simulation.stat.mobility">MOBILIDADE</i><b style="--stat:96%"></b></span>
+            <span><i data-i18n="simulation.stat.firepower">PODER DE FOGO</i><b style="--stat:58%"></b></span>
+          </span>
+          <span class="ability-copy"><i data-i18n="simulation.stat.ability">HABILIDADE</i><b data-i18n="simulation.character.mei.ability">IMPULSO EVASIVO</b></span>
+        </button>
+
+        <button class="character-card" type="button" role="radio" aria-checked="false" data-character="hanson">
+          <span class="sr-only" data-i18n="simulation.character.hanson.summary">Major Hanson: 145 de vida, movimento mais lento, 38 de dano, carregador de 8 tiros. Última Linha ativa proteção e munição pesada.</span>
+          <span class="card-code">DD-U03</span>
+          <span class="pixel-portrait pixel-hanson" aria-hidden="true"><i></i><b></b><em></em></span>
+          <span class="card-copy">
+            <strong data-i18n="simulation.character.hanson.name">Major Hanson</strong>
+            <small data-i18n="simulation.character.hanson.role">EXÉRCITO // FORÇA DE CONTENÇÃO</small>
+          </span>
+          <span class="stat-list" aria-hidden="true">
+            <span><i data-i18n="simulation.stat.vitality">VITALIDADE</i><b style="--stat:96%"></b></span>
+            <span><i data-i18n="simulation.stat.mobility">MOBILIDADE</i><b style="--stat:48%"></b></span>
+            <span><i data-i18n="simulation.stat.firepower">PODER DE FOGO</i><b style="--stat:94%"></b></span>
+          </span>
+          <span class="ability-copy"><i data-i18n="simulation.stat.ability">HABILIDADE</i><b data-i18n="simulation.character.hanson.ability">ÚLTIMA LINHA</b></span>
+        </button>
+      </div>
+
+      <div class="selection-actions">
+        <p id="selected-unit" aria-live="polite" data-i18n="simulation.selection.selectedMick">UNIDADE SELECIONADA // MICK BRADOCK</p>
+        <button class="primary-action" id="start-game" type="button">
+          <span data-i18n="simulation.selection.start">INICIAR CONTENÇÃO</span>
+          <b aria-hidden="true">▶</b>
+        </button>
+      </div>
+    </section>
+
+    <section class="game-screen" id="game-screen" aria-labelledby="game-title" hidden>
+      <h2 id="game-title" class="sr-only" data-i18n="simulation.game.title">Simulação de contenção em andamento</h2>
+
+      <div class="game-layout">
+        <aside class="hud-panel hud-primary" aria-label="Estado da partida" data-i18n-attr="aria-label:simulation.hud.statusLabel">
+          <div class="hud-id"><span data-i18n="simulation.hud.unit">UNIDADE</span><strong id="hud-character">MICK</strong></div>
+          <div class="hud-score">
+            <span data-i18n="simulation.hud.score">PONTUAÇÃO</span>
+            <strong id="hud-score">000000</strong>
+          </div>
+          <div class="hud-row"><span data-i18n="simulation.hud.record">RECORDE</span><b id="hud-record">000000</b></div>
+          <div class="hud-row combo-row"><span data-i18n="simulation.hud.combo">COMBO</span><b id="hud-combo">×1</b></div>
+          <div class="hud-row"><span data-i18n="simulation.hud.wave">ONDA</span><b id="hud-wave">1/3</b></div>
+        </aside>
+
+        <div class="canvas-column">
+          <div class="canvas-frame" id="canvas-frame">
+            <div class="frame-label"><span>DD-01</span><b id="frame-status" data-i18n="simulation.status.standby">EM ESPERA</b></div>
+            <canvas id="game-canvas" width="320" height="480" tabindex="0" role="img" aria-label="Arena da simulação. Use as setas ou WASD para mover, Espaço para atirar, R para recarregar e Shift para usar a habilidade." data-i18n-attr="aria-label:simulation.game.canvasLabel">
+              <p data-i18n="simulation.game.canvasFallback">Seu navegador não oferece suporte ao Canvas necessário para esta simulação.</p>
+            </canvas>
+            <div class="canvas-scan" aria-hidden="true"></div>
+
+            <div class="game-overlay countdown-overlay" id="countdown-overlay" hidden>
+              <small data-i18n="simulation.overlay.preparing">SINCRONIZANDO UNIDADE</small>
+              <strong id="countdown-value">3</strong>
+            </div>
+
+            <div class="game-overlay pause-overlay" id="pause-overlay" hidden>
+              <small data-i18n="simulation.overlay.signalHeld">SINAL RETIDO</small>
+              <strong data-i18n="simulation.overlay.paused">SIMULAÇÃO PAUSADA</strong>
+              <p data-i18n="simulation.overlay.pausedCopy">A contenção continuará quando o sinal for restabelecido.</p>
+              <div class="overlay-actions">
+                <button type="button" data-overlay-action="resume" data-i18n="simulation.action.resume">CONTINUAR</button>
+                <button type="button" data-overlay-action="restart" data-i18n="simulation.action.restart">REINICIAR</button>
+                <button type="button" data-overlay-action="select" data-i18n="simulation.action.select">TROCAR UNIDADE</button>
+              </div>
+            </div>
+
+            <div class="game-overlay result-overlay" id="result-overlay" hidden>
+              <small id="result-code">DD-01 // END</small>
+              <strong id="result-title">CONTENÇÃO CONCLUÍDA</strong>
+              <p id="result-copy">As três ondas foram neutralizadas.</p>
+              <dl>
+                <div><dt data-i18n="simulation.result.score">PONTUAÇÃO</dt><dd id="result-score">000000</dd></div>
+                <div><dt data-i18n="simulation.result.record">RECORDE</dt><dd id="result-record">000000</dd></div>
+              </dl>
+              <p class="new-record" id="new-record" hidden data-i18n="simulation.result.newRecord">NOVO REGISTRO ARQUIVADO</p>
+              <div class="overlay-actions">
+                <button type="button" data-overlay-action="restart" data-i18n="simulation.action.playAgain">JOGAR NOVAMENTE</button>
+                <button type="button" data-overlay-action="select" data-i18n="simulation.action.select">TROCAR UNIDADE</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="touch-controls" id="touch-controls" aria-label="Controles de toque" data-i18n-attr="aria-label:simulation.touch.label">
+            <button class="touch-pause" id="touch-pause" type="button" data-i18n="simulation.action.pause">PAUSAR</button>
+            <div class="touch-dpad">
+              <button type="button" data-input="up" aria-label="Mover para cima" data-i18n-attr="aria-label:simulation.touch.up">▲</button>
+              <button type="button" data-input="left" aria-label="Mover para esquerda" data-i18n-attr="aria-label:simulation.touch.left">◀</button>
+              <button type="button" data-input="down" aria-label="Mover para baixo" data-i18n-attr="aria-label:simulation.touch.down">▼</button>
+              <button type="button" data-input="right" aria-label="Mover para direita" data-i18n-attr="aria-label:simulation.touch.right">▶</button>
+            </div>
+            <div class="touch-actions">
+              <button class="touch-ability" type="button" data-input="ability" data-i18n="simulation.touch.ability">HABIL.</button>
+              <button class="touch-reload" type="button" data-input="reload" data-i18n="simulation.touch.reload">REC.</button>
+              <button class="touch-fire" type="button" data-input="shoot" data-i18n="simulation.touch.fire">ATIRAR</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hud-panel hud-vitals" aria-label="Condição da unidade" data-i18n-attr="aria-label:simulation.hud.vitalsLabel">
+          <div class="vital-block">
+            <div><span data-i18n="simulation.hud.health">VIDA</span><b id="hud-health-value">100</b></div>
+            <progress id="hud-health" max="100" value="100">100%</progress>
+          </div>
+          <div class="ammo-block">
+            <span data-i18n="simulation.hud.ammo">MUNIÇÃO</span>
+            <strong><b id="hud-magazine">12</b><i>/</i><small id="hud-reserve">48</small></strong>
+            <em id="reload-status" aria-live="polite"></em>
+          </div>
+          <div class="ability-block">
+            <span data-i18n="simulation.hud.ability">HABILIDADE</span>
+            <strong id="hud-ability">FOCO TÁTICO</strong>
+            <div class="ability-meter"><i id="ability-fill"></i></div>
+            <small id="ability-status" data-i18n="simulation.status.ready">PRONTA</small>
+          </div>
+          <button class="pause-button" id="pause-button" type="button" data-i18n="simulation.action.pause">PAUSAR</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="controls-guide" aria-labelledby="controls-title">
+      <div>
+        <span class="section-index">02</span>
+        <h2 id="controls-title" data-i18n="simulation.controls.title">PROTOCOLO DE CONTROLE</h2>
+      </div>
+      <ul>
+        <li><kbd>WASD</kbd><span data-i18n="simulation.controls.move">Mover unidade</span></li>
+        <li><kbd>ESPAÇO</kbd><span data-i18n="simulation.controls.fire">Disparar</span></li>
+        <li><kbd>R</kbd><span data-i18n="simulation.controls.reload">Recarregar</span></li>
+        <li><kbd>SHIFT</kbd><span data-i18n="simulation.controls.ability">Ativar habilidade</span></li>
+        <li><kbd>ESC / P</kbd><span data-i18n="simulation.controls.pause">Pausar transmissão</span></li>
+      </ul>
+      <p data-i18n="simulation.controls.touch">Em telas sensíveis ao toque, os comandos aparecem abaixo da arena.</p>
+    </section>
+  </main>
+
+  <div class="sr-only" id="game-announcer" aria-live="assertive" aria-atomic="true"></div>
+
+  <footer class="site-footer">
+    <span data-i18n="simulation.footer.file">DD-01 // SIMULAÇÃO LOCAL</span>
+    <span data-i18n="simulation.footer.privacy">NENHUM DADO DE PARTIDA É TRANSMITIDO</span>
+  </footer>
+</body>
+</html>

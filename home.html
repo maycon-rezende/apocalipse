@@ -55,7 +55,7 @@ nav{position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-c
   font-family:var(--f-term); font-size:1.05rem; letter-spacing:.08em; text-transform:uppercase;}
 nav .logo{font-family:var(--f-display); font-size:1.15rem; letter-spacing:.03em; color:var(--ink); text-transform:none;}
 nav .logo span{color:var(--red);}
-nav .links{display:flex; gap:1.6rem; align-items:center;}
+nav .links{display:flex; gap:clamp(.8rem,1.6vw,1.6rem); align-items:center;}
 nav .links > a{color:var(--ink-dim); transition:color .2s;}
 nav .links > a:hover{color:var(--amber);}
 #nav-toggle{display:none;}
@@ -265,7 +265,7 @@ nav .links > a:hover{color:var(--amber);}
   --sector:var(--amber);position:relative;border:1px solid var(--line);background:linear-gradient(155deg,var(--panel-2),var(--panel));padding:1rem 1.2rem 1.35rem;text-align:left;
   transition:border-color .3s,transform .3s,background .3s,box-shadow .3s;display:flex;flex-direction:column;gap:.48rem;overflow:hidden;min-height:245px;
 }
-.explore-card:nth-child(1){--sector:#d69a3b}.explore-card:nth-child(2){--sector:#3ddc84}.explore-card:nth-child(3){--sector:#d21f2c}.explore-card:nth-child(4){--sector:#67a8c6}
+.explore-card:nth-child(1){--sector:#d69a3b}.explore-card:nth-child(2){--sector:#3ddc84}.explore-card:nth-child(3){--sector:#d21f2c}.explore-card:nth-child(4){--sector:#67a8c6}.explore-card:nth-child(5){--sector:#b878db}
 .explore-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--sector);box-shadow:0 0 10px var(--sector)}
 .explore-card::after{content:"";position:absolute;left:0;right:0;top:-35%;height:24%;background:linear-gradient(transparent,color-mix(in srgb,var(--sector) 9%,transparent),transparent);opacity:0;pointer-events:none}
 .explore-card:hover,.explore-card:focus-visible{border-color:var(--sector);transform:translateY(-5px);background:var(--panel-2);box-shadow:0 12px 30px rgba(0,0,0,.38);outline:none}
@@ -374,6 +374,7 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
     <a href="ameaca.html" data-i18n="home.nav.threat">Ameaça</a>
     <a href="projeto-doom.html" data-i18n="home.nav.doom">Projeto DOOM</a>
     <a href="galeria.html" data-i18n="home.nav.gallery">Galeria</a>
+    <a href="protocolos.html" data-i18n="home.nav.protocols">Protocolos</a>
   </div>
 </nav>
 <!-- ===== HERO ===== -->
@@ -478,7 +479,7 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
 <section class="explore dd-locked" id="arquivos-recuperados" aria-hidden="true" data-unseal-label="DD-01 // ÍNDICE DESCOMPACTADO" data-i18n-attr="data-unseal-label:home.directory.unsealed">
   <p class="eyebrow reveal" data-i18n="home.directory.kicker">Índice do arquivo-mestre</p>
   <h2 class="reveal" data-i18n="home.directory.title">Conteúdo recuperado do DD-01</h2>
-  <p class="explore-intro reveal" data-i18n="home.directory.intro">Quatro setores foram localizados dentro do pacote clandestino. Selecione um índice reconstruído para consultar os fragmentos disponíveis.</p>
+  <p class="explore-intro reveal" data-i18n="home.directory.intro">Cinco setores foram localizados dentro do pacote clandestino. Selecione um índice reconstruído para consultar os fragmentos disponíveis.</p>
   <div class="explore-grid">
     <a class="explore-card reveal" href="historia.html">
       <span class="sector-bar"><span data-i18n="home.sector.1.code">SETOR 01</span><span class="sector-state" data-i18n="home.sector.1.state" data-visited-label=" // CONSULTADO" data-i18n-attr="data-visited-label:home.sector.visited">RECUPERADO</span></span>
@@ -493,7 +494,7 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
       <span class="icon">☰</span>
       <h3 data-i18n="home.sector.2.title">Personagens</h3>
       <p data-i18n="home.sector.2.copy">Fichas de quem sobreviveu ao primeiro dia — e de quem tomou as decisões.</p>
-      <span class="sector-records"><strong class="record-count" data-count="8">00</strong> <span data-i18n="home.sector.2.records">REGISTROS LOCALIZADOS</span></span>
+      <span class="sector-records"><strong class="record-count" data-count="10">00</strong> <span data-i18n="home.sector.2.records">REGISTROS LOCALIZADOS</span></span>
       <span class="go" data-i18n="home.sector.2.open">[ ABRIR BANCO DE PERSONAGENS ] →</span>
     </a>
     <a class="explore-card reveal" href="ameaca.html">
@@ -512,11 +513,19 @@ footer{padding:1.2rem 6vw 2rem;text-align:center;font-family:var(--f-term);font-
       <span class="sector-records" data-i18n="home.sector.4.records">ARQUIVO VISUAL</span>
       <span class="go" data-i18n="home.sector.4.open">[ ANALISAR REGISTROS ] →</span>
     </a>
+    <a class="explore-card reveal" href="protocolos.html">
+      <span class="sector-bar"><span data-i18n="home.sector.5.code">SETOR 05</span><span class="sector-state" data-i18n="home.sector.5.state" data-visited-label=" // CONSULTADO" data-i18n-attr="data-visited-label:home.sector.visited">INTERATIVO</span></span>
+      <span class="icon" aria-hidden="true">▶</span>
+      <h3 data-i18n="home.sector.5.title">Protocolos interativos</h3>
+      <p data-i18n="home.sector.5.copy">Simulações táticas e consoles de investigação reconstruídos a partir do pacote DD-01.</p>
+      <span class="sector-records" data-i18n="home.sector.5.records">02 EXECUTÁVEIS DISPONÍVEIS</span>
+      <span class="go" data-i18n="home.sector.5.open">[ ABRIR PROTOCOLOS ] →</span>
+    </a>
   </div>
 
   <aside class="sector-preview reveal" id="sector-preview" aria-live="polite"><span class="sector-preview__code" data-i18n="home.sector.1.code">SETOR 01</span><div><h3 data-i18n="home.preview.1.title">História // registros narrativos</h3><p data-i18n="home.preview.1.copy">Testemunhos e cenas recuperadas do primeiro dia.</p></div><span class="sector-preview__integrity" data-i18n="home.preview.1.integrity">INTEGRIDADE 71%</span></aside>
 
-  <section class="investigation-progress reveal" aria-labelledby="progress-title"><h3 id="progress-title" data-i18n="home.progress.title">Progresso da investigação</h3><div class="progress-grid"><div class="progress-item"><strong data-investigation-count="8">08</strong><span data-i18n="home.progress.characters">PERSONAGENS LOCALIZADOS</span></div><div class="progress-item"><strong data-investigation-count="4">04</strong><span data-i18n="home.progress.secrets">ARQUIVOS SECRETOS</span></div><div class="progress-item"><strong data-investigation-count="47">47</strong><span data-i18n="home.progress.evidence">EVIDÊNCIAS CATALOGADAS</span></div><div class="progress-item"><strong data-investigation-count="4">04</strong><span data-i18n="home.progress.sectors">SETORES RECUPERADOS</span></div></div></section>
+  <section class="investigation-progress reveal" aria-labelledby="progress-title"><h3 id="progress-title" data-i18n="home.progress.title">Progresso da investigação</h3><div class="progress-grid"><div class="progress-item"><strong data-investigation-count="10">10</strong><span data-i18n="home.progress.characters">PERSONAGENS LOCALIZADOS</span></div><div class="progress-item"><strong data-investigation-count="4">04</strong><span data-i18n="home.progress.secrets">ARQUIVOS SECRETOS</span></div><div class="progress-item"><strong data-investigation-count="47">47</strong><span data-i18n="home.progress.evidence">EVIDÊNCIAS CATALOGADAS</span></div><div class="progress-item"><strong data-investigation-count="5">05</strong><span data-i18n="home.progress.sectors">SETORES RECUPERADOS</span></div></div></section>
 
   <section class="signal-center" id="sinais-recuperados" aria-labelledby="signal-title">
     <div class="signal-heading reveal"><h3 id="signal-title" data-i18n="home.signals.title">Central de sinais recuperados</h3><span data-i18n="home.signals.count">02 TRANSMISSÕES INTERCEPTADAS</span></div>
@@ -608,7 +617,7 @@ document.querySelectorAll('.signal-record').forEach(record=>{
 
 /* painel contextual e memória dos setores consultados */
 const sectorPreview=document.getElementById('sector-preview');
-const sectorData=[1,2,3,4].map(number=>[
+const sectorData=[1,2,3,4,5].map(number=>[
   homeT(`home.sector.${number}.code`),
   homeT(`home.preview.${number}.title`),
   homeT(`home.preview.${number}.copy`),

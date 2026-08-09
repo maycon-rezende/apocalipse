@@ -195,7 +195,7 @@
     'personnel.directory.field.family': 'Núcleo / vínculo',
     'personnel.profile.daniel.secretCopy': 'Duas cópias visuais associadas a Daniel Turner foram isoladas. As divergências de aparência podem indicar identidades de cobertura.',
     'personnel.profile.daniel.secretLink': 'Acesso restrito // Arquivo operacional de Daniel →',
-    'personnel.profile.grey.secretCopy': 'Uma cópia sanitizada do registro biomédico foi autorizada. Instituição, projeto e metadados originais permanecem classificados.',
+    'personnel.profile.grey.secretCopy': 'Dez registros visuais associados a Sophie Grey foram isolados. A ficha pública preserva três cópias; o restante permanece no cofre biomédico.',
     'personnel.profile.grey.secretLink': 'Acesso restrito // Registro biomédico de Grey →'
   });
 })();

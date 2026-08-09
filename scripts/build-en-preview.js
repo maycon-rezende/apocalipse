@@ -16,11 +16,14 @@ const ALL_PAGES = [
   'ameaca.html',
   'projeto-doom.html',
   'galeria.html',
+  'protocolos.html',
+  'simulacao.html',
+  'frequencia-morta.html',
   'evidencias.html',
   'acesso-restrito.html'
 ];
 const READY_PAGES = new Set(ALL_PAGES);
-const DICTIONARY_MODULES = ['personnel', 'gallery', 'classified'];
+const DICTIONARY_MODULES = ['personnel', 'gallery', 'classified', 'simulation', 'protocols', 'frequency'];
 
 function read(relativePath) {
   return fs.readFileSync(path.join(ROOT, relativePath), 'utf8');

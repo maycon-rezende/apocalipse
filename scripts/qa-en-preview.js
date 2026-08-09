@@ -7,8 +7,8 @@ const vm = require('node:vm');
 
 const ROOT = path.resolve(__dirname, '..');
 const PREVIEW = path.join(ROOT, 'en-preview');
-const PAGES = ['index.html', 'home.html', 'historia.html', 'personagens.html', 'personagem.html', 'ameaca.html', 'projeto-doom.html', 'galeria.html', 'evidencias.html', 'acesso-restrito.html'];
-const MODULES = ['personnel', 'gallery', 'classified'];
+const PAGES = ['index.html', 'home.html', 'historia.html', 'personagens.html', 'personagem.html', 'ameaca.html', 'projeto-doom.html', 'galeria.html', 'protocolos.html', 'simulacao.html', 'frequencia-morta.html', 'evidencias.html', 'acesso-restrito.html'];
+const MODULES = ['personnel', 'gallery', 'classified', 'simulation', 'protocols', 'frequency'];
 
 function fail(message) {
   throw new Error(message);
