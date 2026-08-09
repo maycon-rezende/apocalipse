@@ -9,6 +9,7 @@ const ROOT = path.resolve(__dirname, '..');
 const PREVIEW = path.join(ROOT, 'en-preview');
 const PAGES = ['index.html', 'home.html', 'historia.html', 'personagens.html', 'personagem.html', 'ameaca.html', 'projeto-doom.html', 'galeria.html', 'protocolos.html', 'simulacao.html', 'frequencia-morta.html', 'evidencias.html', 'acesso-restrito.html'];
 const MODULES = ['personnel', 'gallery', 'classified', 'simulation', 'protocols', 'frequency'];
+const INTRO_REQUIRED_IDS = ['start-gate', 'bg-audio', 'testimony-line', 'title-wrap', 'movie-title', 'age-prefix', 'movie-tagline', 'blood-wipe', 'enter-prompt'];
 
 function fail(message) {
   throw new Error(message);
@@ -16,6 +17,13 @@ function fail(message) {
 
 function read(file) {
   return fs.readFileSync(file, 'utf8');
+}
+
+function assertIntroContract(html, label) {
+  INTRO_REQUIRED_IDS.forEach(function (id) {
+    const matches = html.match(new RegExp(`\\bid=["']${id}["']`, 'g')) || [];
+    if (matches.length !== 1) fail(`${label}: expected exactly one #${id}, found ${matches.length}.`);
+  });
 }
 
 function dictionary(locale) {
@@ -52,6 +60,9 @@ let resourceCount = 0;
 if (fs.existsSync(path.join(PREVIEW, 'pending.html'))) {
   fail('Stale provisional route found: en-preview/pending.html');
 }
+
+assertIntroContract(read(path.join(ROOT, 'index.html')), 'index.html');
+assertIntroContract(read(path.join(PREVIEW, 'index.html')), 'en-preview/index.html');
 
 PAGES.forEach(function (page) {
   const file = path.join(PREVIEW, page);

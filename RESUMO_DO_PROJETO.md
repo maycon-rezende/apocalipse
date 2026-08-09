@@ -935,6 +935,12 @@ node scripts/qa-en-preview.js
 git diff --check
 ```
 
+### Correção da tela preta na introdução — 9 de agosto de 2026
+
+O GitHub Pages estava publicando todos os arquivos corretamente, mas a introdução permanecia inteiramente preta. A causa era a ausência acidental do elemento `#start-gate`: o JavaScript ainda procurava esse controle e tentava registrar seus eventos, recebia `null` e era interrompido antes de executar `runIntro()`. Como testemunhos, título e chamada de entrada começam com opacidade zero, nenhum conteúdo se tornava visível.
+
+O controle inicial foi restaurado em `index.html` com teclado, ARIA e as traduções `intro.start` e `intro.startLabel`. A edição inglesa foi regenerada. `scripts/qa-en-preview.js` agora valida que os nove elementos essenciais da introdução existem exatamente uma vez tanto na fonte quanto no preview, impedindo que uma remoção semelhante seja publicada novamente.
+
 ### Ampliação do arquivo visual de Sophie Grey — 9 de agosto de 2026
 
 O dossiê de Sophie Grey passou a usar três imagens na consulta principal: o retrato biomédico sanitizado e dois registros urbanos sem referências à instituição classificada. O cofre `evidencias.html?id=grey` reúne dez imagens correlacionadas, preservando o tema exclusivo de análise biomédica e mantendo o material doméstico e pessoal fora da ficha comum.
