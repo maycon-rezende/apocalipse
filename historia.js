@@ -66,10 +66,9 @@
       button.setAttribute('aria-expanded',String(opening));
       button.classList.toggle('is-open',opening);
       button.querySelector('b').textContent=opening?'−':'+';
-      const isHanson=button.dataset.readerToggle.startsWith('hanson');
-      button.querySelector('span').textContent=opening
-        ?t(isHanson?'history.hanson.collapse':'history.mick.collapse','Recolher trecho')
-        :t(isHanson?'history.hanson.open':'history.mick.continue',isHanson?'Abrir registro da Avenida Taylor':'Continuar trecho disponível');
+      const readerKey=button.closest('[data-reader]')?.dataset.reader||button.dataset.readerToggle.split('-')[0];
+      const action=opening?'collapse':'open';
+      button.querySelector('span').textContent=t(`history.${readerKey}.${action}`,opening?'Recolher trecho':'Abrir trecho');
       if(opening&&!reducedMotion)target.animate([{opacity:0,transform:'translateY(-8px)'},{opacity:1,transform:'none'}],{duration:420,easing:'ease-out'});
     });
   });

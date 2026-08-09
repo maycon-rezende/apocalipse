@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-i18n-ready="full">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PERSONAGENS // ARQUIVO_DD</title>
+<meta name="description" content="Diretório recuperado dos personagens de Age of DoomsDay." data-i18n-attr="content:personnel.directory.meta.description">
+<title data-i18n="personnel.directory.meta.title">PERSONAGENS // ARQUIVO_DD</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
@@ -211,13 +212,27 @@ footer{
 .portrait{aspect-ratio:16/7}.portrait-file{display:none}.card-actions{display:flex;align-items:center;justify-content:space-between;gap:.8rem;margin-top:1.2rem}.card-actions .status{margin-top:0;flex:0 0 auto}.secret-link{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:.25rem .65rem;border:1px solid var(--red);color:var(--ink);background:rgba(210,31,44,.07);font:.95rem var(--f-term);letter-spacing:.06em;text-transform:uppercase;transition:.2s}.secret-link:hover,.secret-link:focus-visible{background:var(--red);color:#fff;outline:none}.secret-link::after{content:' →';margin-left:.35rem;color:var(--amber)}
 @media(max-width:440px){.card-actions{align-items:stretch;flex-direction:column}.secret-link{width:100%}}
 .personnel-intro::before{background:linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.45),rgba(0,0,0,.95)),url('img-bradock/mick4.png') 18% center/34% auto no-repeat,url('img-hanson/home.png') 50% center/34% auto no-repeat,url('img-samuel/samuel1.png') 82% center/34% auto no-repeat}
+.dossier[data-character="daniel"] .portrait img{object-position:center 18%}
+.dossier[data-character="grey"] .portrait{isolation:isolate;background:#080b0a;box-shadow:inset 0 0 0 1px rgba(129,196,188,.16)}
+.dossier[data-character="grey"] .portrait img{object-position:center 14%;filter:grayscale(.18) saturate(.62) contrast(1.1)}
+.dossier[data-character="grey"]:hover .portrait img,.dossier[data-character="grey"]:focus .portrait img{filter:grayscale(0) saturate(.78) contrast(1.08)}
+.modal-portrait{position:relative;overflow:hidden}
+.modal.character-grey .modal-portrait{box-shadow:inset 0 0 0 1px rgba(129,196,188,.18)}
+.modal.character-grey .modal-portrait img{object-position:center 12%;filter:grayscale(.12) saturate(.7) contrast(1.08)}
+@media(max-width:620px){.modal.character-grey .modal-portrait img{object-position:center 14%}}
 </style>
 <link rel="stylesheet" href="cursor-site.css">
 <link rel="stylesheet" href="page-transition.css">
-<link rel="stylesheet" href="experience-mode.css"><script src="experience-mode.js"></script>
+<link rel="stylesheet" href="experience-mode.css">
+<script src="i18n/pt-BR.js"></script>
+<script src="i18n/en.js"></script>
+<script src="i18n/personnel-pt-BR.js"></script>
+<script src="i18n/personnel-en.js"></script>
+<script src="i18n/core.js"></script>
+<script src="experience-mode.js"></script>
 </head>
 <body>
-<div class="personnel-intro" id="personnel-intro" role="dialog" aria-modal="true" aria-labelledby="personnel-intro-title"><div class="personnel-boot"><span>IDENTIFICATION TAPE // DD-PERSONNEL</span><h1 id="personnel-intro-title">Registros de pessoal</h1><div class="boot-log"><i>&gt; MONTANDO DIRETÓRIO DE SOBREVIVENTES...</i><i>&gt; VERIFICANDO NÚCLEOS FAMILIARES...</i><i>&gt; OCULTANDO REGISTROS DE MENORES...</i><i>&gt; 08 PERFIS AUTORIZADOS // INTEGRIDADE PARCIAL</i></div><button class="personnel-enter" id="personnel-enter" type="button">ACESSAR FITA DE IDENTIFICAÇÃO</button></div></div>
+<div class="personnel-intro" id="personnel-intro" role="dialog" aria-modal="true" aria-labelledby="personnel-intro-title"><div class="personnel-boot"><span data-i18n="personnel.directory.tape.label">IDENTIFICATION TAPE // DD-PERSONNEL</span><h1 id="personnel-intro-title" data-i18n="personnel.directory.tape.title">Registros de pessoal</h1><div class="boot-log"><i data-i18n="personnel.directory.tape.log1">&gt; MONTANDO DIRETÓRIO DE SOBREVIVENTES...</i><i data-i18n="personnel.directory.tape.log2">&gt; VERIFICANDO NÚCLEOS FAMILIARES...</i><i data-i18n="personnel.directory.tape.log3">&gt; OCULTANDO REGISTROS DE MENORES...</i><i data-i18n="personnel.directory.tape.log4">&gt; 10 PERFIS AUTORIZADOS // INTEGRIDADE PARCIAL</i></div><button class="personnel-enter" id="personnel-enter" type="button" data-i18n="personnel.directory.tape.enter">ACESSAR FITA DE IDENTIFICAÇÃO</button></div></div>
 
 <audio id="bg-audio" autoplay loop hidden>
   <source src="audio/themepersona.mp3" type="audio/mpeg" />
@@ -226,30 +241,31 @@ footer{
 <div class="crt-overlay"></div>
 <div class="vignette"></div>
 <div class="grain"></div>
-<div class="personnel-hud" aria-hidden="true"><span class="ph-rec">REC // PERSONNEL</span><span class="ph-time"><b id="personnel-counter">00:00:00</b><br>SEP 13 20--</span><span class="ph-source">VHS-C // 08 PERFIS // MINORS REDACTED</span></div><div class="personnel-alert" id="personnel-alert" aria-hidden="true"></div>
+<div class="personnel-hud" aria-hidden="true"><span class="ph-rec">REC // PERSONNEL</span><span class="ph-time"><b id="personnel-counter">00:00:00</b><br>SEP 13 20--</span><span class="ph-source" data-i18n="personnel.directory.hud.source">VHS-C // 10 PERFIS // MINORS REDACTED</span></div><div class="personnel-alert" id="personnel-alert" aria-hidden="true"></div>
 
 <nav>
   <div class="logo">DOOMS<span>DAY</span></div>
-  <a class="back" href="home.html">← Voltar ao Arquivo</a>
+  <a class="back" href="home.html" data-i18n="personnel.directory.nav.back">← Voltar ao Arquivo</a>
 </nav>
 
 <section class="section">
-  <p class="eyebrow reveal is-visible">Registro de pessoal // DD-01</p>
-  <h1 class="page-title reveal is-visible">PERSONA<span class="z">GENS</span></h1>
-  <p class="page-intro reveal is-visible">Fichas recuperadas de todos os envolvidos no incidente — famílias, comando militar e Pentágono. Clique em qualquer ficha para abrir o registro completo.</p>
+  <p class="eyebrow reveal is-visible" data-i18n="personnel.directory.hero.kicker">Registro de pessoal // DD-01</p>
+  <h1 class="page-title reveal is-visible"><span data-i18n="personnel.directory.hero.titleA">PERSONA</span><span class="z" data-i18n="personnel.directory.hero.titleB">GENS</span></h1>
+  <p class="page-intro reveal is-visible" data-i18n="personnel.directory.hero.copy">Fichas recuperadas de todos os envolvidos no incidente — famílias, comando militar e Pentágono. Clique em qualquer ficha para abrir o registro completo.</p>
 
   <div class="filters reveal is-visible">
-    <button class="filter-btn active" data-filter="all">Todos</button>
-    <button class="filter-btn" data-filter="bradock">Família Bradock</button>
-    <button class="filter-btn" data-filter="hanson">Família Hanson</button>
-    <button class="filter-btn" data-filter="salazar">Família Salazar</button>
+    <button class="filter-btn active" data-filter="all" data-i18n="personnel.directory.filters.all">Todos</button>
+    <button class="filter-btn" data-filter="bradock" data-i18n="personnel.directory.filters.bradock">Família Bradock</button>
+    <button class="filter-btn" data-filter="hanson" data-i18n="personnel.directory.filters.hanson">Família Hanson</button>
+    <button class="filter-btn" data-filter="salazar" data-i18n="personnel.directory.filters.salazar">Família Salazar</button>
+    <button class="filter-btn" data-filter="classified" data-i18n="personnel.directory.filters.classified">Registros classificados</button>
   </div>
 
   <div class="page-tools reveal is-visible">
-    <label class="search-box"><span style="position:absolute;clip:rect(0 0 0 0)">Pesquisar personagens</span><input id="character-search" type="search" placeholder="Pesquisar por nome, função ou família..." autocomplete="off"></label>
-    <span class="result-count" id="result-count" aria-live="polite">8 registros encontrados</span>
+    <label class="search-box"><span style="position:absolute;clip:rect(0 0 0 0)" data-i18n="personnel.directory.search.label">Pesquisar personagens</span><input id="character-search" type="search" placeholder="Pesquisar por nome, função ou família..." autocomplete="off" data-i18n-attr="placeholder:personnel.directory.search.placeholder;aria-label:personnel.directory.search.label"></label>
+    <span class="result-count" id="result-count" aria-live="polite" data-i18n="personnel.directory.search.initial">10 registros encontrados</span>
   </div>
-  <div class="family-label reveal">Família Bradock</div>
+  <div class="family-label reveal" data-i18n="personnel.directory.filters.bradock">Família Bradock</div>
   <div class="dossier-grid">
     <div class="dossier reveal" data-family="bradock" data-image="img-bradock/mick.png"
       data-nome="Mick Bradock" data-cargo="Agente Especial — FBI" data-familia="Casado, 4 filhos"
@@ -320,22 +336,22 @@ footer{
 
   </div>
 
-  <div class="family-label reveal">Família Hanson</div>
+  <div class="family-label reveal" data-i18n="personnel.directory.filters.hanson">Família Hanson</div>
   <div class="dossier-grid">
     <div class="dossier reveal" data-family="hanson" data-image="img-hanson/home.png"
-      data-nome="Capitão James William Hanson" data-cargo="Capitão — Exército dos Estados Unidos" data-familia="Hanson"
+      data-nome="Major James William Hanson" data-cargo="Major — Exército dos Estados Unidos" data-familia="Hanson"
       data-idade="37 anos" data-papel="Liderança tática, operações especiais e resgate de civis"
       data-conexoes="Natasha Becker Hanson (esposa); Rebecca Hanson (mãe)"
       data-status="vivo" data-status-label="Vivo"
       data-bio="Oficial disciplinado e protetor, reconhecido por avançar antes de seus homens. Percebeu antes de muitos que os surtos isolados marcavam uma ruptura sem retorno.">
       <div class="titlebar"><div class="dots"><span></span><span></span><span></span></div><span class="path">~/arquivo/ficha_06.dat</span></div>
       <div class="body">
-        <h3>Capitão James Hanson</h3>
+        <h3>Major James Hanson</h3>
         <div class="role">United States Army</div>
         <div class="field"><b>Especialidade</b><span>Operações especiais</span></div>
         <p class="bio">“Um líder não é aquele que manda seus homens avançarem. É aquele que avança primeiro.”</p>
         <div class="expand-hint">Clique no card para revelar retrato e ficha →</div>
-        <div class="card-actions"><span class="status vivo">Vivo</span><a class="secret-link" href="personagem.html?id=hanson" aria-label="Abrir arquivo secreto do Capitão James Hanson">Abrir arquivo secreto</a></div>
+        <div class="card-actions"><span class="status vivo">Vivo</span><a class="secret-link" href="personagem.html?id=hanson" aria-label="Abrir arquivo secreto do Major James Hanson">Abrir arquivo secreto</a></div>
       </div>
     </div>
 
@@ -357,14 +373,14 @@ footer{
     </div>
   </div>
 
-  <div class="family-label reveal">Família Salazar</div>
+  <div class="family-label reveal" data-i18n="personnel.directory.filters.salazar">Família Salazar</div>
   <div class="dossier-grid">
     <div class="dossier reveal" data-family="salazar" data-image="img-samuel/samuel1.png"
       data-nome="Coronel Samuel Jordan Salazar" data-cargo="Coronel — U.S. Army / Departamento de Defesa" data-familia="Salazar"
       data-idade="39 anos" data-papel="Planejamento estratégico, resposta a crises e coordenação de operações conjuntas"
       data-conexoes="Elena Morales Salazar (esposa); três filhos"
       data-status="vivo" data-status-label="Vivo"
-      data-bio="Coronel do Exército e Oficial Sênior de Planejamento Estratégico do Departamento de Defesa. No Dia D, integra uma força-tarefa internacional vinculada à ONU.">
+      data-bio="Coronel do Exército e Oficial Sênior de Planejamento Estratégico do Departamento de Defesa. Na manhã do Dia D, permanece no Pentágono das 04h30 até depois das 07h10; em seguida, atua a bordo de uma embarcação militar vinculada à ONU.">
       <div class="titlebar"><div class="dots"><span></span><span></span><span></span></div><span class="path">~/arquivo/ficha_08.dat</span></div>
       <div class="body">
         <h3>Coronel Samuel Salazar</h3>
@@ -393,16 +409,61 @@ footer{
       </div>
     </div>
   </div>
+
+  <div class="family-label reveal" data-i18n="personnel.directory.filters.classified">Registros classificados</div>
+  <div class="dossier-grid">
+    <div class="dossier reveal" data-family="classified" data-character="daniel" data-file="ficha_10.dat" data-image="img-daniel/inicio.png"
+      data-nome="Daniel Turner" data-cargo="Agente de Inteligência — CIA / Oficial de Operações Clandestinas" data-familia="Arquivo classificado"
+      data-idade="Dado removido" data-papel="Agente ligado a um relatório de campo retirado dos registros oficiais"
+      data-conexoes="Informação classificada"
+      data-status="classificado" data-status-label="Acesso restrito"
+      data-bio="Em 1997, Daniel Turner foi enviado a uma comunidade isolada após relatos de desaparecimentos e episódios de violência. O relatório produzido durante a missão foi retirado dos registros oficiais; páginas inteiras permanecem indisponíveis.">
+      <div class="titlebar"><div class="dots"><span></span><span></span><span></span></div><span class="path">~/arquivo/ficha_10.dat</span></div>
+      <div class="portrait" aria-hidden="true">
+        <img src="img-daniel/inicio.png" alt="">
+        <span class="portrait-code">SUBJECT_10 // CIA</span>
+        <h3 class="portrait-name">Daniel Turner</h3>
+      </div>
+      <div class="body">
+        <div class="role">CIA — Operações clandestinas</div>
+        <div class="field"><b>Registro</b><span>Missão de campo // 1997</span></div>
+        <p class="bio">Uma comunidade isolada. Desaparecimentos. Violência. O relatório que voltou com ele foi retirado do arquivo.</p>
+        <div class="expand-hint">Clique no card para consultar o fragmento liberado →</div>
+        <div class="card-actions"><span class="status classificado">Acesso restrito</span><a class="secret-link" href="personagem.html?id=daniel" aria-label="Abrir arquivo classificado de Daniel Turner">Abrir arquivo</a></div>
+      </div>
+    </div>
+
+    <div class="dossier reveal" data-family="classified" data-character="grey" data-file="ficha_11.dat" data-image="img-sophie/sophie-grey-public.png"
+      data-nome="Dra. Sophie Grey" data-cargo="Biomédica — Pesquisadora" data-familia="Arquivo classificado"
+      data-idade="Dado removido" data-papel="Pesquisadora cuja trajetória profissional foi parcialmente eliminada dos registros"
+      data-conexoes="Informação classificada"
+      data-status="classificado" data-status-label="Acesso restrito"
+      data-bio="Biomédica e pesquisadora com uma carreira construída no setor privado. Depois de um incidente em uma instalação, contratos, vínculos e trechos inteiros de sua trajetória foram removidos dos arquivos disponíveis.">
+      <div class="titlebar"><div class="dots"><span></span><span></span><span></span></div><span class="path">~/arquivo/ficha_11.dat</span></div>
+      <div class="portrait" aria-hidden="true">
+        <img src="img-sophie/sophie-grey-public.png" alt="">
+        <span class="portrait-code">SUBJECT_11 // RESEARCH</span>
+        <h3 class="portrait-name">Dra. Sophie Grey</h3>
+      </div>
+      <div class="body">
+        <div class="role">Biomédica — Pesquisadora</div>
+        <div class="field"><b>Registro</b><span>Trajetória parcialmente removida</span></div>
+        <p class="bio">Uma carreira em pesquisa privada interrompida por um incidente que o arquivo se recusa a descrever.</p>
+        <div class="expand-hint">Clique no card para consultar o fragmento liberado →</div>
+        <div class="card-actions"><span class="status classificado">Acesso restrito</span><a class="secret-link" href="personagem.html?id=grey" aria-label="Abrir arquivo classificado da Dra. Sophie Grey">Abrir arquivo</a></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer>DoomsDay — Obra original — Registro de pessoal não oficial</footer>
+<footer data-i18n="personnel.directory.footer">DoomsDay — Obra original — Registro de pessoal não oficial</footer>
 
 <!-- MODAL -->
 <div class="modal-backdrop" id="modal-backdrop" role="presentation">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-nome" tabindex="-1">
     <div class="titlebar">
       <span class="path" id="modal-path">~/arquivo/ficha.dat</span>
-      <button class="close-btn" id="modal-close">✕ Fechar</button>
+      <button class="close-btn" id="modal-close" data-i18n="personnel.directory.modal.close">✕ Fechar</button>
     </div>
     <div class="modal-layout">
       <div class="modal-portrait" id="modal-portrait" hidden><img id="modal-image" src="" alt=""></div>
@@ -410,14 +471,14 @@ footer{
         <h2 id="modal-nome"></h2>
         <div class="role" id="modal-cargo"></div>
         <div class="field-grid">
-          <div><b>Família</b><span id="modal-familia"></span></div>
-          <div><b>Idade</b><span id="modal-idade"></span></div>
-          <div><b>Conexões</b><span id="modal-conexoes"></span></div>
+          <div><b data-i18n="personnel.directory.field.family">Família</b><span id="modal-familia"></span></div>
+          <div><b data-i18n="personnel.directory.field.age">Idade</b><span id="modal-idade"></span></div>
+          <div><b data-i18n="personnel.directory.field.connections">Conexões</b><span id="modal-conexoes"></span></div>
         </div>
         <p class="bio-full" id="modal-bio"></p>
-        <p class="bio-full"><b style="font-family:var(--f-term);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);opacity:.8;display:block;margin-bottom:.3rem;font-size:.85rem">Papel na história</b><span id="modal-papel"></span></p>
+        <p class="bio-full"><b style="font-family:var(--f-term);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);opacity:.8;display:block;margin-bottom:.3rem;font-size:.85rem" data-i18n="personnel.directory.field.storyRole">Papel na história</b><span id="modal-papel"></span></p>
         <span class="status" id="modal-status"></span>
-        <div class="modal-nav"><button id="modal-prev" type="button">← Anterior</button><button id="modal-next" type="button">Próximo →</button></div>
+        <div class="modal-nav"><button id="modal-prev" type="button" data-i18n="personnel.directory.modal.previous">← Anterior</button><button id="modal-next" type="button" data-i18n="personnel.directory.modal.next">Próximo →</button></div>
       </div>
     </div>
   </div>
@@ -425,6 +486,7 @@ footer{
 
 <script>
 /* busca, filtros e fichas acessíveis */
+const personnelT=(key,vars)=>window.DoomsdayI18n.t(key,vars);
 const filterBtns = [...document.querySelectorAll('.filter-btn')];
 const cards = [...document.querySelectorAll('.dossier')];
 const familyLabels = [...document.querySelectorAll('.family-label')];
@@ -432,6 +494,19 @@ const searchInput = document.getElementById('character-search');
 const resultCount = document.getElementById('result-count');
 let activeFilter = 'all';
 let lastFocusedCard = null;
+
+const localizedCardCopy=personnelT('personnel.directory.cardCopy');
+if(Array.isArray(localizedCardCopy)) cards.forEach((card,index)=>{
+  const copy=localizedCardCopy[index];if(!copy)return;
+  if(copy.name){card.dataset.nome=copy.name;const heading=card.querySelector('.body h3,.portrait-name');if(heading&&copy.visibleName)heading.textContent=copy.visibleName}
+  ['cargo','familia','idade','papel','conexoes','statusLabel','bio'].forEach(field=>{if(copy[field]!=null)card.dataset[field]=copy[field]});
+  const role=card.querySelector('.body>.role');if(role&&copy.visibleRole)role.textContent=copy.visibleRole;
+  const field=card.querySelector('.body>.field');if(field){if(copy.fieldLabel)field.querySelector('b').textContent=copy.fieldLabel;if(copy.fieldValue)field.querySelector('span').textContent=copy.fieldValue}
+  const teaser=card.querySelector('.body>.bio');if(teaser&&copy.teaser)teaser.textContent=copy.teaser;
+  const expand=card.querySelector('.expand-hint');if(expand&&copy.expand)expand.textContent=copy.expand;
+  const status=card.querySelector('.card-actions .status');if(status)status.textContent=copy.statusLabel;
+  const link=card.querySelector('.secret-link');if(link){link.textContent=copy.linkText;link.setAttribute('aria-label',copy.linkAria)}
+});
 
 cards.forEach(card => { card.tabIndex = 0; card.setAttribute('role','button'); card.setAttribute('aria-haspopup','dialog'); });
 document.querySelectorAll('a.secret-link').forEach(link => {
@@ -441,9 +516,10 @@ document.querySelectorAll('a.secret-link').forEach(link => {
 filterBtns.forEach(btn => btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false'));
 
 function updateResults(){
-  const query = searchInput.value.trim().toLocaleLowerCase('pt-BR');
+  const searchLocale=window.DoomsdayI18n.locale==='en'?'en':'pt-BR';
+  const query = searchInput.value.trim().toLocaleLowerCase(searchLocale);
   cards.forEach(card => {
-    const text = `${card.dataset.nome} ${card.dataset.cargo} ${card.dataset.familia}`.toLocaleLowerCase('pt-BR');
+    const text = `${card.dataset.nome} ${card.dataset.cargo} ${card.dataset.familia}`.toLocaleLowerCase(searchLocale);
     const visible = (activeFilter === 'all' || card.dataset.family === activeFilter) && text.includes(query);
     card.classList.toggle('empty-result', !visible);
   });
@@ -452,7 +528,7 @@ function updateResults(){
     label.style.display = grid && [...grid.querySelectorAll('.dossier')].some(card => !card.classList.contains('empty-result')) ? 'flex' : 'none';
   });
   const total = cards.filter(card => !card.classList.contains('empty-result')).length;
-  resultCount.textContent = `${total} ${total === 1 ? 'registro encontrado' : 'registros encontrados'}`;
+  resultCount.textContent = personnelT(total===1?'personnel.directory.search.one':'personnel.directory.search.many',{count:total});
 }
 filterBtns.forEach(btn => btn.addEventListener('click', () => {
   activeFilter = btn.dataset.filter;
@@ -467,7 +543,10 @@ const modalClose = document.getElementById('modal-close');
 function visibleCards(){ return cards.filter(card => !card.classList.contains('empty-result')); }
 function openCard(card){
   lastFocusedCard = card;
-  document.getElementById('modal-path').textContent = '~/arquivo/' + card.dataset.nome.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'_') + '.dat';
+  const generatedFile=card.dataset.nome.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'_')+'.dat';
+  document.getElementById('modal-path').textContent = '~/arquivo/' + (card.dataset.file||generatedFile);
+  modal.classList.toggle('character-grey',card.dataset.character==='grey');
+  modal.dataset.character=card.dataset.character||'';
   document.getElementById('modal-nome').textContent = card.dataset.nome;
   document.getElementById('modal-cargo').textContent = card.dataset.cargo;
   document.getElementById('modal-familia').textContent = card.dataset.familia;
@@ -477,7 +556,7 @@ function openCard(card){
   document.getElementById('modal-papel').textContent = card.dataset.papel;
   const statusEl=document.getElementById('modal-status'); statusEl.textContent=card.dataset.statusLabel; statusEl.className='status '+card.dataset.status;
   const portrait=document.getElementById('modal-portrait'), image=document.getElementById('modal-image');
-  portrait.hidden=!card.dataset.image; image.src=card.dataset.image||''; image.alt=card.dataset.image ? `Retrato de ${card.dataset.nome}` : '';
+  portrait.hidden=!card.dataset.image; image.src=card.dataset.image||''; image.alt=card.dataset.image ? personnelT('personnel.directory.portraitAlt',{name:card.dataset.nome}) : '';
   backdrop.classList.add('open'); document.body.classList.add('modal-open'); modal.focus();
 }
 cards.forEach(card => { card.addEventListener('click',event=>{if(!event.target.closest('a,button'))openCard(card)}); card.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!e.target.closest('a,button')){e.preventDefault();openCard(card)}}); });
@@ -506,7 +585,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 <script src="page-transition.js"></script>
 <script>
 if(window.DD_ANALOG_MODE){
-(()=>{const intro=document.getElementById('personnel-intro'),enter=document.getElementById('personnel-enter'),audio=document.getElementById('bg-audio'),counter=document.getElementById('personnel-counter'),alertBox=document.getElementById('personnel-alert'),seen=sessionStorage.getItem('dd_personnel_intro_seen')==='true';let seconds=0,timer=null,anomalyTimer=null;audio.volume=.38;function startArchive(){if(timer)return;timer=setInterval(()=>{seconds++;const h=String(Math.floor(seconds/3600)).padStart(2,'0'),m=String(Math.floor(seconds%3600/60)).padStart(2,'0'),s=String(seconds%60).padStart(2,'0');counter.textContent=`${h}:${m}:${s}`},1000);if(!matchMedia('(prefers-reduced-motion:reduce)').matches)anomalyTimer=setInterval(()=>{const available=[...document.querySelectorAll('.dossier:not(.empty-result)')];if(!available.length)return;const card=available[Math.floor(Math.random()*available.length)],messages=['CHECKSUM DE IDENTIDADE INCOMPLETO','ESTE REGISTRO FOI ALTERADO APÓS O DIA D','UM NOME FOI REMOVIDO DESTA FITA','RECONHECIMENTO FACIAL // CONFIANÇA PARCIAL'];card.classList.add('identity-unstable');alertBox.textContent=messages[Math.floor(Math.random()*messages.length)];alertBox.classList.remove('visible');void alertBox.offsetWidth;alertBox.classList.add('visible');setTimeout(()=>card.classList.remove('identity-unstable'),720)},14200)}function dismiss(){sessionStorage.setItem('dd_personnel_intro_seen','true');intro.classList.add('dismissed');document.body.style.overflow='';audio.play().catch(()=>{});startArchive();setTimeout(()=>intro.remove(),1050)}if(seen){intro.remove();startArchive();audio.play().catch(()=>{});document.addEventListener('pointerdown',()=>audio.play().catch(()=>{}),{once:true})}else{document.body.style.overflow='hidden';setTimeout(()=>{enter.classList.add('ready');enter.focus()},1900);enter.addEventListener('click',dismiss,{once:true})}document.querySelectorAll('.dossier').forEach(card=>card.addEventListener('click',()=>{card.classList.add('accessing');setTimeout(()=>card.classList.remove('accessing'),650)},{capture:true}));addEventListener('pagehide',()=>{clearInterval(timer);clearInterval(anomalyTimer);audio.pause()},{once:true})})();
+(()=>{const intro=document.getElementById('personnel-intro'),enter=document.getElementById('personnel-enter'),audio=document.getElementById('bg-audio'),counter=document.getElementById('personnel-counter'),alertBox=document.getElementById('personnel-alert'),seen=sessionStorage.getItem('dd_personnel_intro_seen')==='true';let seconds=0,timer=null,anomalyTimer=null;audio.volume=.38;function startArchive(){if(timer)return;timer=setInterval(()=>{seconds++;const h=String(Math.floor(seconds/3600)).padStart(2,'0'),m=String(Math.floor(seconds%3600/60)).padStart(2,'0'),s=String(seconds%60).padStart(2,'0');counter.textContent=`${h}:${m}:${s}`},1000);if(!matchMedia('(prefers-reduced-motion:reduce)').matches)anomalyTimer=setInterval(()=>{const available=[...document.querySelectorAll('.dossier:not(.empty-result)')];if(!available.length)return;const messages=personnelT('personnel.directory.anomalies'),card=available[Math.floor(Math.random()*available.length)];card.classList.add('identity-unstable');alertBox.textContent=messages[Math.floor(Math.random()*messages.length)];alertBox.classList.remove('visible');void alertBox.offsetWidth;alertBox.classList.add('visible');setTimeout(()=>card.classList.remove('identity-unstable'),720)},14200)}function dismiss(){sessionStorage.setItem('dd_personnel_intro_seen','true');intro.classList.add('dismissed');document.body.style.overflow='';audio.play().catch(()=>{});startArchive();setTimeout(()=>intro.remove(),1050)}if(seen){intro.remove();startArchive();audio.play().catch(()=>{});document.addEventListener('pointerdown',()=>audio.play().catch(()=>{}),{once:true})}else{document.body.style.overflow='hidden';setTimeout(()=>{enter.classList.add('ready');enter.focus()},1900);enter.addEventListener('click',dismiss,{once:true})}document.querySelectorAll('.dossier').forEach(card=>card.addEventListener('click',()=>{card.classList.add('accessing');setTimeout(()=>card.classList.remove('accessing'),650)},{capture:true}));addEventListener('pagehide',()=>{clearInterval(timer);clearInterval(anomalyTimer);audio.pause()},{once:true})})();
 }else{document.getElementById('personnel-intro')?.remove();document.querySelector('.personnel-hud')?.remove();document.getElementById('personnel-alert')?.remove()}
 </script>
 </body>

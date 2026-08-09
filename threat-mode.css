@@ -64,7 +64,7 @@ html[data-threat-mode="original"] nav {
 }
 
 html[data-threat-mode="original"] nav .logo::after {
-  content: "DOSSIÊ CIVIL // CAMPO";
+  content: attr(data-threat-original-label);
   margin-left: .8rem;
   padding-left: .8rem;
   border-left: 1px solid var(--threat-rule);
@@ -102,7 +102,7 @@ html[data-threat-mode="original"] .threat-hero {
 }
 
 html[data-threat-mode="original"] .threat-hero::before {
-  content: "DOSSIÊ DE INVESTIGAÇÃO INDEPENDENTE // EXEMPLAR DE TRABALHO";
+  content: attr(data-threat-dossier-label);
   display: inline-block;
   margin-bottom: 1.25rem;
   padding: .35rem .65rem;
@@ -283,7 +283,7 @@ html[data-threat-mode="analog"] body {
 }
 
 html[data-threat-mode="analog"] nav .logo::after {
-  content: "TRANSMISSÃO 09";
+  content: attr(data-threat-analog-label);
   margin-left: .7rem;
   color: var(--red);
   font: .76rem var(--f-term);

@@ -62,6 +62,7 @@
 
   function createLanguageSwitcher() {
     if (!window.DoomsdayI18n) return null;
+    if (window.DoomsdayI18n.locked || window.DoomsdayI18n.normalizeLocale(document.documentElement.dataset.localeLock)) return null;
     const isFullyTranslated = document.documentElement.dataset.i18nReady === 'full';
     const labelKey = isFullyTranslated ? 'global.language.full' : 'global.language.partial';
     const switcher = document.createElement('div');
@@ -98,17 +99,22 @@
     if (window.DoomsdayI18n) window.DoomsdayI18n.apply(document);
     const pageName = location.pathname.split('/').pop().toLowerCase();
     const isOpeningPage = pageName === 'home.html' || pageName === 'index.html';
+    const isGalleryPage = pageName === 'galeria.html';
+    const galleryIntroActive = isGalleryPage && Boolean(document.getElementById('gallery-intro'));
 
     if (!enabled) {
-      if (!isOpeningPage) {
+      if (!isOpeningPage && !galleryIntroActive) {
         document.body.style.overflow = '';
         document.body.classList.remove('locked');
       }
-      document.querySelectorAll('.personnel-intro,.personnel-hud,.personnel-alert,.subject-tape,.subject-hud,.subject-corruption,.gallery-intro,.family-entry,.memory-frame,.memory-tracking,.memory-hud,.memory-anomaly').forEach(function (element) { element.remove(); });
-      ['gallery-intro-theme', 'parallel-theme'].forEach(function (id) {
-        const audio = document.getElementById(id);
-        if (audio) audio.pause();
-      });
+      const removableAnalogLayers = '.personnel-intro,.personnel-hud,.personnel-alert,.subject-tape,.subject-hud,.subject-corruption,.family-entry,.memory-frame,.memory-tracking,.memory-hud,.memory-anomaly' + (isGalleryPage ? '' : ',.gallery-intro');
+      document.querySelectorAll(removableAnalogLayers).forEach(function (element) { element.remove(); });
+      if (!isGalleryPage) {
+        ['gallery-intro-theme', 'parallel-theme'].forEach(function (id) {
+          const audio = document.getElementById(id);
+          if (audio) audio.pause();
+        });
+      }
     }
 
     const homeControl = document.getElementById('experience-switch');

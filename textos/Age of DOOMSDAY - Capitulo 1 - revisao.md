@@ -250,21 +250,21 @@ Entramos e começamos a recolher as coisas. O que não esperávamos era que aque
 
 ## 05h00
 
-### Capitão James Hanson
+### Major James Hanson
 
-O capitão James Hanson era um homem marcado por sua coragem e disciplina. Aos dezoito anos, ingressara no Exército dos Estados Unidos, determinado a provar que era capaz de ir além do caminho trilhado pelo pai, Markus Hanson. Markus também fora militar e alcançara a patente de segundo-tenente. James o superara ao se tornar capitão e demonstrava potencial para continuar subindo na carreira, graças à sua disciplina.
+O major James Hanson era um homem marcado por sua coragem e disciplina. Aos dezoito anos, ingressara no Exército dos Estados Unidos, determinado a provar que era capaz de ir além do caminho trilhado pelo pai, Markus Hanson. Markus também fora militar e alcançara a patente de segundo-tenente. James o superara ao alcançar a patente de major e demonstrava potencial para continuar subindo na carreira, graças à sua disciplina.
 
 Na manhã de treze de abril de dois mil e doze, Hanson acabara de retornar à base militar após uma missão bem-sucedida contra um narcotraficante procurado por vários países. Com a ajuda do FBI, o criminoso fora preso. Hanson, porém, não teve muito tempo para comemorar: foi convocado para uma reunião de emergência na sala do general Anderson.
 
 Assim que chegou à base, foi diretamente até lá.
 
-— Capitão James Hanson apresentando-se, senhor! — anunciou, prestando continência ao general. Manteve a postura ereta, o braço esquerdo alinhado ao corpo e a mão direita junto à testa.
+— Major James Hanson apresentando-se, senhor! — anunciou, prestando continência ao general. Manteve a postura ereta, o braço esquerdo alinhado ao corpo e a mão direita junto à testa.
 
-— À vontade, capitão — disse o general.
+— À vontade, major — disse o general.
 
 — O senhor me chamou com urgência, general. O que houve?
 
-Anderson tinha Hanson como seu braço direito, sobretudo desde uma missão na qual o capitão o salvara atrás das linhas inimigas.
+Anderson tinha Hanson como seu braço direito, sobretudo desde uma missão na qual o major o salvara atrás das linhas inimigas.
 
 — Sim. Venha comigo!
 
@@ -274,7 +274,7 @@ Hanson e Anderson saíram da sala e foram diretamente para o centro de controle.
 
 — O que está acontecendo, general? Os homens estão um pouco... agitados.
 
-— É isso que quero lhe mostrar, capitão. Veja.
+— É isso que quero lhe mostrar, major. Veja.
 
 Anderson exibiu na tela uma série de relatos. Várias pessoas diziam estar sendo atacadas por outras pessoas.
 
@@ -312,11 +312,117 @@ Anderson colocou no monitor a gravação de segurança daquele ponto. As imagens
 
 — Sim, senhor. Reunirei os homens e os enviarei até lá.
 
-O general Anderson entregou ao capitão Hanson a relação dos lugares onde os atos de agressão haviam sido relatados, para que ele enviasse soldados a cada ponto. Hanson olhou novamente para o relógio: eram seis e quarenta da manhã.
+O general Anderson entregou ao major Hanson a relação dos lugares onde os atos de agressão haviam sido relatados, para que ele enviasse soldados a cada ponto. Hanson olhou novamente para o relógio: eram seis e quarenta da manhã.
 
 ---
 
-> **Estado desta revisão:** O arquivo recebido termina neste ponto. A parte de Samuel no Pentágono ainda não integra o texto e não foi inventada nesta versão.
+## 04h30–05h00 — Pentágono
+
+### Coronel Samuel Salazar
+
+O Pentágono é a sede do Departamento de Defesa dos Estados Unidos. Localizado no condado de Arlington, na Virgínia, ao lado da capital, Washington, D.C., o edifício recebeu esse nome por causa de seu formato de polígono de cinco lados. Em termos simples, é o centro nervoso das Forças Armadas americanas. Sua principal função é centralizar o planejamento, a estratégia e a administração da defesa nacional e das operações militares globais do país. Foi ali que os primeiros registros dos ataques foram identificados.
+
+O coronel Samuel Salazar, oficial sênior de planejamento estratégico do Departamento de Defesa, trabalhava no Pentágono e era responsável por planos nacionais de resposta a crises, estratégias militares de larga escala e pela coordenação de operações conjuntas entre diferentes forças. Naquela madrugada, investigava uma série de ocorrências registradas em todo o país, mas a apuração não o levava a lugar algum. A conclusão era sempre a mesma: um surto provocado por drogas ou outras substâncias pesadas.
+
+Um caso, porém, chamou sua atenção. Um dos funcionários o chamou até uma mesa cercada por monitores que exibiam imagens de várias câmeras.
+
+— O que houve?
+
+— Isto aqui, senhor...
+
+Samuel começou a assistir às gravações. Pessoas atacavam outras pessoas, e aquilo não ocorria em um único lugar: as imagens chegavam de diferentes regiões ao mesmo tempo. No início, os ataques estavam concentrados em pontos menores e, a princípio, a polícia local conseguia conter aquela “ameaça”. Salazar, porém, lembrou-se de outros incidentes semelhantes e entrou em alerta.
+
+— Mantenha-me informado caso ocorrências como essas continuem aparecendo.
+
+— Sim, senhor!
+
+Salazar permaneceu na sala, observando os monitores e esperando para ver se algo mais aconteceria. Ainda assim, parecia pressentir que alguma coisa estava errada. Não demorou para que ele próprio notasse o crescimento contínuo dos relatos de civis atacados. Já se aproximava das cinco da manhã.
+
+O coronel foi até sua sala e emitiu imediatamente um comunicado às Forças Armadas dos Estados Unidos: um alerta vermelho. No documento, pediu cautela e determinou que a situação fosse mantida sob controle até segunda ordem.
+
+Eram exatamente cinco horas da manhã quando o coronel Salazar emitiu o comunicado.
+
+---
+
+## 06h30–07h10 — Reunião de emergência e evacuação
+
+— Coronel Salazar, estão chamando o senhor na sala de reuniões.
+
+— Obrigado, Bethany.
+
+Samuel se levantou, saiu de sua sala e se dirigiu à reunião. No local, já o aguardavam representantes das Forças Armadas e do governo.
+
+— Senhores... — cumprimentou a todos antes de se sentar.
+
+— Bom dia, coronel Salazar. Atualize-nos sobre a situação.
+
+— Bom dia, general Briggs. Como informei no comunicado enviado mais cedo, a situação não melhorou; pelo contrário, continua piorando. O número de casos em que pessoas atacam outras pessoas cresce sem parar. Podemos confirmar que se trata de um surto. Ainda não sabemos que tipo de surto é, mas sabemos que aqueles que são mordidos ou feridos estão se transformando em seres semelhantes aos agressores. É assim que a contaminação está se espalhando.
+
+— Como assim... mordidos? — perguntou o vice-secretário.
+
+— É exatamente isso, senhor vice-secretário. Pelas imagens e pelos vídeos que recebemos, os agressores estão mordendo as vítimas e, em vários casos, arrancando pedaços delas. Os hospitais agravam ainda mais a situação. Muitas dessas pessoas foram levadas para lá, e agora recebemos diversos relatos de ataques dentro das próprias unidades. A verdade, senhoras e senhores, é que estamos em estado de alerta máximo.
+
+— E o que devemos fazer agora, coronel?
+
+— Senhor vice-presidente, decrete a lei marcial com urgência. Comunique a todo o povo americano que não saia de casa. As pessoas devem permanecer abrigadas, em silêncio, com portas e janelas trancadas, e devem se manter afastadas das janelas. Diga ao nosso povo que estamos lidando com a situação da melhor maneira possível. Em hipótese alguma devem abrir a porta, não importa se do outro lado estiver um amigo ou um parente. O risco é grande. Ainda não sabemos com que rapidez esse surto se propaga. Se alguém infectado entrar em uma casa, toda a família morrerá.
+
+Salazar fez uma breve pausa antes de continuar:
+
+— Também digo a todos vocês: peguem suas famílias e levem-nas para uma zona segura. Já estamos avaliando possíveis locais de acolhimento em pequenas vilas e cidades. Precisamos agir dessa forma para impedir que o surto se espalhe ainda mais. Caso contrário, teremos de bombardear várias cidades e estados. E, se nem isso funcionar... que Deus salve a América.
+
+Antes de concluir, voltou-se diretamente para o vice-presidente dos Estados Unidos:
+
+— Washington é um dos lugares mais atingidos neste momento. Retire o presidente da Casa Branca imediatamente, senhor.
+
+Depois do pronunciamento do coronel Salazar, a sala permaneceu em silêncio por alguns minutos. O vice-presidente dos Estados Unidos foi o primeiro a falar:
+
+— Muito bem. Colocaremos esse plano em prática. Vejo todos vocês na balsa da ONU; será um bom lugar para nos reunirmos. Também mandarei retirar o presidente da Casa Branca. Boa sorte a todos!
+
+A reunião terminou, e Salazar foi até sua assistente, Bethany, para lhe pedir um favor.
+
+— Betty, preciso de sua ajuda.
+
+— Sim, senhor. Do que precisa, coronel?
+
+— Estou tentando falar com minha esposa, mas não consigo. Por favor, tente ligar para ela. Pegue também seu marido e seus filhos e leve-os para a balsa da ONU. Faça isso rápido e, caso não consiga falar com minha esposa, avise-me.
+
+— Sim, senhor. Farei isso agora mesmo!
+
+— Certo. Mas fale primeiro com seu marido. Sua família também precisa sair com urgência.
+
+— Obrigada, coronel.
+
+Salazar ordenou a evacuação imediata do edifício e direcionou todos aos pontos de embarque destinados à balsa da ONU, distribuídos pelo país. O helicóptero já estava pronto para partir quando o coronel subiu a bordo com outros soldados. Um deles se aproximou.
+
+— Coronel Salazar?
+
+— Sim? — respondeu, olhando para o soldado.
+
+— Acabamos de receber a informação de que a base militar caiu. Ao que tudo indica, os soldados voltaram infectados e espalharam a infecção pela base. Ainda não sabemos se o general Anderson sobreviveu, senhor.
+
+— Droga... Obrigado, soldado.
+
+Salazar consultou o relógio: eram sete horas e dez minutos da manhã. Pegou o celular e tentou ligar novamente para a esposa, que viajava pela Espanha com os filhos, mas nem ela nem os filhos mais velhos atenderam.
+
+---
+
+## Convergência posterior — trecho isolado
+
+> **Nota editorial:** Os acontecimentos que ligam a evacuação do Pentágono ao reencontro abaixo ainda não foram revisados. O trecho é apresentado isoladamente para registrar a convergência já escrita.
+
+Mais tarde, o major Hanson chegou à balsa da ONU, em alto-mar, ao lado do general Anderson e dos soldados resgatados da base. Depois de atravessarem o convés, Hanson, Anderson e Clint, diretor do FBI, seguiram até a sala onde os líderes estavam reunidos. Assim que os viu, Samuel foi recebê-los.
+
+— General Anderson, fico feliz que tenha conseguido sair da base. Alguns homens me disseram que ela havia caído e que não restavam sobreviventes.
+
+— Coronel Salazar, é sempre um prazer revê-lo. Sim, a base caiu, mas o major Hanson nos tirou de lá.
+
+Samuel olhou para o major.
+
+— Então você é o famoso major Hanson. Já ouvi algumas histórias sobre você, major, e fico feliz que esteja vivo e aqui conosco também — disse, estendendo-lhe a mão.
+
+Hanson apertou a mão dele em cumprimento.
+
+— O prazer é todo meu, coronel Salazar.
 
 ## Continuidade confirmada pelo autor
 
@@ -325,4 +431,6 @@ O general Anderson entregou ao capitão Hanson a relação dos lugares onde os a
 - Quando os Bradock tomam café, depois das 07h00, a multiplicação dos casos já levou o governo a decretar lei marcial.
 - Na sequência vista por Mick, o Exército já conhece a dimensão da crise e emprega tanques, caças e bombardeios na tentativa de conter o caos.
 - Os soldados enviados para averiguar os ataques retornam contaminados; a base de Hanson é tomada quando eles voltam.
-- O próximo trecho em elaboração acompanha Samuel no Pentágono. Depois dele, o núcleo Hanson será concluído e a narrativa retornará a Mick.
+- Os trechos de Samuel no Pentágono, da reunião de emergência e da evacuação, entre 04h30 e 07h10, foram recebidos e revisados nesta versão.
+- A convergência posterior entre Salazar, Anderson e o major Hanson foi registrada como trecho isolado; o contexto intermediário ainda não foi revisado.
+- O núcleo posterior de Hanson e a continuação de Mick permanecem em elaboração.

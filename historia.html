@@ -55,22 +55,22 @@
       <strong class="title-day" aria-label="Dia D" data-i18n-attr="aria-label:history.hero.dayLabel"><span class="title-fire" data-text="DIA" aria-hidden="true" data-i18n="history.hero.dayFire" data-i18n-attr="data-text:history.hero.dayFire">DIA</span><span class="title-last" aria-hidden="true" data-i18n="history.hero.dayLast">D</span></strong>
     </h1>
     <p class="story-lead story-reveal" data-i18n="history.hero.lead">Uma manhã comum termina antes que alguém compreenda o que realmente começou.</p>
-    <p class="story-premise story-reveal" data-i18n="history.hero.premise">Mick Bradock tenta manter Mei e os quatro filhos vivos quando a cidade desaba diante deles. Em uma instalação militar, o capitão James Hanson retorna de uma missão e encontra relatos de pessoas atacando pessoas — ocorrências ainda tratadas como isoladas, embora já se multipliquem rápido demais. Uma terceira perspectiva, ligada ao Pentágono, continua sendo escrita.</p>
+    <p class="story-premise story-reveal" data-i18n="history.hero.premise">Mick Bradock tenta manter Mei e os quatro filhos vivos quando a cidade desaba diante deles. Em uma instalação militar, o major James Hanson encontra relatos de ataques que se multiplicam rápido demais. No Pentágono, o coronel Samuel Salazar percebe que ocorrências distantes fazem parte da mesma crise.</p>
 
     <div class="manuscript-alert story-reveal" role="note">
       <strong data-i18n="history.alert.title">Obra em construção</strong>
-      <p data-i18n="history.alert.copy">Esta página apresenta somente trechos canônicos já escritos. O capítulo ainda receberá a perspectiva de Samuel e as continuações de Hanson e Mick.</p>
+      <p data-i18n="history.alert.copy">Esta página apresenta somente trechos canônicos já escritos. As três perspectivas foram recebidas, mas as continuações de Mick, Hanson e Samuel ainda estão em desenvolvimento.</p>
     </div>
 
     <div class="story-status story-reveal" aria-label="Estado do manuscrito" data-i18n-attr="aria-label:history.status.label">
       <article><span data-i18n="history.status.chapter">CAPÍTULO</span><strong data-i18n="history.status.chapterValue">01 // DIA D</strong></article>
-      <article><span data-i18n="history.status.perspectives">PERSPECTIVAS</span><strong data-i18n="history.status.perspectivesValue">2 DE 3 RECEBIDAS</strong></article>
+      <article><span data-i18n="history.status.perspectives">PERSPECTIVAS</span><strong data-i18n="history.status.perspectivesValue">3 DE 3 RECEBIDAS</strong></article>
       <article><span data-i18n="history.status.manuscript">MANUSCRITO</span><strong data-i18n="history.status.inProgress">EM ANDAMENTO</strong></article>
       <article><span data-i18n="history.status.continuity">CONTINUIDADE</span><strong data-i18n="history.status.canonical">CANÔNICA</strong></article>
     </div>
     <div class="progress-shell story-reveal">
-      <div class="progress-copy"><span data-i18n="history.progress.copy">Perspectivas disponíveis</span><strong>02 / 03</strong></div>
-      <div class="progress-track" role="progressbar" aria-label="Perspectivas escritas" aria-valuemin="0" aria-valuemax="3" aria-valuenow="2" data-i18n-attr="aria-label:history.progress.label"><i class="progress-bar"></i></div>
+      <div class="progress-copy"><span data-i18n="history.progress.copy">Perspectivas disponíveis</span><strong>03 / 03</strong></div>
+      <div class="progress-track" role="progressbar" aria-label="Perspectivas escritas" aria-valuemin="0" aria-valuemax="3" aria-valuenow="3" data-i18n-attr="aria-label:history.progress.label"><i class="progress-bar"></i></div>
     </div>
   </header>
 
@@ -96,8 +96,8 @@
       <button class="perspective-tab" id="tab-hanson" type="button" role="tab" aria-selected="false" aria-controls="reader-hanson" tabindex="-1" data-perspective="hanson" data-state="partial">
         <span data-i18n="history.tab.hanson.code">02 // 05H00</span><strong>James Hanson</strong><small data-i18n="history.tab.hanson.status">Registro parcial</small>
       </button>
-      <button class="perspective-tab" id="tab-samuel" type="button" role="tab" aria-selected="false" aria-controls="reader-samuel" tabindex="-1" data-perspective="samuel" data-state="locked">
-        <span data-i18n="history.tab.samuel.code">03 // --H--</span><strong>Samuel Salazar</strong><small data-i18n="history.tab.samuel.status">Em redação</small>
+      <button class="perspective-tab" id="tab-samuel" type="button" role="tab" aria-selected="false" aria-controls="reader-samuel" tabindex="-1" data-perspective="samuel" data-state="partial">
+        <span data-i18n="history.tab.samuel.code">03 // 04H30</span><strong>Samuel Salazar</strong><small data-i18n="history.tab.samuel.status">Registro parcial</small>
       </button>
     </div>
 
@@ -119,7 +119,7 @@
           <p data-i18n="history.mick.p6">— Ei, ei, ei! Sem briga. Comam para nós sairmos — advertiu Mei.</p>
         </div>
 
-        <button class="reader-continue" type="button" aria-expanded="false" aria-controls="mick-continuation" data-reader-toggle="mick-continuation"><span data-i18n="history.mick.continue">Continuar trecho disponível</span><b>+</b></button>
+        <button class="reader-continue" type="button" aria-expanded="false" aria-controls="mick-continuation" data-reader-toggle="mick-continuation"><span data-i18n="history.mick.open">Continuar trecho disponível</span><b>+</b></button>
         <div class="reader-continuation" id="mick-continuation" hidden>
           <div class="reader-divider"><span data-i18n="history.mick.divider">07H40 // TRÂNSITO INTERROMPIDO</span></div>
           <div class="excerpt-block">
@@ -136,7 +136,7 @@
 
       <article class="perspective-reader" id="reader-hanson" role="tabpanel" aria-labelledby="tab-hanson" data-reader="hanson" hidden>
         <header class="reader-header">
-          <div class="reader-identity"><span class="reader-code" data-i18n="history.hanson.code">NÚCLEO HANSON // TRECHO 01</span><h3 data-i18n="history.hanson.name">Capitão James Hanson</h3><p data-i18n="history.hanson.pov">Terceira pessoa // resposta militar</p></div>
+          <div class="reader-identity"><span class="reader-code" data-i18n="history.hanson.code">NÚCLEO HANSON // TRECHO 01</span><h3 data-i18n="history.hanson.name">Major James Hanson</h3><p data-i18n="history.hanson.pov">Terceira pessoa // resposta militar</p></div>
           <div><span class="reader-time" data-i18n="history.hanson.time">05H00 → 06H40</span><strong class="reader-state" data-i18n="history.hanson.state">PARCIAL</strong></div>
         </header>
         <p class="reader-intro" data-i18n="history.hanson.intro">Hanson retorna de uma missão e é convocado pelo general Anderson. Dentro do centro de controle, ocorrências tratadas como violência comum começam a formar um padrão.</p>
@@ -145,7 +145,7 @@
           <span class="excerpt-label" data-i18n="history.hanson.excerptA">EXCERTO A // CENTRO DE CONTROLE</span>
           <p data-i18n="history.hanson.p1">Hanson e Anderson saíram da sala e foram diretamente para o centro de controle. Normalmente, o ambiente era calmo e tranquilo, mas, por algum motivo, havia um grande alvoroço entre os soldados.</p>
           <p data-i18n="history.hanson.p2">— O que está acontecendo, general? Os homens estão um pouco... agitados.</p>
-          <p data-i18n="history.hanson.p3">— É isso que quero lhe mostrar, capitão. Veja.</p>
+          <p data-i18n="history.hanson.p3">— É isso que quero lhe mostrar, major. Veja.</p>
           <p data-i18n="history.hanson.p4">Anderson exibiu na tela uma série de relatos. Várias pessoas diziam estar sendo atacadas por outras pessoas.</p>
           <p data-i18n="history.hanson.p5">— Esses relatos estão aumentando cada vez mais. Suspeitamos de algum novo surto de raiva.</p>
           <p data-i18n="history.hanson.p6">Hanson examinou o relatório e analisou as mensagens gravadas.</p>
@@ -169,17 +169,40 @@
         </div>
       </article>
 
-      <article class="perspective-reader locked-reader" id="reader-samuel" role="tabpanel" aria-labelledby="tab-samuel" data-reader="samuel" hidden>
-        <div class="lock-seal" aria-hidden="true"><span>03</span></div>
+      <article class="perspective-reader" id="reader-samuel" role="tabpanel" aria-labelledby="tab-samuel" data-reader="samuel" hidden>
         <header class="reader-header">
-          <div class="reader-identity"><span class="reader-code" data-i18n="history.samuel.code">PENTÁGONO // REGISTRO NÃO ANEXADO</span><h3>Samuel Jordan Salazar</h3><p data-i18n="history.samuel.pov">Terceira perspectiva // conteúdo em elaboração</p></div>
-          <div><span class="reader-time" data-i18n="history.samuel.time">--H--</span><strong class="reader-state" data-i18n="history.samuel.state">EM REDAÇÃO</strong></div>
+          <div class="reader-identity"><span class="reader-code" data-i18n="history.samuel.code">NÚCLEO SALAZAR // TRECHO 01</span><h3>Samuel Jordan Salazar</h3><p data-i18n="history.samuel.pov">Terceira pessoa // resposta estratégica</p></div>
+          <div><span class="reader-time" data-i18n="history.samuel.time">04H30 → 07H10</span><strong class="reader-state" data-i18n="history.samuel.state">PARCIAL</strong></div>
         </header>
-        <div class="manuscript-alert">
-          <strong data-i18n="history.samuel.alert">Nenhuma transcrição canônica disponível</strong>
-          <p data-i18n="history.samuel.alertCopy">A perspectiva de Samuel está sendo escrita pelo autor. Este espaço permanecerá visível, mas não apresentará acontecimentos provisórios como se fossem parte definitiva da história.</p>
+        <p class="reader-intro" data-i18n="history.samuel.intro">No Pentágono, Samuel acompanha ocorrências registradas em diferentes pontos do país. O que parecia violência isolada começa a formar um padrão simultâneo — e ele é o primeiro a tratar o fenômeno como uma crise nacional.</p>
+
+        <div class="excerpt-block">
+          <span class="excerpt-label" data-i18n="history.samuel.excerptA">EXCERTO A // PRIMEIROS REGISTROS</span>
+          <p data-i18n="history.samuel.p1">Às 04h30, o coronel Samuel Salazar, oficial sênior de planejamento estratégico do Departamento de Defesa, investigava uma série de ocorrências registradas por todo o país. Até então, cada relatório terminava na mesma hipótese: surto provocado por drogas ou substâncias pesadas.</p>
+          <p data-i18n="history.samuel.p2">Um funcionário o chamou até uma estação cercada por monitores.</p>
+          <p data-i18n="history.samuel.p3">— O que houve?</p>
+          <p data-i18n="history.samuel.p4">As telas mostravam pessoas atacando outras pessoas em vários lugares ao mesmo tempo. Os primeiros incidentes vinham de regiões menores e, a princípio, as polícias locais pareciam conter a ameaça. Samuel, porém, se recordou de ocorrências semelhantes e entrou em alerta.</p>
+          <p data-i18n="history.samuel.p5">— Mantenha-me informado se casos assim continuarem aparecendo.</p>
+          <p data-i18n="history.samuel.p6">Perto das cinco da manhã, os relatos de civis já cresciam depressa demais para serem tratados como coincidência. Samuel voltou à própria sala e, exatamente às 05h00, emitiu um alerta vermelho às Forças Armadas: cautela, contenção e controle da situação até segunda ordem.</p>
         </div>
-        <div class="reader-interruption"><span data-i18n="history.samuel.waiting">AGUARDANDO MANUSCRITO</span><p data-i18n="history.samuel.waitingCopy">O arquivo será integrado quando o próximo trecho for recebido e revisado.</p></div>
+
+        <button class="reader-continue" type="button" aria-expanded="false" aria-controls="samuel-continuation" data-reader-toggle="samuel-continuation"><span data-i18n="history.samuel.open">Abrir briefing de alerta máximo</span><b>+</b></button>
+        <div class="reader-continuation" id="samuel-continuation" hidden>
+          <div class="reader-divider"><span data-i18n="history.samuel.divider">06H30 // SALA DE REUNIÕES</span></div>
+          <div class="excerpt-block">
+            <span class="excerpt-label" data-i18n="history.samuel.excerptB">EXCERTO B // ALERTA MÁXIMO</span>
+            <p data-i18n="history.samuel.p7">Às 06h30, Samuel foi chamado à sala de reuniões, onde oficiais das Forças Armadas e integrantes do governo aguardavam uma atualização.</p>
+            <p data-i18n="history.samuel.p8">— A situação não melhorou; só vem piorando. Os ataques de pessoas contra pessoas continuam crescendo. Podemos confirmar que é um surto. Ainda não sabemos de que tipo, mas sabemos que os mordidos ou feridos estão se transformando na mesma coisa que os atacou.</p>
+            <p data-i18n="history.samuel.p9">Diante das perguntas sobre as mordidas, Samuel explicou que as gravações mostravam agressores arrancando pedaços das vítimas. Os hospitais, lotados de feridos, também começavam a registrar ataques internos.</p>
+            <p data-i18n="history.samuel.p10">— A verdade, senhoras e senhores, é que estamos em estado de alerta máximo.</p>
+            <p data-i18n="history.samuel.p11">Quando o vice-presidente perguntou o que deveria ser feito, Samuel recomendou a decretação imediata da lei marcial. A população deveria permanecer em casa, trancar portas e janelas e não permitir a entrada de ninguém — nem amigos, nem parentes — enquanto o governo tentava conter o surto.</p>
+            <p data-i18n="history.samuel.p12">— Washington está entre os lugares mais atingidos neste momento. Retire o presidente da Casa Branca imediatamente, senhor.</p>
+            <p data-i18n="history.samuel.p13">Após alguns instantes de silêncio, o vice-presidente autorizou o plano e ordenou a retirada do presidente. A reunião terminou, e Samuel pediu à assistente Bethany que tentasse contato com Elena, sua esposa, e que também levasse a própria família para a balsa da ONU.</p>
+            <p data-i18n="history.samuel.p14">Samuel ordenou a evacuação urgente do edifício. Quando embarcou no helicóptero, às 07h10, um soldado informou que a base das Forças Armadas havia caído depois que militares infectados retornaram e atacaram os demais. Não havia confirmação de que o general Anderson tivesse sobrevivido.</p>
+            <p data-i18n="history.samuel.p15">Antes da partida, Samuel tentou ligar novamente para Elena, que viajava pela Espanha com os filhos. Nenhum deles atendeu.</p>
+          </div>
+          <div class="reader-interruption"><span data-i18n="history.samuel.interrupted">07H10 // REGISTRO INTERROMPIDO</span><p data-i18n="history.samuel.interruptedCopy">A transcrição disponível termina durante a evacuação do Pentágono. A continuação deste núcleo ainda está sendo escrita.</p></div>
+        </div>
       </article>
     </div>
   </section>
@@ -191,14 +214,16 @@
       <p class="section-copy" data-i18n="history.timeline.copy">Os horários abaixo conectam somente acontecimentos confirmados no manuscrito. Selecione um registro para abrir sua perspectiva.</p>
     </div>
     <ol class="timeline-list story-reveal">
-      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time>ANTES DAS 05H</time><span class="event-copy"><strong data-i18n="history.timeline.before5.title">Primeiros ataques registrados</strong><small data-i18n="history.timeline.before5.copy">Ocorrências ainda tratadas como comuns e isoladas.</small></span><span class="event-owner owner-hanson" data-i18n="history.timeline.command">COMANDO</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time>05H00</time><span class="event-copy"><strong data-i18n="history.timeline.0500.title">Hanson retorna à base</strong><small data-i18n="history.timeline.0500.copy">O capitão é convocado pelo general Anderson.</small></span><span class="event-owner owner-hanson">HANSON</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time>&lt; 06H00</time><span class="event-copy"><strong data-i18n="history.timeline.taylor.title">Avenida Taylor</strong><small data-i18n="history.timeline.taylor.copy">Um pedido de reforços termina em tiros e perda do rádio.</small></span><span class="event-owner owner-hanson">HANSON</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="mick"><time>06H00</time><span class="event-copy"><strong data-i18n="history.timeline.0600.title">A última corrida normal</strong><small data-i18n="history.timeline.0600.copy">Mick, Mei e Chris saem antes do café da manhã.</small></span><span class="event-owner owner-mick">BRADOCK</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time>06H40</time><span class="event-copy"><strong data-i18n="history.timeline.0640.title">Equipes são despachadas</strong><small data-i18n="history.timeline.0640.copy">Hanson recebe a relação dos locais atingidos.</small></span><span class="event-owner owner-hanson">HANSON</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="mick"><time>&gt; 07H00</time><span class="event-copy"><strong data-i18n="history.timeline.martial.title">Lei marcial no noticiário</strong><small data-i18n="history.timeline.martial.copy">A família ouve o comunicado durante o café.</small></span><span class="event-owner owner-mick">BRADOCK</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="mick"><time>07H40</time><span class="event-copy"><strong data-i18n="history.timeline.0740.title">Cinco helicópteros</strong><small data-i18n="history.timeline.0740.copy">Cinco aeronaves repetem o trajeto em menos de dez minutos.</small></span><span class="event-owner owner-mick">BRADOCK</span></button></li>
-      <li><button class="timeline-event" type="button" data-open-perspective="samuel"><time>--H--</time><span class="event-copy"><strong data-i18n="history.timeline.pentagon.title">Registro do Pentágono</strong><small data-i18n="history.timeline.pentagon.copy">Horário e conteúdo ainda não recebidos.</small></span><span class="event-owner owner-samuel">SALAZAR</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="samuel"><time data-i18n="history.timeline.0430.time">04H30</time><span class="event-copy"><strong data-i18n="history.timeline.0430.title">Primeiros registros simultâneos</strong><small data-i18n="history.timeline.0430.copy">Samuel identifica ataques ocorrendo em diferentes pontos do país.</small></span><span class="event-owner owner-samuel">SALAZAR</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="samuel"><time data-i18n="history.timeline.0500alert.time">05H00</time><span class="event-copy"><strong data-i18n="history.timeline.0500alert.title">Alerta vermelho</strong><small data-i18n="history.timeline.0500alert.copy">Salazar emite um comunicado urgente às Forças Armadas.</small></span><span class="event-owner owner-samuel">SALAZAR</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time data-i18n="history.timeline.0500.time">05H00</time><span class="event-copy"><strong data-i18n="history.timeline.0500.title">Hanson retorna à base</strong><small data-i18n="history.timeline.0500.copy">O major é convocado pelo general Anderson.</small></span><span class="event-owner owner-hanson">HANSON</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time data-i18n="history.timeline.taylor.time">&lt; 06H00</time><span class="event-copy"><strong data-i18n="history.timeline.taylor.title">Avenida Taylor</strong><small data-i18n="history.timeline.taylor.copy">Um pedido de reforços termina em tiros e perda do rádio.</small></span><span class="event-owner owner-hanson">HANSON</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="mick"><time data-i18n="history.timeline.0600.time">06H00</time><span class="event-copy"><strong data-i18n="history.timeline.0600.title">A última corrida normal</strong><small data-i18n="history.timeline.0600.copy">Mick, Mei e Chris saem antes do café da manhã.</small></span><span class="event-owner owner-mick">BRADOCK</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="samuel"><time data-i18n="history.timeline.0630.time">06H30</time><span class="event-copy"><strong data-i18n="history.timeline.0630.title">Briefing de alerta máximo</strong><small data-i18n="history.timeline.0630.copy">Samuel confirma o surto, as mordidas e o colapso dos hospitais.</small></span><span class="event-owner owner-samuel">SALAZAR</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="hanson"><time data-i18n="history.timeline.0640.time">06H40</time><span class="event-copy"><strong data-i18n="history.timeline.0640.title">Equipes são despachadas</strong><small data-i18n="history.timeline.0640.copy">Hanson recebe a relação dos locais atingidos.</small></span><span class="event-owner owner-hanson">HANSON</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="mick"><time data-i18n="history.timeline.martial.time">&gt; 07H00</time><span class="event-copy"><strong data-i18n="history.timeline.martial.title">Lei marcial no noticiário</strong><small data-i18n="history.timeline.martial.copy">A família ouve o comunicado durante o café.</small></span><span class="event-owner owner-mick">BRADOCK</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="samuel"><time data-i18n="history.timeline.0710.time">07H10</time><span class="event-copy"><strong data-i18n="history.timeline.0710.title">Evacuação do Pentágono</strong><small data-i18n="history.timeline.0710.copy">Salazar embarca e recebe a notícia da queda da base militar.</small></span><span class="event-owner owner-samuel">SALAZAR</span></button></li>
+      <li><button class="timeline-event" type="button" data-open-perspective="mick"><time data-i18n="history.timeline.0740.time">07H40</time><span class="event-copy"><strong data-i18n="history.timeline.0740.title">Cinco helicópteros</strong><small data-i18n="history.timeline.0740.copy">Cinco aeronaves repetem o trajeto em menos de dez minutos.</small></span><span class="event-owner owner-mick">BRADOCK</span></button></li>
     </ol>
   </section>
 
@@ -214,7 +239,7 @@
       <article class="evidence-card story-reveal"><header><span class="evidence-code">DD-AIR-05</span><strong class="evidence-status" data-i18n="history.records.visual">VISUAL</strong></header><div class="evidence-body"><h3 data-i18n="history.records.aircraft.title">Cinco aeronaves</h3><p data-i18n="history.records.aircraft.copy">Primeiro helicóptero. Cinco minutos depois, o segundo. Outros três antes que dez minutos se completassem.</p></div></article>
       <article class="evidence-card story-reveal"><header><span class="evidence-code">DD-ORDER-0640</span><strong class="evidence-status" data-i18n="history.records.military">MILITAR</strong></header><div class="evidence-body"><h3 data-i18n="history.records.order.title">Ordem de deslocamento</h3><p data-i18n="history.records.order.copy">Às 06h40, Hanson recebe os pontos das ocorrências e envia soldados para averiguação.</p></div></article>
       <article class="evidence-card evidence-redacted story-reveal"><header><span class="evidence-code">DD-INTERVAL-0008</span><strong class="evidence-status" data-i18n="history.records.restricted">RESTRITO</strong></header><div class="evidence-body"><h3 data-i18n="history.records.interval.title">Intervalo observado</h3><p><span class="redacted" data-i18n="history.records.interval.redacted">NATUREZA DO EVENTO NÃO INDEXADA</span></p><strong class="interval-mark">00:00:08</strong></div></article>
-      <article class="evidence-card evidence-missing story-reveal"><header><span class="evidence-code">DD-PENTAGON---</span><strong class="evidence-status" data-i18n="history.records.missing">AUSENTE</strong></header><div class="evidence-body"><h3 data-i18n="history.records.salazar.title">Perspectiva Salazar</h3><p data-i18n="history.records.salazar.copy">Nenhum horário, diálogo ou acontecimento foi publicado. Aguardando o texto do autor.</p></div></article>
+      <article class="evidence-card story-reveal"><header><span class="evidence-code">DD-PENTAGON-0430</span><strong class="evidence-status" data-i18n="history.records.confirmed">CONFIRMADO</strong></header><div class="evidence-body"><h3 data-i18n="history.records.salazar.title">Primeiro alerta do Pentágono</h3><p data-i18n="history.records.salazar.copy">Às 04h30, ataques simultâneos chegam aos monitores de Salazar. Às 05h00, ele emite um alerta vermelho às Forças Armadas.</p></div></article>
     </div>
   </section>
 
@@ -227,7 +252,7 @@
     <div class="writing-board story-reveal">
       <article class="writing-step is-partial"><span>01</span><div><strong>Mick Bradock</strong><p data-i18n="history.writing.mick">Primeiro fragmento recebido. A narrativa retornará a Mick depois dos outros núcleos.</p></div><small data-i18n="history.writing.partial">PARCIAL</small></article>
       <article class="writing-step is-partial"><span>02</span><div><strong>James Hanson</strong><p data-i18n="history.writing.hanson">Primeiro fragmento recebido. A conclusão da sequência militar permanece em escrita.</p></div><small data-i18n="history.writing.partial">PARCIAL</small></article>
-      <article class="writing-step is-writing"><span>03</span><div><strong>Samuel Salazar</strong><p data-i18n="history.writing.samuel">Perspectiva do Pentágono sendo escrita agora. Nenhum trecho canônico anexado.</p></div><small data-i18n="history.writing.inProgress">EM REDAÇÃO</small></article>
+      <article class="writing-step is-partial"><span>03</span><div><strong>Samuel Salazar</strong><p data-i18n="history.writing.samuel">Dois fragmentos recebidos: o primeiro alerta e a evacuação do Pentágono. A continuação após a partida permanece em escrita.</p></div><small data-i18n="history.writing.partial">PARCIAL</small></article>
     </div>
   </section>
 </main>

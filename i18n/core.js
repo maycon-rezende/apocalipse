@@ -29,9 +29,14 @@
     }
   }
 
+  function lockedLocale() {
+    return normalizeLocale(document.documentElement.dataset.localeLock);
+  }
+
+  const localeLock = lockedLocale();
   const requestedLocale = queryLocale();
-  let locale = requestedLocale || storedLocale() || DEFAULT_LOCALE;
-  if (requestedLocale) {
+  let locale = localeLock || requestedLocale || storedLocale() || DEFAULT_LOCALE;
+  if (requestedLocale && !localeLock) {
     try {
       localStorage.setItem(STORAGE_KEY, requestedLocale);
     } catch (error) {}
@@ -103,6 +108,14 @@
   function setLocale(nextLocale, options) {
     const next = normalizeLocale(nextLocale);
     if (!next || !SUPPORTED_LOCALES.includes(next)) return false;
+    if (localeLock) {
+      if (locale !== localeLock) {
+        locale = localeLock;
+        document.documentElement.lang = localeLock;
+        apply(document);
+      }
+      return next === localeLock;
+    }
     const settings = Object.assign({ reload: true }, options);
     const previous = locale;
     locale = next;
@@ -129,6 +142,8 @@
     STORAGE_KEY: STORAGE_KEY,
     DEFAULT_LOCALE: DEFAULT_LOCALE,
     supportedLocales: SUPPORTED_LOCALES.slice(),
+    locked: Boolean(localeLock),
+    lockedLocale: localeLock,
     get locale() { return locale; },
     t: t,
     apply: apply,

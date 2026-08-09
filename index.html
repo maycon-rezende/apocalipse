@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-i18n-ready="full">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AGE OF DOOMSDAY // A ERA DO APOCALIPSE Z</title>
+<meta name="description" content="Age of DoomsDay — uma experiência narrativa sobre a queda que ninguém viu chegar." data-i18n-attr="content:intro.meta.description">
+<meta property="og:title" content="AGE OF DOOMSDAY // A ERA DO APOCALIPSE Z" data-i18n-attr="content:intro.meta.title">
+<meta property="og:description" content="Age of DoomsDay — uma experiência narrativa sobre a queda que ninguém viu chegar." data-i18n-attr="content:intro.meta.description">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AGE OF DOOMSDAY // A ERA DO APOCALIPSE Z" data-i18n-attr="content:intro.meta.title">
+<meta name="twitter:description" content="Age of DoomsDay — uma experiência narrativa sobre a queda que ninguém viu chegar." data-i18n-attr="content:intro.meta.description">
+<title data-i18n="intro.meta.title">AGE OF DOOMSDAY // A ERA DO APOCALIPSE Z</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
@@ -150,33 +157,38 @@ h1.movie-title .z-letter.glow{ animation: letter-in .9s cubic-bezier(.2,.8,.2,1)
 }
 </style>
 <link rel="stylesheet" href="cursor-site.css">
-<link rel="stylesheet" href="experience-mode.css"><script src="experience-mode.js"></script>
+<link rel="stylesheet" href="experience-mode.css">
+<script src="i18n/pt-BR.js"></script>
+<script src="i18n/en.js"></script>
+<script src="i18n/core.js"></script>
+<script src="experience-mode.js"></script>
 </head>
 <body>
 
-<div id="start-gate"><span>Toque para iniciar</span></div>
 <audio id="bg-audio" loop hidden>
   <source src="audio/themeintro.mp3" type="audio/mpeg" />
 </audio>
 
-<div class="grain"></div>
-<div class="vignette"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
 <div class="snow-field" id="snow-field" aria-hidden="true"></div>
-<div id="blood-wipe"></div>
+<div id="blood-wipe" aria-hidden="true"></div>
 
 <div id="stage">
-  <p class="testimony" id="testimony-line"></p>
+  <p class="testimony" id="testimony-line" role="status" aria-live="polite" aria-atomic="true"></p>
 
-  <div id="title-wrap">
-    <div class="age-prefix" id="age-prefix" aria-label="Age of"><span><i class="letter age-letter">A</i><i class="letter age-letter">G</i><i class="letter age-letter">E</i><i class="letter age-letter"></i></span><span><i class="letter age-letter">O</i><i class="letter age-letter">F</i></span></div>
-    <h1 class="movie-title" id="movie-title"></h1>
-    <p class="movie-tagline" id="movie-tagline">Baseado em uma queda que ninguém viu chegar.</p>
+  <div id="title-wrap" aria-hidden="true">
+    <div class="age-prefix" id="age-prefix" aria-label="Age of" data-i18n-attr="aria-label:intro.title.initialPrefixLabel"><span aria-hidden="true"><i class="letter age-letter">A</i><i class="letter age-letter">G</i><i class="letter age-letter">E</i><i class="letter age-letter"></i></span><span aria-hidden="true"><i class="letter age-letter">O</i><i class="letter age-letter">F</i></span></div>
+    <h1 class="movie-title" id="movie-title" aria-label="Age of DoomsDay" data-i18n-attr="aria-label:intro.title.initialLabel"></h1>
+    <p class="movie-tagline" id="movie-tagline" data-i18n="intro.tagline">Baseado em uma queda que ninguém viu chegar.</p>
   </div>
 </div>
 
-<div id="enter-prompt">Clique para entrar</div>
+<div id="enter-prompt" role="button" tabindex="-1" aria-hidden="true" aria-label="Entrar no arquivo principal" data-i18n="intro.enter" data-i18n-attr="aria-label:intro.enterLabel">Clique para entrar</div>
 
 <script>
+if (window.DoomsdayI18n) window.DoomsdayI18n.apply(document);
+
 const startGate = document.getElementById('start-gate');
 const bgAudio = document.getElementById('bg-audio');
 const testimonyEl = document.getElementById('testimony-line');
@@ -187,10 +199,11 @@ const taglineEl = document.getElementById('movie-tagline');
 const bloodWipe = document.getElementById('blood-wipe');
 const enterPrompt = document.getElementById('enter-prompt');
 
+const introText = (key) => window.DoomsdayI18n ? window.DoomsdayI18n.t(key) : key;
 const lines = [
-  "Eu não sei quantos dias já se passaram.",
-  "Só sei que ainda estamos respirando.",
-  "E que eles ainda estão lá fora."
+  introText('intro.testimony.1'),
+  introText('intro.testimony.2'),
+  introText('intro.testimony.3')
 ];
 
 function wait(ms){ return new Promise(r => setTimeout(r, ms)); }
@@ -259,7 +272,7 @@ function spawnSnow(){
 }
 
 async function transformAgePrefix(){
-  const target='AERADO';
+  const target=introText('intro.transform.prefixLetters');
   const letters=[...agePrefix.querySelectorAll('.age-letter')];
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   for(let index=0;index<target.length;index++){
@@ -270,12 +283,12 @@ async function transformAgePrefix(){
     if(reduced){letter.style.opacity='1';letter.style.transform='none';letter.style.filter='none'}
     await wait(reduced?0:115);
   }
-  agePrefix.setAttribute('aria-label','A Era do');
+  agePrefix.setAttribute('aria-label',introText('intro.transform.prefixLabel'));
 }
 
 async function transformTitle(){
   const ageTransition=transformAgePrefix();
-  const target='APOCALIPSEZ';
+  const target=introText('intro.transform.titleLetters');
   const current=[...titleEl.querySelectorAll('.letter')];
   for(let index=0;index<target.length;index++){
     let letter=current[index];
@@ -285,6 +298,7 @@ async function transformTitle(){
   }
   await wait(350);
   await ageTransition;
+  titleEl.setAttribute('aria-label',introText('intro.transform.titleLabel'));
   const frozenLetters=[...titleEl.querySelectorAll('.letter')];
   frozenLetters.forEach((letter,index)=>setTimeout(()=>letter.classList.add('frozen'),index*85));
 }
@@ -303,6 +317,7 @@ async function runIntro(){
   spawnSnow();
   buildTitle();
   titleWrap.classList.add('show');
+  titleWrap.setAttribute('aria-hidden','false');
   await wait(1800);
   await transformTitle();
   await wait(800);
@@ -310,15 +325,29 @@ async function runIntro(){
   await wait(1800);
 
   enterPrompt.classList.add('show');
+  enterPrompt.setAttribute('aria-hidden','false');
+  enterPrompt.tabIndex = 0;
+  enterPrompt.focus({ preventScroll: true });
 }
 
+let experienceStarted = false;
 function startExperience(){
+  if (experienceStarted) return;
+  experienceStarted = true;
   startGate.classList.add('hidden');
+  startGate.setAttribute('aria-hidden','true');
+  startGate.tabIndex = -1;
+  startGate.blur();
   bgAudio.play().catch(() => {}); // gesto do clique libera o áudio
   runIntro();
 }
 
 startGate.addEventListener('click', startExperience, { once: true });
+startGate.addEventListener('keydown', (event) => {
+  if (event.key !== 'Enter' && event.key !== ' ') return;
+  event.preventDefault();
+  startGate.click();
+});
 
 function goToSite(){
   if (!enterPrompt.classList.contains('show')) return;

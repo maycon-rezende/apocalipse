@@ -456,7 +456,7 @@ html[lang="en"] .story-title .title-last {
 
 .progress-bar {
   display: block;
-  width: var(--progress, 66.666%);
+  width: var(--progress, 100%);
   height: 100%;
   background: linear-gradient(90deg, var(--story-red), var(--story-gold));
   box-shadow: 0 0 12px rgba(201, 155, 82, 0.25);
@@ -837,44 +837,6 @@ html[lang="en"] .story-title .title-last {
   letter-spacing: 0.08em;
   text-align: center;
   text-transform: uppercase;
-}
-
-.locked-reader {
-  min-height: 360px;
-  padding: 3rem 1.5rem;
-}
-
-.locked-reader .lock-seal {
-  margin-bottom: 2rem;
-}
-
-.locked-reader p {
-  max-width: 48ch;
-  color: #625646;
-}
-
-.locked-reader .manuscript-alert {
-  width: 100%;
-}
-
-.lock-seal {
-  width: 114px;
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  margin-inline: auto;
-  border: 3px double #7e252b;
-  border-radius: 50%;
-  color: #7e252b;
-  font: 700 0.72rem/1.25 var(--story-mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transform: rotate(-7deg);
-}
-
-.lock-seal span {
-  display: block;
-  font-size: 1.55rem;
 }
 
 .timeline-list {
@@ -1596,19 +1558,6 @@ html.analog-experience .reader-interruption {
   animation: story-alert-flicker 2.4s steps(1, end) infinite;
 }
 
-html.analog-experience .locked-reader p {
-  color: var(--story-muted);
-}
-
-html.analog-experience .lock-seal {
-  border-color: var(--story-red);
-  color: var(--story-red);
-  font-family: var(--story-terminal);
-  font-size: 1rem;
-  font-weight: 400;
-  box-shadow: 0 0 25px rgba(207, 48, 56, 0.13);
-}
-
 html.analog-experience .timeline-list::before {
   background: linear-gradient(var(--story-green), rgba(114, 211, 151, 0.08));
 }
@@ -2015,7 +1964,7 @@ html.analog-experience .story-corruption.visible {
 
   html.analog-experience .story-signal-hud {
     right: 0.55rem;
-    bottom: 0.55rem;
+    bottom: 4.6rem;
     max-width: calc(100vw - 1.1rem);
     font-size: 0.75rem;
     opacity: 0.72;
@@ -2140,4 +2089,9 @@ html.analog-experience .story-corruption.visible {
   .story-title .title-fire {
     background-position: 0 46%;
   }
+}
+
+/* The arrow is part of the localized link text in both editions. */
+.story-nav .nav-back::before {
+  display: none;
 }
