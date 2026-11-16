@@ -10,7 +10,7 @@ A humanidade já passou por diversas mudanças, por diversas eras — desde a pr
 
 ## 06h00 — Sexta-feira, 13/04/2012
 
-### Mick Bradock
+### Mick Braddock
 
 O despertador tocou, mas a vontade de levantar não era muita. Afinal, aquele era o grande dia, o dia que eu estava ansioso para ver chegar. Mesmo com meu corpo querendo continuar na cama, eu me levantei, fui ao banheiro fazer minhas necessidades fisiológicas, acordei minha esposa, Mei, e saímos para nossa corrida matinal antes que as crianças acordassem para ir à escola. Quando estávamos saindo de casa, nosso filho mais velho, Chris, apareceu.
 
@@ -20,7 +20,7 @@ O despertador tocou, mas a vontade de levantar não era muita. Afinal, aquele er
 
 — Nada, não, pai. Mas quero correr com vocês. Hoje é o dia do teste, então quero estar preparado para ele!
 
-— Muito bem, filho! Esses são os Bradock. Mas quero só ver se você vai conseguir acompanhar a gente — disse Mei. Ela piscou para Chris, e começamos nossa corrida matinal.
+— Muito bem, filho! Esses são os Braddock. Mas quero só ver se você vai conseguir acompanhar a gente — disse Mei. Ela piscou para Chris, e começamos nossa corrida matinal.
 
 Não demoramos muito. Foi apenas uma hora de corrida, e logo chegamos em casa.
 
@@ -428,7 +428,7 @@ Hanson apertou a mão dele em cumprimento.
 
 - Suyang mora em **Old City, Filadélfia**. A referência anterior a Cambridge/Boston foi descartada.
 - Os primeiros ataques já eram registrados antes das 05h00, inicialmente tratados como ocorrências comuns e isoladas.
-- Quando os Bradock tomam café, depois das 07h00, a multiplicação dos casos já levou o governo a decretar lei marcial.
+- Quando os Braddock tomam café, depois das 07h00, a multiplicação dos casos já levou o governo a decretar lei marcial.
 - Na sequência vista por Mick, o Exército já conhece a dimensão da crise e emprega tanques, caças e bombardeios na tentativa de conter o caos.
 - Os soldados enviados para averiguar os ataques retornam contaminados; a base de Hanson é tomada quando eles voltam.
 - Os trechos de Samuel no Pentágono, da reunião de emergência e da evacuação, entre 04h30 e 07h10, foram recebidos e revisados nesta versão.

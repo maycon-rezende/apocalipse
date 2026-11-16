@@ -163,7 +163,7 @@ A página de História foi reorganizada como um arquivo cronológico recuperado.
 - cabeçalho confidencial com classificação, integridade e estado da reconstrução;
 - abertura identificada como **Sinopse**, com letras reconstruídas individualmente e interferência discreta;
 - índice fixo para resumo, Dia Zero, documentos e testemunhos;
-- filtros dos registros por Bradock, Hanson e Pentágono;
+- filtros dos registros por Braddock, Hanson e Pentágono;
 - indicadores editoriais de fonte e confiabilidade em cada cena;
 - transcrição de rádio baseada somente nos acontecimentos já definidos;
 - memorando censurado que sinaliza explicitamente informações ainda não confirmadas;
@@ -215,20 +215,20 @@ O arquivo de nível 05 concentra com exclusividade as informações secretas sob
 - campos preparados para receber fatos novos durante a reescrita, sem antecipar respostas;
 - acesso protegido pelo protocolo do Projeto DOOM; o relatório público de Ameaça não conduz mais diretamente a este arquivo.
 
-## Continuidade da família Bradock
+## Continuidade da família Braddock
 
-- **Mei Bradock** é o único nome usado nos arquivos acessíveis; seu registro civil completo é um segredo conhecido apenas por Mick;
+- **Mei Braddock** é o único nome usado nos arquivos acessíveis; seu registro civil completo é um segredo conhecido apenas por Mick;
 - da mesma forma, somente Mei conhece o nome completo de Mick, que permanece ausente dos arquivos;
-- os quatro filhos usam a herança materna e paterna nos nomes: **Chris Sato Bradock**, **Maya Sato Bradock**, **Hanna Sato Bradock** e **Elisabeth "Elisa" Sato Bradock**;
+- os quatro filhos usam a herança materna e paterna nos nomes: **Chris Sato Braddock**, **Maya Sato Braddock**, **Hanna Sato Braddock** e **Elisabeth "Elisa" Sato Braddock**;
 - Maya substitui o antigo nome Diana;
 - Hanna substitui o antigo nome Emma;
-- Elisabeth é a quarta e mais nova filha dos Bradock e usa **Elisa** como apelido.
+- Elisabeth é a quarta e mais nova filha dos Braddock e usa **Elisa** como apelido.
 
-Chris Sato Bradock recebeu um dossiê próprio em `personagem.html?id=chris`. Ele tem 17 anos, é o primogênito de Mick e Mei, mantém uma relação excelente com os pais e as irmãs Maya, Hanna e Elisabeth e herdou do pai o impulso de proteger pessoas vulneráveis. No início do Dia D, começava seu primeiro ano na universidade, ainda sem profissão ou curso confirmados. Chris é músico amador, toca guitarra e usa a música como forma de expressão. Namora Suyang Lee, uma jovem coreana cuja casa foi projetada e construída por Mei. `img-chris/chris.png` é a identificação principal; guitarra, registro com Mick e retrato individual formam as três evidências públicas. O arquivo `evidencias.html?id=chris` possui agora sete registros: dois com Suyang, um com Mick e quatro novos fragmentos de sua rotina (`chris0.png` a `chris3.png`). A identidade visual exclusiva transforma o quarto de músico em um palco interativo: tons violetas, cordas de guitarra, equalizador, iluminação que acompanha o cursor, palheta reativa e notas que surgem nos cliques. Uma pedaleira visual oferece os modos `CLEAN`, `DRIVE` e `ECHO`; cada modo altera cores, vibração, intensidade, sombras e rastros da interface. Os efeitos mais fortes são removidos quando o visitante prefere movimentos reduzidos.
+Chris Sato Braddock recebeu um dossiê próprio em `personagem.html?id=chris`. Ele tem 17 anos, é o primogênito de Mick e Mei, mantém uma relação excelente com os pais e as irmãs Maya, Hanna e Elisabeth e herdou do pai o impulso de proteger pessoas vulneráveis. No início do Dia D, começava seu primeiro ano na universidade, ainda sem profissão ou curso confirmados. Chris é músico amador, toca guitarra e usa a música como forma de expressão. Namora Suyang Lee, uma jovem coreana cuja casa foi projetada e construída por Mei. `img-chris/chris.png` é a identificação principal; guitarra, registro com Mick e retrato individual formam as três evidências públicas. O arquivo `evidencias.html?id=chris` possui agora sete registros: dois com Suyang, um com Mick e quatro novos fragmentos de sua rotina (`chris0.png` a `chris3.png`). A identidade visual exclusiva transforma o quarto de músico em um palco interativo: tons violetas, cordas de guitarra, equalizador, iluminação que acompanha o cursor, palheta reativa e notas que surgem nos cliques. Uma pedaleira visual oferece os modos `CLEAN`, `DRIVE` e `ECHO`; cada modo altera cores, vibração, intensidade, sombras e rastros da interface. Os efeitos mais fortes são removidos quando o visitante prefere movimentos reduzidos.
 
 O arquivo restrito de Chris também recebeu uma atmosfera musical própria, tratada como uma sessão privada recuperada. Cordas de guitarra atravessam o cofre, um equalizador acompanha a interface e cada fotografia é apresentada como um `TAKE`. Ao passar sobre os registros surgem marcações de braço de guitarra e o comando `PLAY TRACK`; o cursor-palheta identifica dinamicamente o número da evidência. Clicar em uma imagem produz palhetada e notas visuais, enquanto o visualizador abre sob iluminação violeta de palco. As animações são reduzidas ou removidas conforme a preferência de acessibilidade.
 
-Maya Sato Bradock recebeu um dossiê próprio em `personagem.html?id=maya`. Ela é a segunda filha de Mick e Mei, tem 15 anos e está próxima de completar 16, sendo dois anos mais nova que Chris. Maya é uma adolescente moderna, ligada às tendências e apaixonada por moda; usa roupas, cores e acessórios como expressão de identidade e independência. As fotografias também preservam sua rotina de livros, anotações e concentração. `img-maya/maya.png` é a identificação principal e `maya1.png`, `maya2.png` e `maya3.png` compõem as três evidências da página. Seis imagens familiares e sociais ficam em `evidencias.html?id=maya`, incluindo registros com Mei e amigos. A página principal funciona como um `lookbook` editorial: passarela ao fundo, faixa de coleção, molduras de revista, marcações `VIEW LOOK`, paleta interativa com os modos âmbar, rosa, azul e monocromático, além de um cursor de prova que identifica cada evidência como um look. Os efeitos respeitam a preferência por movimentos reduzidos.
+Maya Sato Braddock recebeu um dossiê próprio em `personagem.html?id=maya`. Ela é a segunda filha de Mick e Mei, tem 15 anos e está próxima de completar 16, sendo dois anos mais nova que Chris. Maya é uma adolescente moderna, ligada às tendências e apaixonada por moda; usa roupas, cores e acessórios como expressão de identidade e independência. As fotografias também preservam sua rotina de livros, anotações e concentração. `img-maya/maya.png` é a identificação principal e `maya1.png`, `maya2.png` e `maya3.png` compõem as três evidências da página. Seis imagens familiares e sociais ficam em `evidencias.html?id=maya`, incluindo registros com Mei e amigos. A página principal funciona como um `lookbook` editorial: passarela ao fundo, faixa de coleção, molduras de revista, marcações `VIEW LOOK`, paleta interativa com os modos âmbar, rosa, azul e monocromático, além de um cursor de prova que identifica cada evidência como um look. Os efeitos respeitam a preferência por movimentos reduzidos.
 
 O arquivo restrito de Maya funciona como um closet pessoal misturado a recortes de revista, amizades e lembranças familiares. A interface inclui fita métrica lateral, painel de referências, amostras de tecido, etiquetas coloridas e fotografias identificadas como `PRIVATE LOOK`. Ao inspecionar uma imagem, aparecem moldura editorial e o comando `OPEN EDIT`; o cursor em forma de alfinete identifica dinamicamente o número do registro. Abrir uma fotografia produz um flash e transforma o visualizador em uma página editorial iluminada. As animações são reduzidas quando solicitado pelo sistema.
 
@@ -237,7 +237,7 @@ O arquivo restrito de Maya funciona como um closet pessoal misturado a recortes 
 A página contém:
 
 - pesquisa por nome, função ou família;
-- filtros para Bradock, Hanson e Pentágono;
+- filtros para Braddock, Hanson e Pentágono;
 - contador de resultados;
 - fichas em estilo de terminal;
 - modal acessível com registro completo;
@@ -333,7 +333,7 @@ As fotografias não são apresentadas como uma galeria tradicional. Elas aparece
 
 ## Efeitos exclusivos dos personagens
 
-### Mick Bradock
+### Mick Braddock
 
 Por ser agente do FBI, o arquivo de Mick possui:
 
@@ -348,7 +348,7 @@ Por ser agente do FBI, o arquivo de Mick possui:
 - mudança da mira sobre elementos interativos;
 - pulso vermelho ao clicar.
 
-### Mei Bradock
+### Mei Braddock
 
 Por ser arquiteta, o arquivo de Mei possui:
 
@@ -361,7 +361,7 @@ Por ser arquiteta, o arquivo de Mei possui:
 - linhas de cotagem animadas nos documentos;
 - reação visual técnica sobre as evidências.
 
-O dossiê também registra seu background: nascimento em Kyoto, educação bilíngue, influência profissional de Daniel Collins e Aiko Sato Collins, perda dos pais aos 12 e 15 anos, mudança para Seattle, convivência com William e Margaret Collins, amizade e namoro com Mick, formação em Arquitetura e fundação do Bradock Atelier aos 28 anos. Na interface ela aparece somente como **Mei Bradock**; seu nome civil não é exibido nem mesmo no campo confidencial e permanece conhecido apenas por Mick.
+O dossiê também registra seu background: nascimento em Kyoto, educação bilíngue, influência profissional de Daniel Collins e Aiko Sato Collins, perda dos pais aos 12 e 15 anos, mudança para Seattle, convivência com William e Margaret Collins, amizade e namoro com Mick, formação em Arquitetura e fundação do Braddock Atelier aos 28 anos. Na interface ela aparece somente como **Mei Braddock**; seu nome civil não é exibido nem mesmo no campo confidencial e permanece conhecido apenas por Mick.
 
 O sistema já aplica os temas automaticamente conforme o parâmetro `id` da URL.
 
@@ -424,7 +424,7 @@ Ele não é carregado em `personagem.html`, permitindo que Mick mantenha sua mir
 
 ## Imagens disponíveis
 
-### Mick / Bradock
+### Mick / Braddock
 
 Pasta `img-bradock/`, incluindo retratos e evidências como:
 
@@ -484,7 +484,7 @@ Após o envio, o commit local e `origin/main` foram conferidos e estavam sincron
 
 Esta versão também foi preparada e sincronizada com o GitHub na branch `main`. A atualização inclui:
 
-- correção de continuidade: Elisabeth passa definitivamente a ser Mei Bradock;
+- correção de continuidade: Elisabeth passa definitivamente a ser Mei Braddock;
 - atualização dos nomes das filhas para Maya e Hanna;
 - remoção das fotografias de Mei da Galeria, que será reconstruída futuramente com imagens do apocalipse e do caos;
 - criação do arquivo ultrassecreto `projeto-doom.html`;
@@ -502,7 +502,7 @@ Com esta sincronização, o resumo do projeto e o repositório GitHub voltam a r
 
 ### Publicação no GitHub — 20 de julho de 2026
 
-As atualizações recentes do site foram publicadas com sucesso na branch `main` do repositório `maycon-rezende/apocalipse`. O envio avançou o repositório de `3d5882e` para o commit `f625342` (`Expande ameacas e dossies da familia Bradock`). O commit reuniu 49 arquivos, com 310 inserções e 82 remoções.
+As atualizações recentes do site foram publicadas com sucesso na branch `main` do repositório `maycon-rezende/apocalipse`. O envio avançou o repositório de `3d5882e` para o commit `f625342` (`Expande ameacas e dossies da familia Braddock`). O commit reuniu 49 arquivos, com 310 inserções e 82 remoções.
 
 A publicação incluiu:
 
@@ -511,9 +511,9 @@ A publicação incluiu:
 - intro de perigo em tela cheia, trilha `themeameaca.mp3`, névoa, silhuetas, visor de proximidade e cursor de rastreamento;
 - painel ficcional de notícias das 72 horas anteriores ao reconhecimento do surto;
 - incorporação de `img-ameaca/zumbi.jpg` como evento de aglomeração e `primeiraevidencia.avif` como encerramento selado;
-- criação e aprofundamento dos dossiês de Chris Sato Bradock e Maya Sato Bradock;
+- criação e aprofundamento dos dossiês de Chris Sato Braddock e Maya Sato Braddock;
 - atualização dos nomes de Chris, Maya e Hanna com o sobrenome materno `Sato`;
-- preservação de Mei apenas como `Mei Bradock`, mantendo os nomes civis completos dela e de Mick fora dos arquivos acessíveis;
+- preservação de Mei apenas como `Mei Braddock`, mantendo os nomes civis completos dela e de Mick fora dos arquivos acessíveis;
 - identidade musical de Chris com cordas, equalizador, palheta, pedaleira `CLEAN / DRIVE / ECHO` e cofre em formato de sessão privada;
 - identidade de moda de Maya com lookbook, passarela, paletas editoriais e cofre em formato de closet pessoal;
 - ampliação das galerias de Chris e Maya com registros pessoais, familiares e sociais;
@@ -535,7 +535,7 @@ A galeria restrita de Natasha em `evidencias.html?id=natasha` ganhou uma atmosfe
 
 Quatro novas imagens foram incorporadas ao conteúdo protegido: `hansinatasha.png`, `hanson.png`, `onça.png` e `proibido3.png`. Seguindo a regra definida para os novos registros de Natasha, todas permanecem censuradas até a credencial `FONTE → AMOSTRA → VERDADE`. O cofre passa a reunir 17 evidências, sendo seis registros visíveis e onze fontes protegidas.
 
-### Ampliação dos cofres de James e da família Bradock — 21 de julho de 2026
+### Ampliação dos cofres de James e da família Braddock — 21 de julho de 2026
 
 As galerias restritas foram atualizadas com os arquivos recentes das respectivas pastas. James recebeu `cjh.jpg`, elevando seu cofre militar para oito registros. Mick recebeu `mickpraia.png`, totalizando sete evidências no arquivo do FBI. Chris passou de sete para doze registros com novas fotografias ligadas a Suyang e à rotina universitária. Maya passou de seis para dezoito registros, reunindo novas imagens de amizade, escola, irmãos, música e vida social no seu closet pessoal. As fotografias principais dos dossiês continuam separadas para evitar repetição direta entre a página pública e o cofre.
 
@@ -567,23 +567,23 @@ O primeiro nível mostra somente uma versão fortemente desfocada, marcada como 
 
 ### Reclassificação visual de Mei — 21 de julho de 2026
 
-O card de Mei em `personagens.html` e o dossiê em `personagem.html?id=mei` passaram a usar somente retratos profissionais ligados à arquitetura e ao Bradock Atelier. O card utiliza `arquiteta2.png`; o dossiê usa a mesma imagem como capa e mantém `arquiteta1.png`, `arquiteta3.png` e `arquitetamei.png` como evidências públicas.
+O card de Mei em `personagens.html` e o dossiê em `personagem.html?id=mei` passaram a usar somente retratos profissionais ligados à arquitetura e ao Braddock Atelier. O card utiliza `arquiteta2.png`; o dossiê usa a mesma imagem como capa e mantém `arquiteta1.png`, `arquiteta3.png` e `arquitetamei.png` como evidências públicas.
 
 Os registros com shorts curtos, roupas íntimas, saias curtas ou decotes acentuados foram transferidos para o modo proibido do cofre. A galeria de Mei agora possui 29 registros: quatro projetos profissionais visíveis e 25 imagens privadas, cada uma sujeita ao desbloqueio individual, ao blur parcial e à exploração dos quatro setores. A chave individual foi atualizada para `dd_mei_private_items_v3` para impedir que autorizações antigas apontem para fotografias diferentes após a reorganização.
 
 ### Nova apresentação elegante de Mei — 22 de julho de 2026
 
-O card e a capa do dossiê de Mei passaram a usar `elegante2.png`. As três fotografias exibidas em sua página principal agora são `elegante.png`, `elegante1.png` e `elegante2.png`, escolhidas por mostrarem a rotina profissional no Bradock Atelier, uma visita técnica à obra e sua imagem executiva. Os registros anteriores da página — `arquiteta1.png`, `arquiteta2.png`, `arquiteta3.png` e `arquitetamei.png` — permanecem no cofre como material comum, sem censura.
+O card e a capa do dossiê de Mei passaram a usar `elegante2.png`. As três fotografias exibidas em sua página principal agora são `elegante.png`, `elegante1.png` e `elegante2.png`, escolhidas por mostrarem a rotina profissional no Braddock Atelier, uma visita técnica à obra e sua imagem executiva. Os registros anteriores da página — `arquiteta1.png`, `arquiteta2.png`, `arquiteta3.png` e `arquitetamei.png` — permanecem no cofre como material comum, sem censura.
 
 As imagens `elegante3.png` a `elegante6.png` foram incorporadas ao modo proibido por apresentarem um tom mais pessoal ou decotes destacados. O cofre de Mei passa a reunir 33 registros. `elegante7.png` foi encontrada na pasta, mas permaneceu fora do site porque o conjunto solicitado terminava no número 6.
 
 ### Vidas Paralelas — transformação de `galeria.html` — 22 de julho de 2026
 
-A antiga galeria concentrada em Mick foi reconstruída como `VIDAS PARALELAS // ARQUIVO_DD`. A página agora documenta três núcleos que não possuíam qualquer ligação antes do Dia D: Bradock como núcleo civil, Hanson como núcleo operacional e Jordan como núcleo institucional. As linhas permanecem visualmente separadas e convergem somente no marcador do Dia Zero, representando o mesmo colapso atingindo vidas independentes — não um encontro prévio entre as famílias.
+A antiga galeria concentrada em Mick foi reconstruída como `VIDAS PARALELAS // ARQUIVO_DD`. A página agora documenta três núcleos que não possuíam qualquer ligação antes do Dia D: Braddock como núcleo civil, Hanson como núcleo operacional e Jordan como núcleo institucional. As linhas permanecem visualmente separadas e convergem somente no marcador do Dia Zero, representando o mesmo colapso atingindo vidas independentes — não um encontro prévio entre as famílias.
 
-O arquivo reúne 13 fotografias recuperadas dos Bradock e Hanson, organizadas por família, trabalho e rotina. Cada registro possui código, integridade, pessoas identificadas, vínculo interno, período e descrição investigativa em um novo lightbox. A família Jordan possui três lacunas catalogadas para Samuel, sua esposa e seus filhos, apresentadas como material visual ainda não recuperado. A página também recebeu filtros por núcleo e categoria, contadores dinâmicos, painel de convergência e encerramento narrativo próprio.
+O arquivo reúne 13 fotografias recuperadas dos Braddock e Hanson, organizadas por família, trabalho e rotina. Cada registro possui código, integridade, pessoas identificadas, vínculo interno, período e descrição investigativa em um novo lightbox. A família Jordan possui três lacunas catalogadas para Samuel, sua esposa e seus filhos, apresentadas como material visual ainda não recuperado. A página também recebeu filtros por núcleo e categoria, contadores dinâmicos, painel de convergência e encerramento narrativo próprio.
 
-Após a primeira montagem, a exposição foi enxugada para evitar dezenas de fotografias soltas na mesma tela. A entrada de `galeria.html` agora funciona como um diretório com apenas três grandes blocos — Bradock, Hanson e Jordan — cada um contendo uma prévia compacta. Ao selecionar um núcleo, a própria página abre em `?familia=...` e exibe exclusivamente as evidências correspondentes, com filtros internos por família, trabalho e rotina e um comando para retornar ao diretório. Os Jordan continuam acessíveis como três lacunas, sem rostos inventados.
+Após a primeira montagem, a exposição foi enxugada para evitar dezenas de fotografias soltas na mesma tela. A entrada de `galeria.html` agora funciona como um diretório com apenas três grandes blocos — Braddock, Hanson e Jordan — cada um contendo uma prévia compacta. Ao selecionar um núcleo, a própria página abre em `?familia=...` e exibe exclusivamente as evidências correspondentes, com filtros internos por família, trabalho e rotina e um comando para retornar ao diretório. Os Jordan continuam acessíveis como três lacunas, sem rostos inventados.
 
 ### Novos registros elegantes de Mei — 22 de julho de 2026
 
@@ -591,15 +591,15 @@ As imagens `elegante7.png`, `elegante8.png`, `elegante9.png` e `elegante10.png` 
 
 ## Próximos passos possíveis
 
-### Galerias familiares Bradock e Hanson — 23 de julho de 2026
+### Galerias familiares Braddock e Hanson — 23 de julho de 2026
 
 O diretório `VIDAS PARALELAS` foi aprofundado para que cada núcleo possua uma função narrativa própria. O retorno das páginas internas foi corrigido em dois níveis: o comando dentro do arquivo e o botão do menu superior agora voltam diretamente ao diretório dos três núcleos em `galeria.html`, sem redirecionar para a home ou para o topo introdutório da página.
 
-O arquivo da Família Bradock passou a utilizar exclusivamente as imagens de `img-familyb`. As fotografias deixaram de funcionar como retratos soltos e formam uma cronologia visual da última manhã normal da família: café da manhã, saída da residência, entrada no veículo, trânsito progressivamente interrompido, helicópteros, Mick deixando o carro e a revelação do caos na avenida. A grade foi alterada para leitura horizontal por linhas — `01 | 02`, `03 | 04` e assim por diante — preservando a ordem correta também no celular. O conjunto possui 12 evidências; as antigas imagens `familiabradock.png` e `familiabradock1.png` permanecem na pasta, mas foram retiradas da página para evitar repetição.
+O arquivo da Família Braddock passou a utilizar exclusivamente as imagens de `img-familyb`. As fotografias deixaram de funcionar como retratos soltos e formam uma cronologia visual da última manhã normal da família: café da manhã, saída da residência, entrada no veículo, trânsito progressivamente interrompido, helicópteros, Mick deixando o carro e a revelação do caos na avenida. A grade foi alterada para leitura horizontal por linhas — `01 | 02`, `03 | 04` e assim por diante — preservando a ordem correta também no celular. O conjunto possui 12 evidências; as antigas imagens `familiabradock.png` e `familiabradock1.png` permanecem na pasta, mas foram retiradas da página para evitar repetição.
 
-O arquivo da Família Hanson agora utiliza as 15 imagens de `img-familyh`. Diferentemente dos Bradock, esse conjunto não representa o Dia D: trata-se de um álbum anterior ao colapso, dedicado à vida de James e Natasha como casal. Os registros incluem a chegada de James uniformizado, reencontros, cenas na residência, vida social e cafés da manhã. A página informa explicitamente que as datas são indeterminadas e que nenhuma dessas fotografias integra a cronologia do fatídico dia. Futuras imagens identificadas pelo nome ou pela legenda como pertencentes ao Dia D deverão formar uma sequência separada.
+O arquivo da Família Hanson agora utiliza as 15 imagens de `img-familyh`. Diferentemente dos Braddock, esse conjunto não representa o Dia D: trata-se de um álbum anterior ao colapso, dedicado à vida de James e Natasha como casal. Os registros incluem a chegada de James uniformizado, reencontros, cenas na residência, vida social e cafés da manhã. A página informa explicitamente que as datas são indeterminadas e que nenhuma dessas fotografias integra a cronologia do fatídico dia. Futuras imagens identificadas pelo nome ou pela legenda como pertencentes ao Dia D deverão formar uma sequência separada.
 
-A entrada da galeria também foi atualizada com prévias extraídas das novas pastas e contadores de `12 EVIDÊNCIAS` para os Bradock e `15 EVIDÊNCIAS` para os Hanson. Os filtros sem registros são ocultados dentro de cada núcleo, e todos os arquivos continuam disponíveis no lightbox com identificação das pessoas, vínculo interno, contexto e integridade.
+A entrada da galeria também foi atualizada com prévias extraídas das novas pastas e contadores de `12 EVIDÊNCIAS` para os Braddock e `15 EVIDÊNCIAS` para os Hanson. Os filtros sem registros são ocultados dentro de cada núcleo, e todos os arquivos continuam disponíveis no lightbox com identificação das pessoas, vínculo interno, contexto e integridade.
 
 ### Publicação no GitHub — 23 de julho de 2026
 
@@ -613,11 +613,11 @@ As letras de `AGE OF → A ERA DO` passaram a utilizar as mesmas classes, keyfra
 
 Na Home, `AGE / OF` agora se forma progressivamente antes de `DOOMSDAY`, usando o mesmo princípio de letras desfocadas que convergem para a forma final. O sangue foi reposicionado com base no retângulo real do título, passando a cair exatamente do topo das letras de `DOOMSDAY` em qualquer tamanho de tela.
 
-### Novas rotinas Bradock e Dia D de Natasha — 24 de julho de 2026
+### Novas rotinas Braddock e Dia D de Natasha — 24 de julho de 2026
 
 A galeria de Vidas Paralelas passou a oferecer apenas os filtros `Família` e `Rotina`; `Todos` e `Trabalho` foram removidos. `Família` é a visualização inicial. Os registros anteriores de cada núcleo foram reunidos nessa categoria, enquanto os conjuntos adicionados nesta atualização foram isolados em `Rotina`.
 
-O núcleo Bradock recebeu nove imagens de Mei com as filhas, armazenadas em `img-familyb` e apresentadas como momentos domésticos em família. As crianças não são individualizadas nas legendas ou metadados. A sequência principal da última manhã normal permanece preservada em `Família`. O arquivo `natashavendonoticiario.png`, embora esteja fisicamente em `img-familyb`, não foi exibido entre os Bradock por pertencer à personagem Natasha e duplicar o registro de noticiário do núcleo Hanson. O núcleo Bradock totaliza 21 evidências catalogadas.
+O núcleo Braddock recebeu nove imagens de Mei com as filhas, armazenadas em `img-familyb` e apresentadas como momentos domésticos em família. As crianças não são individualizadas nas legendas ou metadados. A sequência principal da última manhã normal permanece preservada em `Família`. O arquivo `natashavendonoticiario.png`, embora esteja fisicamente em `img-familyb`, não foi exibido entre os Braddock por pertencer à personagem Natasha e duplicar o registro de noticiário do núcleo Hanson. O núcleo Braddock totaliza 21 evidências catalogadas.
 
 O núcleo Hanson recebeu sete imagens que acompanham Natasha no Dia D. A sequência começa no apartamento dos pais, passa pelo mercado e pelas últimas compras, mostra seu retorno com os mantimentos e o noticiário assistido com os pais, e termina com Natasha observando pela janela o surto alcançar o bairro. Esses registros foram ordenados de `01` a `07` dentro de `Rotina`; as 15 memórias anteriores de James e Natasha permanecem em `Família`. O lightbox agora informa períodos específicos — manhã, tarde e anoitecer do Dia D — em vez de classificar todas as imagens como anteriores ao colapso. O núcleo Hanson totaliza 22 evidências.
 
@@ -638,11 +638,11 @@ As novas imagens familiares, a sequência do Dia D de Natasha, os filtros revisa
 
 `galeria.html` recebeu uma abertura cinematográfica intitulada `Vidas interrompidas`, com flashes de evidências, vinheta, ruído, rastreamento vermelho e acesso por clique. A trilha `resident-evil.mp3` acompanha somente essa abertura e desaparece gradualmente quando o diretório é revelado. A segunda parte usa `vidas-paralelas.mp3` enquanto o visitante escolhe entre os núcleos familiares.
 
-Os núcleos possuem entradas próprias com o comando `INICIAR RECONSTRUÇÃO`, garantindo a autorização de áudio exigida pelos navegadores. `familym.mp3` acompanha os Bradock e `familyhanson.mp3` acompanha os Hanson. A primeira faixa testada nos Hanson foi retirada da página por não corresponder ao núcleo. O efeito `clique.mp3` confirma o acesso antes de a trilha familiar entrar em fade. `halloween.mp3`, inicialmente testada na galeria, foi transferida para `historia.html`, onde toca sem indicador visual de áudio.
+Os núcleos possuem entradas próprias com o comando `INICIAR RECONSTRUÇÃO`, garantindo a autorização de áudio exigida pelos navegadores. `familym.mp3` acompanha os Braddock e `familyhanson.mp3` acompanha os Hanson. A primeira faixa testada nos Hanson foi retirada da página por não corresponder ao núcleo. O efeito `clique.mp3` confirma o acesso antes de a trilha familiar entrar em fade. `halloween.mp3`, inicialmente testada na galeria, foi transferida para `historia.html`, onde toca sem indicador visual de áudio.
 
 ### Família, Rotina e Dia D — 25 de julho de 2026
 
-Os arquivos familiares foram reorganizados nas categorias `Família`, `Rotina` e `Dia D`. Os retratos familiares permanecem separados das cenas cotidianas e da cronologia do colapso. O núcleo Bradock passou a apresentar dois retratos de família, nove registros de Mei com as filhas, sete novos registros de Mick com Chris e a sequência completa do Dia D, do café da manhã ao caos na avenida.
+Os arquivos familiares foram reorganizados nas categorias `Família`, `Rotina` e `Dia D`. Os retratos familiares permanecem separados das cenas cotidianas e da cronologia do colapso. O núcleo Braddock passou a apresentar dois retratos de família, nove registros de Mei com as filhas, sete novos registros de Mick com Chris e a sequência completa do Dia D, do café da manhã ao caos na avenida.
 
 O núcleo Hanson preserva as memórias de James e Natasha em `Família`. `Dia D` reúne duas linhas paralelas: Natasha no apartamento dos pais, mercado, noticiário e chegada do surto; James retornando de missão, passando pela enfermaria, apresentando-se ao comando, acompanhando os primeiros relatórios e atravessando a instalação durante a mobilização de emergência. As sequências usam códigos `N` e `J`. O arquivo `enfermaria.png` não foi catalogado por ser uma cópia binariamente idêntica de `indo-para-enfermaria.png`.
 
@@ -674,27 +674,27 @@ As ampliações foram publicadas na branch `main` no commit `ebd5f83` (`Amplia c
 
 `galeria.html` passou de arquivo fotográfico para uma videoteca de memórias familiares em estilo analog horror. A abertura identifica uma fita-mestre recuperada; cada núcleo aparece como uma fita VHS própria e as páginas internas possuem reprodutor com avanço, pausa, retrocesso, progresso, filtros e marcação individual de frames. A Família Salazar deixou o estado de sinal ausente e recebeu sua fita familiar com os registros de férias de `img-familys`.
 
-O arquivo recebeu um modo de inspeção óptica. Uma lente móvel permite varrer cada fotografia e localizar uma instabilidade exclusiva daquele frame. As descobertas ficam salvas durante a sessão, entram em uma linha temporal fragmentada e podem ser comparadas entre Bradock, Hanson e Salazar. Frames intrusos também surgem por aproximadamente um segundo durante a reprodução; capturá-los exige reação rápida e registra contaminações entre fitas.
+O arquivo recebeu um modo de inspeção óptica. Uma lente móvel permite varrer cada fotografia e localizar uma instabilidade exclusiva daquele frame. As descobertas ficam salvas durante a sessão, entram em uma linha temporal fragmentada e podem ser comparadas entre Braddock, Hanson e Salazar. Frames intrusos também surgem por aproximadamente um segundo durante a reprodução; capturá-los exige reação rápida e registra contaminações entre fitas.
 
 O Quadro de Evidências reúne automaticamente descobertas da lente e frames corrompidos. O visitante escolhe dois cartões e solicita uma correlação. O terminal diferencia vínculo interno, correlação insuficiente, janela temporal compatível, sobreposição entre fitas e repetição crítica da mesma imagem em núcleos diferentes. As conexões analisadas permanecem arquivadas na sessão.
 
 A Fita Ø foi implementada como índice órfão. Seu puzzle somente é liberado depois de três frames corrompidos, inspeções em dois núcleos e duas correlações arquivadas. O desafio pede a identificação do frame que não pertence à sequência familiar. A reprodução correta mostra apenas um corredor de origem desconhecida, data ilegível anterior ao Dia D, perda de sinal e a mensagem de que a fita não foi encontrada com as outras. O conteúdo principal permanece inacessível para não antecipar a história. Depois da reprodução, `ORIGEM Ø // SEM PROPRIETÁRIO` entra no quadro.
 
-A Memória Contaminada é ativada somente depois da Fita Ø. Um registro específico de cada família passa a apresentar falhas: o interior do carro dos Bradock, Natasha diante da janela e o novo pôr do sol dos Salazar. O visitante pode abrir um comparador deslizante entre versão anterior e versão atual, registrar a divergência e enviar a descoberta ao quadro de evidências.
+A Memória Contaminada é ativada somente depois da Fita Ø. Um registro específico de cada família passa a apresentar falhas: o interior do carro dos Braddock, Natasha diante da janela e o novo pôr do sol dos Salazar. O visitante pode abrir um comparador deslizante entre versão anterior e versão atual, registrar a divergência e enviar a descoberta ao quadro de evidências.
 
-O núcleo Bradock recebeu 21 memórias anteriores ao Dia D: seis registros da gravidez de Mei, oito fotografias de viagens de Mick e Mei — incluindo um novo retrato de inverno — e sete retratos do casal, incluindo quatro registros de um jantar. O núcleo Salazar recebeu `ferias4.png` como quinto registro da fita de férias. A legenda desse novo arquivo usa apenas `Família Salazar`, pois a quantidade de filhos mostrada visualmente precisa ser reconciliada futuramente com a ficha textual que atualmente informa três filhos.
+O núcleo Braddock recebeu 21 memórias anteriores ao Dia D: seis registros da gravidez de Mei, oito fotografias de viagens de Mick e Mei — incluindo um novo retrato de inverno — e sete retratos do casal, incluindo quatro registros de um jantar. O núcleo Salazar recebeu `ferias4.png` como quinto registro da fita de férias. A legenda desse novo arquivo usa apenas `Família Salazar`, pois a quantidade de filhos mostrada visualmente precisa ser reconciliada futuramente com a ficha textual que atualmente informa três filhos.
 
-Esta atualização reúne `ameaca.html`, `galeria.html`, `RESUMO_DO_PROJETO.md`, as novas imagens Bradock e a pasta `img-familys`. O duplicado `img-familyh/enfermaria.png` continua deliberadamente fora do catálogo e da publicação porque replica `indo-para-enfermaria.png`.
+Esta atualização reúne `ameaca.html`, `galeria.html`, `RESUMO_DO_PROJETO.md`, as novas imagens Braddock e a pasta `img-familys`. O duplicado `img-familyh/enfermaria.png` continua deliberadamente fora do catálogo e da publicação porque replica `indo-para-enfermaria.png`.
 
 ### Publicação da investigação analógica — 27 de julho de 2026
 
 A transformação da Galeria, a expansão investigativa de Ameaças, a Memória Contaminada e os novos arquivos familiares foram publicados na branch `main` do repositório `maycon-rezende/apocalipse`. O commit `fef33f7` (`Transforma galeria em arquivo analog horror`) avançou o repositório remoto de `abc10dc` para `fef33f7`, incluindo 28 arquivos, 347 inserções, 11 remoções e 25 novas imagens familiares.
 
-### Quatro filhos Bradock e proteção das crianças — 27 de julho de 2026
+### Quatro filhos Braddock e proteção das crianças — 27 de julho de 2026
 
-A continuidade oficial da família foi corrigida: Mick e Mei possuem quatro filhos, na ordem **Chris**, **Maya**, **Hanna** e **Elisabeth “Elisa” Sato Bradock**. Chris permanece o primogênito, Maya é a segunda filha, Hanna é a terceira e Elisa é a caçula.
+A continuidade oficial da família foi corrigida: Mick e Mei possuem quatro filhos, na ordem **Chris**, **Maya**, **Hanna** e **Elisabeth “Elisa” Sato Braddock**. Chris permanece o primogênito, Maya é a segunda filha, Hanna é a terceira e Elisa é a caçula.
 
-Hanna e Elisa não possuem cards, páginas individuais, galerias restritas ou fotografias isoladas. Enquanto forem crianças, aparecerão somente em imagens familiares acompanhadas pelos pais ou irmãos. As legendas da Galeria deixam de identificar individualmente as crianças e usam `filhas Bradock` ou `Família Bradock`. Essa é uma regra editorial permanente do projeto para evitar exposição e impedir que a interface incentive a procura por imagens individuais das duas.
+Hanna e Elisa não possuem cards, páginas individuais, galerias restritas ou fotografias isoladas. Enquanto forem crianças, aparecerão somente em imagens familiares acompanhadas pelos pais ou irmãos. As legendas da Galeria deixam de identificar individualmente as crianças e usam `filhas Braddock` ou `Família Braddock`. Essa é uma regra editorial permanente do projeto para evitar exposição e impedir que a interface incentive a procura por imagens individuais das duas.
 
 ### Fita de identificação — Personagens em analog horror — 27 de julho de 2026
 
@@ -710,7 +710,7 @@ Cada fita é mostrada uma vez por personagem durante a sessão. Após a autentic
 
 ### Câmara oculta de Mei — 27 de julho de 2026
 
-As seis fotografias individuais de Mei durante a gravidez foram retiradas da fita familiar Bradock e transferidas para o arquivo visual normal da personagem. A galeria familiar volta a concentrar registros do núcleo e de sua rotina conjunta.
+As seis fotografias individuais de Mei durante a gravidez foram retiradas da fita familiar Braddock e transferidas para o arquivo visual normal da personagem. A galeria familiar volta a concentrar registros do núcleo e de sua rotina conjunta.
 
 O cofre de Mei foi dividido em arquivo comum e câmara oculta. Todas as imagens anteriormente marcadas como privadas deixaram de aparecer entre os registros normais. A entrada da câmara foi incorporada à página como um detalhe arquitetônico discreto e exige três verificações sucessivas antes de revelar o anexo não catalogado. Mesmo após a abertura, cada fotografia privada preserva sua credencial individual e o desfoque condicionado à exploração dos quatro setores. As respostas e o ponto exato de entrada não são documentados neste resumo.
 
@@ -722,11 +722,11 @@ A escolha é persistida no navegador e acompanha o visitante em todas as página
 
 As transmissões corrompidas foram preservadas como elemento compartilhado pelos dois modos. No Arquivo Original, interferências mais raras atravessam a página como vazamentos de origem desconhecida; na Experiência Analog Horror, o intervalo diminui e as mensagens se tornam mais específicas e ameaçadoras. Assim, a versão normal mantém o mistério sem assumir toda a apresentação VHS.
 
-Na Galeria, a separação foi aprofundada por `gallery-mode.js`. O Arquivo Original remove o reprodutor familiar, os rolos, os comandos `PLAY/REW`, o relógio comparador e as identificações VHS; os núcleos voltam a funcionar como arquivos fotográficos diretos. As trilhas deixam de depender do botão de reprodução da fita: `vidas-paralelas.mp3` acompanha o diretório, `familym.mp3` acompanha os Bradock, `familyhanson.mp3` acompanha os Hanson e a trilha paralela permanece como ambiente provisório dos Salazar. O modo Analog Horror conserva integralmente a videoteca e seus controles.
+Na Galeria, a separação foi aprofundada por `gallery-mode.js`. O Arquivo Original remove o reprodutor familiar, os rolos, os comandos `PLAY/REW`, o relógio comparador e as identificações VHS; os núcleos voltam a funcionar como arquivos fotográficos diretos. As trilhas deixam de depender do botão de reprodução da fita: `vidas-paralelas.mp3` acompanha o diretório, `familym.mp3` acompanha os Braddock, `familyhanson.mp3` acompanha os Hanson e a trilha paralela permanece como ambiente provisório dos Salazar. O modo Analog Horror conserva integralmente a videoteca e seus controles.
 
-O núcleo Bradock recebeu oito novos registros anteriores ao Dia D: `family.png` foi catalogado como retrato familiar, `ferias-casal.png` como memória de viagem de Mick e Mei e a sequência `mae&filha.png` até `mae&filha5.png` como rotina de Mei com uma das filhas. As legendas preservam a regra editorial de não individualizar crianças nas imagens.
+O núcleo Braddock recebeu oito novos registros anteriores ao Dia D: `family.png` foi catalogado como retrato familiar, `ferias-casal.png` como memória de viagem de Mick e Mei e a sequência `mae&filha.png` até `mae&filha5.png` como rotina de Mei com uma das filhas. As legendas preservam a regra editorial de não individualizar crianças nas imagens.
 
-Dois arquivos adicionais que estavam na pasta Hanson foram reorganizados em `img-familyb`: `mei-gravida.png` entrou como registro normal da galeria de Mei, acompanhando o conjunto de maternidade, e `passeio-bradocks.png` entrou em Família no núcleo Bradock. `img-familyh/enfermaria.png` não recebeu um segundo cartão porque seu conteúdo e hash são idênticos a `indo-para-enfermaria.png`, já catalogado como `J-02 // Enfermaria` no Dia D de James Hanson.
+Dois arquivos adicionais que estavam na pasta Hanson foram reorganizados em `img-familyb`: `mei-gravida.png` entrou como registro normal da galeria de Mei, acompanhando o conjunto de maternidade, e `passeio-bradocks.png` entrou em Família no núcleo Braddock. `img-familyh/enfermaria.png` não recebeu um segundo cartão porque seu conteúdo e hash são idênticos a `indo-para-enfermaria.png`, já catalogado como `J-02 // Enfermaria` no Dia D de James Hanson.
 
 ### Transformação cinematográfica da Home — 27 de julho de 2026
 
@@ -736,11 +736,11 @@ Quando a Home recarrega em Analog Horror, ela recebe HUD `MIRROR FEED`, relógio
 
 A integração também corrigiu o bloqueio da abertura original: o controlador de modos não remove mais `body.locked` enquanto o crawl da Home está em execução. O seletor permanece fora da navegação por teclado até ser revelado junto da tagline, e a abertura só é marcada como concluída depois de terminar. Em preferência de movimento reduzido, o crawl e a troca de modo usam sequências curtas, sem a espera de dezenove segundos.
 
-### Novos registros de Mei e do casal Bradock — 28 de julho de 2026
+### Novos registros de Mei e do casal Braddock — 28 de julho de 2026
 
 `img-mei/mei-gravida.png` e `img-mei/poses.png` foram incorporados como registros normais da galeria de Mei. Ambos pertencem ao conjunto do chá de bebê de Chris e permanecem fora da câmara privada, seguindo a classificação já adotada para as demais fotografias de maternidade.
 
-A sequência `img-familyb/chadebebe.png` até `chadebebe4.png` foi catalogada em Família no núcleo Bradock. Os cinco registros mostram Mick e Mei durante o chá de bebê do primogênito e foram organizados em ordem documental, com legendas que situam o evento anos antes do Dia D.
+A sequência `img-familyb/chadebebe.png` até `chadebebe4.png` foi catalogada em Família no núcleo Braddock. Os cinco registros mostram Mick e Mei durante o chá de bebê do primogênito e foram organizados em ordem documental, com legendas que situam o evento anos antes do Dia D.
 
 `img-familyb/casal-bradock1.png` também foi incorporado em Família como uma memória noturna de Mick e Mei durante um jantar em casa, anterior ao Dia D e independente das sequências de viagem e maternidade.
 
@@ -752,9 +752,9 @@ Os novos registros usam os códigos `H-R01` a `H-R08` e permanecem separados tan
 
 ### Capítulo 1 — novo leitor da História — 29 de julho de 2026
 
-`historia.html` deixou de usar depoimentos e horários provisórios inventados e passou a funcionar como um leitor canônico do manuscrito em andamento. A página apresenta os três núcleos do Dia D sem misturá-los: Mick Bradock e James Hanson possuem trechos já escritos e expansíveis; Samuel Jordan Salazar permanece visível como a terceira perspectiva, porém bloqueado com o estado `EM REDAÇÃO`, sem antecipar acontecimentos do Pentágono.
+`historia.html` deixou de usar depoimentos e horários provisórios inventados e passou a funcionar como um leitor canônico do manuscrito em andamento. A página apresenta os três núcleos do Dia D sem misturá-los: Mick Braddock e James Hanson possuem trechos já escritos e expansíveis; Samuel Jordan Salazar permanece visível como a terceira perspectiva, porém bloqueado com o estado `EM REDAÇÃO`, sem antecipar acontecimentos do Pentágono.
 
-A cronologia pública começa com os relatos anteriores às 05h00, acompanha Hanson no centro de controle, a corrida dos Bradock às 06h00, a ordem militar das 06h40, a lei marcial depois das 07h00 e os cinco helicópteros observados por Mei em menos de dez minutos. Oito segundos aparecem somente como um intervalo biológico censurado. A origem antártica do DOOM, o retorno dos soldados contaminados, a queda da base, o conteúdo de Samuel e os destinos dos personagens continuam protegidos como spoilers.
+A cronologia pública começa com os relatos anteriores às 05h00, acompanha Hanson no centro de controle, a corrida dos Braddock às 06h00, a ordem militar das 06h40, a lei marcial depois das 07h00 e os cinco helicópteros observados por Mei em menos de dez minutos. Oito segundos aparecem somente como um intervalo biológico censurado. A origem antártica do DOOM, o retorno dos soldados contaminados, a queda da base, o conteúdo de Samuel e os destinos dos personagens continuam protegidos como spoilers.
 
 O Arquivo Original ganhou uma apresentação de manuscrito literário, enquanto a Experiência Analog Horror converte o mesmo conteúdo em transmissão recuperada com CRT, ruído, HUD e mensagens de corrupção. A trilha `halloween.mp3` foi preservada sem controle de áudio visível. Abas acessíveis, expansão individual dos trechos, navegação pela linha do tempo, persistência da perspectiva durante a sessão, movimento reduzido e adaptação para telas menores foram incorporados.
 
@@ -808,7 +808,7 @@ A nova versão de `Age of DOOMSDAY.rtf` foi comparada com a revisão anterior. S
 
 O reencontro posterior entre Salazar, Anderson e Major Hanson foi corrigido no manuscrito como um trecho isolado, acompanhado de nota sobre o contexto intermediário ainda não revisado. Ele não foi publicado na página História para evitar antecipar a convergência antes da conclusão do núcleo militar de Hanson.
 
-`historia.html` agora apresenta as três perspectivas recebidas. Samuel deixou de ser um arquivo bloqueado e recebeu dois excertos parciais, expansão própria, cronologia intercalada e a evidência confirmada `DD-PENTAGON-0430`. O progresso passou para `3 DE 3 RECEBIDAS`, enquanto o manuscrito continua corretamente marcado como em andamento. A linha temporal registra 04h30, dois acontecimentos paralelos às 05h00, 06h30, 06h40, 07h10 e os horários dos Bradock. Os rótulos Analog Horror também reconhecem a recuperação do terceiro relógio.
+`historia.html` agora apresenta as três perspectivas recebidas. Samuel deixou de ser um arquivo bloqueado e recebeu dois excertos parciais, expansão própria, cronologia intercalada e a evidência confirmada `DD-PENTAGON-0430`. O progresso passou para `3 DE 3 RECEBIDAS`, enquanto o manuscrito continua corretamente marcado como em andamento. A linha temporal registra 04h30, dois acontecimentos paralelos às 05h00, 06h30, 06h40, 07h10 e os horários dos Braddock. Os rótulos Analog Horror também reconhecem a recuperação do terceiro relógio.
 
 James Hanson foi atualizado em todo o site de Capitão/Captain/CAPT./O-3 para Major/Major/MAJ./O-4, incluindo Home, História, diretório de personagens, dossiê, acessibilidade e cofre restrito. A legenda `Promoção a Capitão // cerimônia oficial` foi preservada por representar uma etapa anterior real de sua carreira. IDs, caminhos de imagens, chaves e códigos de personagem não foram renomeados.
 
@@ -832,7 +832,7 @@ O diretório, os dossiês e os cofres foram ampliados em português e inglês. I
 
 O site recebeu seu primeiro minigame em `simulacao.html`, apresentado como um executável tático recuperado do pacote DD-01. A página usa Canvas com pixel art totalmente procedural, sem engine, biblioteca ou imagens externas. A experiência funciona como um shooter vertical de arena: o jogador precisa permanecer em movimento, administrar munição e habilidade e neutralizar três ondas formadas por errantes, corredores e brutos. Kits médicos e caixas de munição podem ser recuperados durante a partida; pontuação, combo, vitória, derrota, reinício e recorde individual completam o ciclo de aproximadamente dois a quatro minutos.
 
-Três unidades estão disponíveis. Mick Bradock é equilibrado e usa **Foco Tático**, que acelera e perfura disparos; Mei Bradock privilegia mobilidade e sobrevivência com **Impulso Evasivo**; o Major Hanson possui a maior resistência e poder de impacto, ativando **Última Linha**. Vida, velocidade, dano, cadência, carregador, reserva, recarga e habilidade são parâmetros reais do jogo, não apenas descrições visuais.
+Três unidades estão disponíveis. Mick Braddock é equilibrado e usa **Foco Tático**, que acelera e perfura disparos; Mei Braddock privilegia mobilidade e sobrevivência com **Impulso Evasivo**; o Major Hanson possui a maior resistência e poder de impacto, ativando **Última Linha**. Vida, velocidade, dano, cadência, carregador, reserva, recarga e habilidade são parâmetros reais do jogo, não apenas descrições visuais.
 
 Os controles de desktop usam WASD ou setas, Espaço, R, Shift e Esc/P. Telas sensíveis ao toque recebem direcional, tiro, recarga, habilidade e pausa com alvos de pelo menos 48 pixels. A simulação pausa ao perder foco ou ocultar a aba, preserva o comportamento padrão de botões e possui live regions, resumos acessíveis dos personagens, foco visível e suporte a movimento reduzido. Os efeitos sonoros são sintetizados com Web Audio somente após uma ação do visitante e podem ser silenciados. Apenas `dd_simulation_records_v1` e `dd_simulation_settings_v1` são armazenados localmente; nenhum dado da partida é transmitido.
 
@@ -1043,3 +1043,7 @@ As imagens `img-sophie/agente-grey.png` e `img-sophie/medica-grey.png` foram ide
 - revisar a edição inglesa página por página até não restarem avisos de interface parcialmente traduzida;
 - integrar os arquivos de Emily somente após receber e confirmar seu background e a finalidade de cada imagem;
 - conferir a reprodução das trilhas em navegadores com autoplay bloqueado.
+
+### Padronização do sobrenome Braddock — 16 de novembro de 2026
+
+O sobrenome da família passou a ser escrito **Braddock**, com dois “d”, em todo o texto visível do site em português e inglês, nos dossiês, na galeria, na simulação, nos arquivos narrativos e neste resumo. A marca foi ajustada para **Braddock Atelier**. IDs internos, chaves de tradução, seletores e caminhos de imagens como `img-bradock/` foram preservados para não quebrar rotas nem referências de mídia.

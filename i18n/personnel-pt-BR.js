@@ -19,7 +19,7 @@
     'personnel.directory.hero.titleB': 'GENS',
     'personnel.directory.hero.copy': 'Fichas recuperadas de todos os envolvidos no incidente — famílias, comando militar e Pentágono. Clique em qualquer ficha para abrir o registro completo.',
     'personnel.directory.filters.all': 'Todos',
-    'personnel.directory.filters.bradock': 'Família Bradock',
+    'personnel.directory.filters.bradock': 'Família Braddock',
     'personnel.directory.filters.hanson': 'Família Hanson',
     'personnel.directory.filters.salazar': 'Família Salazar',
     'personnel.directory.search.label': 'Pesquisar personagens',
