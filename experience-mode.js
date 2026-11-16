@@ -71,28 +71,56 @@
     switcher.setAttribute('aria-label', translate(labelKey));
     switcher.title = translate(labelKey);
 
-    [['pt-BR', 'PT'], ['en', 'EN']].forEach(function (entry, index) {
-      const button = document.createElement('button');
-      const active = window.DoomsdayI18n.locale === entry[0];
-      button.type = 'button';
-      button.className = 'language-option';
-      button.dataset.locale = entry[0];
-      button.setAttribute('aria-pressed', String(active));
-      button.setAttribute('aria-label', translate(entry[0] === 'pt-BR' ? 'global.language.pt' : 'global.language.en'));
-      button.textContent = entry[1];
-      if (active) button.classList.add('active');
-      button.addEventListener('click', function () {
-        if (!active) window.DoomsdayI18n.setLocale(entry[0]);
-      });
-      switcher.appendChild(button);
-      if (index === 0) {
-        const separator = document.createElement('span');
-        separator.setAttribute('aria-hidden', 'true');
-        separator.textContent = '//';
-        switcher.appendChild(separator);
-      }
+    const brazilFlag = document.createElement('span');
+    brazilFlag.className = 'language-flag language-flag-pt';
+    brazilFlag.setAttribute('aria-hidden', 'true');
+    brazilFlag.innerHTML = '<svg viewBox="0 0 36 24" preserveAspectRatio="none"><rect width="36" height="24" fill="#009b3a"/><path d="M18 2.5 33 12 18 21.5 3 12Z" fill="#ffdf00"/><circle cx="18" cy="12" r="5.3" fill="#002776"/><path d="M13 11.6c3.3-1.5 6.7-1.2 10 .5" fill="none" stroke="#fff" stroke-width=".8"/></svg>';
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'language-toggle';
+    toggle.setAttribute('role', 'switch');
+    toggle.setAttribute('aria-label', translate('global.language.label'));
+    toggle.innerHTML = '<span class="language-toggle-thumb"></span>';
+
+    const unitedStatesFlag = document.createElement('span');
+    unitedStatesFlag.className = 'language-flag language-flag-en';
+    unitedStatesFlag.setAttribute('aria-hidden', 'true');
+    unitedStatesFlag.innerHTML = '<svg viewBox="0 0 36 24" preserveAspectRatio="none"><rect width="36" height="24" fill="#fff"/><path d="M0 0h36v2H0Zm0 4h36v2H0Zm0 4h36v2H0Zm0 4h36v2H0Zm0 4h36v2H0Zm0 4h36v2H0Z" fill="#b22234"/><rect width="16" height="13" fill="#3c3b6e"/><g fill="#fff"><circle cx="3" cy="2.5" r=".65"/><circle cx="7" cy="2.5" r=".65"/><circle cx="11" cy="2.5" r=".65"/><circle cx="5" cy="5.5" r=".65"/><circle cx="9" cy="5.5" r=".65"/><circle cx="13" cy="5.5" r=".65"/><circle cx="3" cy="8.5" r=".65"/><circle cx="7" cy="8.5" r=".65"/><circle cx="11" cy="8.5" r=".65"/><circle cx="5" cy="11" r=".65"/><circle cx="9" cy="11" r=".65"/><circle cx="13" cy="11" r=".65"/></g></svg>';
+
+    const renderState = function () {
+      const portugueseActive = window.DoomsdayI18n.locale === 'pt-BR';
+      brazilFlag.classList.toggle('active', portugueseActive);
+      unitedStatesFlag.classList.toggle('active', !portugueseActive);
+      toggle.setAttribute('aria-checked', String(portugueseActive));
+      toggle.setAttribute('aria-valuetext', translate(portugueseActive ? 'global.language.pt' : 'global.language.en'));
+    };
+
+    toggle.addEventListener('click', function () {
+      const nextLocale = window.DoomsdayI18n.locale === 'pt-BR' ? 'en' : 'pt-BR';
+      window.DoomsdayI18n.setLocale(nextLocale);
     });
+    document.addEventListener('dd:locale-change', renderState);
+
+    switcher.append(brazilFlag, toggle, unitedStatesFlag);
+    renderState();
     return switcher;
+  }
+
+  function mountLanguageSwitcher(switcher) {
+    const brand = document.querySelector('.site-header .brand, .story-nav .brand, nav .brand, nav .logo, nav > strong');
+    if (brand && brand.parentNode) {
+      const cluster = document.createElement('div');
+      cluster.className = 'brand-language-cluster';
+      brand.parentNode.insertBefore(cluster, brand);
+      cluster.append(brand, switcher);
+      return;
+    }
+
+    const fallback = document.createElement('div');
+    fallback.className = 'global-language-fallback';
+    fallback.appendChild(switcher);
+    document.body.appendChild(fallback);
   }
 
   function mountControls() {
@@ -142,7 +170,7 @@
     const dock = document.createElement('div');
     dock.className = 'global-control-dock';
     const languageSwitcher = createLanguageSwitcher();
-    if (languageSwitcher) dock.appendChild(languageSwitcher);
+    if (languageSwitcher) mountLanguageSwitcher(languageSwitcher);
 
     if (!isOpeningPage && pageName !== '') {
       const toggle = document.createElement('button');

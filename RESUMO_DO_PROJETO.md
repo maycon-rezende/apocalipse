@@ -1047,3 +1047,9 @@ As imagens `img-sophie/agente-grey.png` e `img-sophie/medica-grey.png` foram ide
 ### Padronização do sobrenome Braddock — 16 de novembro de 2026
 
 O sobrenome da família passou a ser escrito **Braddock**, com dois “d”, em todo o texto visível do site em português e inglês, nos dossiês, na galeria, na simulação, nos arquivos narrativos e neste resumo. A marca foi ajustada para **Braddock Atelier**. IDs internos, chaves de tradução, seletores e caminhos de imagens como `img-bradock/` foram preservados para não quebrar rotas nem referências de mídia.
+
+### Seletor compacto de idioma — 16 de novembro de 2026
+
+O seletor PT-BR/EN foi transferido do canto inferior direito para junto da marca no cabeçalho, no alto à esquerda. As duas opções textuais foram substituídas por ícones SVG das bandeiras do Brasil e dos Estados Unidos e um único controle alternável: à esquerda/ligado, Português do Brasil; à direita/desligado, inglês dos EUA. A bandeira ativa recebe destaque visual, e o botão expõe seu estado por `role="switch"`, `aria-checked` e texto acessível. Na introdução, que não possui marca no cabeçalho, o controle usa um encaixe discreto no alto à esquerda.
+
+A escolha continua sendo persistida por `DoomsdayI18n` e sincronizada com `?lang=`; o restante dos controles da experiência analógica permanece no canto inferior direito. A auditoria da edição inglesa passou novamente: 13 páginas, 619 vínculos i18n, 212 referências locais e 1.628 chaves. A prévia visual não foi confirmada porque o serviço de controle do navegador expirou neste ambiente.
