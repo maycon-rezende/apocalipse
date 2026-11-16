@@ -1,6 +1,6 @@
 # DoomsDay — resumo do projeto
 
-Última atualização: 27 de julho de 2026.
+Última atualização: 16 de novembro de 2026.
 
 ## Conceito geral
 
@@ -1026,3 +1026,20 @@ node scripts/build-en-preview.js
 node scripts/qa-en-preview.js
 git diff --check
 ```
+
+### Continuidade e integração de trilhas — 16 de novembro de 2026
+
+O arquivo secreto de Daniel agora usa `audio/themedeniel.mp3`, respeitando o mesmo padrão de trilha individual dos demais personagens. A Central do Setor 05 inicia `audio/themeprotocolo.mp3` em loop, tenta autoplay e retoma na primeira interação caso o navegador bloqueie a reprodução. Essa trilha não é carregada durante a Simulação de Contenção, que mantém seus efeitos próprios gerados pela Web Audio API.
+
+A edição inglesa foi regenerada e sua auditoria passou: 13 páginas, 619 vínculos i18n, 212 referências locais e 1.628 chaves de tradução. A inspeção visual não pôde ser feita porque o serviço de controle do navegador expirou; por isso, a conferência visual e o teste real de reprodução continuam pendentes.
+
+As oito imagens presentes em `img-emily/` foram preservadas localmente, mas não foram publicadas nem associadas a uma ficha: ainda não há background canônico ou confirmação do papel de Emily na história. O material poderá ser integrado quando essa definição chegar.
+
+As imagens `img-sophie/agente-grey.png` e `img-sophie/medica-grey.png` foram identificadas no commit público anterior embora o resumo já determinasse que não deveriam ser publicadas. A retirada do estado atual do repositório não apaga as cópias existentes no histórico Git; uma remoção retroativa do histórico exigiria uma decisão separada e coordenada.
+
+**Próximas etapas verificadas:**
+
+- testar DD-01 com cada personagem e DD-02 no ritmo normal, em desktop e celular;
+- revisar a edição inglesa página por página até não restarem avisos de interface parcialmente traduzida;
+- integrar os arquivos de Emily somente após receber e confirmar seu background e a finalidade de cada imagem;
+- conferir a reprodução das trilhas em navegadores com autoplay bloqueado.

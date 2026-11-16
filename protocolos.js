@@ -188,9 +188,30 @@
     if (event.key === null || event.key === SIMULATION_KEY || event.key === FREQUENCY_KEY) refresh();
   }
 
+  function startProtocolTheme() {
+    const audio = document.getElementById('audio-signal');
+    if (!audio) return;
+
+    audio.loop = true;
+    audio.volume = 0.34;
+
+    const unlock = function () {
+      audio.play().then(function () {
+        document.removeEventListener('pointerdown', unlock);
+        document.removeEventListener('keydown', unlock);
+      }).catch(function () {});
+    };
+
+    document.addEventListener('pointerdown', unlock);
+    document.addEventListener('keydown', unlock);
+    unlock();
+    window.addEventListener('pagehide', function () { audio.pause(); }, { once: true });
+  }
+
   function init() {
     if (initialized || !cacheDom()) return;
     initialized = true;
+    startProtocolTheme();
     refresh();
     window.addEventListener('pageshow', refresh);
     window.addEventListener('storage', onStorage);
