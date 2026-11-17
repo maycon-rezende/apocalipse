@@ -10,6 +10,7 @@ const OUTPUT = path.join(ROOT, 'en-preview');
 const ALL_PAGES = [
   'index.html',
   'home.html',
+  'transicao-extincao.html',
   'historia.html',
   'personagens.html',
   'personagem.html',

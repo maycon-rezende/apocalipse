@@ -7,7 +7,7 @@ const vm = require('node:vm');
 
 const ROOT = path.resolve(__dirname, '..');
 const PREVIEW = path.join(ROOT, 'en-preview');
-const PAGES = ['index.html', 'home.html', 'historia.html', 'personagens.html', 'personagem.html', 'ameaca.html', 'projeto-doom.html', 'galeria.html', 'protocolos.html', 'simulacao.html', 'frequencia-morta.html', 'evidencias.html', 'acesso-restrito.html'];
+const PAGES = ['index.html', 'home.html', 'transicao-extincao.html', 'historia.html', 'personagens.html', 'personagem.html', 'ameaca.html', 'projeto-doom.html', 'galeria.html', 'protocolos.html', 'simulacao.html', 'frequencia-morta.html', 'evidencias.html', 'acesso-restrito.html'];
 const MODULES = ['personnel', 'gallery', 'classified', 'simulation', 'protocols', 'frequency'];
 const INTRO_REQUIRED_IDS = ['start-gate', 'bg-audio', 'testimony-line', 'title-wrap', 'movie-title', 'age-prefix', 'movie-tagline', 'blood-wipe', 'enter-prompt'];
 

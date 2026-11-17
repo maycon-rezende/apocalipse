@@ -1044,13 +1044,13 @@ As imagens `img-sophie/agente-grey.png` e `img-sophie/medica-grey.png` foram ide
 - integrar os arquivos de Emily somente após receber e confirmar seu background e a finalidade de cada imagem;
 - conferir a reprodução das trilhas em navegadores com autoplay bloqueado.
 
-### Ponte narrativa — DoomsDay ↔ A Era da Extinção — 16 de novembro de 2026
+### Conexão unidirecional — DoomsDay → A Era da Extinção — 17 de novembro de 2026
 
-A home de DoomsDay termina com um portal para **A Era da Extinção**, aproximadamente duas décadas após o Dia D. A cronologia da Extinção agora abre a entrada de DoomsDay, completando a ligação nos dois sentidos.
+A home de DoomsDay apresenta um convite chamativo para **A Era da Extinção**, cerca de duas décadas após o Dia D. O primeiro clique abre `transicao-extincao.html`, uma introdução própria do DoomsDay; somente após a leitura e um segundo clique, a pessoa segue para o site externo. A mudança desta etapa limita-se ao DoomsDay e não depende de um link de retorno na Extinção.
 
-Na História, a seção interativa **Arquivos isolados** reúne referências curtas a Jack Connor como mentor de Mick, Mark Connor nas lembranças militares de Hanson e à Dra. Alice Myers Connor, que ajudou Mei durante a gravidez de Chris. Os dossiês de Mick, Hanson e Mei também recebem esses fragmentos individualmente. A página de Ameaça contém uma notícia interrompida sobre os Hellsings; o objeto da captura permanece sem identificação.
+A transição funciona em português e inglês, respeita o seletor de idioma e oferece um retorno explícito ao arquivo do Dia D. A saída externa é manual — não há redirecionamento automático. Na História, **Arquivos isolados** reúne referências a Jack Connor como mentor de Mick, Mark Connor nas lembranças militares de Hanson e à Dra. Alice Myers Connor, que ajudou Mei durante a gravidez de Chris. Os dossiês de Mick, Hanson e Mei também recebem esses fragmentos. A página Ameaça contém uma notícia interrompida sobre os Hellsings; o objeto capturado permanece sem identificação.
 
-A cópia inglesa foi regenerada. `node scripts/qa-en-preview.js` passou com 13 páginas, 646 vínculos i18n, 216 referências locais e 1.661 chaves nos dicionários combinados. A inspeção visual no navegador ainda não foi possível nesta sessão.
+A validação inglesa deve incluir a nova página de transição no gerador e na verificação automatizada. A inspeção visual no navegador ainda não foi possível na sessão anterior.
 
 ### Padronização do sobrenome Braddock — 16 de novembro de 2026
 
