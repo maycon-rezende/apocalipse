@@ -1044,6 +1044,14 @@ As imagens `img-sophie/agente-grey.png` e `img-sophie/medica-grey.png` foram ide
 - integrar os arquivos de Emily somente após receber e confirmar seu background e a finalidade de cada imagem;
 - conferir a reprodução das trilhas em navegadores com autoplay bloqueado.
 
+### Ponte narrativa — DoomsDay ↔ A Era da Extinção — 16 de novembro de 2026
+
+A home de DoomsDay termina com um portal para **A Era da Extinção**, aproximadamente duas décadas após o Dia D. A cronologia da Extinção agora abre a entrada de DoomsDay, completando a ligação nos dois sentidos.
+
+Na História, a seção interativa **Arquivos isolados** reúne referências curtas a Jack Connor como mentor de Mick, Mark Connor nas lembranças militares de Hanson e à Dra. Alice Myers Connor, que ajudou Mei durante a gravidez de Chris. Os dossiês de Mick, Hanson e Mei também recebem esses fragmentos individualmente. A página de Ameaça contém uma notícia interrompida sobre os Hellsings; o objeto da captura permanece sem identificação.
+
+A cópia inglesa foi regenerada. `node scripts/qa-en-preview.js` passou com 13 páginas, 646 vínculos i18n, 216 referências locais e 1.661 chaves nos dicionários combinados. A inspeção visual no navegador ainda não foi possível nesta sessão.
+
 ### Padronização do sobrenome Braddock — 16 de novembro de 2026
 
 O sobrenome da família passou a ser escrito **Braddock**, com dois “d”, em todo o texto visível do site em português e inglês, nos dossiês, na galeria, na simulação, nos arquivos narrativos e neste resumo. A marca foi ajustada para **Braddock Atelier**. IDs internos, chaves de tradução, seletores e caminhos de imagens como `img-bradock/` foram preservados para não quebrar rotas nem referências de mídia.

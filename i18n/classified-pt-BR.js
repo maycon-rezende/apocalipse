@@ -319,7 +319,11 @@
     'classified.threat.dynamic.hideReply': 'OCULTAR RESPOSTA',
     'classified.threat.dynamic.evidenceRecovered': 'RECUPERADA',
     'classified.threat.dynamic.near': 'RANGE // NEAR',
-    'classified.threat.dynamic.critical': 'RANGE // CRITICAL'
+    'classified.threat.dynamic.critical': 'RANGE // CRITICAL',
+    'classified.threat.news.hellsings.date': 'DATA RETIDA // ARQUIVO ANTERIOR AO DIA D',
+    'classified.threat.news.hellsings.title': 'Organização Hellsings é citada em transmissão interrompida',
+    'classified.threat.news.hellsings.copy': 'Uma linha sobreviveu ao corte: “Os Hellsings capturaram um—” O objeto nunca foi identificado.',
+    'classified.threat.news.hellsings.status': 'OBJETO NÃO IDENTIFICADO // SINAL CORTADO'
   });
   /* As frases-fonte extensas são preenchidas pelo módulo inglês pareado,
      que precisa delas para a tradução reativa. As chaves são declaradas aqui

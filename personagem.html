@@ -3583,6 +3583,7 @@
   </style>
   <link rel="stylesheet" href="page-transition.css">
   <link rel="stylesheet" href="experience-mode.css">
+  <link rel="stylesheet" href="crossover.css">
   <script src="i18n/pt-BR.js"></script>
   <script src="i18n/en.js"></script>
   <script src="i18n/personnel-pt-BR.js"></script>
@@ -3663,6 +3664,14 @@
             <span class="redacted">████████████</span></p>
         </article>
       </div>
+    </section>
+    <section class="section cross-universe-section" id="cross-universe-section" hidden aria-labelledby="cross-universe-title">
+      <article class="cross-universe-record">
+        <span class="cross-universe-record__kicker" data-i18n="personnel.profile.crossref.kicker">INTERFERÊNCIA ENTRE ARQUIVOS // ORIGEM EXTERNA</span>
+        <h2 class="section-title" id="cross-universe-title"></h2>
+        <p id="cross-universe-copy"></p>
+        <small data-i18n="personnel.profile.crossref.footer">REFERÊNCIA PRESERVADA // CRONOLOGIA NÃO ANEXADA</small>
+      </article>
     </section>
     <section class="section" id="profile-section" hidden>
       <h2 class="section-title" data-i18n="personnel.profile.section.operational">Perfil operacional</h2>
@@ -3876,6 +3885,12 @@
     document.getElementById('secret-evidence-link').href = `evidencias.html?id=${records[key] ? key : 'mick'}`;
     const characterThemes = { mick: 'thememick.mp3', mei: 'thememei.mp3', chris: 'themechris.mp3', maya: 'thememaya.mp3', hanson: 'themehanson.mp3', natasha: 'themenat.mp3', daniel: 'themedeniel.mp3' };
     const activeCharacter = records[key] ? key : 'mick';
+    const crossReference = { mick: 'mick', hanson: 'hanson', mei: 'mei' }[activeCharacter];
+    if (crossReference) {
+      document.getElementById('cross-universe-section').hidden = false;
+      document.getElementById('cross-universe-title').textContent = profileT(`personnel.profile.crossref.${crossReference}.title`);
+      document.getElementById('cross-universe-copy').textContent = profileT(`personnel.profile.crossref.${crossReference}.copy`);
+    }
     if (characterThemes[activeCharacter]) {
       const characterTheme = new Audio(`audio/${characterThemes[activeCharacter]}`);
       characterTheme.loop = true; characterTheme.preload = 'auto';

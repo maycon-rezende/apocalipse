@@ -323,7 +323,11 @@
     'classified.threat.dynamic.hideReply': 'HIDE REPLY',
     'classified.threat.dynamic.evidenceRecovered': 'RECOVERED',
     'classified.threat.dynamic.near': 'RANGE // NEAR',
-    'classified.threat.dynamic.critical': 'RANGE // CRITICAL'
+    'classified.threat.dynamic.critical': 'RANGE // CRITICAL',
+    'classified.threat.news.hellsings.date': 'DATE WITHHELD // PRE-D-DAY FILE',
+    'classified.threat.news.hellsings.title': 'Hellsings named in an interrupted transmission',
+    'classified.threat.news.hellsings.copy': 'One line survived the cut: “The Hellsings captured a—” The object was never identified.',
+    'classified.threat.news.hellsings.status': 'OBJECT UNIDENTIFIED // SIGNAL CUT'
   });
   const sourcePairs = [
     ['72H ANTES // COSTA OESTE', '72H BEFORE // WEST COAST'],
