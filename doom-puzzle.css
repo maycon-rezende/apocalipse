@@ -1,9 +1,14 @@
 .doom-clue-host{position:relative}
-.doom-fragment{position:absolute;z-index:12;right:.7rem;bottom:.7rem;width:34px;height:34px;border:1px solid rgba(169,232,246,.24);background:rgba(4,8,8,.72);color:#6f8f92;font:1.15rem 'VT323',monospace;cursor:pointer;opacity:.3;transform:rotate(45deg);transition:opacity .25s,border-color .25s,box-shadow .25s,color .25s}
-.doom-fragment span{display:block;transform:rotate(-45deg)}
-.doom-fragment:hover,.doom-fragment:focus-visible{opacity:1;color:#a9e8f6;border-color:#a9e8f6;box-shadow:0 0 18px rgba(169,232,246,.28);outline:none}
-.doom-fragment.collected{color:#e8a33d;border-color:#e8a33d;opacity:.58}
+.doom-fragment{position:absolute;z-index:20;right:.7rem;bottom:.7rem;display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(169,232,246,.68);background:rgba(4,8,8,.94);color:#a9e8f6;font:1.35rem 'VT323',monospace;cursor:pointer;opacity:.82;transform:rotate(45deg);box-shadow:0 0 12px rgba(169,232,246,.12);transition:opacity .25s,border-color .25s,box-shadow .25s,color .25s,transform .25s;animation:doom-signal-pulse 3.2s ease-in-out infinite}
+.doom-fragment::before{content:'';position:absolute;inset:4px;border:1px solid rgba(169,232,246,.24);pointer-events:none}
+.doom-fragment span{position:relative;z-index:1;display:block;transform:rotate(-45deg)}
+.doom-fragment:hover,.doom-fragment:focus-visible{opacity:1;color:#d9f7ff;border-color:#d9f7ff;box-shadow:0 0 22px rgba(169,232,246,.42);transform:rotate(45deg) scale(1.08);outline:2px solid rgba(169,232,246,.46);outline-offset:3px}
+.doom-fragment.collected{color:#ffd28b;border-color:#e8a33d;opacity:.94;animation:none}
+.doom-clue-host.page-tools>.doom-fragment{position:relative;top:auto;right:auto;bottom:auto;flex:0 0 40px;align-self:center;margin-left:.3rem}
+.doom-clue-host.warning{padding-right:3.8rem;padding-bottom:3rem}
+.doom-clue-host.field-file{padding-bottom:4rem}
 .doom-fragment-alert{position:fixed;z-index:1800;left:50%;bottom:2rem;width:min(520px,88vw);padding:1rem 1.2rem;border:1px solid #a9e8f6;background:rgba(4,8,8,.97);color:#a9e8f6;font:1.1rem/1.45 'VT323',monospace;letter-spacing:.08em;text-align:center;box-shadow:0 20px 70px #000,0 0 24px rgba(169,232,246,.15);opacity:0;transform:translate(-50%,20px);transition:.3s;pointer-events:none}
 .doom-fragment-alert.visible{opacity:1;transform:translate(-50%,0)}
 .doom-fragment-alert strong{display:block;color:#e8a33d;font-size:1.45rem;letter-spacing:.18em}
-@media(prefers-reduced-motion:reduce){.doom-fragment,.doom-fragment-alert{transition:none}}
+@keyframes doom-signal-pulse{0%,100%{opacity:.68;box-shadow:0 0 8px rgba(169,232,246,.08)}50%{opacity:1;box-shadow:0 0 18px rgba(169,232,246,.28)}}
+@media(prefers-reduced-motion:reduce){.doom-fragment,.doom-fragment-alert{transition:none;animation:none}}

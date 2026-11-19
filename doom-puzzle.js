@@ -5,7 +5,7 @@
   const params=new URLSearchParams(location.search);
   const clues={
     'home.html':{id:'origin',fragment:'ANT',labelKey:'global.doom.originFragment',label:'Fragmento de origem',host:'.investigation-progress'},
-    'personagens.html':{id:'integrity',fragment:'31',labelKey:'global.doom.integrityFragment',label:'Fragmento de integridade',host:'.dossier.featured'},
+    'personagens.html':{id:'integrity',fragment:'31',labelKey:'global.doom.integrityFragment',label:'Fragmento de integridade',host:'.page-tools'},
     'ameaca.html':{id:'risk',fragment:'OMEGA',labelKey:'global.doom.riskFragment',label:'Fragmento de risco',host:'.field-file'}
   };
   if(page==='personagem.html'){
