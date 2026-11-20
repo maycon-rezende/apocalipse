@@ -19,6 +19,15 @@ function read(file) {
   return fs.readFileSync(file, 'utf8');
 }
 
+function localPathFromReference(reference) {
+  const pathname = reference.split(/[?#]/)[0];
+  try {
+    return decodeURIComponent(pathname);
+  } catch {
+    return pathname;
+  }
+}
+
 function assertIntroContract(html, label) {
   INTRO_REQUIRED_IDS.forEach(function (id) {
     const matches = html.match(new RegExp(`\\bid=["']${id}["']`, 'g')) || [];
@@ -98,12 +107,12 @@ PAGES.forEach(function (page) {
     if (reference.includes('${')) continue;
     if (/^(?:https?:|data:|mailto:|tel:|#)/i.test(reference)) continue;
     if (reference.startsWith('en-preview/')) {
-      const clean = reference.split(/[?#]/)[0];
+      const clean = localPathFromReference(reference);
       if (!fs.existsSync(path.join(ROOT, clean))) fail(`${page}: missing preview target ${clean}`);
       resourceCount++;
       continue;
     }
-    const clean = reference.split(/[?#]/)[0];
+    const clean = localPathFromReference(reference);
     if (!clean || clean === '..' || clean === '../') continue;
     if (!fs.existsSync(path.join(ROOT, clean))) fail(`${page}: missing shared resource ${clean}`);
     resourceCount++;

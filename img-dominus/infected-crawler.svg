@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 520" role="img">
+  <defs>
+    <radialGradient id="room" cx="50%" cy="64%" r="72%"><stop offset="0" stop-color="#253538"/><stop offset="1" stop-color="#05090a"/></radialGradient>
+    <linearGradient id="skin" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#91a099"/><stop offset=".5" stop-color="#46534f"/><stop offset="1" stop-color="#172122"/></linearGradient>
+    <linearGradient id="cloth" x1="0" x2="1"><stop stop-color="#3a433f"/><stop offset="1" stop-color="#121919"/></linearGradient>
+    <filter id="eye-glow" x="-300%" y="-300%" width="700%" height="700%"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="420" height="520" fill="url(#room)"/>
+  <g stroke="#9fe5ef" stroke-opacity=".09" stroke-width="1"><path d="M32 0v520M84 0v520M136 0v520M188 0v520M240 0v520M292 0v520M344 0v520M396 0v520"/><path d="M0 72h420M0 144h420M0 216h420M0 288h420M0 360h420M0 432h420"/></g>
+  <path d="M48 439h324" stroke="#9fe5ef" stroke-opacity=".2"/>
+  <ellipse cx="219" cy="437" rx="128" ry="18" fill="#010304" opacity=".76"/>
+  <g fill="none" stroke="url(#skin)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M155 338l-61 55-24 31M250 346l58 42 52 5M176 349l-17 62-52 36M250 351l32 60 44 37" stroke-width="28"/>
+    <path d="M94 393l-20 20M362 393l27 8M105 445l-21 22M327 448l28 8" stroke-width="13"/>
+  </g>
+  <path d="M129 256q48-43 112-15l36 87q-46 43-120 23l-47-42z" fill="url(#cloth)" stroke="#aab7ae" stroke-opacity=".35" stroke-width="2"/>
+  <path d="M146 272l43 34-30 35M230 264l-23 39 47 23M128 322l40 18M257 328l21 8" fill="none" stroke="#bac1b4" stroke-opacity=".37" stroke-width="4"/>
+  <path d="M243 219q-2-27 22-40 21-8 41 10l8 28-18 34-38 5-22-17z" fill="url(#skin)" stroke="#b8c4b9" stroke-opacity=".38" stroke-width="2"/>
+  <path d="M250 218q13-20 35-17l25 13-18 7-5 13-12-8-18 12-12-9z" fill="#11191a"/>
+  <path d="M257 224h8M285 222h8" stroke="#d21f35" stroke-width="4" filter="url(#eye-glow)"/>
+  <path d="M265 244q10 5 18-3" fill="none" stroke="#090e0f" stroke-width="5"/>
+  <path d="M92 415l-17 14M353 420l14 12" stroke="#d5d9cf" stroke-opacity=".45" stroke-width="4"/>
+  <path d="M215 56v380" stroke="#9fe5ef" stroke-opacity=".1" stroke-dasharray="5 10"/>
+  <circle cx="282" cy="180" r="3" fill="#d21f35" opacity=".8"/>
+</svg>

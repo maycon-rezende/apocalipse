@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 520" role="img">
+  <defs>
+    <radialGradient id="room" cx="50%" cy="42%" r="70%"><stop offset="0" stop-color="#203236"/><stop offset="1" stop-color="#05090a"/></radialGradient>
+    <linearGradient id="skin" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7d8d85"/><stop offset=".48" stop-color="#354543"/><stop offset="1" stop-color="#111b1c"/></linearGradient>
+    <linearGradient id="cloth" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#303a37"/><stop offset="1" stop-color="#101717"/></linearGradient>
+    <filter id="eye-glow" x="-300%" y="-300%" width="700%" height="700%"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="420" height="520" fill="url(#room)"/>
+  <g stroke="#9fe5ef" stroke-opacity=".09" stroke-width="1"><path d="M32 0v520M84 0v520M136 0v520M188 0v520M240 0v520M292 0v520M344 0v520M396 0v520"/><path d="M0 72h420M0 144h420M0 216h420M0 288h420M0 360h420M0 432h420"/></g>
+  <path d="M72 473h276" stroke="#9fe5ef" stroke-opacity=".18"/>
+  <ellipse cx="213" cy="465" rx="76" ry="14" fill="#010304" opacity=".76"/>
+  <g stroke="#101718" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M190 329l-11 70 8 62M228 333l19 69-3 60" fill="none" stroke="url(#skin)" stroke-width="25"/>
+    <path d="M179 396l-22 68M246 397l28 63" fill="none" stroke="#111919" stroke-width="18"/>
+    <path d="M168 236l-38 76 1 68M250 225l39 71-2 56" fill="none" stroke="url(#skin)" stroke-width="25"/>
+    <path d="M132 367l-8 22M287 348l17 16" fill="none" stroke="#7d8d85" stroke-width="10"/>
+  </g>
+  <path d="M170 207q44-26 87 9l18 117q-45 28-98 2l-22-85z" fill="url(#cloth)" stroke="#81928c" stroke-opacity=".27" stroke-width="2"/>
+  <path d="M189 228l20 17-10 51M238 224l-17 29 21 50M171 310l29 19M255 307l-30 24" fill="none" stroke="#9fa99e" stroke-opacity=".36" stroke-width="4"/>
+  <path d="M191 105q-11-28 15-47 25-16 47 5l12 34-15 43-46 6-22-22z" fill="url(#skin)" stroke="#a7b4a8" stroke-opacity=".32" stroke-width="2"/>
+  <path d="M196 94q18-19 42-15l25 17-18 8-4 11-12-7-18 17-16-7z" fill="#111b1c"/>
+  <path d="M192 101l-14 17 15 8M245 100l17 5-8 12" fill="none" stroke="#c0c7b9" stroke-opacity=".4" stroke-width="3"/>
+  <path d="M201 103h8M235 100h8" stroke="#d41d34" stroke-width="4" filter="url(#eye-glow)"/>
+  <path d="M210 130q12 7 23-2" fill="none" stroke="#080d0e" stroke-width="5"/>
+  <path d="M179 241l-21 47M264 235l25 45" stroke="#d3d7c9" stroke-opacity=".18" stroke-width="3"/>
+  <path d="M210 50v415" stroke="#9fe5ef" stroke-opacity=".1" stroke-dasharray="5 10"/>
+  <circle cx="212" cy="175" r="3" fill="#d21f35" opacity=".8"/>
+</svg>
