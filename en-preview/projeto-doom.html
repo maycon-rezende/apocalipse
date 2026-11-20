@@ -46,17 +46,50 @@ nav{position:fixed;inset:0 0 auto;z-index:100;display:flex;justify-content:space
 .boot-box{max-height:88vh;overflow-y:auto;padding:.2rem .4rem;scrollbar-color:var(--ice-dim) var(--void)}
 .classifier-option[aria-pressed=true]{border-color:var(--ice);color:var(--ice);box-shadow:inset 0 0 12px rgba(169,232,246,.08)}
 </style>
-<link rel="stylesheet" href="cursor-site.css">
-<link rel="stylesheet" href="experience-mode.css">
-<script src="i18n/pt-BR.js"></script><script src="i18n/en.js"></script><script src="i18n/classified-pt-BR.js"></script><script src="i18n/classified-en.js"></script><script src="i18n/core.js"></script><script src="experience-mode.js"></script>
+<link rel="stylesheet" href="../cursor-site.css">
+<link rel="stylesheet" href="../experience-mode.css">
+<link rel="stylesheet" href="../project-doom-stage1.css?v=2">
+<script src="../i18n/pt-BR.js"></script><script src="../i18n/en.js"></script><script src="../i18n/classified-pt-BR.js"></script><script src="../i18n/classified-en.js"></script><script src="../i18n/core.js"></script><script src="../experience-mode.js"></script>
 </head>
 <body class="locked">
 <div id="intro" role="dialog" aria-modal="true" aria-label="Project DOOM access protocol" data-i18n-attr="aria-label:classified.doom.intro.label">
+  <div class="antarctic-landscape" aria-hidden="true"><div class="antarctic-station-shape"></div><div class="antarctic-snow"></div></div>
   <div class="boot-box" id="boot-box" aria-live="polite"></div>
 </div>
 <div class="scanlines"></div><div class="vignette"></div><div class="frost"></div>
-<nav><strong>DOOMS<span>DAY</span> // BLACK VAULT</strong><a href="en-preview/home.html" data-i18n="classified.doom.close">← Close archive</a></nav>
-<main>
+<section id="surface-complex" class="doom-scene surface-scene" hidden aria-labelledby="surface-title">
+  <div class="surface-art" aria-hidden="true"><div class="surface-ridge"></div><div class="surface-station"></div><div class="surface-lights"></div></div>
+  <header class="doom-topbar"><a class="doom-brand" href="home.html">DOOM // BLACK VAULT</a><span data-i18n="classified.doom.stage1.surface.kicker">ANTARCTICA // OUTER NODE</span><a class="doom-exit" href="home.html" data-i18n="classified.doom.stage1.exit">EXIT PROJECT DOOM</a></header>
+  <div class="scene-shell surface-shell">
+    <div class="scene-heading"><p class="scene-kicker" data-i18n="classified.doom.stage1.surface.kicker">ANTARCTICA // OUTER NODE</p><h1 id="surface-title" tabindex="-1" data-i18n="classified.doom.stage1.surface.title">Surface complex</h1><p data-i18n="classified.doom.stage1.surface.copy">This is the first access point. A detailed plan and the outer sectors await official records.</p></div>
+    <div class="surface-layout">
+      <section class="surface-map-panel" aria-labelledby="surface-map-title"><div class="panel-cap"><span id="surface-map-title" data-i18n="classified.doom.stage1.surface.map">PROVISIONAL SCHEMATIC // SURFACE COMPLEX</span><span class="panel-rec">REC // 01</span></div>
+        <div class="surface-schematic" aria-hidden="true"><div class="schematic-grid"></div><div class="schematic-building"><i></i><i></i><i></i><i></i><b></b></div><div class="schematic-path"></div><div class="schematic-node">HADES<br><small data-i18n="classified.doom.stage1.surface.elevator">DESCENT ELEVATOR</small></div><span class="schematic-coordinate" data-i18n="classified.doom.stage1.surface.coordinate">ANTARCTICA // SURFACE</span></div>
+        <p class="surface-map-note" data-i18n="classified.doom.stage1.surface.status">LOCAL RECORD // PARTIAL</p>
+      </section>
+      <aside class="surface-access-panel"><p class="scene-kicker" data-i18n="classified.doom.stage1.surface.access.title">Sublevel access</p><h2 data-i18n="classified.doom.stage1.surface.access.title">Sublevel access</h2><p data-i18n="classified.doom.stage1.surface.access.copy">The elevator descends to the subterranean facility known as Hades.</p><div class="access-readout"><span data-i18n="classified.doom.stage1.surface.destination">DESTINATION</span><strong>HADES</strong><small data-i18n="classified.doom.stage1.surface.destination.detail">SUBTERRANEAN COMPLEX</small></div><button id="go-to-hades" class="doom-action" type="button" data-i18n="classified.doom.stage1.surface.access.button">GO TO HADES</button></aside>
+    </div>
+  </div>
+</section>
+<section id="hades-elevator" class="doom-scene elevator-scene" hidden aria-label="Elevator to the Hades complex" data-i18n-attr="aria-label:classified.doom.stage1.elevator.aria">
+  <div class="elevator-ambient" aria-hidden="true"><div class="elevator-depth"></div></div>
+  <div class="elevator-frame" aria-hidden="true"><div class="elevator-cabin"><div class="cabin-ceiling"></div><div class="cabin-rear-screen"><span>HADES</span><i></i></div><div class="cabin-floor"></div></div><div class="elevator-door elevator-door-left"></div><div class="elevator-door elevator-door-right"></div><div class="elevator-door-seam"></div></div>
+  <div class="elevator-readout"><span data-i18n="classified.doom.stage1.elevator.label">ELEVATOR // DESCENT AUTHORIZED</span><strong id="elevator-status" data-i18n="classified.doom.stage1.elevator.descending">DESCENDING</strong><i></i></div>
+  <section id="hades-arrival" class="elevator-welcome" hidden role="status" aria-live="polite"><p data-i18n="classified.doom.stage1.elevator.arrival">DESTINATION LEVEL REACHED</p><h1 id="hades-arrival-title" tabindex="-1" data-i18n="classified.doom.stage1.elevator.welcome">WELCOME TO HADES</h1><button id="enter-hades-hub" class="doom-action" type="button" data-i18n="classified.doom.stage1.elevator.enter">ENTER CONTROL CENTER</button></section>
+</section>
+<section id="hades-hub" class="doom-scene hades-hub" hidden aria-labelledby="hades-hub-title">
+  <header class="doom-topbar"><span class="doom-brand">HADES // ANT-DOOM-00</span><span data-i18n="classified.doom.stage1.hub.kicker">SUBTERRANEAN FACILITY // HADES</span><a class="doom-exit" href="home.html" data-i18n="classified.doom.stage1.hub.exit">END ACCESS</a></header>
+  <div class="hades-layout">
+    <nav class="hades-sector-nav" aria-label="Complex sectors" data-i18n-attr="aria-label:classified.doom.stage1.hub.menu"><p class="nav-caption" data-i18n="classified.doom.stage1.hub.menu">RECORDS AND SECTORS</p><button type="button" data-hub-module="overview" aria-pressed="true" data-i18n="classified.doom.stage1.hub.module.overview">OVERVIEW</button><button type="button" data-hub-module="divisions" aria-pressed="false" data-i18n="classified.doom.stage1.hub.module.divisions">DIVISIONS</button><button type="button" data-hub-module="research" aria-pressed="false" data-i18n="classified.doom.stage1.hub.module.research">RESEARCH</button><button type="button" data-hub-module="experiments" aria-pressed="false" data-i18n="classified.doom.stage1.hub.module.experiments">EXPERIMENTS</button><button type="button" data-hub-module="evolution" aria-pressed="false" data-i18n="classified.doom.stage1.hub.module.evolution">INFECTED EVOLUTION</button><button type="button" data-hub-module="personnel" aria-pressed="false" data-i18n="classified.doom.stage1.hub.module.personnel">PERSONNEL</button><button type="button" data-hub-module="diary" aria-pressed="false" data-i18n="classified.doom.stage1.hub.module.diary">MAVERICK'S DIARY</button></nav>
+    <main class="hades-workspace"><div class="workspace-heading"><p class="scene-kicker" data-i18n="classified.doom.stage1.hub.kicker">SUBTERRANEAN FACILITY // HADES</p><h1 id="hades-hub-title" tabindex="-1" data-i18n="classified.doom.stage1.hub.title">Control center</h1><p data-i18n="classified.doom.stage1.hub.copy">The internal map, records, and images will be indexed as the complex is reconstructed.</p></div>
+      <div class="hades-dashboard"><section class="hades-camera-panel" aria-label="Central camera"><div class="panel-cap"><span data-i18n="classified.doom.stage1.hub.camera">CENTRAL CAMERA // IMAGE PENDING</span><span class="camera-dot" data-i18n="classified.doom.stage1.hub.camera.state">RECORD // 00</span></div><div class="hades-camera-art" aria-hidden="true"><div class="camera-grid"></div><div class="lab-ceiling"></div><div class="lab-window"><i></i><i></i><i></i></div><div class="lab-console-shape"></div><div class="lab-floor"></div><span class="camera-crosshair">+</span></div><p class="camera-note" data-i18n="classified.doom.stage1.hub.camera.note">RESERVED FOR LABORATORY IMAGES</p></section>
+        <aside class="hades-status-panel" aria-live="polite"><div class="panel-cap"><span data-i18n="classified.doom.stage1.hub.status.title">ARCHIVE STATUS</span><span>ANT-00</span></div><div class="status-body"><p class="module-status" id="hub-module-status" data-i18n="classified.doom.stage1.hub.panel.overview.status">LOCAL TERMINAL // PARTIAL ACCESS</p><h2 id="hub-module-title" data-i18n="classified.doom.stage1.hub.panel.overview.title">Control center</h2><p id="hub-module-copy" data-i18n="classified.doom.stage1.hub.panel.overview.copy">The sectors are being prepared. The map and real images will be integrated when materials from the complex are available.</p><dl class="hub-readout"><div><dt data-i18n="classified.doom.stage1.hub.status.map">INTERNAL PLAN</dt><dd data-i18n="classified.doom.stage1.hub.status.map.value">NOT RECOVERED</dd></div><div><dt data-i18n="classified.doom.stage1.hub.status.records">RECORDS</dt><dd data-i18n="classified.doom.stage1.hub.status.records.value">BEING INDEXED</dd></div><div><dt data-i18n="classified.doom.stage1.hub.status.diary">MAVERICK'S DIARY</dt><dd data-i18n="classified.doom.stage1.hub.status.diary.value">FRAGMENTED</dd></div></dl></div></aside>
+      </div>
+    </main>
+  </div>
+</section>
+<nav><strong>DOOMS<span>DAY</span> // BLACK VAULT</strong><a href="home.html" data-i18n="classified.doom.close">← Close archive</a></nav>
+<main id="legacy-lab-content" hidden>
   <section class="section vault-header" id="vault-home"><div class="section-inner"><p class="vault-kicker" data-i18n="classified.doom.home.kicker">HADES // ANTARCTIC BIOLOGICAL ARCHIVE</p><h1 class="vault-title"><span data-i18n="classified.doom.project">PROJECT</span><br><span>DOOM</span></h1><p class="vault-lede" data-i18n="classified.doom.home.lede">A clandestine research facility reconstructed from fragmented files. Explore the records, compare accounts, and open only what the story has confirmed.</p><div class="vault-status"><article><span data-i18n="classified.doom.file">FILE</span><b>ANT-DOOM-00</b></article><article><span data-i18n="classified.doom.origin">ORIGIN</span><b data-i18n="classified.doom.antarctica">ANTARCTICA</b></article><article><span data-i18n="classified.doom.sample.category">CLASSIFICATION</span><b data-i18n="classified.doom.sample.category.value">CATEGORY 6</b></article><article><span data-i18n="classified.doom.integrity">INTEGRITY</span><b>31%</b></article></div></div></section>
 
   <section class="section vault-section" id="facility-map" data-index="01" aria-labelledby="vault-map-title"><p class="eyebrow reveal" data-i18n="classified.doom.lab.kicker">Recovered facility // internal access</p><h2 class="reveal" id="vault-map-title" data-i18n="classified.doom.lab.title">Laboratory map</h2><p class="section-intro reveal" data-i18n="classified.doom.lab.copy">Select a sector. Confirmed records, inferences, and gaps are separated in the terminal.</p><div class="vault-grid reveal"><div class="vault-map" role="group" aria-label="Interactive Project DOOM laboratory map" data-i18n-attr="aria-label:classified.doom.lab.label">
@@ -93,7 +126,7 @@ const fragmentKey='dd_doom_fragments_v1';
 const requiredFragments=['origin','sample','integrity','zero','risk'];
 const fragmentValues={origin:'ANT',sample:'00',integrity:'31',zero:'Z',risk:'OMEGA'};
 
-function readFragments(){try{return JSON.parse(localStorage.getItem(fragmentKey)||'[]')}catch{return[]}}
+function readFragments(){try{const stored=JSON.parse(localStorage.getItem(fragmentKey)||'[]');if(!Array.isArray(stored))return[];return[...new Set(stored.filter(id=>requiredFragments.includes(id)))]}catch{return[]}}
 try{localStorage.removeItem('dd_doom_lab_access_v1')}catch{}
 
 function wait(ms){return new Promise(resolve=>setTimeout(resolve,ms))}
@@ -130,6 +163,8 @@ function showAccessGate(){
   const total=requiredFragments.filter(id=>collected.includes(id)).length;
   bootBox.innerHTML=`<section class="access-gate"><h2>${doomT('classified.doom.gate.title')}</h2><p>${doomT('classified.doom.gate.copy')}</p><div class="fragment-status" aria-label="${doomT('classified.doom.gate.found',{total})}">${requiredFragments.map((id,index)=>`<span class="${collected.includes(id)?'found':''}" title="${doomT('classified.doom.gate.signature',{index:index+1})}">${collected.includes(id)?fragmentValues[id]:'?'}</span>`).join('')}</div><p class="gate-hint">${doomT('classified.doom.gate.order')}</p><form class="gate-form"><label class="sr-only" for="doom-code">${doomT('classified.doom.gate.label')}</label><input id="doom-code" name="doom-code" autocomplete="off" spellcheck="false" placeholder="${doomT('classified.doom.gate.placeholder')}" aria-label="${doomT('classified.doom.gate.label')}"><button type="submit">${doomT('classified.doom.gate.authorize')}</button></form><p class="gate-message" aria-live="polite">${total<5?doomT('classified.doom.gate.progress',{total}):doomT('classified.doom.gate.all')}</p><a class="gate-back" href="en-preview/home.html">${doomT('classified.doom.gate.back')}</a></section>`;
   const form=bootBox.querySelector('.gate-form');
+  const gateBack=bootBox.querySelector('.gate-back');
+  if(gateBack)gateBack.href='home.html';
   const input=form.querySelector('input');
   input.focus();
   form.addEventListener('submit',event=>{
@@ -142,11 +177,11 @@ function showAccessGate(){
     message.textContent=doomT('classified.doom.gate.accepted');
     message.classList.add('success');
     form.querySelector('button').disabled=true;
-    setTimeout(showFacilityReady,850);
+    setTimeout(()=>window.ProjectDoomStage1.showAntarcticEntry(),850);
   });
 }
 function showFacilityReady(){
-  switchToLaboratoryTheme();
+  window.switchToLaboratoryTheme?.();
   bootBox.innerHTML=`<section class="facility-incomplete"><div class="facility-head"><span>BLACK VAULT // SUBLEVEL ANT-00</span><b>${doomT('classified.doom.ready.status')}</b></div><h2>${doomT('classified.doom.ready.title')}</h2><p>${doomT('classified.doom.ready.copy')}</p><div class="lab-preview" aria-hidden="true"><div class="containment-chamber" data-label="${doomT('classified.doom.facility.chamber')}"></div><div class="sample-rack" data-label="${doomT('classified.doom.facility.samples')}"><i></i><i></i><i></i></div></div><div class="facility-status"><span>${doomT('classified.doom.ready.file')}<b>ANT-DOOM-00</b></span><span>${doomT('classified.doom.ready.source')}<b>${doomT('classified.doom.ready.recovered')}</b></span><span>${doomT('classified.doom.ready.unknown')}<b>${doomT('classified.doom.ready.sealed')}</b></span></div><div class="facility-actions"><button id="open-laboratory" type="button">${doomT('classified.doom.ready.enter')}</button><a href="en-preview/home.html">${doomT('classified.doom.gate.back')}</a></div></section>`;
   const enterButton=bootBox.querySelector('#open-laboratory');
   enterButton.addEventListener('click',enterProject);
@@ -219,13 +254,14 @@ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
 document.querySelectorAll('.reveal').forEach(element=>observer.observe(element));
 </script>
 <script>
-const restrictedTheme=new Audio('audio/themeameaca.mp3');restrictedTheme.loop=true;restrictedTheme.preload='auto';restrictedTheme.volume=.72;
-const laboratoryTheme=new Audio('audio/themelab.mp3');laboratoryTheme.loop=true;laboratoryTheme.preload='auto';laboratoryTheme.volume=.72;
+const restrictedTheme=new Audio('../audio/themeameaca.mp3');restrictedTheme.loop=true;restrictedTheme.preload='auto';restrictedTheme.volume=.72;
+const laboratoryTheme=new Audio('../audio/themelab.mp3');laboratoryTheme.loop=true;laboratoryTheme.preload='auto';laboratoryTheme.volume=.72;
 const playRestrictedTheme=()=>restrictedTheme.play().catch(()=>{});
-const switchToLaboratoryTheme=()=>{restrictedTheme.pause();restrictedTheme.currentTime=0;laboratoryTheme.play().catch(()=>{});};
+window.switchToLaboratoryTheme=()=>{restrictedTheme.pause();restrictedTheme.currentTime=0;laboratoryTheme.play().catch(()=>{});};
 playRestrictedTheme();
 document.addEventListener('pointerdown',playRestrictedTheme,{once:true});document.addEventListener('keydown',playRestrictedTheme,{once:true});
 </script>
-<script src="cursor-site.js"></script>
+<script src="../cursor-site.js"></script>
+<script src="../project-doom-stage1.js?v=2"></script>
 </body>
 </html>

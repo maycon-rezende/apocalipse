@@ -4020,7 +4020,7 @@
     const evidence = document.getElementById('evidence'); evidence.innerHTML = record.photos.map((src, index) => { const number = index + 1, padded = String(number).padStart(2, '0'); return `<figure class="evidence" style="--tilt:${[-1.5, 1.2, -.7][index % 3]}deg"><span class="evidence-no">${profileT('personnel.profile.evidenceLabel', { number: padded })}</span><button type="button" aria-label="${profileT('personnel.profile.evidenceOpen', { number })}"><img src="${src}" alt="${profileT('personnel.profile.evidenceAlt', { number, name: record.name })}" loading="lazy"></button><figcaption>${record.photoLabels?.[index] || profileT('personnel.profile.evidenceDefault', { code: key.toUpperCase(), number: padded })}</figcaption></figure>` }).join('');
     const lightbox = document.getElementById('lightbox'), lightboxImage = lightbox.querySelector('img'), closeButton = lightbox.querySelector('button'); evidence.addEventListener('click', event => { const button = event.target.closest('button'); if (!button) return; lightboxImage.src = button.querySelector('img').src; lightboxImage.alt = button.querySelector('img').alt; lightbox.classList.add('open'); closeButton.focus() }); function closeLightbox() { lightbox.classList.remove('open'); lightboxImage.src = '' } closeButton.addEventListener('click', closeLightbox); lightbox.addEventListener('click', event => { if (event.target === lightbox) closeLightbox() }); document.addEventListener('keydown', event => { if (event.key === 'Escape') closeLightbox() });
   </script>
-  <script src="../doom-puzzle.js"></script>
+  <script src="../doom-puzzle.js?v=2"></script>
   <script src="page-transition.js"></script>
   <script>
     if (window.DD_ANALOG_MODE) {

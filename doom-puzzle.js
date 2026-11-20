@@ -21,33 +21,39 @@
   function write(items){
     try{localStorage.setItem(storageKey,JSON.stringify(items))}catch{}
   }
-  const host=document.querySelector(clue.host);
-  if(!host)return;
-  host.classList.add('doom-clue-host');
-  const button=document.createElement('button');
-  button.type='button';
-  button.className='doom-fragment';
-  button.innerHTML='<span>⌬</span>';
-  button.setAttribute('aria-label',t('global.doom.examine',null,'Examinar anomalia no arquivo'));
-  button.title=t('global.doom.uncatalogued',null,'Sinal não catalogado');
-  if(read().includes(clue.id))button.classList.add('collected');
-  host.appendChild(button);
+  function mountClue(){
+    const host=document.querySelector(clue.host);
+    if(!host||host.querySelector('.doom-fragment'))return;
+    host.classList.add('doom-clue-host');
+    const button=document.createElement('button');
+    button.type='button';
+    button.className='doom-fragment';
+    button.innerHTML='<span>⌬</span>';
+    button.setAttribute('aria-label',t('global.doom.examine',null,'Examinar anomalia no arquivo'));
+    button.title=t('global.doom.uncatalogued',null,'Sinal não catalogado');
+    if(read().includes(clue.id))button.classList.add('collected');
+    host.appendChild(button);
 
-  const alert=document.createElement('div');
-  alert.className='doom-fragment-alert';
-  alert.setAttribute('role','status');
-  alert.setAttribute('aria-live','polite');
-  document.body.appendChild(alert);
-  let alertTimer;
-  button.addEventListener('click',()=>{
-    const collected=read();
-    if(!collected.includes(clue.id)){collected.push(clue.id);write(collected)}
-    button.classList.add('collected');
-    alert.textContent=t('global.doom.recovered',null,'SINAL DO PROJETO DOOM RECUPERADO');
-    const fragment=document.createElement('strong');fragment.textContent=clue.fragment;alert.appendChild(fragment);
-    alert.appendChild(document.createTextNode(t('global.doom.progress',{label:t(clue.labelKey,null,clue.label),count:Math.min(collected.length,5)},`${clue.label} // ${Math.min(collected.length,5)}/5 fragmentos localizados`)));
-    alert.classList.add('visible');
-    clearTimeout(alertTimer);
-    alertTimer=setTimeout(()=>alert.classList.remove('visible'),4200);
-  });
+    const alert=document.createElement('div');
+    alert.className='doom-fragment-alert';
+    alert.setAttribute('role','status');
+    alert.setAttribute('aria-live','polite');
+    document.body.appendChild(alert);
+    let alertTimer;
+    button.addEventListener('click',()=>{
+      const collected=read();
+      if(!collected.includes(clue.id)){collected.push(clue.id);write(collected)}
+      button.classList.add('collected');
+      alert.textContent=t('global.doom.recovered',null,'SINAL DO PROJETO DOOM RECUPERADO');
+      const fragment=document.createElement('strong');fragment.textContent=clue.fragment;alert.appendChild(fragment);
+      alert.appendChild(document.createTextNode(t('global.doom.progress',{label:t(clue.labelKey,null,clue.label),count:Math.min(collected.length,5)},`${clue.label} // ${Math.min(collected.length,5)}/5 fragmentos localizados`)));
+      alert.classList.add('visible');
+      clearTimeout(alertTimer);
+      alertTimer=setTimeout(()=>alert.classList.remove('visible'),4200);
+    });
+  }
+
+  // The locale engine rewrites data-i18n content on DOMContentLoaded; mount afterward so it cannot erase the clue.
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mountClue,{once:true});
+  else mountClue();
 })();
