@@ -64,6 +64,16 @@
     requestAnimationFrame(() => byId('enter-hades-hub')?.focus());
   }
 
+  function openDominiumSite() {
+    let authorized = false;
+    try { authorized = sessionStorage.getItem('dd_doom_site_access_v1') === 'granted'; } catch (error) {}
+    if (!authorized) return;
+    elevator.hidden = true;
+    elevator.setAttribute('aria-hidden', 'true');
+    surface.hidden = true;
+    window.location.href = 'dominium.html';
+  }
+
   function beginDescent() {
     if (descentStarted || !elevator) return;
     descentStarted = true;
@@ -164,7 +174,7 @@
   }
 
   byId('go-to-hades')?.addEventListener('click', beginDescent);
-  byId('enter-hades-hub')?.addEventListener('click', enterHub);
+  byId('enter-hades-hub')?.addEventListener('click', openDominiumSite);
   document.querySelector('[data-return-surface]')?.addEventListener('click', returnToSurface);
   document.querySelectorAll('[data-hub-module]').forEach(button => {
     button.setAttribute('aria-controls', 'hub-module-stage');

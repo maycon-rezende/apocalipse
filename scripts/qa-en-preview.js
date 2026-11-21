@@ -6,9 +6,14 @@ const path = require('node:path');
 const vm = require('node:vm');
 
 const ROOT = path.resolve(__dirname, '..');
-const PREVIEW = path.join(ROOT, 'en-preview');
-const PAGES = ['index.html', 'home.html', 'transicao-extincao.html', 'historia.html', 'personagens.html', 'personagem.html', 'ameaca.html', 'projeto-doom.html', 'galeria.html', 'protocolos.html', 'simulacao.html', 'frequencia-morta.html', 'evidencias.html', 'acesso-restrito.html'];
-const MODULES = ['personnel', 'gallery', 'classified', 'simulation', 'protocols', 'frequency'];
+const previewArg = process.argv.indexOf('--preview-dir');
+const PREVIEW_NAME = previewArg >= 0 ? process.argv[previewArg + 1] : 'en-preview';
+const PREVIEW = path.resolve(ROOT, PREVIEW_NAME);
+const ALL_PAGES = ['index.html', 'home.html', 'transicao-extincao.html', 'historia.html', 'personagens.html', 'personagem.html', 'ameaca.html', 'projeto-doom.html', 'dominium.html', 'dominium-complex.html', 'dominium-research.html', 'dominium-personnel.html', 'dominium-archives.html', 'galeria.html', 'protocolos.html', 'simulacao.html', 'frequencia-morta.html', 'evidencias.html', 'acesso-restrito.html'];
+const PAGES = process.argv.includes('--only')
+  ? process.argv.slice(process.argv.indexOf('--only') + 1).filter(page => ALL_PAGES.includes(page))
+  : ALL_PAGES;
+const MODULES = ['personnel', 'gallery', 'classified', 'simulation', 'protocols', 'frequency', 'dominium'];
 const INTRO_REQUIRED_IDS = ['start-gate', 'bg-audio', 'testimony-line', 'title-wrap', 'movie-title', 'age-prefix', 'movie-tagline', 'blood-wipe', 'enter-prompt'];
 
 function fail(message) {
@@ -106,7 +111,7 @@ PAGES.forEach(function (page) {
     const reference = match[1];
     if (reference.includes('${')) continue;
     if (/^(?:https?:|data:|mailto:|tel:|#)/i.test(reference)) continue;
-    if (reference.startsWith('en-preview/')) {
+    if (reference.startsWith(`${PREVIEW_NAME.replace(/\\/g, '/')}/`)) {
       const clean = localPathFromReference(reference);
       if (!fs.existsSync(path.join(ROOT, clean))) fail(`${page}: missing preview target ${clean}`);
       resourceCount++;
