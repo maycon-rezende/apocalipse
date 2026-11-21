@@ -166,7 +166,7 @@
           ]
         },
         {
-          type: 'video', src: 'video/dominium-intro/intro-entrada-leviathan.mp4', fallback: 'img-dominus/intro/stills/intro-still-12-leviathan-arrival.png', duration: 10030,
+          type: 'video', src: 'video/dominium-intro/intro-equipe-chegada.mp4', fallback: 'img-dominus/intro/stills/intro-still-12-leviathan-arrival.png', duration: 10030,
           frames: [
             { at: 0, kicker: 'dominium.opening.scene.arrival.kicker', line: 'dominium.opening.scene.arrival.line', emphasis: 'dominium.opening.scene.arrival.emphasis', caption: 'dominium.opening.scene.arrival.caption' },
             { at: 0.54, kicker: 'dominium.opening.scene.arrival.next.kicker', line: 'dominium.opening.scene.arrival.next.line', emphasis: 'dominium.opening.scene.arrival.next.emphasis', caption: 'dominium.opening.scene.arrival.next.caption' }
@@ -179,7 +179,7 @@
         },
         {
           type: 'image', src: 'img-dominus/intro/stills/intro-still-13-leviathan-entry.png',
-          futureVideo: 'video/dominium-intro/intro-04-leviathan-entry.mp4', duration: 6300,
+          futureVideo: 'video/dominium-intro/intro-entrada-equipe-leviathan.mp4', duration: 6300,
           frames: [{ at: 0, kicker: 'dominium.opening.scene.entry.kicker', line: 'dominium.opening.scene.entry.line', emphasis: 'dominium.opening.scene.entry.emphasis', caption: 'dominium.opening.scene.entry.caption' }]
         },
         {
