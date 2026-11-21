@@ -1,0 +1,200 @@
+/* Ajustes de viewport móvel para a abertura cinematográfica do Project DOOM. */
+@media (max-width: 700px) {
+  .dominium-opening {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    height: 100vh;
+    height: 100dvh;
+    padding: 0;
+  }
+
+  .opening-stage,
+  .opening-interface {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .opening-interface {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .opening-signal {
+    top: max(.75rem, env(safe-area-inset-top));
+    right: max(1rem, env(safe-area-inset-right));
+    left: max(1rem, env(safe-area-inset-left));
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .35rem .7rem;
+    min-width: 0;
+    line-height: 1.25;
+  }
+
+  .opening-signal > span,
+  .opening-signal > b {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .opening-gate {
+    width: min(90vw, 34rem);
+    max-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 2rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: .25rem .15rem;
+  }
+
+  .opening-gate h1 {
+    font-size: clamp(2.6rem, 12vw, 4.8rem);
+    line-height: .92;
+    overflow-wrap: anywhere;
+  }
+
+  .opening-gate > p:not(.opening-gate-kicker) {
+    font-size: clamp(.9rem, 3.8vw, 1rem);
+    line-height: 1.4;
+  }
+
+  .opening-gate small {
+    max-width: 42ch;
+    margin-inline: auto;
+    font-size: clamp(.68rem, 2.9vw, .78rem);
+    line-height: 1.35;
+  }
+
+  .opening-primary-action {
+    max-width: 100%;
+    min-height: 48px;
+    padding: .7rem .9rem;
+    line-height: 1.2;
+  }
+
+  .opening-copy {
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: calc(5.9rem + env(safe-area-inset-bottom));
+    left: max(1rem, env(safe-area-inset-left));
+    max-height: calc(100% - 11rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-block: .2rem;
+  }
+
+  .opening-copy h2 {
+    font-size: clamp(2.4rem, 11vw, 4.8rem);
+    line-height: .9;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  .dominium-opening.is-intertitle .opening-copy h2 span,
+  .dominium-opening.is-intertitle .opening-copy h2 em {
+    font-size: clamp(2.2rem, 10vw, 4.2rem);
+    line-height: .94;
+  }
+
+  .opening-caption {
+    font-size: clamp(.88rem, 3.7vw, 1rem);
+    line-height: 1.45;
+    text-wrap: pretty;
+  }
+
+  .opening-soundtrack-credit {
+    top: max(4.8rem, calc(env(safe-area-inset-top) + 3.6rem));
+    right: max(1rem, env(safe-area-inset-right));
+    max-width: calc(100% - 2rem);
+    font-size: clamp(.65rem, 2.8vw, .72rem);
+    text-align: right;
+  }
+
+  .opening-skip {
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: calc(3.4rem + env(safe-area-inset-bottom));
+    font-size: clamp(.68rem, 2.8vw, .78rem);
+  }
+
+  .opening-progress {
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: calc(1.4rem + env(safe-area-inset-bottom));
+    left: max(1rem, env(safe-area-inset-left));
+    gap: .55rem;
+    min-width: 0;
+  }
+
+  .opening-progress > span {
+    flex: 0 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+    font-size: clamp(.64rem, 2.5vw, .76rem);
+  }
+
+  .opening-progress > i {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 2rem;
+  }
+
+  .opening-letterbox i {
+    height: clamp(8px, 2vh, 14px);
+  }
+}
+
+@media (max-width: 390px) {
+  .opening-signal {
+    font-size: .68rem;
+    letter-spacing: .05em;
+  }
+
+  .opening-copy h2 {
+    font-size: clamp(2.25rem, 10.5vw, 3.7rem);
+  }
+
+  .opening-copy-kicker {
+    font-size: .72rem;
+    letter-spacing: .12em;
+  }
+
+  .opening-progress {
+    gap: .45rem;
+  }
+
+  .opening-progress > i {
+    min-width: 1.5rem;
+  }
+}
+
+@media (max-width: 700px) and (max-height: 560px) {
+  .opening-signal {
+    top: max(.5rem, env(safe-area-inset-top));
+  }
+
+  .opening-copy {
+    bottom: calc(5rem + env(safe-area-inset-bottom));
+    max-height: calc(100% - 9rem);
+  }
+
+  .opening-copy h2 {
+    font-size: clamp(2.15rem, 9vw, 3.6rem);
+  }
+
+  .dominium-opening.is-intertitle .opening-copy h2 span,
+  .dominium-opening.is-intertitle .opening-copy h2 em {
+    font-size: clamp(2rem, 8.8vw, 3.5rem);
+  }
+
+  .opening-caption {
+    margin-top: .5rem;
+    font-size: .82rem;
+  }
+
+  .opening-skip {
+    bottom: calc(2.7rem + env(safe-area-inset-bottom));
+  }
+
+  .opening-progress {
+    bottom: calc(.8rem + env(safe-area-inset-bottom));
+  }
+}
