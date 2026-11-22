@@ -8,12 +8,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="dominium-site.css">
-<link rel="stylesheet" href="dominium-opening.css">
-<link rel="stylesheet" href="dominium-opening-cinematic.css">
-<link rel="stylesheet" href="dominium-opening-responsive.css">
+<link rel="stylesheet" href="dominium-opening-v2.css">
 <script src="i18n/pt-BR.js"></script><script src="i18n/en.js"></script><script src="i18n/dominium-pt-BR.js"></script><script src="i18n/dominium-en.js"></script><script src="i18n/core.js"></script>
 <script id="soundcloud-widget-api" src="https://w.soundcloud.com/player/api.js" defer></script>
 <script src="dominium-site.js" defer></script>
+<script src="dominium-opening.js" defer></script>
 </head>
 <body class="dominium-body" data-dominium-page="home">
 <div class="dominium-noise" aria-hidden="true"></div><div class="dominium-vignette" aria-hidden="true"></div>
@@ -23,7 +22,7 @@
     <div class="opening-stage" id="opening-stage" aria-hidden="true">
       <img class="opening-still is-visible" id="opening-still" src="img-dominus/intro/stills/intro-still-01-leviathan-antarctica.png" alt="">
       <img class="opening-still" id="opening-still-next" alt="" aria-hidden="true" hidden>
-      <video class="opening-video" id="opening-video" muted playsinline preload="none" hidden></video>
+      <video class="opening-video" id="opening-video" muted playsinline preload="none" disablepictureinpicture aria-hidden="true" hidden></video>
       <div class="opening-atmosphere"><i></i><i></i><i></i></div>
       <div class="opening-flash"></div>
       <div class="opening-letterbox"><i></i><i></i></div>
@@ -36,6 +35,10 @@
         <p data-i18n="dominium.opening.gate.copy">O primeiro registro começa na superfície. A origem permanece fora do alcance dos arquivos abertos.</p>
         <button class="dominium-action opening-primary-action" id="opening-start" type="button" data-start-opening data-i18n="dominium.opening.start">INICIAR TRANSMISSÃO</button>
         <small data-i18n="dominium.opening.gate.hint">UMA EXPERIÊNCIA CINEMATOGRÁFICA // CLIQUE OU ENTER</small>
+      </section>
+      <section class="opening-wait" id="opening-wait" aria-live="polite" hidden>
+        <p class="opening-wait-kicker" data-i18n="dominium.opening.wait.kicker">SINCRONIZANDO TRANSMISSÃO</p>
+        <p id="opening-wait-copy" data-i18n="dominium.opening.wait.copy">ESTABELECENDO CONEXÃO COM O ARQUIVO DE ÁUDIO...</p>
       </section>
       <section class="opening-copy" id="opening-copy" aria-live="polite" hidden>
         <p class="opening-copy-kicker" id="opening-kicker"></p>
