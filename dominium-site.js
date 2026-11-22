@@ -32,6 +32,14 @@
   };
 
   const openingVideo = document.getElementById('opening-video');
+  const silenceOpeningVideo = () => {
+    if (!openingVideo) return;
+    openingVideo.defaultMuted = true;
+    openingVideo.muted = true;
+    openingVideo.volume = 0;
+    openingVideo.setAttribute('muted', '');
+  };
+  silenceOpeningVideo();
   const soundtrackFrame = document.getElementById('dominium-soundtrack-player');
   const openingTimers = new Set();
   let openingCleanup = () => {};
@@ -316,14 +324,12 @@
           stage.classList.remove('is-final-image', 'is-intertitle');
           stage.classList.add('is-video');
         }
+        silenceOpeningVideo();
         openingVideo.hidden = false;
-        openingVideo.muted = true;
-        openingVideo.defaultMuted = true;
-        openingVideo.volume = 0;
         openingVideo.playsInline = true;
-        openingVideo.setAttribute('muted', '');
         openingVideo.src = src;
         openingVideo.load();
+        silenceOpeningVideo();
         openingVideo.onerror = fallback;
         openingVideo.onended = () => {
           if (token === playbackToken) openingVideo.pause();
