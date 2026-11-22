@@ -4,11 +4,13 @@
 .dominium-opening.dismissed{opacity:0;visibility:hidden;pointer-events:none}
 .opening-stage{position:absolute;z-index:0;inset:0;overflow:hidden;background:#030708}
 .opening-stage::after{position:absolute;inset:0;z-index:2;content:"";pointer-events:none;background:linear-gradient(90deg,rgba(1,5,7,.78),rgba(1,5,7,.22) 60%,rgba(1,5,7,.05)),linear-gradient(0deg,rgba(0,0,0,.84),transparent 57%),radial-gradient(ellipse at center,transparent 30%,rgba(0,0,0,.42) 100%);transition:background .6s ease}
-.opening-still,.opening-video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.68) saturate(.72) contrast(1.08);transform:scale(1.025);transition:opacity .7s ease,filter .7s ease}
-.opening-video{background:#020506;transform:none}
+.opening-still,.opening-video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;filter:brightness(.68) saturate(.72) contrast(1.08);transform:scale(1.025);transition:opacity .72s ease,filter .72s ease}
+.opening-still[hidden],.opening-video[hidden]{display:none!important}
+.opening-still.is-visible,.opening-video.is-visible{opacity:1}
+.opening-video{z-index:2;background:#020506;transform:none}
 .opening-stage.is-final-image .opening-still{animation:doom-camera-push 8s ease-out both;filter:brightness(.58) saturate(.78) contrast(1.12)}
 .opening-stage.is-intertitle{background:radial-gradient(ellipse at center,rgba(11,24,27,.38),#020405 72%)}
-.opening-stage.is-intertitle::after{background:repeating-linear-gradient(0deg,transparent 0 4px,rgba(168,229,239,.045) 4px 5px),radial-gradient(ellipse at center,transparent 8%,#020405 90%)}
+.opening-stage.is-intertitle::after{background:linear-gradient(0deg,rgba(2,4,5,.64),rgba(2,4,5,.4)),repeating-linear-gradient(0deg,transparent 0 4px,rgba(168,229,239,.045) 4px 5px)}
 .opening-stage.is-video::after{background:linear-gradient(90deg,rgba(1,5,7,.62),transparent 58%),linear-gradient(0deg,rgba(0,0,0,.75),transparent 54%),radial-gradient(ellipse at center,transparent 30%,rgba(0,0,0,.4) 100%)}
 .opening-stage.is-cutting .opening-flash{animation:doom-frame-flash .42s ease-out both}
 .opening-atmosphere,.opening-flash,.opening-letterbox{position:absolute;z-index:3;inset:0;pointer-events:none}
@@ -37,7 +39,8 @@
 .opening-copy h2 span,.opening-copy h2 em{display:block;animation:doom-line-arrive .72s both}
 .opening-copy h2 em{color:transparent;font-style:normal;-webkit-text-stroke:1px var(--dmn-ice);animation-delay:.13s}
 .opening-caption{max-width:65ch;margin:1.2rem 0 0;color:#d3d4cc;font:clamp(.95rem,1.65vw,1.16rem)/1.55 var(--dmn-mono)}
-.dominium-opening.is-intertitle .opening-stage::after{background:radial-gradient(ellipse at center,rgba(8,22,25,.35),#020405 73%),repeating-linear-gradient(0deg,transparent 0 4px,rgba(168,229,239,.045) 4px 5px)}
+.dominium-opening.is-intertitle .opening-stage::after{background:linear-gradient(0deg,rgba(2,4,5,.64),rgba(2,4,5,.4)),repeating-linear-gradient(0deg,transparent 0 4px,rgba(168,229,239,.045) 4px 5px)}
+.dominium-opening.is-intertitle .opening-stage .opening-still,.dominium-opening.is-intertitle .opening-stage .opening-video{filter:brightness(.32) saturate(.55) contrast(1.05)}
 .dominium-opening.is-intertitle .opening-copy{left:50%;right:auto;top:50%;bottom:auto;width:min(840px,86vw);transform:translate(-50%,calc(-50% + 22px));text-align:center}
 .dominium-opening.is-intertitle .opening-copy.is-visible{transform:translate(-50%,-50%)}
 .dominium-opening.is-intertitle .opening-copy h2 span,.dominium-opening.is-intertitle .opening-copy h2 em{font-size:clamp(3.2rem,8vw,7rem)}

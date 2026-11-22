@@ -49,13 +49,20 @@
   let soundtrackVolume = 0;
   let soundtrackFadeTimer = 0;
   let soundtrackFallbackTimer = 0;
+  let soundtrackEndTimer = 0;
   let onSoundtrackReady = null;
+  let soundtrackFadeStartMs = 0;
+  let soundtrackOutroStarted = false;
+  let soundtrackRequestExpired = false;
+  const soundtrackFadeDurationMs = 1800;
   const clearOpeningTimers = () => {
     openingTimers.forEach(timer => window.clearTimeout(timer));
     openingTimers.clear();
   };
   const stopOpeningVideo = () => {
     if (!openingVideo) return;
+    openingVideo.classList.remove('is-visible');
+    openingVideo.hidden = true;
     openingVideo.onended = null;
     openingVideo.onerror = null;
     openingVideo.ontimeupdate = null;
@@ -85,12 +92,28 @@
     }, 100);
   };
 
-  const stopSoundtrack = () => {
-    fadeSoundtrackTo(0, 650, () => {
-      try { soundtrackWidget?.pause(); } catch (error) {}
-      if (soundtrackFrame) soundtrackFrame.src = 'about:blank';
-      soundtrackStarted = false;
-    });
+  const releaseSoundtrack = () => {
+    window.clearTimeout(soundtrackEndTimer);
+    try { soundtrackWidget?.pause(); } catch (error) {}
+    if (soundtrackFrame) soundtrackFrame.src = 'about:blank';
+    soundtrackStarted = false;
+    soundtrackReady = false;
+  };
+
+  const stopSoundtrack = (duration = 650) => {
+    soundtrackOutroStarted = true;
+    soundtrackRequestExpired = true;
+    onSoundtrackReady = null;
+    window.clearTimeout(soundtrackFallbackTimer);
+    window.clearTimeout(soundtrackEndTimer);
+    fadeSoundtrackTo(0, duration, releaseSoundtrack);
+  };
+
+  const fadeSoundtrackForEnding = () => {
+    if (!soundtrackStarted || soundtrackOutroStarted) return;
+    soundtrackOutroStarted = true;
+    window.clearTimeout(soundtrackEndTimer);
+    fadeSoundtrackTo(0, soundtrackFadeDurationMs, releaseSoundtrack);
   };
 
   const bindSoundtrackWidget = () => {
@@ -98,10 +121,18 @@
     try {
       soundtrackWidget = window.SC.Widget(soundtrackFrame);
       soundtrackWidget.bind(window.SC.Widget.Events.READY, () => {
+        if (soundtrackRequestExpired) {
+          try { soundtrackWidget.pause(); } catch (error) {}
+          return;
+        }
         soundtrackReady = true;
         soundtrackVolume = 0;
-        try { soundtrackWidget.setVolume(0); soundtrackWidget.play(); } catch (error) {}
+        try { soundtrackWidget.setVolume(0); } catch (error) {}
+        try { soundtrackWidget.seekTo(0); } catch (error) {}
+        try { soundtrackWidget.play(); } catch (error) {}
         fadeSoundtrackTo(48, 1800);
+        window.clearTimeout(soundtrackEndTimer);
+        soundtrackEndTimer = window.setTimeout(fadeSoundtrackForEnding, soundtrackFadeStartMs);
         if (onSoundtrackReady) {
           window.clearTimeout(soundtrackFallbackTimer);
           const callback = onSoundtrackReady;
@@ -109,8 +140,12 @@
           callback();
         }
       });
+      soundtrackWidget.bind(window.SC.Widget.Events.PLAY_PROGRESS, progress => {
+        const position = Number(progress?.currentPosition);
+        if (Number.isFinite(position) && position >= soundtrackFadeStartMs) fadeSoundtrackForEnding();
+      });
       soundtrackWidget.bind(window.SC.Widget.Events.FINISH, () => {
-        if (started && opening && !opening.classList.contains('is-final') && !opening.classList.contains('dismissed')) showFinal();
+        soundtrackStarted = false;
       });
     } catch (error) {
       soundtrackWidget = null;
@@ -120,13 +155,20 @@
   const startSoundtrack = onReady => {
     if (!soundtrackFrame || soundtrackStarted) { onReady?.(); return; }
     soundtrackStarted = true;
+    soundtrackOutroStarted = false;
+    soundtrackRequestExpired = false;
     onSoundtrackReady = onReady || null;
     soundtrackFallbackTimer = window.setTimeout(() => {
       if (!onSoundtrackReady) return;
+      soundtrackRequestExpired = true;
+      soundtrackReady = false;
+      soundtrackStarted = false;
+      try { soundtrackWidget?.pause(); } catch (error) {}
+      if (soundtrackFrame) soundtrackFrame.src = 'about:blank';
       const callback = onSoundtrackReady;
       onSoundtrackReady = null;
       callback();
-    }, 2200);
+    }, 7000);
     soundtrackFrame.src = soundtrackFrame.dataset.soundtrackSrc;
     if (window.SC?.Widget) bindSoundtrackWidget();
     else document.getElementById('soundcloud-widget-api')?.addEventListener('load', bindSoundtrackWidget, { once: true });
@@ -149,7 +191,12 @@
     if (alreadySeen) opening.remove();
     else {
       const stage = document.getElementById('opening-stage');
-      const still = document.getElementById('opening-still');
+      const stillLayers = [
+        document.getElementById('opening-still'),
+        document.getElementById('opening-still-next')
+      ].filter(Boolean);
+      let activeStill = stillLayers[0] || null;
+      let standbyStill = stillLayers[1] || stillLayers[0] || null;
       const gate = document.getElementById('opening-gate');
       const copy = document.getElementById('opening-copy');
       const finalCard = document.getElementById('opening-final');
@@ -163,18 +210,19 @@
       const skipButton = document.getElementById('opening-skip');
       const progressCount = document.getElementById('opening-progress-count');
       const progressBar = document.getElementById('opening-progress-bar');
+      // A trilha tem 1:38; a montagem termina em 1:30 para excluir somente os 8s finais.
       // Coloque os clipes futuros em video/dominium-intro/ com estes nomes: cada still fica como fallback automático.
       const scenes = [
         {
           type: 'image', src: 'img-dominus/intro/video-keyframes/intro-video-frame-01-leviathan-approach.png',
-          futureVideo: 'video/dominium-intro/intro-01-leviathan-establishing.mp4', duration: 6300,
+          futureVideo: 'video/dominium-intro/intro-01-leviathan-establishing.mp4', duration: 5800,
           frames: [
             { at: 0, kicker: 'dominium.opening.scene.1a.kicker', line: 'dominium.opening.scene.1a.line', emphasis: 'dominium.opening.scene.1a.emphasis', caption: 'dominium.opening.scene.1a.caption' },
             { at: 3400, kicker: 'dominium.opening.scene.1b.kicker', line: 'dominium.opening.scene.1b.line', emphasis: 'dominium.opening.scene.1b.emphasis', caption: 'dominium.opening.scene.1b.caption' }
           ]
         },
         {
-          type: 'video', src: 'video/dominium-intro/intro-equipe-chegada.mp4', fallback: 'img-dominus/intro/stills/intro-still-12-leviathan-arrival.png', duration: 10030,
+          type: 'video', src: 'video/dominium-intro/intro-equipe-chegada.mp4', fallback: 'img-dominus/intro/stills/intro-still-12-leviathan-arrival.png', duration: 9030,
           frames: [
             { at: 0, kicker: 'dominium.opening.scene.arrival.kicker', line: 'dominium.opening.scene.arrival.line', emphasis: 'dominium.opening.scene.arrival.emphasis', caption: 'dominium.opening.scene.arrival.caption' },
             { at: 0.54, kicker: 'dominium.opening.scene.arrival.next.kicker', line: 'dominium.opening.scene.arrival.next.line', emphasis: 'dominium.opening.scene.arrival.next.emphasis', caption: 'dominium.opening.scene.arrival.next.caption' }
@@ -182,22 +230,22 @@
         },
         {
           type: 'image', src: 'img-dominus/intro/stills/intro-still-14-heller-perimeter-watch.png',
-          futureVideo: 'video/dominium-intro/intro-03-security-perimeter.mp4', duration: 6300,
+          futureVideo: 'video/dominium-intro/intro-03-security-perimeter.mp4', duration: 5800,
           frames: [{ at: 0, kicker: 'dominium.opening.scene.security.kicker', line: 'dominium.opening.scene.security.line', emphasis: 'dominium.opening.scene.security.emphasis', caption: 'dominium.opening.scene.security.caption' }]
         },
         {
           type: 'image', src: 'img-dominus/intro/stills/intro-still-13-leviathan-entry.png',
-          futureVideo: 'video/dominium-intro/intro-entrada-equipe-leviathan.mp4', duration: 6300,
+          futureVideo: 'video/dominium-intro/intro-entrada-equipe-leviathan.mp4', duration: 5800,
           frames: [{ at: 0, kicker: 'dominium.opening.scene.entry.kicker', line: 'dominium.opening.scene.entry.line', emphasis: 'dominium.opening.scene.entry.emphasis', caption: 'dominium.opening.scene.entry.caption' }]
         },
         {
           type: 'image', src: 'img-dominus/intro/stills/intro-still-15-security-inside-leviathan.png',
-          futureVideo: 'video/dominium-intro/intro-05-security-inside-leviathan.mp4', duration: 6300,
+          futureVideo: 'video/dominium-intro/intro-05-security-inside-leviathan.mp4', duration: 5800,
           frames: [{ at: 0, kicker: 'dominium.opening.scene.inside.kicker', line: 'dominium.opening.scene.inside.line', emphasis: 'dominium.opening.scene.inside.emphasis', caption: 'dominium.opening.scene.inside.caption' }]
         },
         {
           type: 'image', src: 'img-dominus/intro/stills/intro-still-16-security-entering-elevator.png',
-          futureVideo: 'video/dominium-intro/intro-06-elevator-descent.mp4', duration: 6300,
+          futureVideo: 'video/dominium-intro/intro-06-elevator-descent.mp4', duration: 5800,
           frames: [{ at: 0, kicker: 'dominium.opening.scene.elevator.kicker', line: 'dominium.opening.scene.elevator.line', emphasis: 'dominium.opening.scene.elevator.emphasis', caption: 'dominium.opening.scene.elevator.caption' }]
         },
         {
@@ -205,7 +253,7 @@
           frames: [{ at: 0, kicker: 'dominium.opening.scene.welcome.kicker', line: 'dominium.opening.scene.welcome.line', emphasis: 'dominium.opening.scene.welcome.emphasis', caption: 'dominium.opening.scene.welcome.caption' }]
         },
         {
-          type: 'video', src: 'video/dominium-intro/intro-interior.mp4', fallback: 'img-dominus/intro/video-keyframes/intro-video-frame-02-hades-corridor.png', duration: 10030,
+          type: 'video', src: 'video/dominium-intro/intro-interior.mp4', fallback: 'img-dominus/intro/video-keyframes/intro-video-frame-02-hades-corridor.png', duration: 9030,
           frames: [
             { at: 0, kicker: 'dominium.opening.scene.3a.kicker', line: 'dominium.opening.scene.3a.line', emphasis: 'dominium.opening.scene.3a.emphasis', caption: 'dominium.opening.scene.3a.caption' },
             { at: 0.55, kicker: 'dominium.opening.scene.3b.kicker', line: 'dominium.opening.scene.3b.line', emphasis: 'dominium.opening.scene.3b.emphasis', caption: 'dominium.opening.scene.3b.caption' }
@@ -213,29 +261,29 @@
         },
         {
           type: 'image', src: 'img-dominus/intro/stills/intro-still-04-research-team.png',
-          futureVideo: 'video/dominium-intro/intro-09-research-team.mp4', duration: 6300,
+          futureVideo: 'video/dominium-intro/intro-09-research-team.mp4', duration: 5800,
           frames: [{ at: 0, kicker: 'dominium.opening.scene.team.kicker', line: 'dominium.opening.scene.team.line', emphasis: 'dominium.opening.scene.team.emphasis', caption: 'dominium.opening.scene.team.caption' }]
         },
         {
           type: 'image', src: 'img-dominus/intro/stills/intro-still-05-grey-daniel-lab.png',
-          futureVideo: 'video/dominium-intro/intro-10-grey-daniel-lab.mp4', duration: 6300,
+          futureVideo: 'video/dominium-intro/intro-10-grey-daniel-lab.mp4', duration: 5800,
           frames: [{ at: 0, kicker: 'dominium.opening.scene.laboratory.kicker', line: 'dominium.opening.scene.laboratory.line', emphasis: 'dominium.opening.scene.laboratory.emphasis', caption: 'dominium.opening.scene.laboratory.caption' }]
         },
         {
           type: 'image', src: 'img-dominus/intro/stills/intro-still-07-grey-frost-research.png',
-          futureVideo: 'video/dominium-intro/intro-11-grey-frost-research.mp4', duration: 6300,
+          futureVideo: 'video/dominium-intro/intro-11-grey-frost-research.mp4', duration: 5800,
           frames: [{ at: 0, kicker: 'dominium.opening.scene.research.kicker', line: 'dominium.opening.scene.research.line', emphasis: 'dominium.opening.scene.research.emphasis', caption: 'dominium.opening.scene.research.caption' }]
         },
         {
           type: 'image', src: 'img-dominus/intro/stills/intro-still-03-containment-vessel.png',
-          futureVideo: 'video/dominium-intro/intro-12-pathogen-vessel.mp4', duration: 6300,
+          futureVideo: 'video/dominium-intro/intro-12-pathogen-vessel.mp4', duration: 5800,
           frames: [
             { at: 0, kicker: 'dominium.opening.scene.5a.kicker', line: 'dominium.opening.scene.5a.line', emphasis: 'dominium.opening.scene.5a.emphasis', caption: 'dominium.opening.scene.5a.caption' },
             { at: 3400, kicker: 'dominium.opening.scene.5b.kicker', line: 'dominium.opening.scene.5b.line', emphasis: 'dominium.opening.scene.5b.emphasis', caption: 'dominium.opening.scene.5b.caption' }
           ]
         },
         {
-          type: 'video', src: 'video/dominium-intro/intro-malverik.mp4', fallback: 'img-dominus/intro/stills/intro-still-10-maverick-laboratory.png', duration: 10030,
+          type: 'video', src: 'video/dominium-intro/intro-malverik.mp4', fallback: 'img-dominus/intro/stills/intro-still-10-maverick-laboratory.png', duration: 9030,
           frames: [
             { at: 0, kicker: 'dominium.opening.scene.4a.kicker', line: 'dominium.opening.scene.4a.line', emphasis: 'dominium.opening.scene.4a.emphasis', caption: 'dominium.opening.scene.4a.caption' },
             { at: 0.58, kicker: 'dominium.opening.scene.4b.kicker', line: 'dominium.opening.scene.4b.line', emphasis: 'dominium.opening.scene.4b.emphasis', caption: 'dominium.opening.scene.4b.caption' }
@@ -243,12 +291,13 @@
         },
         {
           type: 'image', src: 'img-dominus/intro/stills/intro-still-11-maverick-journal.png',
-          futureVideo: 'video/dominium-intro/intro-14-maverick-journal.mp4', duration: 6300,
+          futureVideo: 'video/dominium-intro/intro-14-maverick-journal.mp4', duration: 5800,
           frames: [
             { at: 0, kicker: 'dominium.opening.scene.journal.kicker', line: 'dominium.opening.scene.journal.line', emphasis: 'dominium.opening.scene.journal.emphasis', caption: 'dominium.opening.scene.journal.caption' }
           ]
         }
       ];
+      soundtrackFadeStartMs = Math.max(0, scenes.reduce((total, scene) => total + scene.duration, 0) - soundtrackFadeDurationMs);
       const futureVideoAvailability = new Map();
       const futureVideoChecks = Promise.all(scenes.filter(scene => scene.futureVideo).map(async scene => {
         let available = false;
@@ -265,6 +314,67 @@
       let finalRevealTimer = 0;
       let shownFrame = -1;
       let currentSceneStartedAt = 0;
+      const imagePreloads = new Map();
+      const layerTransitionMs = reduceMotion ? 0 : 760;
+
+      const preloadImage = source => {
+        if (!source) return Promise.resolve(null);
+        if (imagePreloads.has(source)) return imagePreloads.get(source);
+        const promise = new Promise(resolve => {
+          const image = new Image();
+          let settled = false;
+          const finish = loaded => {
+            if (settled) return;
+            settled = true;
+            resolve(loaded ? image : null);
+          };
+          image.onload = () => {
+            if (typeof image.decode === 'function') image.decode().then(() => finish(true), () => finish(true));
+            else finish(true);
+          };
+          image.onerror = () => finish(false);
+          image.src = source;
+          if (image.complete) finish(image.naturalWidth > 0);
+        });
+        imagePreloads.set(source, promise);
+        return promise;
+      };
+
+      const preloadNearbyImages = index => {
+        scenes.slice(index, index + 3).forEach(scene => {
+          if (scene.type === 'image') void preloadImage(scene.src);
+          if (scene.fallback) void preloadImage(scene.fallback);
+        });
+      };
+
+      const crossfadeToStill = (source, token, fadeVideo = false) => preloadImage(source).then(image => {
+        if (!image || token !== playbackToken || !activeStill || !standbyStill) return false;
+        const outgoing = activeStill;
+        const incoming = standbyStill;
+        incoming.src = image.src;
+        incoming.hidden = false;
+        incoming.classList.remove('is-visible');
+        if (fadeVideo && openingVideo) openingVideo.classList.remove('is-visible');
+        window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+          if (token !== playbackToken) return;
+          incoming.classList.add('is-visible');
+          if (outgoing !== incoming) outgoing.classList.remove('is-visible');
+        }));
+        activeStill = incoming;
+        standbyStill = outgoing;
+        window.setTimeout(() => {
+          if (token !== playbackToken) return;
+          if (outgoing !== incoming) outgoing.hidden = true;
+          if (fadeVideo && openingVideo && !openingVideo.classList.contains('is-visible')) {
+            openingVideo.pause();
+            openingVideo.hidden = true;
+            openingVideo.removeAttribute('src');
+            openingVideo.load();
+            silenceOpeningVideo();
+          }
+        }, layerTransitionMs + 50);
+        return true;
+      });
 
       const progressLabel = key => {
         const locale = document.documentElement.lang.toLowerCase().startsWith('en') ? 'en' : 'pt-BR';
@@ -278,16 +388,7 @@
 
       const showImageScene = (scene, index, token, duration = scene.duration) => {
         clearOpeningTimers();
-        if (openingVideo) {
-          openingVideo.onended = null;
-          openingVideo.onerror = null;
-          openingVideo.ontimeupdate = null;
-          openingVideo.pause();
-          openingVideo.removeAttribute('src');
-          openingVideo.load();
-          openingVideo.hidden = true;
-        }
-        if (still) { still.src = scene.src; still.hidden = false; }
+        void crossfadeToStill(scene.src, token, true);
         if (stage) {
           stage.classList.remove('is-video', 'is-intertitle');
           stage.classList.add('is-final-image');
@@ -319,18 +420,30 @@
         };
         const remaining = Math.max(0, scene.duration - (Date.now() - currentSceneStartedAt));
         if (!openingVideo) { fallback(); return; }
-        if (still) still.hidden = true;
+        const fallbackSource = scene.fallback || (scene.type === 'image' ? scene.src : null);
+        if (fallbackSource) void crossfadeToStill(fallbackSource, token, false);
         if (stage) {
           stage.classList.remove('is-final-image', 'is-intertitle');
           stage.classList.add('is-video');
         }
         silenceOpeningVideo();
+        openingVideo.classList.remove('is-visible');
         openingVideo.hidden = false;
+        openingVideo.preload = 'auto';
         openingVideo.playsInline = true;
         openingVideo.src = src;
         openingVideo.load();
         silenceOpeningVideo();
         openingVideo.onerror = fallback;
+        openingVideo.onplaying = () => {
+          if (token !== playbackToken) return;
+          openingVideo.classList.add('is-visible');
+          stillLayers.forEach(layer => layer.classList.remove('is-visible'));
+          window.setTimeout(() => {
+            if (token !== playbackToken || !openingVideo.classList.contains('is-visible')) return;
+            stillLayers.forEach(layer => { layer.hidden = true; });
+          }, layerTransitionMs + 50);
+        };
         openingVideo.onended = () => {
           if (token === playbackToken) openingVideo.pause();
         };
@@ -359,22 +472,17 @@
         window.requestAnimationFrame(() => window.requestAnimationFrame(() => copy.classList.add('is-visible')));
       };
 
-      const showFinal = () => {
+      const showFinal = (stopMusic = false) => {
         if (!opening || opening.classList.contains('is-final') || opening.classList.contains('dismissed')) return;
         playbackToken += 1;
         clearOpeningTimers();
         window.clearTimeout(finalRevealTimer);
-        stopSoundtrack();
-        stopOpeningVideo();
+        if (stopMusic) stopSoundtrack();
         if (stage) {
           stage.classList.remove('is-intertitle', 'is-video', 'is-cutting', 'is-portrait');
           stage.classList.add('is-final-image');
         }
-        if (still) {
-          still.src = 'img-dominus/intro/stills/intro-still-11-maverick-journal.png';
-          still.hidden = false;
-        }
-        if (openingVideo) openingVideo.hidden = true;
+        void crossfadeToStill('img-dominus/intro/stills/intro-still-11-maverick-journal.png', playbackToken, true);
         if (gate) gate.hidden = true;
         if (copy) copy.hidden = true;
         if (finalCard) finalCard.hidden = false;
@@ -400,6 +508,7 @@
         clearOpeningTimers();
         const token = ++playbackToken;
         const scene = scenes[index];
+        preloadNearbyImages(index);
         currentScene = index;
         currentSceneStartedAt = Date.now();
         shownFrame = -1;
@@ -419,20 +528,12 @@
           if (scene.type === 'intertitle') stage.classList.add('is-intertitle');
           window.setTimeout(() => { if (token === playbackToken) stage.classList.remove('is-cutting'); }, reduceMotion ? 0 : 420);
         }
-        if (openingVideo) {
-          openingVideo.onended = null;
-          openingVideo.onerror = null;
-          openingVideo.ontimeupdate = null;
-          openingVideo.pause();
-          openingVideo.hidden = true;
-        }
-        if (still) still.hidden = true;
         openingText(live, 'dominium.opening.playing');
         revealCopy(scene.frames[0]);
         shownFrame = 0;
 
         if (scene.type === 'intertitle') {
-          if (openingVideo) openingVideo.removeAttribute('src');
+          // Preserve the previous frame behind the intertitle; never leave a multi-second black gap.
           if (stage) stage.classList.add('is-intertitle');
           const timer = window.setTimeout(() => { if (token === playbackToken) nextScene(index + 1); }, scene.duration);
           openingTimers.add(timer);
@@ -440,7 +541,6 @@
         }
 
         if (scene.type === 'image') {
-          if (openingVideo) openingVideo.removeAttribute('src');
           const hasFutureVideo = scene.futureVideo && futureVideoAvailability.get(scene.futureVideo) === true;
           if (hasFutureVideo) showVideoScene(scene, index, token, scene.futureVideo);
           else showImageScene(scene, index, token);
@@ -476,13 +576,13 @@
       document.body.classList.add('dominium-opening-active');
       startButton?.addEventListener('click', startOpening);
       enterButton?.addEventListener('click', dismissOpening);
-      skipButton?.addEventListener('click', showFinal);
-      if (reduceMotion) showFinal();
+      skipButton?.addEventListener('click', () => showFinal(true));
+      if (reduceMotion) showFinal(true);
       document.addEventListener('keydown', event => {
         if (opening.classList.contains('dismissed')) return;
         if (event.key === 'Escape' && opening.classList.contains('is-cinematic')) {
           event.preventDefault();
-          showFinal();
+          showFinal(true);
           return;
         }
         if (event.key === 'Enter' && !event.target.closest('button,a,input,textarea,select,[contenteditable="true"]')) {
