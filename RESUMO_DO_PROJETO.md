@@ -1071,3 +1071,11 @@ O mapa agora tem seis setores interativos: Hades, amostra congelada, arquivo Dom
 Os espaços de estágios de transformação, Rei e Rainha e quadro de equipe foram criados como áreas lacradas/de desenvolvimento. Os documentos fornecidos não descrevem a morfologia dos infectados, estágios, características dos espécimes Rei/Rainha, sobrenome ou função de Erin, nem a composição completa da equipe; esses campos permanecem explicitamente pendentes para preservar o cânone e receber futuras imagens e definições do autor.
 
 Os catálogos PT-BR e inglês foram ampliados, e `en-preview/projeto-doom.html` foi regenerada pelo build oficial. A auditoria inglesa passou com 14 páginas, 778 vínculos i18n, 227 referências locais e 1.826 chaves combinadas. A interface ainda precisa de inspeção visual em desktop e celular. As alterações permanecem locais; nenhuma publicação ao GitHub foi feita nesta etapa. As modificações pendentes preexistentes em `home.html` e o diretório não rastreado `img-emily/` foram preservados e não fazem parte desta atualização.
+
+### Abertura cinematográfica do Project DOOM — 22 de novembro de 2026
+
+A abertura da rede Dominium ganhou o clipe `video/dominium-intro/equipe-interior-leviathan.mp4`, mostrando a equipe já no interior do Leviathan. Ele substitui a imagem estática desse trecho e mantém a imagem como fallback; os vídeos continuam sem áudio próprio para não competir com a trilha.
+
+A sequência agora marca duas viradas sincronizadas com a trilha temporária de 2:08: em 0:43, a chegada a Hades recebe tremor, alternância de cor e impacto visual; em 1:30, a cápsula prepara o encerramento e, em 1:38, a música desaparece enquanto o título **PROJECT DOOM** emerge sobre a imagem da amostra. A trilha retorna gradualmente em 1:53, acompanhada por um tique-taque discreto sintetizado pela Web Audio API, que termina junto com a música em 2:08. O cartão final permanece disponível para entrada no site.
+
+Os textos e estados de áudio foram atualizados em português e inglês. As verificações de sintaxe JavaScript, referências de mídia, chaves de tradução, cálculo dos 98 segundos até a revelação final e `git diff --check` passaram. A reprodução audiovisual real ainda precisa ser conferida no navegador/celular.

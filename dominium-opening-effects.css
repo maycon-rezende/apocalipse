@@ -1,0 +1,118 @@
+/* Impact beats for the HADES reveal and the final PROJECT DOOM card. */
+.dominium-opening.is-hades-impact .opening-copy h2 em {
+  color: var(--dmn-ice);
+  text-shadow: 0 0 10px rgba(168, 229, 239, .88), 0 0 36px rgba(216, 37, 52, .74), 5px 0 rgba(216, 37, 52, .6);
+  animation: dominium-hades-strike 1.65s steps(1, end) both;
+}
+
+.dominium-opening.is-hades-impact .opening-copy h2 span {
+  animation: dominium-hades-arrival .9s cubic-bezier(.12, .88, .22, 1) both;
+}
+
+.dominium-opening.is-hades-impact .opening-stage::after {
+  animation: dominium-hades-flash .82s ease-out both;
+}
+
+.dominium-opening.is-doom-reveal .opening-stage::before {
+  animation: dominium-capsule-pulse 4s ease-in-out 3 both;
+}
+
+.dominium-opening.is-doom-reveal .opening-stage::after {
+  animation: dominium-capsule-flash 1.45s ease-out both;
+}
+
+.dominium-opening.is-doom-reveal .opening-final h2 span {
+  display: inline-block;
+  animation: dominium-project-label 1s .2s ease-out both;
+}
+
+.dominium-opening.is-doom-reveal .opening-final h2 strong {
+  color: var(--dmn-ink);
+  animation: dominium-doom-emerge 2.4s cubic-bezier(.16, .82, .25, 1) both;
+  transform-origin: 50% 85%;
+}
+
+@keyframes dominium-hades-arrival {
+  0% { opacity: 0; filter: blur(14px); transform: translateY(18px) scale(.82); }
+  55% { opacity: 1; filter: none; transform: translateY(-3px) scale(1.04); }
+  72% { transform: translateX(-3px); }
+  84% { transform: translateX(3px); }
+  100% { opacity: 1; filter: none; transform: none; }
+}
+
+@keyframes dominium-hades-strike {
+  0% { opacity: 0; color: var(--dmn-red); filter: blur(12px); transform: scale(.72) translateY(18px); letter-spacing: .34em; }
+  24% { opacity: 1; color: #f1ece2; filter: none; transform: scale(1.08); letter-spacing: .04em; }
+  30% { color: var(--dmn-ice); transform: translateX(-7px) skewX(-3deg); text-shadow: 0 0 24px rgba(168,229,239,.95), -7px 0 var(--dmn-red); }
+  37% { color: var(--dmn-red); transform: translateX(7px) skewX(3deg); text-shadow: 0 0 28px rgba(216,37,52,.9), 7px 0 var(--dmn-ice); }
+  44% { color: var(--dmn-ice); transform: translateX(-4px); }
+  53% { color: var(--dmn-ink); transform: translateX(3px); }
+  62%, 100% { opacity: 1; color: var(--dmn-ice); filter: none; transform: none; letter-spacing: .04em; text-shadow: 0 0 12px rgba(168,229,239,.82), 0 0 34px rgba(216,37,52,.58); }
+}
+
+@keyframes dominium-hades-flash {
+  0% { opacity: .55; filter: brightness(2.2) sepia(.3) hue-rotate(300deg); }
+  18% { opacity: .9; filter: brightness(1.45) sepia(.2) hue-rotate(305deg); }
+  42% { opacity: .72; filter: brightness(1.1) hue-rotate(165deg); }
+  100% { opacity: 1; filter: none; }
+}
+
+@keyframes dominium-capsule-pulse {
+  0%, 100% { filter: blur(15px) saturate(.72) brightness(.84); opacity: .76; }
+  38% { filter: blur(13px) saturate(1.16) brightness(1.16); opacity: .98; }
+  48% { filter: blur(15px) saturate(.85) brightness(.72); opacity: .68; }
+  58% { filter: blur(12px) saturate(1.22) brightness(1.18); opacity: 1; }
+}
+
+@keyframes dominium-capsule-flash {
+  0% { opacity: .3; filter: brightness(2.6) sepia(.22) hue-rotate(300deg); }
+  28% { opacity: .9; filter: brightness(1.5) sepia(.12) hue-rotate(310deg); }
+  100% { opacity: 1; filter: none; }
+}
+
+@keyframes dominium-project-label {
+  0% { opacity: 0; filter: blur(10px); letter-spacing: 1.2em; transform: translateY(10px); }
+  65% { opacity: 1; filter: none; letter-spacing: .54em; transform: translateY(-2px); }
+  100% { opacity: 1; filter: none; letter-spacing: .54em; transform: none; }
+}
+
+@keyframes dominium-doom-emerge {
+  0% { opacity: 0; filter: blur(24px) brightness(2); transform: perspective(900px) translateY(52vh) scale(.38); text-shadow: 0 0 0 rgba(216,37,52,0); }
+  34% { opacity: 1; filter: blur(0) brightness(1.65); transform: perspective(900px) translateY(-8px) scale(1.08); text-shadow: 0 0 55px rgba(216,37,52,.95), 0 0 100px rgba(168,229,239,.38); }
+  42% { transform: perspective(900px) translateX(-8px) scale(1.04); color: var(--dmn-ice); }
+  49% { transform: perspective(900px) translateX(7px) scale(1.02); color: var(--dmn-red); }
+  58% { transform: perspective(900px) translateX(-3px) scale(1.01); color: var(--dmn-ink); }
+  72%, 100% { opacity: 1; filter: none; transform: none; color: var(--dmn-ink); text-shadow: 7px 0 rgba(216,37,52,.42), 0 0 50px rgba(216,37,52,.32); }
+}
+
+@media (max-width: 640px) {
+  .dominium-opening.is-hades-impact .opening-copy h2 em { text-shadow: 0 0 8px rgba(168,229,239,.8), 0 0 22px rgba(216,37,52,.62); }
+  @keyframes dominium-hades-strike {
+    0% { opacity: 0; color: var(--dmn-red); filter: blur(10px); transform: scale(.78) translateY(14px); letter-spacing: .18em; }
+    24% { opacity: 1; color: #f1ece2; filter: none; transform: scale(1.04); letter-spacing: .02em; }
+    32% { color: var(--dmn-ice); transform: translateX(-3px); }
+    40% { color: var(--dmn-red); transform: translateX(3px); }
+    50% { color: var(--dmn-ice); transform: translateX(-2px); }
+    62%, 100% { opacity: 1; color: var(--dmn-ice); filter: none; transform: none; letter-spacing: .02em; text-shadow: 0 0 9px rgba(168,229,239,.8), 0 0 24px rgba(216,37,52,.56); }
+  }
+  @keyframes dominium-doom-emerge {
+    0% { opacity: 0; filter: blur(18px) brightness(2); transform: translateY(36vh) scale(.48); }
+    34% { opacity: 1; filter: blur(0) brightness(1.55); transform: translateY(-5px) scale(1.05); text-shadow: 0 0 32px rgba(216,37,52,.9); }
+    43% { transform: translateX(-4px) scale(1.02); color: var(--dmn-ice); }
+    51% { transform: translateX(4px); color: var(--dmn-red); }
+    62%, 100% { opacity: 1; filter: none; transform: none; color: var(--dmn-ink); text-shadow: 5px 0 rgba(216,37,52,.4), 0 0 34px rgba(216,37,52,.3); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dominium-opening.is-hades-impact .opening-copy h2 em,
+  .dominium-opening.is-hades-impact .opening-copy h2 span,
+  .dominium-opening.is-hades-impact .opening-stage::after,
+  .dominium-opening.is-doom-reveal .opening-stage::before,
+  .dominium-opening.is-doom-reveal .opening-stage::after,
+  .dominium-opening.is-doom-reveal .opening-final h2 span,
+  .dominium-opening.is-doom-reveal .opening-final h2 strong {
+    animation: none !important;
+  }
+  .dominium-opening.is-hades-impact .opening-copy h2 em { color: var(--dmn-ice); filter: none; transform: none; }
+}
