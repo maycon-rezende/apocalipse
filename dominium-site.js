@@ -358,6 +358,7 @@
         playbackToken += 1;
         clearOpeningTimers();
         window.clearTimeout(finalRevealTimer);
+        stopSoundtrack();
         stopOpeningVideo();
         if (stage) {
           stage.classList.remove('is-intertitle', 'is-video', 'is-cutting', 'is-portrait');
