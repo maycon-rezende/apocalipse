@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Rede interna da Dominium. Project DOOM // arquivos recuperados do complexo Hades." data-i18n-attr="content:dominium.meta.description">
-<title data-i18n="dominium.home.meta.title">PROJECT DOOM // REDE DOMINIUM</title>
+<meta name="description" content="Site da Dominium, organização de pesquisa biológica fundada por Laurence Maverick." data-i18n-attr="content:dominium.meta.description">
+<title data-i18n="dominium.home.meta.title">DOMINIUM // ORGANIZAÇÃO DE PESQUISA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="dominium-site.css">
@@ -48,10 +48,10 @@
       </section>
       <section class="opening-final" id="opening-final" aria-labelledby="opening-final-title" hidden>
         <p class="opening-final-kicker" id="opening-final-kicker" data-i18n="dominium.opening.final.kicker">ARQUIVO CENTRAL // ACESSO PARCIAL</p>
-        <h2 id="opening-final-title"><span data-i18n="dominium.opening.project">PROJECT</span><strong>DOOM</strong></h2>
+        <h2 id="opening-final-title" aria-live="polite" hidden><span id="opening-final-prefix" data-i18n="dominium.opening.final.brand">ORGANIZAÇÃO</span><strong id="opening-final-word"></strong></h2>
         <p id="opening-final-copy" data-i18n="dominium.opening.final.copy">O arquivo foi aberto. As respostas, não.</p>
         <button class="dominium-action opening-primary-action" id="opening-enter" type="button" data-open-dominium data-i18n="dominium.opening.enter">ENTRAR NA REDE DOMINIUM</button>
-        <small data-i18n="dominium.opening.hint.final">PRESSIONE ENTER PARA ACESSAR A REDE</small>
+        <small id="opening-final-hint" data-i18n="dominium.opening.hint.final">PRESSIONE ENTER PARA ACESSAR A REDE</small>
       </section>
       <button class="opening-skip" id="opening-skip" type="button" data-skip-opening data-i18n="dominium.opening.skip" hidden>PULAR ABERTURA</button>
       <footer class="opening-progress" aria-hidden="true"><span id="opening-progress-count">SINAL // 00</span><i><b id="opening-progress-bar"></b></i></footer>
@@ -60,28 +60,96 @@
     </div>
   </section>
   <header class="dominium-topbar">
-    <a class="dominium-brand" href="dominium.html" aria-label="Dominium // Project DOOM"><strong>DOMINIUM<span> // DOOM</span></strong><small data-i18n="dominium.nav.network">REDE DE ARQUIVOS // ANT-DOOM-00</small></a>
+    <a class="dominium-brand" href="dominium.html" aria-label="Dominium"><strong>DOMINIUM</strong><small data-i18n="dominium.nav.network">PESQUISA E CONTENÇÃO // ORGANIZAÇÃO</small></a>
     <nav class="dominium-nav" aria-label="Navegação da Dominium">
       <a href="dominium.html" aria-current="page" data-i18n="dominium.nav.overview">VISÃO GERAL</a><a href="dominium-complex.html" data-i18n="dominium.nav.facilities">COMPLEXOS</a><a href="dominium-research.html" data-i18n="dominium.nav.research">PESQUISAS</a><a href="dominium-personnel.html" data-i18n="dominium.nav.personnel">EQUIPE</a><a href="dominium-archives.html" data-i18n="dominium.nav.archives">ARQUIVOS</a>
     </nav>
     <div class="dominium-locale" aria-label="Idioma"><button type="button" data-dominium-locale="pt-BR" aria-label="Português do Brasil">🇧🇷 PT</button><button type="button" data-dominium-locale="en" aria-label="English">🇺🇸 EN</button><a class="dominium-node-state" href="projeto-doom.html" data-i18n="dominium.nav.close">ENCERRAR SESSÃO</a></div>
   </header>
-  <main class="dominium-shell">
-    <section class="dominium-page-head" data-file-code="DOM-NET // 00" aria-labelledby="dominium-home-title"><span class="dominium-kicker" data-i18n="dominium.home.kicker">DOMINIUM // REDE DE PESQUISA E CONTENÇÃO</span><h1 id="dominium-home-title"><span data-i18n="dominium.home.title">O arquivo não morreu com o complexo.</span></h1><p data-i18n="dominium.home.lede">Uma rede de registros liga as primeiras pesquisas antárticas às instalações que vieram depois. A reconstrução mantém lacunas onde a evidência não permite uma resposta.</p><div class="head-readout"><span data-i18n="dominium.home.readout.one">ORIGEM // ANTÁRTIDA</span><span data-i18n="dominium.home.readout.two">REDE // INSTALAÇÕES MÚLTIPLAS</span><span data-i18n="dominium.home.readout.three">ESTADO // PARCIAL</span></div></section>
-    <section class="dominium-hero-grid" aria-label="Arquivo visual principal">
-      <figure class="dominium-hero-visual"><img src="img-dominus/leviathan1.png" alt="Instalação Dominium na superfície antártica" data-i18n-attr="alt:dominium.home.hero.alt"><figcaption data-i18n="dominium.home.hero.caption">LEVIATHAN // COMPLEXO DE SUPERFÍCIE // ANTÁRTIDA</figcaption></figure>
-      <aside class="dominium-console"><div><div class="dominium-console-head"><span data-i18n="dominium.home.console.label">ESTADO DA REDE</span><b data-i18n="dominium.home.console.alert">ACESSO RESTRITO</b></div><h2 data-i18n="dominium.home.console.title">Project DOOM</h2><p data-i18n="dominium.home.console.copy">O núcleo subterrâneo Hades foi só uma parte de uma estrutura muito maior. Instalações, registros e relatos não chegaram até nós com a mesma integridade.</p></div><dl class="dominium-readout"><div><dt data-i18n="dominium.home.console.line1.label">NÚCLEO ORIGINAL</dt><dd data-i18n="dominium.home.console.line1.value">HADES / PERSEPHONE</dd></div><div><dt data-i18n="dominium.home.console.line2.label">CONTINUIDADE</dt><dd data-i18n="dominium.home.console.line2.value">OUTRAS INSTALAÇÕES</dd></div><div><dt data-i18n="dominium.home.console.line3.label">ARQUIVO CENTRAL</dt><dd data-i18n="dominium.home.console.line3.value">FRAGMENTADO</dd></div></dl></aside>
+  <main class="dominium-site-home">
+    <section class="dominium-site-hero" aria-labelledby="dominium-home-title">
+      <div class="dominium-site-hero-copy">
+        <p class="dominium-kicker" data-i18n="dominium.home.hero.kicker">ORGANIZAÇÃO DE PESQUISA // ANTÁRTIDA</p>
+        <div class="dominium-title-reveal">
+          <h1 id="dominium-home-title" data-reveal-word="DOMINIUM" data-i18n="dominium.home.hero.title">DOMINIUM</h1>
+          <span class="dominium-title-fracture" aria-hidden="true"></span>
+        </div>
+        <p class="dominium-home-subtitle" data-i18n="dominium.home.hero.subtitle">Pesquisa. Contenção. Continuidade.</p>
+        <p class="dominium-site-hero-lede" data-i18n="dominium.home.hero.copy">Fundada por Laurence Maverick, a Dominium reúne pesquisas, complexos e equipes especializadas.</p>
+        <div class="dominium-site-actions">
+          <a class="dominium-action" href="dominium-organization.html" data-i18n="dominium.home.hero.about">Conheça a organização</a>
+          <a class="dominium-action is-secondary" href="dominium-complex.html" data-i18n="dominium.home.hero.facilities">Explorar complexos</a>
+        </div>
+      </div>
+      <figure class="dominium-site-hero-visual">
+        <img src="img-dominus/intro/stills/intro-still-04-research-team.png" alt="Equipe de pesquisadores reunida em um laboratório" data-i18n-attr="alt:dominium.home.hero.image.alt" fetchpriority="high">
+        <figcaption data-i18n="dominium.home.hero.image.caption">Equipe científica // registro interno</figcaption>
+      </figure>
+      <span class="dominium-site-hero-index" aria-hidden="true">DOMINIUM / RESEARCH NETWORK</span>
     </section>
-    <section class="dominium-section" aria-labelledby="dominium-directory-title"><div class="dominium-section-heading"><div><span class="dominium-kicker" data-i18n="dominium.home.directory.kicker">ÍNDICE DE NAVEGAÇÃO</span><h2 id="dominium-directory-title" data-i18n="dominium.home.directory.title">Entrar nos setores</h2></div><span data-i18n="dominium.home.directory.status">4 TERMINAIS DISPONÍVEIS</span></div><p class="dominium-lede" data-i18n="dominium.home.directory.copy">Cada terminal abre uma rota própria dentro da rede Dominium. Registros incompletos são identificados como tais; os arquivos não completam sozinhos o que a história ainda não revelou.</p>
-      <div class="dominium-grid">
-        <article class="dominium-card"><img src="img-dominus/centro-de-comando.png" alt="Centro de comando do Hades" data-i18n-attr="alt:dominium.card.complex.alt"><div class="dominium-card-copy"><span class="dominium-card-code">DOM-LOC // 01</span><h3 data-i18n="dominium.card.complex.title">Complexos</h3><p data-i18n="dominium.card.complex.copy">Hades, seu complexo gêmeo Persephone e a rede de instalações posteriores.</p><a class="dominium-action" href="dominium-complex.html" data-i18n="dominium.card.open">ABRIR TERMINAL</a></div></article>
-        <article class="dominium-card"><img src="img-dominus/ala-de-testes.png" alt="Registro de uma ala de pesquisa" data-i18n-attr="alt:dominium.card.research.alt"><div class="dominium-card-copy"><span class="dominium-card-code">DOM-BIO // 06</span><h3 data-i18n="dominium.card.research.title">Pesquisa biológica</h3><p data-i18n="dominium.card.research.copy">Amostra DOOM, registros dos agentes Rei e Rainha e estágios visuais recuperados.</p><a class="dominium-action" href="dominium-research.html" data-i18n="dominium.card.open">ABRIR TERMINAL</a></div></article>
-        <article class="dominium-card"><img src="img-dominus/WhatsApp%20Image%202026-11-20%20at%2000.57.47%20(13).jpeg" alt="Pesquisador Laurence Maverick em uma instalação Hades" data-i18n-attr="alt:dominium.card.personnel.alt"><div class="dominium-card-copy"><span class="dominium-card-code">DOM-PER // 07</span><h3 data-i18n="dominium.card.personnel.title">Pessoal</h3><p data-i18n="dominium.card.personnel.copy">Pesquisadores, segurança e identidades que aparecem nos registros cruzados.</p><a class="dominium-action" href="dominium-personnel.html" data-i18n="dominium.card.open">ABRIR TERMINAL</a></div></article>
-        <article class="dominium-card"><img src="img-dominus/glaciologia.png" alt="Instalação de pesquisa sob o gelo" data-i18n-attr="alt:dominium.card.archives.alt"><div class="dominium-card-copy"><span class="dominium-card-code">DOM-ARC // 08</span><h3 data-i18n="dominium.card.archives.title">Cronologia e fragmentos</h3><p data-i18n="dominium.card.archives.copy">Marcos datados, eventos sem data segura e páginas atribuídas ao diário de Maverick.</p><a class="dominium-action" href="dominium-archives.html" data-i18n="dominium.card.open">ABRIR TERMINAL</a></div></article>
+
+    <section class="dominium-home-introduction dominium-content-band" aria-labelledby="dominium-introduction-title">
+      <div class="dominium-home-introduction-label">
+        <span class="dominium-kicker" data-i18n="dominium.home.intro.kicker">A ORGANIZAÇÃO</span>
+        <p data-i18n="dominium.home.intro.signature">PESQUISA // CONTENÇÃO // CONTINUIDADE</p>
+      </div>
+      <div class="dominium-home-introduction-copy">
+        <h2 id="dominium-introduction-title" data-i18n="dominium.home.intro.title">Uma rede construída para pesquisar e conter.</h2>
+        <p data-i18n="dominium.home.intro.copy">A Dominium coordena complexos, programas de pesquisa e equipes de segurança em diferentes instalações.</p>
+        <a class="dominium-text-link" href="dominium-organization.html" data-i18n="dominium.home.intro.link">Sobre a Dominium</a>
       </div>
     </section>
-    <section class="dominium-section"><div class="dominium-section-heading"><div><span class="dominium-kicker" data-i18n="dominium.home.notice.kicker">NOTA DE INTEGRIDADE</span><h2 data-i18n="dominium.home.notice.title">O que este arquivo pode afirmar</h2></div><span>FICTION // CANON</span></div><p class="dominium-lede" data-i18n="dominium.home.notice.copy">Este é um universo ficcional. A interface organiza a lore fornecida para a obra; lacunas estão marcadas e não devem ser lidas como informação científica ou histórica do mundo real.</p></section>
-    <footer class="dominium-footer"><span>DOMINIUM // PROJECT DOOM</span><span class="fiction-label" data-i18n="dominium.footer.fiction">UNIVERSO FICCIONAL // ARQUIVO NARRATIVO</span><a href="projeto-doom.html" data-i18n="dominium.nav.close">ENCERRAR SESSÃO</a></footer>
+
+    <section class="dominium-home-facilities dominium-content-band" aria-labelledby="dominium-facilities-title">
+      <div class="dominium-section-heading">
+        <div><span class="dominium-kicker" data-i18n="dominium.home.facilities.kicker">CENTROS DE OPERAÇÃO</span><h2 id="dominium-facilities-title" data-i18n="dominium.home.facilities.title">Uma rede de complexos</h2></div>
+        <a class="dominium-text-link" href="dominium-complex.html" data-i18n="dominium.home.facilities.link">Ver todos os complexos</a>
+      </div>
+      <div class="dominium-facility-list">
+        <a class="dominium-facility-feature" href="dominium-complex.html" aria-label="Conheça o complexo Leviathan">
+          <img src="img-dominus/intro/stills/intro-still-01-leviathan-antarctica.png" alt="Instalação da Dominium na Antártida" data-i18n-attr="alt:dominium.home.facilities.leviathan.alt" loading="lazy">
+          <span class="dominium-facility-feature-copy"><small data-i18n="dominium.home.facilities.surface">COMPLEXO DE SUPERFÍCIE</small><strong>Leviathan</strong><span data-i18n="dominium.home.facilities.leviathan.copy">O ponto de acesso visível à rede de instalações.</span></span>
+        </a>
+        <a class="dominium-facility-feature" href="dominium-hades.html">
+          <img src="img-dominus/centro-de-comando.png" alt="Centro de comando subterrâneo do Hades" data-i18n-attr="alt:dominium.home.facilities.hades.alt" loading="lazy">
+          <span class="dominium-facility-feature-copy"><small data-i18n="dominium.home.facilities.underground">COMPLEXO SUBTERRÂNEO</small><strong>Hades</strong><span data-i18n="dominium.home.facilities.hades.copy">Pesquisa, contenção e setores de observação.</span></span>
+        </a>
+        <a class="dominium-facility-feature" href="dominium-complex.html">
+          <img src="img-dominus/centra-de-energia.png" alt="Infraestrutura subterrânea de Persephone" data-i18n-attr="alt:dominium.home.facilities.persephone.alt" loading="lazy">
+          <span class="dominium-facility-feature-copy"><small data-i18n="dominium.home.facilities.original-pair">COMPLEXO GÊMEO</small><strong>Persephone</strong><span data-i18n="dominium.home.facilities.persephone.copy">Parte do par original de instalações subterrâneas.</span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="dominium-home-research-band" aria-labelledby="dominium-research-title">
+      <div class="dominium-home-research-visual" role="img" aria-label="Registros de pesquisa em um laboratório" data-i18n-attr="aria-label:dominium.home.research.image.alt"></div>
+      <div class="dominium-home-research-copy">
+        <span class="dominium-kicker" data-i18n="dominium.home.research.kicker">PESQUISA BIOLÓGICA</span>
+        <h2 id="dominium-research-title" data-i18n="dominium.home.research.title">Programas em diferentes estágios.</h2>
+        <p data-i18n="dominium.home.research.copy">Explore registros de amostras, observações e estudos classificados — cada arquivo revela apenas o que foi autorizado.</p>
+        <a class="dominium-action" href="dominium-research.html" data-i18n="dominium.home.research.link">Conhecer as pesquisas</a>
+      </div>
+    </section>
+
+    <section class="dominium-home-team dominium-content-band" aria-labelledby="dominium-team-title">
+      <div>
+        <span class="dominium-kicker" data-i18n="dominium.home.team.kicker">EQUIPE // CIÊNCIA E SEGURANÇA</span>
+        <h2 id="dominium-team-title" data-i18n="dominium.home.team.title">Pessoas por trás da organização.</h2>
+        <p data-i18n="dominium.home.team.copy">Conheça Laurence Maverick, as lideranças de pesquisa e as equipes responsáveis pelas instalações.</p>
+        <a class="dominium-text-link" href="dominium-personnel.html" data-i18n="dominium.home.team.link">Ver equipe e departamentos</a>
+      </div>
+      <img src="img-dominus/intro/stills/intro-still-07-grey-frost-research.png" alt="Pesquisadoras em uma área de laboratório" data-i18n-attr="alt:dominium.home.team.alt" loading="lazy">
+    </section>
+
+    <footer class="dominium-site-footer">
+      <a class="dominium-site-footer-brand" href="dominium.html">DOMINIUM</a>
+      <p data-i18n="dominium.footer.fiction">UNIVERSO FICCIONAL // ARQUIVO NARRATIVO</p>
+      <nav aria-label="Links institucionais" data-i18n-attr="aria-label:dominium.footer.nav.label">
+        <a href="dominium-organization.html" data-i18n="dominium.nav.organization">Organização</a>
+        <a href="dominium-complex.html" data-i18n="dominium.nav.facilities">Complexos</a>
+        <a href="dominium-archives.html" data-i18n="dominium.nav.archives">Arquivos</a>
+      </nav>
+    </footer>
   </main>
 </div>
 </body>

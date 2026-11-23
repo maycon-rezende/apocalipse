@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR" data-i18n-ready="full">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Acesse o complexo subterrâneo Hades da rede Dominium." data-i18n-attr="content:dominium.hades.meta.description">
+  <title data-i18n="dominium.hades.meta.title">HADES // COMPLEXO SUBTERRÂNEO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dominium-site.css">
+  <script src="i18n/pt-BR.js"></script><script src="i18n/en.js"></script>
+  <script src="i18n/dominium-pt-BR.js"></script><script src="i18n/dominium-en.js"></script>
+  <script src="i18n/core.js"></script><script src="dominium-site.js" defer></script>
+</head>
+<body class="dominium-body" data-dominium-page="hades">
+  <div class="dominium-noise" aria-hidden="true"></div><div class="dominium-vignette" aria-hidden="true"></div>
+  <section class="dominium-access-lock" id="dominium-access-lock" hidden aria-labelledby="dominium-lock-title">
+    <div class="dominium-lock-panel"><span data-i18n="dominium.lock.status">AUTORIZAÇÃO AUSENTE // SESSÃO NÃO VALIDADA</span><h1 id="dominium-lock-title" data-i18n="dominium.lock.title">Acesso não autorizado</h1><p data-i18n="dominium.lock.copy">Esta rede só pode ser acessada pelo terminal liberado após a verificação de credenciais.</p><a href="projeto-doom.html" data-i18n="dominium.lock.return">Retornar ao terminal de acesso</a></div>
+  </section>
+  <div id="dominium-app" hidden>
+    <header class="dominium-topbar">
+      <a class="dominium-brand" href="dominium.html" aria-label="Dominium"><strong>DOMINIUM</strong><small data-i18n="dominium.nav.network">PESQUISA E CONTENÇÃO // ORGANIZAÇÃO</small></a>
+      <nav class="dominium-nav" aria-label="Navegação da Dominium"><a href="dominium.html" data-i18n="dominium.nav.overview">INÍCIO</a><a href="dominium-complex.html" data-i18n="dominium.nav.facilities">COMPLEXOS</a><a href="dominium-research.html" data-i18n="dominium.nav.research">PESQUISAS</a><a href="dominium-personnel.html" data-i18n="dominium.nav.personnel">EQUIPE</a><a href="dominium-archives.html" data-i18n="dominium.nav.archives">ARQUIVOS</a></nav>
+      <div class="dominium-locale" aria-label="Idioma"><button type="button" data-dominium-locale="pt-BR" aria-label="Português do Brasil">🇧🇷 PT</button><button type="button" data-dominium-locale="en" aria-label="English">🇺🇸 EN</button><a class="dominium-node-state" href="projeto-doom.html" data-i18n="dominium.nav.close">ENCERRAR SESSÃO</a></div>
+    </header>
+
+    <section class="hades-arrival" id="hades-arrival" aria-labelledby="hades-welcome-title">
+      <div class="hades-arrival-scene" aria-hidden="true"><img src="img-dominus/centro-de-comando.png" alt=""><div class="hades-elevator-door is-left"></div><div class="hades-elevator-door is-right"></div><div class="hades-elevator-light"></div></div>
+      <div class="hades-arrival-copy"><span data-i18n="dominium.hades.arrival.kicker">LEVIATHAN // DESCIDA AUTORIZADA</span><h1 id="hades-welcome-title" data-i18n="dominium.hades.arrival.title">Bem-vindo ao Hades.</h1><p data-i18n="dominium.hades.arrival.copy">Complexo subterrâneo da rede Dominium. Selecione uma área para iniciar a visita.</p><button class="dominium-action" type="button" data-hades-enter data-i18n="dominium.hades.arrival.enter">ENTRAR NO COMPLEXO</button></div>
+      <p class="hades-arrival-coordinate" aria-hidden="true">HADES // SUBSOLO</p>
+    </section>
+
+    <main class="dominium-shell hades-interior" id="hades-interior" tabindex="-1" hidden>
+      <section class="dominium-page-head" data-file-code="DOM-HAD // 04"><span class="dominium-kicker" data-i18n="dominium.hades.interior.kicker">COMPLEXO HADES // VISÃO GERAL</span><h1 data-i18n="dominium.hades.interior.title">Pesquisa em profundidade.</h1><p data-i18n="dominium.hades.interior.copy">O Hades reúne setores de pesquisa, observação, pessoal e contenção. Escolha uma área para conhecer os registros disponíveis.</p></section>
+      <section class="dominium-section" aria-labelledby="hades-sectors-title">
+        <div class="dominium-section-heading"><div><span class="dominium-kicker" data-i18n="dominium.hades.sectors.kicker">NAVEGAÇÃO DO COMPLEXO</span><h2 id="hades-sectors-title" data-i18n="dominium.hades.sectors.title">Acesse um setor.</h2></div><span data-i18n="dominium.hades.sectors.hint">SELECIONE UMA ÁREA</span></div>
+        <div class="hades-sector-grid">
+          <a href="dominium-research.html" class="hades-sector-link"><span data-i18n="dominium.hades.sector.research.label">PESQUISA</span><strong data-i18n="dominium.hades.sector.research.title">Laboratórios</strong><p data-i18n="dominium.hades.sector.research.copy">Amostras e relatórios científicos.</p></a>
+          <a href="dominium-infected.html" class="hades-sector-link is-restricted"><span data-i18n="dominium.hades.sector.infected.label">ACESSO RESTRITO</span><strong data-i18n="dominium.hades.sector.infected.title">Ala de observação</strong><p data-i18n="dominium.hades.sector.infected.copy">Registros de cobaias e estágios visuais.</p></a>
+          <a href="dominium-personnel.html" class="hades-sector-link"><span data-i18n="dominium.hades.sector.personnel.label">PESSOAL</span><strong data-i18n="dominium.hades.sector.personnel.title">Equipe do complexo</strong><p data-i18n="dominium.hades.sector.personnel.copy">Pesquisadores e segurança.</p></a>
+          <a href="dominium-archives.html" class="hades-sector-link"><span data-i18n="dominium.hades.sector.archives.label">ARQUIVO</span><strong data-i18n="dominium.hades.sector.archives.title">Diários e registros</strong><p data-i18n="dominium.hades.sector.archives.copy">Fragmentos preservados pela rede.</p></a>
+        </div>
+      </section>
+      <footer class="dominium-footer"><span>DOMINIUM // HADES</span><span class="fiction-label" data-i18n="dominium.footer.fiction">UNIVERSO FICCIONAL // ARQUIVO NARRATIVO</span><a href="dominium-complex.html" data-i18n="dominium.hades.back">VOLTAR AOS COMPLEXOS</a></footer>
+    </main>
+  </div>
+</body>
+</html>

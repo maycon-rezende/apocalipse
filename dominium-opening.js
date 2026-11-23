@@ -28,6 +28,12 @@
   const line = document.getElementById('opening-line');
   const lineEmphasis = document.getElementById('opening-line-em');
   const caption = document.getElementById('opening-caption');
+  const finalKicker = document.getElementById('opening-final-kicker');
+  const finalTitle = document.getElementById('opening-final-title');
+  const finalTitlePrefix = document.getElementById('opening-final-prefix');
+  const finalTitleWord = document.getElementById('opening-final-word');
+  const finalCopy = document.getElementById('opening-final-copy');
+  const finalHint = document.getElementById('opening-final-hint');
   const live = document.getElementById('opening-live');
   const startButton = document.getElementById('opening-start');
   const enterButton = document.getElementById('opening-enter');
@@ -195,13 +201,14 @@
   let soundtrackUnavailable = false;
   let clockAudioContext = null;
   let clockMasterGain = null;
-  let clockTimer = 0;
-  let clockSuspendTimer = 0;
-  let clockBeat = 0;
+  let chimeSuspendTimer = 0;
   let visualStarted = false;
   let userStarted = false;
   let playbackToken = 0;
   let finalShowing = false;
+  let suspenseShowing = false;
+  let chimeSequenceStarted = false;
+  const chimeTimers = new Set();
   let progressFrame = 0;
   let frameObserver = null;
 
@@ -422,14 +429,53 @@
 
   const sceneElapsedBefore = index => scenes.slice(0, index).reduce((total, scene) => total + scene.duration, 0);
 
-  const showFinal = (fromSkip = false) => {
-    if (finalShowing || opening.classList.contains('dismissed')) return;
-    finalShowing = true;
+  const showSuspense = () => {
+    if (suspenseShowing || finalShowing || opening.classList.contains('dismissed')) return;
+    suspenseShowing = true;
     playbackToken += 1;
     clearTimers();
     window.clearTimeout(soundtrackStartFallback);
+    if (video) stopVideo(video);
+
+    stage.classList.remove('is-cinematic', 'is-intertitle', 'is-video', 'is-connecting');
+    stage.classList.add('is-final-image');
+    void crossfadeToStill('img-dominus/intro/stills/intro-still-03-containment-vessel.png', playbackToken);
+    if (gate) gate.hidden = true;
+    if (waiting) waiting.hidden = true;
+    if (copy) copy.hidden = true;
+    if (finalCard) finalCard.hidden = false;
+    if (finalTitle) finalTitle.hidden = true;
+    if (finalTitlePrefix) finalTitlePrefix.hidden = true;
+    if (finalTitleWord) finalTitleWord.textContent = '';
+    if (enterButton) enterButton.hidden = true;
+    if (finalHint) finalHint.hidden = true;
+    if (skipButton) skipButton.hidden = false;
+    if (progressCount) progressCount.textContent = `${progressLabel('dominium.opening.progress.final')} // ${String(scenes.length).padStart(2, '0')}`;
+    if (progressBar) progressBar.style.width = `${(TRACK_MUTE_AT_MS / TRACK_END_MS) * 100}%`;
+
+    opening.classList.remove('is-gate', 'is-cinematic', 'is-connecting', 'is-intertitle', 'is-hades-impact', 'is-dominium-reveal', 'is-chime-sequence', 'is-chime-residue-one', 'is-chime-residue-two');
+    opening.classList.add('is-final', 'is-suspense');
+    translate(finalKicker, 'dominium.opening.final.suspense.kicker');
+    translate(finalCopy, 'dominium.opening.final.suspense.copy');
+    translate(live, 'dominium.opening.final.silence');
+
+    if (!soundtrackStarted || soundtrackUnavailable) {
+      const chimeTimer = window.setTimeout(startChimeSequence, TRACK_RETURN_AT_MS - TRACK_MUTE_AT_MS);
+      chimeTimers.add(chimeTimer);
+      const revealTimer = window.setTimeout(() => showFinal(false), TRACK_END_MS - TRACK_MUTE_AT_MS);
+      chimeTimers.add(revealTimer);
+    }
+  };
+
+  const showFinal = (fromSkip = false) => {
+    if (finalShowing || opening.classList.contains('dismissed')) return;
+    suspenseShowing = false;
+    finalShowing = true;
+    playbackToken += 1;
+    clearTimers();
+    stopClockChimes(fromSkip ? 0 : TRACK_FADE_MS);
+    window.clearTimeout(soundtrackStartFallback);
     if (fromSkip) {
-      stopClockTicks();
       fadeSoundtrackTo(0, reduceMotion ? 0 : 350, releaseSoundtrack);
     }
 
@@ -444,16 +490,24 @@
     if (skipButton) skipButton.hidden = true;
     if (progressCount) progressCount.textContent = `${progressLabel('dominium.opening.progress.final')} // ${String(scenes.length).padStart(2, '0')}`;
     if (progressBar) progressBar.style.width = '100%';
-    opening.classList.remove('is-gate', 'is-cinematic', 'is-connecting', 'is-intertitle', 'is-hades-impact');
-    opening.classList.add('is-final', 'is-doom-reveal');
-    translate(live, 'dominium.opening.final.silence');
-    if (progressBar) progressBar.style.width = soundtrackStarted ? `${(TRACK_MUTE_AT_MS / TRACK_END_MS) * 100}%` : '100%';
+    opening.classList.remove('is-gate', 'is-cinematic', 'is-connecting', 'is-intertitle', 'is-hades-impact', 'is-suspense', 'is-chime-sequence', 'is-chime-residue-one', 'is-chime-residue-two', 'is-chime-pulse');
+    opening.classList.add('is-final', 'is-dominium-reveal');
+    if (finalTitle) finalTitle.hidden = false;
+    if (finalTitlePrefix) {
+      finalTitlePrefix.hidden = false;
+      translate(finalTitlePrefix, 'dominium.opening.final.brand');
+    }
+    if (finalTitleWord) finalTitleWord.textContent = 'DOMINIUM';
+    if (finalHint) finalHint.hidden = false;
+    translate(finalKicker, 'dominium.opening.final.kicker');
+    translate(finalCopy, 'dominium.opening.final.copy');
+    translate(live, 'dominium.opening.final.status');
     if (enterButton) enterButton.hidden = false;
   };
 
   const nextScene = index => {
     if (index >= scenes.length) {
-      showFinal(false);
+      showSuspense();
       return;
     }
 
@@ -464,7 +518,7 @@
     const sceneStartedAt = performance.now();
     preloadNearbyStills(index);
 
-    opening.classList.remove('is-gate', 'is-final', 'is-connecting', 'is-intertitle', 'is-doom-reveal');
+    opening.classList.remove('is-gate', 'is-final', 'is-connecting', 'is-intertitle', 'is-suspense', 'is-dominium-reveal', 'is-chime-sequence', 'is-chime-residue-one', 'is-chime-residue-two', 'is-chime-pulse');
     opening.classList.add('is-cinematic');
     if (gate) gate.hidden = true;
     if (waiting) waiting.hidden = true;
@@ -557,42 +611,42 @@
     return true;
   };
 
-  const playClockTick = () => {
-    if (!clockAudioContext || !clockMasterGain || clockAudioContext.state !== 'running') return;
-    const now = clockAudioContext.currentTime;
-    const oscillator = clockAudioContext.createOscillator();
-    const envelope = clockAudioContext.createGain();
-    const frequency = clockBeat++ % 2 === 0 ? 1480 : 1120;
-    oscillator.type = 'triangle';
-    oscillator.frequency.setValueAtTime(frequency, now);
-    oscillator.frequency.exponentialRampToValueAtTime(520, now + 0.035);
-    envelope.gain.setValueAtTime(0.0001, now);
-    envelope.gain.exponentialRampToValueAtTime(0.42, now + 0.003);
-    envelope.gain.exponentialRampToValueAtTime(0.0001, now + 0.055);
-    oscillator.connect(envelope);
-    envelope.connect(clockMasterGain);
-    oscillator.start(now);
-    oscillator.stop(now + 0.06);
+  const playClockChime = (intensity = 1) => {
+    if (!clockAudioContext || !clockMasterGain) return;
+    const strike = () => {
+      if (!clockAudioContext || !clockMasterGain || clockAudioContext.state !== 'running') return;
+      const now = clockAudioContext.currentTime;
+      [
+        { frequency: 440, level: 0.56, decay: 1.75 },
+        { frequency: 660, level: 0.27, decay: 1.45 },
+        { frequency: 880, level: 0.13, decay: 1.15 },
+        { frequency: 1320, level: 0.06, decay: 0.9 }
+      ].forEach(partial => {
+        const oscillator = clockAudioContext.createOscillator();
+        const envelope = clockAudioContext.createGain();
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(partial.frequency, now);
+        oscillator.connect(envelope);
+        envelope.connect(clockMasterGain);
+        envelope.gain.setValueAtTime(0.0001, now);
+        envelope.gain.exponentialRampToValueAtTime(partial.level * intensity, now + 0.012);
+        envelope.gain.exponentialRampToValueAtTime(0.0001, now + partial.decay);
+        oscillator.start(now);
+        oscillator.stop(now + partial.decay + 0.02);
+      });
+    };
+
+    if (clockAudioContext.state === 'suspended') {
+      void clockAudioContext.resume().then(strike).catch(() => {});
+    } else {
+      strike();
+    }
   };
 
-  const startClockTicks = () => {
-    if (clockTimer || !ensureClockAudio()) return;
-    window.clearTimeout(clockSuspendTimer);
-    clockBeat = 0;
-    const now = clockAudioContext.currentTime;
-    clockMasterGain.gain.cancelScheduledValues(now);
-    clockMasterGain.gain.setValueAtTime(clockMasterGain.gain.value, now);
-    clockMasterGain.gain.linearRampToValueAtTime(0.2, now + 1.1);
-    clockTimer = window.setInterval(playClockTick, 1000);
-    void clockAudioContext.resume().then(() => {
-      if (clockTimer) playClockTick();
-    }).catch(() => {});
-  };
-
-  const stopClockTicks = (fadeDuration = 0) => {
-    window.clearInterval(clockTimer);
-    clockTimer = 0;
-    window.clearTimeout(clockSuspendTimer);
+  const stopClockChimes = (fadeDuration = 0) => {
+    chimeTimers.forEach(timer => window.clearTimeout(timer));
+    chimeTimers.clear();
+    window.clearTimeout(chimeSuspendTimer);
     if (!clockAudioContext || !clockMasterGain) return;
     const now = clockAudioContext.currentTime;
     const gain = clockMasterGain.gain;
@@ -600,8 +654,8 @@
     gain.setValueAtTime(gain.value, now);
     if (fadeDuration > 0) {
       gain.linearRampToValueAtTime(0, now + (fadeDuration / 1000));
-      clockSuspendTimer = window.setTimeout(() => {
-        if (!clockTimer) void clockAudioContext?.suspend().catch(() => {});
+      chimeSuspendTimer = window.setTimeout(() => {
+        void clockAudioContext?.suspend().catch(() => {});
       }, fadeDuration + 40);
     } else {
       gain.setValueAtTime(0, now);
@@ -609,12 +663,59 @@
     }
   };
 
+  const startChimeSequence = () => {
+    if (chimeSequenceStarted || !suspenseShowing || !ensureClockAudio()) return;
+    chimeSequenceStarted = true;
+    window.clearTimeout(chimeSuspendTimer);
+    const now = clockAudioContext.currentTime;
+    clockMasterGain.gain.cancelScheduledValues(now);
+    clockMasterGain.gain.setValueAtTime(clockMasterGain.gain.value, now);
+    clockMasterGain.gain.linearRampToValueAtTime(0.24, now + 1.1);
+    if (finalTitle) finalTitle.hidden = false;
+    if (finalTitlePrefix) finalTitlePrefix.hidden = true;
+    translate(finalKicker, 'dominium.opening.final.countdown.kicker');
+    translate(finalCopy, 'dominium.opening.final.countdown.copy');
+    translate(live, 'dominium.opening.final.clock');
+    opening.classList.add('is-chime-sequence');
+
+    const beats = [
+      { at: 0, text: 'DO', intensity: 1 },
+      { at: 2000, text: 'DOMI', intensity: 1 },
+      { at: 4000, text: 'DOMINI', intensity: 1 },
+      { at: 6000, text: 'DOMINIUM', intensity: 1 },
+      { at: 8000, text: 'DOMINIUM', intensity: 1.08, effect: 'full' },
+      { at: 10000, text: 'D…M', intensity: 0.58, effect: 'residue-one' },
+      { at: 12000, text: '…', intensity: 0.3, effect: 'residue-two' }
+    ];
+
+    beats.forEach(beat => {
+      const timer = window.setTimeout(() => {
+        chimeTimers.delete(timer);
+        if (!suspenseShowing || finalShowing) return;
+        if (finalTitle) finalTitle.hidden = false;
+        if (finalTitlePrefix) finalTitlePrefix.hidden = true;
+        if (finalTitleWord) {
+          finalTitleWord.textContent = beat.text;
+          finalTitleWord.classList.remove('is-chime-hit');
+          void finalTitleWord.offsetWidth;
+          finalTitleWord.classList.add('is-chime-hit');
+        }
+        opening.classList.remove('is-chime-residue-one', 'is-chime-residue-two', 'is-chime-pulse');
+        if (beat.effect) opening.classList.add(`is-chime-${beat.effect}`);
+        void opening.offsetWidth;
+        opening.classList.add('is-chime-pulse');
+        playClockChime(beat.intensity);
+      }, beat.at);
+      chimeTimers.add(timer);
+    });
+  };
+
   function releaseSoundtrack() {
     window.clearInterval(soundtrackFadeTimer);
     window.clearTimeout(soundtrackStartFallback);
     soundtrackExpired = true;
     soundtrackPhase = 'ended';
-    stopClockTicks();
+    stopClockChimes();
     try { soundtrackWidget?.pause(); } catch (error) {}
     if (soundtrackFrame && soundtrackFrame.src !== 'about:blank') soundtrackFrame.src = 'about:blank';
     soundtrackStarted = false;
@@ -624,27 +725,28 @@
     if (!soundtrackStarted || soundtrackPhase === 'ended') return;
 
     if (position >= TRACK_END_MS) {
+      if (suspenseShowing && !finalShowing) showFinal(false);
       releaseSoundtrack();
     } else if (position >= TRACK_END_MS - TRACK_FADE_MS) {
       if (soundtrackPhase !== 'ending') {
         soundtrackPhase = 'ending';
-        stopClockTicks(TRACK_FADE_MS);
+        stopClockChimes(TRACK_FADE_MS);
         fadeSoundtrackTo(0, TRACK_FADE_MS, releaseSoundtrack);
       }
     } else if (position >= TRACK_RETURN_AT_MS) {
       if (soundtrackPhase !== 'return') {
         soundtrackPhase = 'return';
         fadeSoundtrackTo(48, TRACK_RETURN_FADE_MS);
-        startClockTicks();
-        if (finalShowing) translate(live, 'dominium.opening.final.clock');
+        if (suspenseShowing) startChimeSequence();
+        else if (finalShowing) translate(live, 'dominium.opening.final.clock');
       }
     } else if (position >= TRACK_MUTE_AT_MS && soundtrackPhase === 'opening') {
       soundtrackPhase = 'muted';
       fadeSoundtrackTo(0, TRACK_FADE_MS);
-      if (finalShowing) translate(live, 'dominium.opening.final.silence');
+      if (suspenseShowing) translate(live, 'dominium.opening.final.silence');
     }
 
-    if (finalShowing && progressBar) {
+    if ((suspenseShowing || finalShowing) && progressBar) {
       progressBar.style.width = `${Math.min(100, (position / TRACK_END_MS) * 100)}%`;
     }
   };
@@ -686,6 +788,7 @@
         if (soundtrackStarted) applySoundtrackTimeline(position);
       });
       if (events.FINISH) soundtrackWidget.bind(events.FINISH, () => {
+        if (suspenseShowing && !finalShowing) showFinal(false);
         releaseSoundtrack();
         if (!visualStarted) beginVisuals(true);
       });
@@ -760,6 +863,7 @@
     if (event.key !== 'Enter' || event.target.closest?.('button,a,input,textarea,select,[contenteditable="true"]')) return;
     event.preventDefault();
     if (finalShowing) dismissOpening();
+    else if (suspenseShowing) showFinal(true);
     else if (!userStarted) startOpening();
   };
 
