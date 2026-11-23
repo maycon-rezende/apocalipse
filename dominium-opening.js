@@ -67,11 +67,12 @@
     TEST_WING: 5000,
     INFECTED_WING: 6000,
     DUAL_SAMPLE: 4800,
-    CAPSULE_PRELUDE: 6120
+    CAPSULE_PRELUDE: 5000
   });
   const TRACK_MUTE_AT_MS = 98000;
   const TRACK_RETURN_AT_MS = 113000;
   const TRACK_END_MS = 128000;
+  const SOUNDTRACK_EVENT_GRACE_MS = 1200;
   const TRACK_FADE_MS = 850;
   const TRACK_RETURN_FADE_MS = 1400;
   const SOUNDTRACK_TARGET_VOLUME = 70;
@@ -648,6 +649,16 @@
         startTitleTickSequence();
       }, TRACK_RETURN_AT_MS);
       scheduleEnding(() => { if (!finalShowing) showFinal(false); }, TRACK_END_MS);
+    } else {
+      scheduleEnding(() => {
+        if (soundtrackPhase === 'opening') applySoundtrackTimeline(TRACK_MUTE_AT_MS);
+      }, TRACK_MUTE_AT_MS + SOUNDTRACK_EVENT_GRACE_MS);
+      scheduleEnding(() => {
+        if (soundtrackPhase === 'muted') applySoundtrackTimeline(TRACK_RETURN_AT_MS);
+      }, TRACK_RETURN_AT_MS + SOUNDTRACK_EVENT_GRACE_MS);
+      scheduleEnding(() => {
+        if (!finalShowing) applySoundtrackTimeline(TRACK_END_MS);
+      }, TRACK_END_MS + SOUNDTRACK_EVENT_GRACE_MS);
     }
   };
 
