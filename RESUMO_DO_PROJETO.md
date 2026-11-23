@@ -1,6 +1,6 @@
 # DoomsDay — resumo do projeto
 
-Última atualização: 16 de novembro de 2026.
+Última atualização: 23 de novembro de 2026.
 
 ## Conceito geral
 
@@ -1072,10 +1072,12 @@ Os espaços de estágios de transformação, Rei e Rainha e quadro de equipe for
 
 Os catálogos PT-BR e inglês foram ampliados, e `en-preview/projeto-doom.html` foi regenerada pelo build oficial. A auditoria inglesa passou com 14 páginas, 778 vínculos i18n, 227 referências locais e 1.826 chaves combinadas. A interface ainda precisa de inspeção visual em desktop e celular. As alterações permanecem locais; nenhuma publicação ao GitHub foi feita nesta etapa. As modificações pendentes preexistentes em `home.html` e o diretório não rastreado `img-emily/` foram preservados e não fazem parte desta atualização.
 
-### Abertura cinematográfica do Project DOOM — 22 de novembro de 2026
+### Abertura cinematográfica da rede Dominium — 23 de novembro de 2026
 
-A abertura da rede Dominium ganhou o clipe `video/dominium-intro/equipe-interior-leviathan.mp4`, mostrando a equipe já no interior do Leviathan. Ele substitui a imagem estática desse trecho e mantém a imagem como fallback; os vídeos continuam sem áudio próprio para não competir com a trilha.
+A sequência começa com o vídeo da aproximação ao complexo Leviathan, mostra a equipe a pé em um quadro estático e segue com o clipe da equipe entrando na instalação. Os vídeos permanecem mudos para não competir com a trilha.
 
-A sequência agora marca duas viradas sincronizadas com a trilha temporária de 2:08: em 0:43, a chegada a Hades recebe tremor, alternância de cor e impacto visual; em 1:30, a cápsula prepara o encerramento e, em 1:38, a música desaparece enquanto o título **PROJECT DOOM** emerge sobre a imagem da amostra. A trilha retorna gradualmente em 1:53, acompanhada por um tique-taque discreto sintetizado pela Web Audio API, que termina junto com a música em 2:08. O cartão final permanece disponível para entrada no site.
+A trilha temporária do SoundCloud dura 2:08. Em 0:43, a chegada a Hades recebe tremor e impacto visual. Em 1:38, a música silencia e a cápsula fica em suspense; cerca de dois segundos depois, uma montagem rápida de cinco imagens mostra Laurence observando a amostra, manipulando os patógenos, iniciando a transformação, assumindo a forma híbrida e olhando para trás como criatura livre. A sequência substitui temporariamente o vídeo de transformação, que não é mais necessário para a reprodução atual e poderá ser refeito depois.
 
-Os textos e estados de áudio foram atualizados em português e inglês. As verificações de sintaxe JavaScript, referências de mídia, chaves de tradução, cálculo dos 98 segundos até a revelação final e `git diff --check` passaram. A reprodução audiovisual real ainda precisa ser conferida no navegador/celular.
+Quando a trilha retorna em 1:53, o próprio tique-taque da música acompanha o surgimento progressivo das letras de **DOMINIUM**. A trilha termina em 2:08, sem o tique-taque sintetizado separado. O título final foi reduzido e o indicador inferior “Arquivo final” removido. A preparação do player agora bloqueia o botão até o SoundCloud estar pronto, inicia a trilha após a interação e reaplica volume 70; se o provedor não responder, a sequência visual continua sem travar. A reprodução audível ainda precisa ser confirmada no navegador/celular.
+
+As novas imagens são pré-carregadas e cruzadas com transição suave, com um leve movimento de câmera para dar sensação de vídeo e evitar intervalos de tela preta. Os estilos mantêm as proporções responsivas já usadas na abertura. A montagem inglesa foi regenerada: 19 páginas, 1.269 vínculos i18n, 386 referências locais e 2.577 chaves. `node --check` dos scripts alterados e `git diff --check` passaram. A reprodução audível ainda precisa ser confirmada em um navegador/celular real, pois a checagem local não permite ouvir a saída do dispositivo.

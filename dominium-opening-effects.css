@@ -22,27 +22,20 @@
   animation: dominium-suspense-signal 2s steps(2, end) infinite;
 }
 
-.dominium-opening.is-chime-pulse .opening-stage::after {
-  animation: dominium-chime-flash .62s ease-out both;
+.dominium-opening.is-tick-pulse .opening-stage::after {
+  animation: dominium-tick-flash .62s ease-out both;
 }
 
-.dominium-opening.is-chime-sequence #opening-final-word.is-chime-hit {
-  animation: dominium-chime-word-hit .76s cubic-bezier(.13, .85, .2, 1) both;
+.dominium-opening.is-tick-sequence #opening-final-word.is-tick-hit {
+  animation: dominium-tick-word-hit .76s cubic-bezier(.13, .85, .2, 1) both;
 }
 
-.dominium-opening.is-chime-residue-one #opening-final-word {
-  opacity: .62;
-  filter: blur(.5px);
-  text-shadow: -8px 0 rgba(216, 37, 52, .68), 8px 0 rgba(168, 229, 239, .48), 0 0 34px rgba(216, 37, 52, .3);
-  transform: translateX(-2px) skewX(-2deg);
+.dominium-opening.is-transformation .opening-stage::after {
+  animation: dominium-transformation-signal 1.8s steps(1, end) 2 both;
 }
 
-.dominium-opening.is-chime-residue-two #opening-final-word {
-  opacity: .2;
-  filter: blur(2.5px);
-  letter-spacing: .35em;
-  text-shadow: -14px 0 rgba(216, 37, 52, .62), 14px 0 rgba(168, 229, 239, .44);
-  transform: scale(1.02);
+.dominium-opening.is-transformation .opening-stage.is-final-image .opening-still.is-visible {
+  animation: dominium-transformation-frame 2.1s cubic-bezier(.2, .68, .25, 1) both;
 }
 
 .dominium-opening.is-dominium-reveal .opening-stage::before {
@@ -120,13 +113,26 @@
   78% { opacity: .9; text-shadow: 4px 0 rgba(216,37,52,.8); }
 }
 
-@keyframes dominium-chime-flash {
+@keyframes dominium-transformation-signal {
+  0%, 100% { opacity: 1; filter: none; }
+  37% { opacity: .72; filter: contrast(1.22) brightness(1.4) hue-rotate(-12deg); }
+  39% { opacity: 1; filter: none; }
+  68% { opacity: .58; filter: contrast(1.35) brightness(1.55) hue-rotate(18deg); }
+  71% { opacity: 1; filter: none; }
+}
+
+@keyframes dominium-transformation-frame {
+  from { transform: scale(1.015); }
+  to { transform: scale(1.075); }
+}
+
+@keyframes dominium-tick-flash {
   0% { opacity: .34; filter: brightness(1.85) sepia(.12) hue-rotate(300deg); }
   28% { opacity: .72; filter: brightness(1.3) hue-rotate(325deg); }
   100% { opacity: 1; filter: none; }
 }
 
-@keyframes dominium-chime-word-hit {
+@keyframes dominium-tick-word-hit {
   0% { opacity: .18; filter: blur(12px); transform: scale(.78) translateY(14px); letter-spacing: .22em; }
   28% { opacity: 1; filter: brightness(1.8); transform: scale(1.1); color: var(--dmn-ice); text-shadow: 0 0 42px rgba(216,37,52,.9), 0 0 70px rgba(168,229,239,.62); }
   42% { transform: translateX(-5px) scale(1.04); color: var(--dmn-red); }
@@ -151,8 +157,8 @@
 
 @media (max-width: 640px) {
   .dominium-opening.is-hades-impact .opening-copy h2 em { text-shadow: 0 0 8px rgba(168,229,239,.8), 0 0 22px rgba(216,37,52,.62); }
-  .dominium-opening.is-chime-sequence .opening-final h2 strong,
-  .dominium-opening.is-dominium-reveal .opening-final h2 strong { font-size: clamp(2.35rem, 14vw, 5.4rem); letter-spacing: -.04em; }
+  .dominium-opening.is-tick-sequence .opening-final h2 strong,
+  .dominium-opening.is-dominium-reveal .opening-final h2 strong { font-size: clamp(2.8rem, 14vw, 5rem); letter-spacing: -.04em; }
   .dominium-opening.is-dominium-reveal .opening-final h2 span { letter-spacing: .36em; }
   @keyframes dominium-hades-strike {
     0% { opacity: 0; color: var(--dmn-red); filter: blur(10px); transform: scale(.78) translateY(14px); letter-spacing: .18em; }
@@ -177,12 +183,13 @@
   .dominium-opening.is-hades-impact .opening-stage::after,
   .dominium-opening.is-suspense .opening-stage::before,
   .dominium-opening.is-suspense .opening-final-kicker,
-  .dominium-opening.is-chime-pulse .opening-stage::after,
+  .dominium-opening.is-tick-pulse .opening-stage::after,
   .dominium-opening.is-dominium-reveal .opening-stage::before,
   .dominium-opening.is-dominium-reveal .opening-stage::after,
   .dominium-opening.is-dominium-reveal .opening-final h2 span,
   .dominium-opening.is-dominium-reveal .opening-final h2 strong,
-  .dominium-opening.is-chime-sequence #opening-final-word.is-chime-hit {
+  .dominium-opening.is-tick-sequence #opening-final-word.is-tick-hit,
+  .dominium-opening.is-transformation .opening-stage::after {
     animation: none !important;
   }
   .dominium-opening.is-hades-impact .opening-copy h2 em { color: var(--dmn-ice); filter: none; transform: none; }

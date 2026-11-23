@@ -20,6 +20,7 @@
   ].filter(Boolean);
   const video = document.getElementById('opening-video');
   const gate = document.getElementById('opening-gate');
+  const gateHint = gate?.querySelector('small');
   const waiting = document.getElementById('opening-wait');
   const waitingCopy = document.getElementById('opening-wait-copy');
   const copy = document.getElementById('opening-copy');
@@ -69,39 +70,41 @@
   const TRACK_END_MS = 128000;
   const TRACK_FADE_MS = 850;
   const TRACK_RETURN_FADE_MS = 1400;
+  const SOUNDTRACK_TARGET_VOLUME = 70;
+  const TRANSFORMATION_START_DELAY_MS = 1800;
+  const TRANSFORMATION_FRAME_HOLD_MS = 1450;
+  const TRANSFORMATION_MONTAGE = Object.freeze([
+    'img-dominus/intro/stills/intro-still-17-maverick-capsule.png',
+    'img-dominus/intro/stills/intro-still-18-dual-pathogen-experiment.png',
+    'img-dominus/intro/stills/intro-still-19-host-transformation-v2.png',
+    'img-dominus/intro/stills/intro-still-20-transformation-form-v3.png',
+    'img-dominus/intro/stills/intro-still-21-creature-free-v3.png'
+  ]);
   const TRANSITION_MS = reduceMotion ? 0 : 520;
   const scenes = [
     {
       type: 'video',
       src: 'video/dominium-intro/intro-entrada-leviathan.mp4',
       fallback: 'img-dominus/intro/video-keyframes/intro-video-frame-01-leviathan-approach.png',
-      duration: SCENE_DURATION.STILL,
+      duration: SCENE_DURATION.VIDEO_FULL,
+      waitForVideoEnd: true,
       frames: [
         { at: 0, kicker: 'dominium.opening.scene.1a.kicker', line: 'dominium.opening.scene.1a.line', emphasis: 'dominium.opening.scene.1a.emphasis', caption: 'dominium.opening.scene.1a.caption' },
-        { at: 3400, kicker: 'dominium.opening.scene.1b.kicker', line: 'dominium.opening.scene.1b.line', emphasis: 'dominium.opening.scene.1b.emphasis', caption: 'dominium.opening.scene.1b.caption' }
-      ]
-    },
-    {
-      type: 'video',
-      src: 'video/dominium-intro/intro-equipe-chegada.mp4',
-      fallback: 'img-dominus/intro/stills/intro-still-12-leviathan-arrival.png',
-      duration: SCENE_DURATION.VIDEO,
-      frames: [
-        { at: 0, kicker: 'dominium.opening.scene.arrival.kicker', line: 'dominium.opening.scene.arrival.line', emphasis: 'dominium.opening.scene.arrival.emphasis', caption: 'dominium.opening.scene.arrival.caption' },
-        { at: 0.54, kicker: 'dominium.opening.scene.arrival.next.kicker', line: 'dominium.opening.scene.arrival.next.line', emphasis: 'dominium.opening.scene.arrival.next.emphasis', caption: 'dominium.opening.scene.arrival.next.caption' }
+        { at: 0.58, kicker: 'dominium.opening.scene.1b.kicker', line: 'dominium.opening.scene.1b.line', emphasis: 'dominium.opening.scene.1b.emphasis', caption: 'dominium.opening.scene.1b.caption' }
       ]
     },
     {
       type: 'image',
-      src: 'img-dominus/intro/stills/intro-still-14-heller-perimeter-watch.png',
+      src: 'img-dominus/intro/stills/intro-still-12-leviathan-arrival.png',
       duration: SCENE_DURATION.STILL_BRIEF,
-      frames: [{ at: 0, kicker: 'dominium.opening.scene.security.kicker', line: 'dominium.opening.scene.security.line', emphasis: 'dominium.opening.scene.security.emphasis', caption: 'dominium.opening.scene.security.caption' }]
+      frames: [{ at: 0, kicker: 'dominium.opening.scene.arrival.kicker', line: 'dominium.opening.scene.arrival.line', emphasis: 'dominium.opening.scene.arrival.emphasis', caption: 'dominium.opening.scene.arrival.caption' }]
     },
     {
       type: 'video',
       src: 'video/dominium-intro/intro-entrada-equipe-leviathan.mp4',
       fallback: 'img-dominus/intro/stills/intro-still-13-leviathan-entry.png',
-      duration: SCENE_DURATION.STILL,
+      duration: SCENE_DURATION.VIDEO_FULL,
+      waitForVideoEnd: true,
       frames: [{ at: 0, kicker: 'dominium.opening.scene.entry.kicker', line: 'dominium.opening.scene.entry.line', emphasis: 'dominium.opening.scene.entry.emphasis', caption: 'dominium.opening.scene.entry.caption' }]
     },
     {
@@ -185,8 +188,9 @@
       frames: [{ at: 0, kicker: 'dominium.opening.scene.capsule.kicker', line: 'dominium.opening.scene.capsule.line', emphasis: 'dominium.opening.scene.capsule.emphasis', caption: 'dominium.opening.scene.capsule.caption' }]
     }
   ];
-  const totalDuration = scenes.reduce((total, scene) => total + scene.duration, 0);
+  let totalDuration = scenes.reduce((total, scene) => total + scene.duration, 0);
   const timers = new Set();
+  const endingTimers = new Set();
   const imageCache = new Map();
   let activeStill = stillLayers[0];
   let standbyStill = stillLayers[1] || stillLayers[0];
@@ -197,18 +201,20 @@
   let soundtrackVolume = 0;
   let soundtrackFadeTimer = 0;
   let soundtrackStartFallback = 0;
+  let soundtrackPrepareFallback = 0;
   let soundtrackBound = false;
+  let soundtrackReady = false;
+  let soundtrackInitializationFailed = false;
   let soundtrackUnavailable = false;
-  let clockAudioContext = null;
-  let clockMasterGain = null;
-  let chimeSuspendTimer = 0;
   let visualStarted = false;
   let userStarted = false;
   let playbackToken = 0;
   let finalShowing = false;
   let suspenseShowing = false;
-  let chimeSequenceStarted = false;
-  const chimeTimers = new Set();
+  let titleTickSequenceStarted = false;
+  let transformationStarted = false;
+  let transformationStageActive = false;
+  const titleTickTimers = new Set();
   let progressFrame = 0;
   let frameObserver = null;
 
@@ -218,6 +224,12 @@
     const locale = document.documentElement.lang.toLowerCase().startsWith('en') ? 'en' : 'pt-BR';
     const value = window.DD_I18N_DICTIONARIES?.[locale]?.[key];
     if (value) element.textContent = value;
+  };
+
+  const setStartAvailability = ready => {
+    if (!startButton) return;
+    startButton.disabled = !ready;
+    startButton.setAttribute('aria-busy', String(!ready));
   };
 
   const silenceVideo = media => {
@@ -263,6 +275,20 @@
     progressFrame = 0;
   };
 
+  const scheduleEnding = (callback, delay) => {
+    const timer = window.setTimeout(() => {
+      endingTimers.delete(timer);
+      callback();
+    }, Math.max(0, delay));
+    endingTimers.add(timer);
+    return timer;
+  };
+
+  const clearEndingTimers = () => {
+    endingTimers.forEach(timer => window.clearTimeout(timer));
+    endingTimers.clear();
+  };
+
   const stopVideo = media => {
     if (!(media instanceof HTMLVideoElement)) return;
     silenceVideo(media);
@@ -270,6 +296,7 @@
     media.onplaying = null;
     media.onended = null;
     media.onerror = null;
+    media.onloadedmetadata = null;
     media.ontimeupdate = null;
     media.classList.remove('is-visible');
     media.hidden = true;
@@ -363,15 +390,19 @@
     void crossfadeToStill(scene.src, token);
   };
 
-  const showVideoScene = async (scene, token) => {
+  const showVideoScene = async (scene, token, callbacks = {}) => {
     const fallback = scene.fallback || activeStill?.src;
     if (!video || !fallback) {
       if (fallback) void crossfadeToStill(fallback, token);
+      callbacks.onFailure?.();
       return;
     }
 
     const fallbackVisible = await crossfadeToStill(fallback, token);
-    if (!fallbackVisible || token !== playbackToken) return;
+    if (!fallbackVisible || token !== playbackToken) {
+      callbacks.onFailure?.();
+      return;
+    }
 
     silenceVideo(video);
     video.hidden = false;
@@ -380,7 +411,10 @@
     video.src = scene.src;
     video.load();
     silenceVideo(video);
-    video.onerror = () => {
+    let failed = false;
+    const failToFallback = () => {
+      if (failed || token !== playbackToken) return;
+      failed = true;
       if (token !== playbackToken) return;
       video.pause();
       video.hidden = true;
@@ -389,11 +423,19 @@
         activeStill.hidden = false;
         activeStill.classList.add('is-visible');
       }
+      callbacks.onFailure?.();
+    };
+    video.onerror = failToFallback;
+    video.onloadedmetadata = () => {
+      if (!scene.waitForVideoEnd || token !== playbackToken || !Number.isFinite(video.duration) || video.duration <= 0) return;
+      scene.duration = Math.ceil(video.duration * 1000);
+      totalDuration = scenes.reduce((total, item) => total + item.duration, 0);
     };
     video.onplaying = () => {
       if (token !== playbackToken) return;
       silenceVideo(video);
       window.requestAnimationFrame(() => video.classList.add('is-visible'));
+      callbacks.onPlaying?.();
       schedule(() => {
         if (token === playbackToken) stillLayers.forEach(layer => {
           if (layer !== activeStill) layer.hidden = true;
@@ -402,32 +444,44 @@
       }, TRANSITION_MS + 30, token);
     };
     video.onended = () => {
-      if (token === playbackToken) video.pause();
+      if (token !== playbackToken) return;
+      video.pause();
+      callbacks.onEnded?.();
     };
 
     try {
       const playback = video.play();
-      if (playback?.catch) playback.catch(() => {
-        if (token !== playbackToken) return;
-        video.pause();
-        video.hidden = true;
-        video.classList.remove('is-visible');
-        if (activeStill) {
-          activeStill.hidden = false;
-          activeStill.classList.add('is-visible');
-        }
-      });
+      if (playback?.catch) playback.catch(failToFallback);
     } catch (error) {
-      video.hidden = true;
-      video.classList.remove('is-visible');
-      if (activeStill) {
-        activeStill.hidden = false;
-        activeStill.classList.add('is-visible');
-      }
+      failToFallback();
     }
   };
 
   const sceneElapsedBefore = index => scenes.slice(0, index).reduce((total, scene) => total + scene.duration, 0);
+
+  const showTransformationFrame = async (index, token) => {
+    if (!suspenseShowing || finalShowing || token !== playbackToken) return;
+    const source = TRANSFORMATION_MONTAGE[index];
+    if (!source) return;
+
+    const visible = await crossfadeToStill(source, token);
+    if (!visible || !suspenseShowing || finalShowing || token !== playbackToken) return;
+
+    if (index + 1 < TRANSFORMATION_MONTAGE.length) {
+      scheduleEnding(() => { void showTransformationFrame(index + 1, token); }, TRANSFORMATION_FRAME_HOLD_MS);
+    }
+  };
+
+  const startTransformationMontage = () => {
+    if (!suspenseShowing || finalShowing || transformationStarted) return;
+    transformationStarted = true;
+    transformationStageActive = true;
+    opening.classList.add('is-transformation');
+    stage.classList.remove('is-video');
+    stage.classList.add('is-final-image');
+    if (finalCard) finalCard.hidden = true;
+    void showTransformationFrame(0, playbackToken);
+  };
 
   const showSuspense = () => {
     if (suspenseShowing || finalShowing || opening.classList.contains('dismissed')) return;
@@ -436,6 +490,7 @@
     clearTimers();
     window.clearTimeout(soundtrackStartFallback);
     if (video) stopVideo(video);
+    TRANSFORMATION_MONTAGE.forEach(source => { void preloadImage(source); });
 
     stage.classList.remove('is-cinematic', 'is-intertitle', 'is-video', 'is-connecting');
     stage.classList.add('is-final-image');
@@ -450,21 +505,11 @@
     if (enterButton) enterButton.hidden = true;
     if (finalHint) finalHint.hidden = true;
     if (skipButton) skipButton.hidden = false;
-    if (progressCount) progressCount.textContent = `${progressLabel('dominium.opening.progress.final')} // ${String(scenes.length).padStart(2, '0')}`;
-    if (progressBar) progressBar.style.width = `${(TRACK_MUTE_AT_MS / TRACK_END_MS) * 100}%`;
-
-    opening.classList.remove('is-gate', 'is-cinematic', 'is-connecting', 'is-intertitle', 'is-hades-impact', 'is-dominium-reveal', 'is-chime-sequence', 'is-chime-residue-one', 'is-chime-residue-two');
+    opening.classList.remove('is-gate', 'is-cinematic', 'is-connecting', 'is-intertitle', 'is-hades-impact', 'is-dominium-reveal', 'is-tick-sequence', 'is-tick-pulse', 'is-transformation');
     opening.classList.add('is-final', 'is-suspense');
     translate(finalKicker, 'dominium.opening.final.suspense.kicker');
     translate(finalCopy, 'dominium.opening.final.suspense.copy');
     translate(live, 'dominium.opening.final.silence');
-
-    if (!soundtrackStarted || soundtrackUnavailable) {
-      const chimeTimer = window.setTimeout(startChimeSequence, TRACK_RETURN_AT_MS - TRACK_MUTE_AT_MS);
-      chimeTimers.add(chimeTimer);
-      const revealTimer = window.setTimeout(() => showFinal(false), TRACK_END_MS - TRACK_MUTE_AT_MS);
-      chimeTimers.add(revealTimer);
-    }
   };
 
   const showFinal = (fromSkip = false) => {
@@ -473,24 +518,28 @@
     finalShowing = true;
     playbackToken += 1;
     clearTimers();
-    stopClockChimes(fromSkip ? 0 : TRACK_FADE_MS);
+    clearEndingTimers();
+    stopTitleTickSequence();
     window.clearTimeout(soundtrackStartFallback);
     if (fromSkip) {
       fadeSoundtrackTo(0, reduceMotion ? 0 : 350, releaseSoundtrack);
     }
 
-    stage.classList.remove('is-cinematic', 'is-intertitle', 'is-video', 'is-connecting');
-    stage.classList.add('is-final-image');
-    void crossfadeToStill('img-dominus/intro/stills/intro-still-03-containment-vessel.png', playbackToken);
+    if (transformationStageActive) {
+      stage.classList.remove('is-cinematic', 'is-intertitle', 'is-video', 'is-connecting');
+      stage.classList.add('is-final-image');
+    } else {
+      stage.classList.remove('is-cinematic', 'is-intertitle', 'is-video', 'is-connecting');
+      stage.classList.add('is-final-image');
+      void crossfadeToStill('img-dominus/intro/stills/intro-still-03-containment-vessel.png', playbackToken);
+    }
 
     if (gate) gate.hidden = true;
     if (waiting) waiting.hidden = true;
     if (copy) copy.hidden = true;
     if (finalCard) finalCard.hidden = false;
     if (skipButton) skipButton.hidden = true;
-    if (progressCount) progressCount.textContent = `${progressLabel('dominium.opening.progress.final')} // ${String(scenes.length).padStart(2, '0')}`;
-    if (progressBar) progressBar.style.width = '100%';
-    opening.classList.remove('is-gate', 'is-cinematic', 'is-connecting', 'is-intertitle', 'is-hades-impact', 'is-suspense', 'is-chime-sequence', 'is-chime-residue-one', 'is-chime-residue-two', 'is-chime-pulse');
+    opening.classList.remove('is-gate', 'is-cinematic', 'is-connecting', 'is-intertitle', 'is-hades-impact', 'is-suspense', 'is-tick-sequence', 'is-tick-pulse', 'is-transformation');
     opening.classList.add('is-final', 'is-dominium-reveal');
     if (finalTitle) finalTitle.hidden = false;
     if (finalTitlePrefix) {
@@ -507,7 +556,7 @@
 
   const nextScene = index => {
     if (index >= scenes.length) {
-      showSuspense();
+      clearTimers();
       return;
     }
 
@@ -518,7 +567,7 @@
     const sceneStartedAt = performance.now();
     preloadNearbyStills(index);
 
-    opening.classList.remove('is-gate', 'is-final', 'is-connecting', 'is-intertitle', 'is-suspense', 'is-dominium-reveal', 'is-chime-sequence', 'is-chime-residue-one', 'is-chime-residue-two', 'is-chime-pulse');
+    opening.classList.remove('is-gate', 'is-final', 'is-connecting', 'is-intertitle', 'is-suspense', 'is-dominium-reveal', 'is-tick-sequence', 'is-tick-pulse', 'is-transformation');
     opening.classList.add('is-cinematic');
     if (gate) gate.hidden = true;
     if (waiting) waiting.hidden = true;
@@ -537,7 +586,19 @@
     translate(live, soundtrackUnavailable ? 'dominium.opening.audio.unavailable' : 'dominium.opening.playing');
     revealCopy(scene.frames[0]);
 
-    if (scene.type === 'video') void showVideoScene(scene, token);
+    let sceneAdvanced = false;
+    const advanceScene = () => {
+      if (sceneAdvanced || token !== playbackToken) return;
+      sceneAdvanced = true;
+      nextScene(index + 1);
+    };
+
+    if (scene.type === 'video') {
+      void showVideoScene(scene, token, scene.waitForVideoEnd ? {
+        onEnded: advanceScene,
+        onFailure: () => schedule(advanceScene, scene.duration, token)
+      } : {});
+    }
     else if (scene.type === 'image') showImageScene(scene, token);
 
     scene.frames.slice(1).forEach(frame => {
@@ -545,12 +606,13 @@
       schedule(() => revealCopy(frame), offset, token);
     });
 
-    schedule(() => nextScene(index + 1), scene.duration, token);
+    if (scene.type === 'video' && scene.waitForVideoEnd) schedule(advanceScene, 60000, token);
+    else schedule(advanceScene, scene.duration, token);
     const updateProgress = () => {
       if (token !== playbackToken) return;
       const elapsed = Math.min(scene.duration, performance.now() - sceneStartedAt);
       if (progressBar) progressBar.style.width = `${((elapsedBefore + elapsed) / totalDuration) * 100}%`;
-      if (elapsed < scene.duration) progressFrame = window.requestAnimationFrame(updateProgress);
+      if (elapsed < scene.duration || (scene.waitForVideoEnd && !sceneAdvanced)) progressFrame = window.requestAnimationFrame(updateProgress);
     };
     progressFrame = window.requestAnimationFrame(updateProgress);
   };
@@ -564,6 +626,18 @@
     if (opening) opening.classList.remove('is-connecting');
     stage.classList.remove('is-connecting');
     nextScene(0);
+    if (soundtrackUnavailable) {
+      scheduleEnding(() => { if (!suspenseShowing && !finalShowing) showSuspense(); }, TRACK_MUTE_AT_MS);
+      scheduleEnding(() => {
+        if (!suspenseShowing && !finalShowing) showSuspense();
+        startTransformationMontage();
+      }, TRACK_MUTE_AT_MS + TRANSFORMATION_START_DELAY_MS);
+      scheduleEnding(() => {
+        if (!suspenseShowing || finalShowing) return;
+        startTitleTickSequence();
+      }, TRACK_RETURN_AT_MS);
+      scheduleEnding(() => { if (!finalShowing) showFinal(false); }, TRACK_END_MS);
+    }
   };
 
   const setSoundtrackVolume = value => {
@@ -592,121 +666,50 @@
     }, 80);
   };
 
-  const ensureClockAudio = () => {
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContextClass) return false;
-    if (!clockAudioContext) {
-      try {
-        clockAudioContext = new AudioContextClass();
-        clockMasterGain = clockAudioContext.createGain();
-        clockMasterGain.gain.value = 0;
-        clockMasterGain.connect(clockAudioContext.destination);
-      } catch (error) {
-        clockAudioContext = null;
-        clockMasterGain = null;
-        return false;
-      }
-    }
-    if (clockAudioContext.state === 'suspended') void clockAudioContext.resume().catch(() => {});
-    return true;
+  const stopTitleTickSequence = () => {
+    titleTickTimers.forEach(timer => window.clearTimeout(timer));
+    titleTickTimers.clear();
+    opening.classList.remove('is-tick-sequence', 'is-tick-pulse');
   };
 
-  const playClockChime = (intensity = 1) => {
-    if (!clockAudioContext || !clockMasterGain) return;
-    const strike = () => {
-      if (!clockAudioContext || !clockMasterGain || clockAudioContext.state !== 'running') return;
-      const now = clockAudioContext.currentTime;
-      [
-        { frequency: 440, level: 0.56, decay: 1.75 },
-        { frequency: 660, level: 0.27, decay: 1.45 },
-        { frequency: 880, level: 0.13, decay: 1.15 },
-        { frequency: 1320, level: 0.06, decay: 0.9 }
-      ].forEach(partial => {
-        const oscillator = clockAudioContext.createOscillator();
-        const envelope = clockAudioContext.createGain();
-        oscillator.type = 'sine';
-        oscillator.frequency.setValueAtTime(partial.frequency, now);
-        oscillator.connect(envelope);
-        envelope.connect(clockMasterGain);
-        envelope.gain.setValueAtTime(0.0001, now);
-        envelope.gain.exponentialRampToValueAtTime(partial.level * intensity, now + 0.012);
-        envelope.gain.exponentialRampToValueAtTime(0.0001, now + partial.decay);
-        oscillator.start(now);
-        oscillator.stop(now + partial.decay + 0.02);
-      });
-    };
-
-    if (clockAudioContext.state === 'suspended') {
-      void clockAudioContext.resume().then(strike).catch(() => {});
-    } else {
-      strike();
-    }
-  };
-
-  const stopClockChimes = (fadeDuration = 0) => {
-    chimeTimers.forEach(timer => window.clearTimeout(timer));
-    chimeTimers.clear();
-    window.clearTimeout(chimeSuspendTimer);
-    if (!clockAudioContext || !clockMasterGain) return;
-    const now = clockAudioContext.currentTime;
-    const gain = clockMasterGain.gain;
-    gain.cancelScheduledValues(now);
-    gain.setValueAtTime(gain.value, now);
-    if (fadeDuration > 0) {
-      gain.linearRampToValueAtTime(0, now + (fadeDuration / 1000));
-      chimeSuspendTimer = window.setTimeout(() => {
-        void clockAudioContext?.suspend().catch(() => {});
-      }, fadeDuration + 40);
-    } else {
-      gain.setValueAtTime(0, now);
-      void clockAudioContext.suspend().catch(() => {});
-    }
-  };
-
-  const startChimeSequence = () => {
-    if (chimeSequenceStarted || !suspenseShowing || !ensureClockAudio()) return;
-    chimeSequenceStarted = true;
-    window.clearTimeout(chimeSuspendTimer);
-    const now = clockAudioContext.currentTime;
-    clockMasterGain.gain.cancelScheduledValues(now);
-    clockMasterGain.gain.setValueAtTime(clockMasterGain.gain.value, now);
-    clockMasterGain.gain.linearRampToValueAtTime(0.24, now + 1.1);
+  const startTitleTickSequence = () => {
+    if (titleTickSequenceStarted || !suspenseShowing || finalShowing) return;
+    titleTickSequenceStarted = true;
+    if (finalCard) finalCard.hidden = false;
     if (finalTitle) finalTitle.hidden = false;
     if (finalTitlePrefix) finalTitlePrefix.hidden = true;
     translate(finalKicker, 'dominium.opening.final.countdown.kicker');
     translate(finalCopy, 'dominium.opening.final.countdown.copy');
     translate(live, 'dominium.opening.final.clock');
-    opening.classList.add('is-chime-sequence');
+    opening.classList.add('is-tick-sequence');
 
     const beats = [
-      { at: 0, text: 'DO', intensity: 1 },
-      { at: 2000, text: 'DOMI', intensity: 1 },
-      { at: 4000, text: 'DOMINI', intensity: 1 },
-      { at: 6000, text: 'DOMINIUM', intensity: 1 },
-      { at: 8000, text: 'DOMINIUM', intensity: 1.08, effect: 'full' },
-      { at: 10000, text: 'D…M', intensity: 0.58, effect: 'residue-one' },
-      { at: 12000, text: '…', intensity: 0.3, effect: 'residue-two' }
+      { at: 0, text: 'D' },
+      { at: 2000, text: 'DO' },
+      { at: 4000, text: 'DOM' },
+      { at: 6000, text: 'DOMI' },
+      { at: 8000, text: 'DOMIN' },
+      { at: 10000, text: 'DOMINI' },
+      { at: 12000, text: 'DOMINIUM' }
     ];
 
     beats.forEach(beat => {
       const timer = window.setTimeout(() => {
-        chimeTimers.delete(timer);
+        titleTickTimers.delete(timer);
         if (!suspenseShowing || finalShowing) return;
         if (finalTitle) finalTitle.hidden = false;
         if (finalTitlePrefix) finalTitlePrefix.hidden = true;
         if (finalTitleWord) {
           finalTitleWord.textContent = beat.text;
-          finalTitleWord.classList.remove('is-chime-hit');
+          finalTitleWord.classList.remove('is-tick-hit');
           void finalTitleWord.offsetWidth;
-          finalTitleWord.classList.add('is-chime-hit');
+          finalTitleWord.classList.add('is-tick-hit');
         }
-        opening.classList.remove('is-chime-residue-one', 'is-chime-residue-two', 'is-chime-pulse');
-        if (beat.effect) opening.classList.add(`is-chime-${beat.effect}`);
+        opening.classList.remove('is-tick-pulse');
         void opening.offsetWidth;
-        opening.classList.add('is-chime-pulse');
-        playClockChime(beat.intensity);
+        opening.classList.add('is-tick-pulse');
       }, beat.at);
-      chimeTimers.add(timer);
+      titleTickTimers.add(timer);
     });
   };
 
@@ -715,7 +718,7 @@
     window.clearTimeout(soundtrackStartFallback);
     soundtrackExpired = true;
     soundtrackPhase = 'ended';
-    stopClockChimes();
+    stopTitleTickSequence();
     try { soundtrackWidget?.pause(); } catch (error) {}
     if (soundtrackFrame && soundtrackFrame.src !== 'about:blank') soundtrackFrame.src = 'about:blank';
     soundtrackStarted = false;
@@ -730,20 +733,23 @@
     } else if (position >= TRACK_END_MS - TRACK_FADE_MS) {
       if (soundtrackPhase !== 'ending') {
         soundtrackPhase = 'ending';
-        stopClockChimes(TRACK_FADE_MS);
+        stopTitleTickSequence();
         fadeSoundtrackTo(0, TRACK_FADE_MS, releaseSoundtrack);
       }
     } else if (position >= TRACK_RETURN_AT_MS) {
       if (soundtrackPhase !== 'return') {
         soundtrackPhase = 'return';
-        fadeSoundtrackTo(48, TRACK_RETURN_FADE_MS);
-        if (suspenseShowing) startChimeSequence();
-        else if (finalShowing) translate(live, 'dominium.opening.final.clock');
+        fadeSoundtrackTo(SOUNDTRACK_TARGET_VOLUME, TRACK_RETURN_FADE_MS);
+        if (!suspenseShowing) showSuspense();
+        if (!transformationStarted) startTransformationMontage();
+        startTitleTickSequence();
       }
     } else if (position >= TRACK_MUTE_AT_MS && soundtrackPhase === 'opening') {
       soundtrackPhase = 'muted';
       fadeSoundtrackTo(0, TRACK_FADE_MS);
-      if (suspenseShowing) translate(live, 'dominium.opening.final.silence');
+      if (!suspenseShowing) showSuspense();
+      translate(live, 'dominium.opening.final.silence');
+      schedule(() => startTransformationMontage(), TRANSFORMATION_START_DELAY_MS);
     }
 
     if ((suspenseShowing || finalShowing) && progressBar) {
@@ -761,7 +767,7 @@
     soundtrackStarted = true;
     soundtrackPhase = 'opening';
     window.clearTimeout(soundtrackStartFallback);
-    fadeSoundtrackTo(48, reduceMotion ? 0 : 1000);
+    setSoundtrackVolume(SOUNDTRACK_TARGET_VOLUME);
     beginVisuals(false);
   };
 
@@ -776,9 +782,13 @@
           try { soundtrackWidget.pause(); } catch (error) {}
           return;
         }
+        soundtrackReady = true;
+        soundtrackInitializationFailed = false;
+        window.clearTimeout(soundtrackPrepareFallback);
         try { soundtrackWidget.setVolume(0); } catch (error) {}
         try { soundtrackWidget.seekTo(0); } catch (error) {}
-        try { soundtrackWidget.play(); } catch (error) {}
+        setStartAvailability(true);
+        if (gateHint) translate(gateHint, 'dominium.opening.gate.hint');
       });
       if (events.PLAY) soundtrackWidget.bind(events.PLAY, confirmSoundtrackStarted);
       if (events.PLAY_PROGRESS) soundtrackWidget.bind(events.PLAY_PROGRESS, progress => {
@@ -801,25 +811,55 @@
   };
 
   const startSoundtrack = () => {
-    ensureClockAudio();
-    if (!soundtrackFrame?.dataset.soundtrackSrc) {
+    if (!soundtrackFrame?.dataset.soundtrackSrc || !soundtrackWidget || !soundtrackReady) {
+      soundtrackUnavailable = true;
       beginVisuals(true);
       return;
     }
-    soundtrackFrame.src = soundtrackFrame.dataset.soundtrackSrc;
-    if (!bindSoundtrack()) {
-      soundcloudApi?.addEventListener('load', bindSoundtrack, { once: true });
-      const poll = window.setInterval(() => {
-        if (bindSoundtrack()) window.clearInterval(poll);
-      }, 200);
-      window.setTimeout(() => window.clearInterval(poll), 7500);
+    try {
+      setSoundtrackVolume(SOUNDTRACK_TARGET_VOLUME);
+      soundtrackWidget.seekTo(0);
+      soundtrackWidget.play();
+    } catch (error) {
+      soundtrackUnavailable = true;
+      beginVisuals(true);
+      return;
     }
     soundtrackStartFallback = window.setTimeout(() => {
       if (visualStarted) return;
       soundtrackExpired = true;
+      soundtrackUnavailable = true;
       releaseSoundtrack();
       beginVisuals(true);
     }, 8000);
+  };
+
+  const prepareSoundtrack = () => {
+    if (!soundtrackFrame?.dataset.soundtrackSrc) {
+      soundtrackInitializationFailed = true;
+      soundtrackUnavailable = true;
+      setStartAvailability(true);
+      if (gateHint) translate(gateHint, 'dominium.opening.audio.unavailable');
+      return;
+    }
+
+    setStartAvailability(false);
+    if (gateHint) translate(gateHint, 'dominium.opening.audio.preparing');
+    soundtrackFrame.src = soundtrackFrame.dataset.soundtrackSrc;
+    if (bindSoundtrack()) return;
+
+    soundcloudApi?.addEventListener('load', bindSoundtrack, { once: true });
+    const poll = window.setInterval(() => {
+      if (bindSoundtrack()) window.clearInterval(poll);
+    }, 200);
+    soundtrackPrepareFallback = window.setTimeout(() => {
+      window.clearInterval(poll);
+      if (soundtrackReady) return;
+      soundtrackInitializationFailed = true;
+      soundtrackUnavailable = true;
+      setStartAvailability(true);
+      if (gateHint) translate(gateHint, 'dominium.opening.audio.unavailable');
+    }, 10000);
   };
 
   const dismissOpening = () => {
@@ -840,6 +880,10 @@
 
   const startOpening = () => {
     if (userStarted) return;
+    if (soundtrackFrame?.dataset.soundtrackSrc && !soundtrackReady && !soundtrackInitializationFailed) {
+      if (gateHint) translate(gateHint, 'dominium.opening.audio.preparing');
+      return;
+    }
     userStarted = true;
     opening.classList.remove('is-gate');
     opening.classList.add('is-connecting');
@@ -868,6 +912,7 @@
   };
 
   document.body.classList.add('dominium-opening-active');
+  prepareSoundtrack();
   startButton?.addEventListener('click', startOpening);
   enterButton?.addEventListener('click', dismissOpening);
   skipButton?.addEventListener('click', () => showFinal(true));

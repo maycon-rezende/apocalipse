@@ -34,6 +34,7 @@
 .opening-gate small,.opening-final small{display:block;margin-top:.85rem;color:#c3ceca;font:.88rem var(--dmn-terminal);letter-spacing:.1em;line-height:1.4;text-shadow:0 2px 10px #000}
 .opening-primary-action{min-height:50px;margin-top:1.5rem;padding:.8rem 1.1rem;border-color:var(--dmn-red);background:rgba(80,7,13,.76);color:var(--dmn-ink);font:.96rem var(--dmn-terminal);letter-spacing:.13em;box-shadow:0 0 32px rgba(216,37,52,.1)}
 .opening-primary-action:hover,.opening-primary-action:focus-visible{border-color:#ff626c;background:rgba(153,12,26,.78);box-shadow:0 0 32px rgba(216,37,52,.28);outline:none}
+.opening-primary-action:disabled{cursor:wait;opacity:.58;filter:saturate(.55)}
 .opening-wait{position:absolute;left:50%;top:50%;width:min(620px,86vw);transform:translate(-50%,-50%);padding:1.1rem;text-align:center;border-block:1px solid rgba(168,229,239,.34);background:rgba(2,7,9,.56);backdrop-filter:blur(5px)}
 .opening-wait-kicker{color:var(--dmn-amber)}
 .opening-wait p:last-child{margin:0;color:#d5dedb;font:1rem/1.55 var(--dmn-mono);text-shadow:0 2px 10px #000}
@@ -50,13 +51,14 @@
 .opening-final{position:absolute;inset:0;display:grid;align-content:center;justify-items:center;box-sizing:border-box;padding:clamp(4rem,10vh,7rem) 1rem;text-align:center;animation:opening-final-arrive 1s ease both}
 .opening-final-kicker{color:var(--dmn-red)}
 .opening-final h2{margin:.2rem 0 .4rem;color:var(--dmn-ice);font:clamp(1.15rem,2.2vw,1.75rem)/1 var(--dmn-terminal);letter-spacing:.54em;text-transform:uppercase}
-.opening-final h2 strong{display:block;margin-top:.45rem;color:var(--dmn-ink);font:clamp(6rem,19vw,15rem)/.82 var(--dmn-display);letter-spacing:-.04em;text-shadow:7px 0 rgba(216,37,52,.42),0 0 50px rgba(216,37,52,.22);animation:opening-title-reveal 1.3s cubic-bezier(.16,.82,.3,1) both}
+.opening-final h2 strong{display:block;margin-top:.45rem;color:var(--dmn-ink);font:clamp(4rem,12vw,10rem)/.82 var(--dmn-display);letter-spacing:-.04em;text-shadow:7px 0 rgba(216,37,52,.42),0 0 50px rgba(216,37,52,.22);animation:opening-title-reveal 1.3s cubic-bezier(.16,.82,.3,1) both}
 .opening-final>p:not(.opening-final-kicker){max-width:58ch;margin:.85rem auto 0;color:#e0e3dc;font:1.03rem/1.55 var(--dmn-mono);text-shadow:0 2px 12px #000}
 .opening-skip{position:absolute;right:clamp(1.1rem,4vw,3.5rem);bottom:clamp(2.4rem,6vh,4rem);min-height:44px;padding:.55rem .1rem;border:0;border-bottom:1px solid rgba(168,229,239,.45);background:transparent;color:var(--dmn-ice);font:.9rem var(--dmn-terminal);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
 .opening-skip:hover,.opening-skip:focus-visible{border-color:#fff;color:#fff;outline:none}
 .opening-progress{position:absolute;left:clamp(1.1rem,4vw,3.5rem);right:clamp(1.1rem,4vw,3.5rem);bottom:clamp(2.4rem,6vh,4rem);display:flex;align-items:center;gap:.8rem;color:var(--dmn-ice);font:.9rem var(--dmn-terminal);letter-spacing:.1em}
 .opening-progress>i{display:block;width:min(300px,38vw);height:2px;overflow:hidden;background:rgba(168,229,239,.24)}
 .opening-progress>i>b{display:block;width:0;height:100%;background:var(--dmn-red);box-shadow:0 0 12px rgba(216,37,52,.8);transition:width .3s linear}
+.dominium-opening.is-final .opening-progress{display:none}
 .dominium-opening.is-cinematic .opening-progress>i>b{animation:opening-progress-pulse 1.4s ease-in-out infinite alternate}
 .opening-soundtrack-credit{position:absolute;top:clamp(5.5rem,11vh,8rem);right:clamp(1.1rem,4vw,3.5rem);color:rgba(195,206,202,.86);font:.82rem var(--dmn-terminal);letter-spacing:.08em;text-decoration:none;text-transform:uppercase;text-shadow:0 2px 10px #000;pointer-events:auto;transition:color .2s ease}
 .opening-soundtrack-credit:hover,.opening-soundtrack-credit:focus-visible{color:var(--dmn-ice);text-decoration:underline}
@@ -100,7 +102,7 @@
   .opening-progress>i{width:auto;min-width:0}
   .opening-final{max-height:100dvh;overflow-y:auto;overscroll-behavior:contain;padding:max(2.5rem,calc(env(safe-area-inset-top) + 1.5rem)) 1rem max(2.5rem,calc(env(safe-area-inset-bottom) + 1.5rem))}
   .opening-final h2{letter-spacing:.32em}
-  .opening-final h2 strong{max-width:100%;font-size:clamp(4rem,22vw,7rem);overflow-wrap:anywhere}
+  .opening-final h2 strong{max-width:100%;font-size:clamp(3rem,16vw,5.4rem);overflow-wrap:anywhere}
   .opening-final>p:not(.opening-final-kicker){font-size:1rem;line-height:1.5}
   .opening-letterbox i{height:clamp(8px,2vh,14px)}
 }
@@ -126,7 +128,7 @@
   .opening-skip{bottom:calc(3.05rem + env(safe-area-inset-bottom))}
   .opening-progress{bottom:calc(.35rem + env(safe-area-inset-bottom))}
   .opening-final{padding-block:2rem}
-  .opening-final h2 strong{font-size:clamp(3.6rem,19vw,6.2rem)}
+  .opening-final h2 strong{font-size:clamp(3rem,15vw,5rem)}
 }
 
 @media(prefers-reduced-motion:reduce){
