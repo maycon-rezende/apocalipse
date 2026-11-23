@@ -204,6 +204,7 @@
   let soundtrackPrepareFallback = 0;
   let soundtrackBound = false;
   let soundtrackReady = false;
+  let soundtrackStartRequested = false;
   let soundtrackInitializationFailed = false;
   let soundtrackUnavailable = false;
   let visualStarted = false;
@@ -228,8 +229,8 @@
 
   const setStartAvailability = ready => {
     if (!startButton) return;
-    startButton.disabled = !ready;
-    startButton.setAttribute('aria-busy', String(!ready));
+    startButton.disabled = soundtrackStartRequested || userStarted;
+    startButton.setAttribute('aria-busy', String(!ready && !soundtrackInitializationFailed));
   };
 
   const silenceVideo = media => {
@@ -625,6 +626,7 @@
     if (waiting) waiting.hidden = true;
     if (opening) opening.classList.remove('is-connecting');
     stage.classList.remove('is-connecting');
+    if (soundtrackUnavailable) translate(live, 'dominium.opening.audio.unavailable');
     nextScene(0);
     if (soundtrackUnavailable) {
       scheduleEnding(() => { if (!suspenseShowing && !finalShowing) showSuspense(); }, TRACK_MUTE_AT_MS);
@@ -789,6 +791,10 @@
         try { soundtrackWidget.seekTo(0); } catch (error) {}
         setStartAvailability(true);
         if (gateHint) translate(gateHint, 'dominium.opening.gate.hint');
+        if (soundtrackStartRequested) {
+          soundtrackStartRequested = false;
+          startOpening();
+        }
       });
       if (events.PLAY) soundtrackWidget.bind(events.PLAY, confirmSoundtrackStarted);
       if (events.PLAY_PROGRESS) soundtrackWidget.bind(events.PLAY_PROGRESS, progress => {
@@ -802,6 +808,7 @@
         releaseSoundtrack();
         if (!visualStarted) beginVisuals(true);
       });
+      if (events.ERROR) soundtrackWidget.bind(events.ERROR, () => failSoundtrackPreparation());
       return true;
     } catch (error) {
       soundtrackWidget = null;
@@ -855,12 +862,22 @@
     soundtrackPrepareFallback = window.setTimeout(() => {
       window.clearInterval(poll);
       if (soundtrackReady) return;
-      soundtrackInitializationFailed = true;
-      soundtrackUnavailable = true;
-      setStartAvailability(true);
-      if (gateHint) translate(gateHint, 'dominium.opening.audio.unavailable');
+      failSoundtrackPreparation();
     }, 10000);
   };
+
+  function failSoundtrackPreparation() {
+    if (soundtrackReady) return;
+    soundtrackInitializationFailed = true;
+    soundtrackUnavailable = true;
+    window.clearTimeout(soundtrackPrepareFallback);
+    setStartAvailability(true);
+    if (gateHint) translate(gateHint, 'dominium.opening.audio.unavailable');
+    if (soundtrackStartRequested) {
+      soundtrackStartRequested = false;
+      startOpening();
+    }
+  }
 
   const dismissOpening = () => {
     if (opening.classList.contains('dismissed')) return;
@@ -879,12 +896,15 @@
   };
 
   const startOpening = () => {
-    if (userStarted) return;
+    if (userStarted || soundtrackStartRequested) return;
     if (soundtrackFrame?.dataset.soundtrackSrc && !soundtrackReady && !soundtrackInitializationFailed) {
+      soundtrackStartRequested = true;
+      setStartAvailability(false);
       if (gateHint) translate(gateHint, 'dominium.opening.audio.preparing');
       return;
     }
     userStarted = true;
+    setStartAvailability(soundtrackReady);
     opening.classList.remove('is-gate');
     opening.classList.add('is-connecting');
     stage.classList.add('is-connecting');
