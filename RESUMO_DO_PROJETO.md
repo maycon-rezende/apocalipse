@@ -1085,3 +1085,13 @@ As novas imagens são pré-carregadas e cruzadas com transição suave, com um l
 ### Ajuste do primeiro toque no celular — 23 de novembro de 2026
 
 O botão de início não descarta mais o toque dado enquanto o player SoundCloud ainda carrega. A intenção de iniciar fica guardada e, quando o evento `READY` chegar, a abertura começa automaticamente sem exigir um segundo toque. O botão permanece utilizável durante a preparação; se o player emitir erro ou não ficar pronto em dez segundos, a sequência visual segue sem bloqueio e identifica que o canal de áudio não conectou. O teste de som real ainda depende da confirmação no celular.
+
+### Continuação da intro dentro do Hades — 23 de novembro de 2026
+
+Depois do elevador, a segurança deixa de aparecer. A sequência passa do corredor de Hades para o turno científico: primeiro a equipe trabalhando (`img-dominus/equipe-lab-1.png`), depois registros da Dra. Grey com Daniel e da Dra. Grey com a Dra. Frost. A imagem ampla da equipe funciona como storyboard visual até o vídeo de trabalho do laboratório ser produzido.
+
+Em seguida, a intro percorre a ala de testes (`img-dominus/ala-de-testes.png`) e a ala dos infectados (`img-dominus/ala-estagio-2.png`). Esta última recebe escurecimento e breves falhas de luz, respeitando a preferência por movimento reduzido. Os textos mantêm os registros incompletos e não revelam a identidade ou o propósito final das amostras.
+
+Após as alas, volta o vídeo de Laurence Maverick; em seguida aparecem os quadros de sua interação com a amostra (`intro-still-18-dual-pathogen-experiment.png` e `intro-still-17-maverick-capsule.png`). A duração foi organizada para alcançar o corte da trilha em 1:38. O silêncio, a montagem da transformação e o retorno em 1:53 com o surgimento de **DOMINIUM** no tique-taque permanecem preservados, assim como o término em 2:08. Não foi necessário gerar imagens novas; foram reaproveitados arquivos já disponíveis na pasta do projeto.
+
+A versão inglesa acompanha os novos letreiros. A validação automatizada e a checagem visual no celular ainda são necessárias; o vídeo de trabalho da equipe poderá substituir o storyboard quando estiver pronto.

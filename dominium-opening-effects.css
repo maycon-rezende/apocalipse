@@ -38,6 +38,27 @@
   animation: dominium-transformation-frame 2.1s cubic-bezier(.2, .68, .25, 1) both;
 }
 
+.opening-stage.is-infected-wing .opening-still.is-visible {
+  filter: brightness(.46) saturate(.66) contrast(1.18);
+}
+
+.opening-stage.is-infected-wing::after {
+  background:
+    linear-gradient(90deg, rgba(1, 5, 7, .82), rgba(1, 5, 7, .24) 70%, rgba(1, 5, 7, .35)),
+    linear-gradient(0deg, rgba(0, 0, 0, .86), transparent 62%),
+    radial-gradient(ellipse at 78% 16%, rgba(173, 29, 38, .16), transparent 38%),
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(193, 35, 44, .035) 5px 6px);
+  animation: dominium-infected-flicker 2.2s steps(1, end) infinite;
+}
+
+@keyframes dominium-infected-flicker {
+  0%, 15%, 16%, 42%, 43%, 100% { opacity: 1; }
+  15.5%, 42.5% { opacity: .45; }
+  55% { opacity: .72; }
+  56%, 58% { opacity: .34; }
+  57%, 59% { opacity: .9; }
+}
+
 .dominium-opening.is-dominium-reveal .opening-stage::before {
   animation: dominium-capsule-pulse 4s ease-in-out 3 both;
 }
@@ -189,7 +210,8 @@
   .dominium-opening.is-dominium-reveal .opening-final h2 span,
   .dominium-opening.is-dominium-reveal .opening-final h2 strong,
   .dominium-opening.is-tick-sequence #opening-final-word.is-tick-hit,
-  .dominium-opening.is-transformation .opening-stage::after {
+  .dominium-opening.is-transformation .opening-stage::after,
+  .opening-stage.is-infected-wing::after {
     animation: none !important;
   }
   .dominium-opening.is-hades-impact .opening-copy h2 em { color: var(--dmn-ice); filter: none; transform: none; }

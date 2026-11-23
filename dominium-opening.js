@@ -63,7 +63,11 @@
     VIDEO: 9030,
     VIDEO_FULL: 10000,
     TITLE: 4900,
-    CAPSULE_PRELUDE: 8010
+    LAB_TEAM: 4400,
+    TEST_WING: 5000,
+    INFECTED_WING: 6000,
+    DUAL_SAMPLE: 4800,
+    CAPSULE_PRELUDE: 6120
   });
   const TRACK_MUTE_AT_MS = 98000;
   const TRACK_RETURN_AT_MS = 113000;
@@ -140,30 +144,34 @@
     },
     {
       type: 'image',
-      src: 'img-dominus/intro/stills/intro-still-04-research-team.png',
-      duration: SCENE_DURATION.STILL_BRIEF,
+      src: 'img-dominus/equipe-lab-1.png',
+      duration: SCENE_DURATION.LAB_TEAM,
       frames: [{ at: 0, kicker: 'dominium.opening.scene.team.kicker', line: 'dominium.opening.scene.team.line', emphasis: 'dominium.opening.scene.team.emphasis', caption: 'dominium.opening.scene.team.caption' }]
     },
     {
       type: 'image',
       src: 'img-dominus/intro/stills/intro-still-05-grey-daniel-lab.png',
-      duration: SCENE_DURATION.STILL_BRIEF,
+      duration: SCENE_DURATION.LAB_TEAM,
       frames: [{ at: 0, kicker: 'dominium.opening.scene.laboratory.kicker', line: 'dominium.opening.scene.laboratory.line', emphasis: 'dominium.opening.scene.laboratory.emphasis', caption: 'dominium.opening.scene.laboratory.caption' }]
     },
     {
       type: 'image',
       src: 'img-dominus/intro/stills/intro-still-07-grey-frost-research.png',
-      duration: SCENE_DURATION.STILL_BRIEF,
+      duration: SCENE_DURATION.LAB_TEAM,
       frames: [{ at: 0, kicker: 'dominium.opening.scene.research.kicker', line: 'dominium.opening.scene.research.line', emphasis: 'dominium.opening.scene.research.emphasis', caption: 'dominium.opening.scene.research.caption' }]
     },
     {
       type: 'image',
-      src: 'img-dominus/intro/stills/intro-still-03-containment-vessel.png',
-      duration: SCENE_DURATION.STILL,
-      frames: [
-        { at: 0, kicker: 'dominium.opening.scene.5a.kicker', line: 'dominium.opening.scene.5a.line', emphasis: 'dominium.opening.scene.5a.emphasis', caption: 'dominium.opening.scene.5a.caption' },
-        { at: 3400, kicker: 'dominium.opening.scene.5b.kicker', line: 'dominium.opening.scene.5b.line', emphasis: 'dominium.opening.scene.5b.emphasis', caption: 'dominium.opening.scene.5b.caption' }
-      ]
+      src: 'img-dominus/ala-de-testes.png',
+      duration: SCENE_DURATION.TEST_WING,
+      frames: [{ at: 0, kicker: 'dominium.opening.scene.test-wing.kicker', line: 'dominium.opening.scene.test-wing.line', emphasis: 'dominium.opening.scene.test-wing.emphasis', caption: 'dominium.opening.scene.test-wing.caption' }]
+    },
+    {
+      type: 'image',
+      src: 'img-dominus/ala-estagio-2.png',
+      duration: SCENE_DURATION.INFECTED_WING,
+      effect: 'infected-wing',
+      frames: [{ at: 0, kicker: 'dominium.opening.scene.infected-wing.kicker', line: 'dominium.opening.scene.infected-wing.line', emphasis: 'dominium.opening.scene.infected-wing.emphasis', caption: 'dominium.opening.scene.infected-wing.caption' }]
     },
     {
       type: 'video',
@@ -177,13 +185,13 @@
     },
     {
       type: 'image',
-      src: 'img-dominus/intro/stills/intro-still-11-maverick-journal.png',
-      duration: SCENE_DURATION.STILL,
-      frames: [{ at: 0, kicker: 'dominium.opening.scene.journal.kicker', line: 'dominium.opening.scene.journal.line', emphasis: 'dominium.opening.scene.journal.emphasis', caption: 'dominium.opening.scene.journal.caption' }]
+      src: 'img-dominus/intro/stills/intro-still-18-dual-pathogen-experiment.png',
+      duration: SCENE_DURATION.DUAL_SAMPLE,
+      frames: [{ at: 0, kicker: 'dominium.opening.scene.dual-sample.kicker', line: 'dominium.opening.scene.dual-sample.line', emphasis: 'dominium.opening.scene.dual-sample.emphasis', caption: 'dominium.opening.scene.dual-sample.caption' }]
     },
     {
       type: 'image',
-      src: 'img-dominus/intro/stills/intro-still-03-containment-vessel.png',
+      src: 'img-dominus/intro/stills/intro-still-17-maverick-capsule.png',
       duration: SCENE_DURATION.CAPSULE_PRELUDE,
       frames: [{ at: 0, kicker: 'dominium.opening.scene.capsule.kicker', line: 'dominium.opening.scene.capsule.line', emphasis: 'dominium.opening.scene.capsule.emphasis', caption: 'dominium.opening.scene.capsule.caption' }]
     }
@@ -493,7 +501,7 @@
     if (video) stopVideo(video);
     TRANSFORMATION_MONTAGE.forEach(source => { void preloadImage(source); });
 
-    stage.classList.remove('is-cinematic', 'is-intertitle', 'is-video', 'is-connecting');
+    stage.classList.remove('is-cinematic', 'is-intertitle', 'is-video', 'is-connecting', 'is-infected-wing');
     stage.classList.add('is-final-image');
     void crossfadeToStill('img-dominus/intro/stills/intro-still-03-containment-vessel.png', playbackToken);
     if (gate) gate.hidden = true;
@@ -527,10 +535,10 @@
     }
 
     if (transformationStageActive) {
-      stage.classList.remove('is-cinematic', 'is-intertitle', 'is-video', 'is-connecting');
+      stage.classList.remove('is-cinematic', 'is-intertitle', 'is-video', 'is-connecting', 'is-infected-wing');
       stage.classList.add('is-final-image');
     } else {
-      stage.classList.remove('is-cinematic', 'is-intertitle', 'is-video', 'is-connecting');
+      stage.classList.remove('is-cinematic', 'is-intertitle', 'is-video', 'is-connecting', 'is-infected-wing');
       stage.classList.add('is-final-image');
       void crossfadeToStill('img-dominus/intro/stills/intro-still-03-containment-vessel.png', playbackToken);
     }
@@ -578,7 +586,8 @@
     if (progressCount) progressCount.textContent = `${progressLabel('dominium.opening.progress.record')} // ${String(index + 1).padStart(2, '0')} / ${String(scenes.length).padStart(2, '0')}`;
     if (progressBar) progressBar.style.width = `${(elapsedBefore / totalDuration) * 100}%`;
 
-    stage.classList.remove('is-final-image', 'is-intertitle', 'is-video', 'is-connecting');
+    stage.classList.remove('is-final-image', 'is-intertitle', 'is-video', 'is-connecting', 'is-infected-wing');
+    if (scene.effect === 'infected-wing') stage.classList.add('is-infected-wing');
     if (scene.type === 'video') stage.classList.add('is-video');
     if (scene.type === 'intertitle') {
       stage.classList.add('is-intertitle');
