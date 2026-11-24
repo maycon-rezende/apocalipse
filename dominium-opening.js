@@ -168,8 +168,9 @@
       frames: [{ at: 0, kicker: 'dominium.opening.scene.test-wing.kicker', line: 'dominium.opening.scene.test-wing.line', emphasis: 'dominium.opening.scene.test-wing.emphasis', caption: 'dominium.opening.scene.test-wing.caption' }]
     },
     {
-      type: 'image',
-      src: 'img-dominus/ala-estagio-2.png',
+      type: 'video',
+      src: 'video/dominium-intro/intro-corredor-escuro.mp4',
+      fallback: 'img-dominus/ala-estagio-2.png',
       duration: SCENE_DURATION.INFECTED_WING,
       effect: 'infected-wing',
       frames: [{ at: 0, kicker: 'dominium.opening.scene.infected-wing.kicker', line: 'dominium.opening.scene.infected-wing.line', emphasis: 'dominium.opening.scene.infected-wing.emphasis', caption: 'dominium.opening.scene.infected-wing.caption' }]
@@ -213,7 +214,6 @@
   let soundtrackPrepareFallback = 0;
   let soundtrackBound = false;
   let soundtrackReady = false;
-  let soundtrackStartRequested = false;
   let soundtrackInitializationFailed = false;
   let soundtrackUnavailable = false;
   let visualStarted = false;
@@ -238,7 +238,7 @@
 
   const setStartAvailability = ready => {
     if (!startButton) return;
-    startButton.disabled = soundtrackStartRequested || userStarted;
+    startButton.disabled = (!ready && !soundtrackInitializationFailed) || userStarted;
     startButton.setAttribute('aria-busy', String(!ready && !soundtrackInitializationFailed));
   };
 
@@ -811,10 +811,6 @@
         try { soundtrackWidget.seekTo(0); } catch (error) {}
         setStartAvailability(true);
         if (gateHint) translate(gateHint, 'dominium.opening.gate.hint');
-        if (soundtrackStartRequested) {
-          soundtrackStartRequested = false;
-          startOpening();
-        }
       });
       if (events.PLAY) soundtrackWidget.bind(events.PLAY, confirmSoundtrackStarted);
       if (events.PLAY_PROGRESS) soundtrackWidget.bind(events.PLAY_PROGRESS, progress => {
@@ -893,10 +889,6 @@
     window.clearTimeout(soundtrackPrepareFallback);
     setStartAvailability(true);
     if (gateHint) translate(gateHint, 'dominium.opening.audio.unavailable');
-    if (soundtrackStartRequested) {
-      soundtrackStartRequested = false;
-      startOpening();
-    }
   }
 
   const dismissOpening = () => {
@@ -916,10 +908,8 @@
   };
 
   const startOpening = () => {
-    if (userStarted || soundtrackStartRequested) return;
+    if (userStarted) return;
     if (soundtrackFrame?.dataset.soundtrackSrc && !soundtrackReady && !soundtrackInitializationFailed) {
-      soundtrackStartRequested = true;
-      setStartAvailability(false);
       if (gateHint) translate(gateHint, 'dominium.opening.audio.preparing');
       return;
     }

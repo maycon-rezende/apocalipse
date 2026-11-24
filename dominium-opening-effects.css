@@ -39,13 +39,17 @@
 }
 
 .opening-stage.is-infected-wing .opening-still.is-visible {
-  filter: brightness(.46) saturate(.66) contrast(1.18);
+  filter: brightness(.72) saturate(.72) contrast(1.1);
+}
+
+.opening-stage.is-infected-wing .opening-video.is-visible {
+  filter: brightness(.82) saturate(.76) contrast(1.06);
 }
 
 .opening-stage.is-infected-wing::after {
   background:
-    linear-gradient(90deg, rgba(1, 5, 7, .82), rgba(1, 5, 7, .24) 70%, rgba(1, 5, 7, .35)),
-    linear-gradient(0deg, rgba(0, 0, 0, .86), transparent 62%),
+    linear-gradient(90deg, rgba(1, 5, 7, .58), rgba(1, 5, 7, .18) 70%, rgba(1, 5, 7, .27)),
+    linear-gradient(0deg, rgba(0, 0, 0, .55), transparent 62%),
     radial-gradient(ellipse at 78% 16%, rgba(173, 29, 38, .16), transparent 38%),
     repeating-linear-gradient(0deg, transparent 0 5px, rgba(193, 35, 44, .035) 5px 6px);
   animation: dominium-infected-flicker 2.2s steps(1, end) infinite;

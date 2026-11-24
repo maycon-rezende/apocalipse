@@ -3,16 +3,16 @@
 .dominium-opening[hidden],.dominium-opening [hidden]{display:none!important}
 .dominium-opening.dismissed{opacity:0;visibility:hidden;pointer-events:none}
 .opening-stage{position:absolute;z-index:0;inset:0;overflow:hidden;background:#030708;--opening-backdrop-image:url("img-dominus/intro/stills/intro-still-01-leviathan-antarctica.png")}
-.opening-stage::before{position:absolute;inset:-4%;z-index:0;content:"";background-image:linear-gradient(rgba(1,5,7,.48),rgba(1,5,7,.65)),var(--opening-backdrop-image);background-position:center;background-size:cover;filter:blur(15px) saturate(.68);transform:scale(1.06);opacity:.74;transition:filter .5s ease,opacity .5s ease}
-.opening-stage::after{position:absolute;inset:0;z-index:3;content:"";pointer-events:none;background:linear-gradient(90deg,rgba(1,5,7,.78),rgba(1,5,7,.18) 68%,rgba(1,5,7,.14)),linear-gradient(0deg,rgba(0,0,0,.84),transparent 58%),radial-gradient(ellipse at center,transparent 28%,rgba(0,0,0,.45) 100%)}
-.opening-still,.opening-video{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:transparent;opacity:0;filter:brightness(.72) saturate(.76) contrast(1.06);transition:opacity .52s ease,filter .52s ease}
+.opening-stage::before{position:absolute;inset:-4%;z-index:0;content:"";background-image:linear-gradient(rgba(1,5,7,.4),rgba(1,5,7,.52)),var(--opening-backdrop-image);background-position:center;background-size:cover;filter:blur(15px) saturate(.72);transform:scale(1.06);opacity:.78;transition:filter .5s ease,opacity .5s ease}
+.opening-stage::after{position:absolute;inset:0;z-index:3;content:"";pointer-events:none;background:linear-gradient(90deg,rgba(1,5,7,.58),rgba(1,5,7,.13) 68%,rgba(1,5,7,.1)),linear-gradient(0deg,rgba(0,0,0,.64),transparent 58%),radial-gradient(ellipse at center,transparent 28%,rgba(0,0,0,.32) 100%)}
+.opening-still,.opening-video{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:transparent;opacity:0;filter:brightness(.88) saturate(.82) contrast(1.04);transition:opacity .52s ease,filter .52s ease}
 .opening-still[hidden],.opening-video[hidden]{display:none!important}
 .opening-still.is-visible,.opening-video.is-visible{opacity:1}
 .opening-video{z-index:2}
-.opening-stage.is-final-image .opening-still{animation:opening-slow-push 8s ease-out both;filter:brightness(.58) saturate(.78) contrast(1.12)}
-.opening-stage.is-video::after{background:linear-gradient(90deg,rgba(1,5,7,.65),transparent 62%),linear-gradient(0deg,rgba(0,0,0,.78),transparent 56%),radial-gradient(ellipse at center,transparent 26%,rgba(0,0,0,.44) 100%)}
-.opening-stage.is-intertitle::after{background:linear-gradient(rgba(1,4,5,.62),rgba(1,4,5,.7)),repeating-linear-gradient(0deg,transparent 0 4px,rgba(168,229,239,.045) 4px 5px)}
-.opening-stage.is-intertitle::before{filter:blur(18px) saturate(.45);opacity:.52}
+.opening-stage.is-final-image .opening-still{animation:opening-slow-push 8s ease-out both;filter:brightness(.9) saturate(.82) contrast(1.05)}
+.opening-stage.is-video::after{background:linear-gradient(90deg,rgba(1,5,7,.48),transparent 62%),linear-gradient(0deg,rgba(0,0,0,.58),transparent 56%),radial-gradient(ellipse at center,transparent 26%,rgba(0,0,0,.3) 100%)}
+.opening-stage.is-intertitle::after{background:linear-gradient(rgba(1,4,5,.48),rgba(1,4,5,.56)),repeating-linear-gradient(0deg,transparent 0 4px,rgba(168,229,239,.045) 4px 5px)}
+.opening-stage.is-intertitle::before{filter:blur(18px) saturate(.5);opacity:.58}
 .opening-stage.is-connecting .opening-still{animation:opening-slow-push 8s ease-out both}
 .opening-atmosphere,.opening-flash,.opening-letterbox{position:absolute;inset:0;z-index:4;pointer-events:none}
 .opening-atmosphere{overflow:hidden;mix-blend-mode:screen;opacity:.25}
@@ -76,8 +76,8 @@
 @media(max-width:700px){
   .dominium-opening{inset:0;width:100%;height:100vh;height:100dvh;padding:0}
   .opening-stage,.opening-interface{inset:0;width:100%;height:100%}
-  .opening-stage::before{inset:-8%;filter:blur(20px) saturate(.62) brightness(.78)}
-  .opening-still,.opening-video{object-fit:contain;object-position:center 28%;filter:brightness(.78) saturate(.74) contrast(1.05)}
+  .opening-stage::before{inset:-8%;filter:blur(20px) saturate(.68) brightness(.9)}
+  .opening-still,.opening-video{object-fit:contain;object-position:center 28%;filter:brightness(.94) saturate(.8) contrast(1.03)}
   .opening-interface{max-width:none;margin:0;padding:0}
   .opening-signal{top:max(.8rem,env(safe-area-inset-top));left:max(1rem,env(safe-area-inset-left));right:max(1rem,env(safe-area-inset-right));flex-wrap:wrap;gap:.35rem .7rem;min-width:0;font-size:.9rem;letter-spacing:.08em;line-height:1.25}
   .opening-signal>span,.opening-signal>b{min-width:0;overflow-wrap:anywhere}

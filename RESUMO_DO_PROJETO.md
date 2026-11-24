@@ -1095,3 +1095,11 @@ Em seguida, a intro percorre a ala de testes (`img-dominus/ala-de-testes.png`) e
 A sequência mantém o quadro de Laurence diante da amostra por cerca de cinco segundos e termina aproximadamente 1,1 segundo antes do corte da trilha em 1:38, evitando que o avanço da última cena dispute o mesmo instante com o evento do SoundCloud. Se o player iniciar, mas atrasar os eventos de progresso, uma proteção de relógio local conduz o silêncio, o retorno em 1:53 e o encerramento em 2:08 sem alterar a faixa. Não foi necessário gerar imagens novas; foram reaproveitados arquivos já disponíveis na pasta do projeto.
 
 A versão inglesa acompanha os novos letreiros. A validação automatizada e a checagem visual no celular ainda são necessárias; o vídeo de trabalho da equipe poderá substituir o storyboard quando estiver pronto.
+
+### Trilha e claridade da intro da Dominium — 24 de novembro de 2026
+
+O início da trilha foi ajustado para preservar o gesto do usuário: o botão de abertura aguarda o evento `READY` do SoundCloud e só então fica habilitado. A chamada `play()` ocorre diretamente no clique/Enter válido, em vez de guardar um toque e reproduzir mais tarde, fora do gesto — situação que pode fazer navegadores móveis bloquearem o áudio. Se o player falhar ou não iniciar, a sequência continua em modo silencioso. A saída audível ainda depende de confirmação no aparelho, pois a captura visual não comprova som físico.
+
+A ala dos infectados agora usa `video/dominium-intro/intro-corredor-escuro.mp4`, mantendo os seis segundos da cena anterior e uma imagem de fallback (`img-dominus/ala-estagio-2.png`), sem deslocar os marcos de 1:38, 1:53 e 2:08 da música. O vídeo permanece mudo; a trilha continua sendo a única fonte de áudio.
+
+A exposição foi elevada na abertura inteira, com atenção especial ao celular: filtros de brilho e camadas escuras foram reduzidos, inclusive no trecho final e na ala infectada, preservando o contraste de terror sem exigir brilho máximo para ler as imagens. `node --check`, `git diff --check`, o build inglês e o QA automatizado passaram. A revisão visual local foi bloqueada pelo portão de acesso por falta de sessão validada; não contornei essa proteção. A confirmação de áudio audível e aparência no telefone continua pendente de teste no aparelho.
