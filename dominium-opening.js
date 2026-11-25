@@ -42,7 +42,10 @@
   const progressCount = document.getElementById('opening-progress-count');
   const progressBar = document.getElementById('opening-progress-bar');
   const soundtrackFrame = document.getElementById('dominium-soundtrack-player');
+  const localSoundtrack = document.getElementById('dominium-soundtrack-fallback');
   const soundcloudApi = document.getElementById('soundcloud-widget-api');
+  const preferLocalSoundtrack = window.matchMedia('(pointer: coarse)').matches
+    || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
 
   if (!stage || !stillLayers.length) return;
 
@@ -216,6 +219,7 @@
   let soundtrackReady = false;
   let soundtrackInitializationFailed = false;
   let soundtrackUnavailable = false;
+  let soundtrackBackend = 'none';
   let visualStarted = false;
   let userStarted = false;
   let playbackToken = 0;
@@ -664,12 +668,23 @@
 
   const setSoundtrackVolume = value => {
     soundtrackVolume = Math.max(0, Math.min(100, value));
+    if (soundtrackBackend === 'local' && localSoundtrack) {
+      localSoundtrack.muted = soundtrackVolume <= 0;
+      if (soundtrackVolume > 0) {
+        localSoundtrack.muted = false;
+        try { localSoundtrack.volume = soundtrackVolume / 100; } catch (error) {}
+      }
+      return;
+    }
     try { soundtrackWidget?.setVolume(soundtrackVolume); } catch (error) {}
   };
 
   const fadeSoundtrackTo = (target, duration, onComplete) => {
     window.clearInterval(soundtrackFadeTimer);
-    if (!soundtrackWidget || !soundtrackStarted || duration <= 0) {
+    const activePlayer = soundtrackBackend === 'local'
+      ? localSoundtrack && !localSoundtrack.paused
+      : soundtrackWidget;
+    if (!activePlayer || !soundtrackStarted || duration <= 0) {
       setSoundtrackVolume(target);
       onComplete?.();
       return;
@@ -742,6 +757,10 @@
     soundtrackPhase = 'ended';
     stopTitleTickSequence();
     try { soundtrackWidget?.pause(); } catch (error) {}
+    if (localSoundtrack) {
+      localSoundtrack.pause();
+      try { localSoundtrack.currentTime = 0; } catch (error) {}
+    }
     if (soundtrackFrame && soundtrackFrame.src !== 'about:blank') soundtrackFrame.src = 'about:blank';
     soundtrackStarted = false;
   }
@@ -779,12 +798,18 @@
     }
   };
 
-  const confirmSoundtrackStarted = () => {
+  const confirmSoundtrackStarted = (backend = 'soundcloud') => {
     if (soundtrackExpired || soundtrackStarted) {
       if (soundtrackExpired) {
         try { soundtrackWidget?.pause(); } catch (error) {}
       }
       return;
+    }
+    soundtrackBackend = backend;
+    if (backend === 'local') {
+      try { soundtrackWidget?.pause(); } catch (error) {}
+    } else if (localSoundtrack) {
+      localSoundtrack.pause();
     }
     soundtrackStarted = true;
     soundtrackPhase = 'opening';
@@ -804,6 +829,7 @@
           try { soundtrackWidget.pause(); } catch (error) {}
           return;
         }
+        soundtrackBackend = 'soundcloud';
         soundtrackReady = true;
         soundtrackInitializationFailed = false;
         window.clearTimeout(soundtrackPrepareFallback);
@@ -812,11 +838,11 @@
         setStartAvailability(true);
         if (gateHint) translate(gateHint, 'dominium.opening.gate.hint');
       });
-      if (events.PLAY) soundtrackWidget.bind(events.PLAY, confirmSoundtrackStarted);
+      if (events.PLAY) soundtrackWidget.bind(events.PLAY, () => confirmSoundtrackStarted('soundcloud'));
       if (events.PLAY_PROGRESS) soundtrackWidget.bind(events.PLAY_PROGRESS, progress => {
         const position = Number(progress?.currentPosition);
         if (!Number.isFinite(position)) return;
-        if (!soundtrackStarted && position > 0) confirmSoundtrackStarted();
+        if (!soundtrackStarted && position > 0) confirmSoundtrackStarted('soundcloud');
         if (soundtrackStarted) applySoundtrackTimeline(position);
       });
       if (events.FINISH) soundtrackWidget.bind(events.FINISH, () => {
@@ -834,6 +860,25 @@
   };
 
   const startSoundtrack = () => {
+    if (soundtrackBackend === 'local' && localSoundtrack) {
+      localSoundtrack.pause();
+      try { localSoundtrack.currentTime = 0; } catch (error) {}
+      localSoundtrack.loop = true;
+      localSoundtrack.muted = false;
+      try { localSoundtrack.volume = SOUNDTRACK_TARGET_VOLUME / 100; } catch (error) {}
+      try {
+        const playback = localSoundtrack.play();
+        if (playback && typeof playback.then === 'function') {
+          playback.then(() => confirmSoundtrackStarted('local')).catch(() => beginVisuals(true));
+        } else {
+          confirmSoundtrackStarted('local');
+        }
+      } catch (error) {
+        soundtrackUnavailable = true;
+        beginVisuals(true);
+      }
+      return;
+    }
     if (!soundtrackFrame?.dataset.soundtrackSrc || !soundtrackWidget || !soundtrackReady) {
       soundtrackUnavailable = true;
       beginVisuals(true);
@@ -858,6 +903,16 @@
   };
 
   const prepareSoundtrack = () => {
+    if (preferLocalSoundtrack && localSoundtrack) {
+      soundtrackBackend = 'local';
+      soundtrackReady = true;
+      soundtrackInitializationFailed = false;
+      soundtrackUnavailable = false;
+      localSoundtrack.load();
+      setStartAvailability(true);
+      if (gateHint) translate(gateHint, 'dominium.opening.audio.local');
+      return;
+    }
     if (!soundtrackFrame?.dataset.soundtrackSrc) {
       soundtrackInitializationFailed = true;
       soundtrackUnavailable = true;
@@ -884,6 +939,17 @@
 
   function failSoundtrackPreparation() {
     if (soundtrackReady) return;
+    if (localSoundtrack) {
+      soundtrackBackend = 'local';
+      soundtrackReady = true;
+      soundtrackInitializationFailed = false;
+      soundtrackUnavailable = false;
+      window.clearTimeout(soundtrackPrepareFallback);
+      localSoundtrack.load();
+      setStartAvailability(true);
+      if (gateHint) translate(gateHint, 'dominium.opening.audio.local');
+      return;
+    }
     soundtrackInitializationFailed = true;
     soundtrackUnavailable = true;
     window.clearTimeout(soundtrackPrepareFallback);

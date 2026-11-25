@@ -1103,3 +1103,17 @@ O início da trilha foi ajustado para preservar o gesto do usuário: o botão de
 A ala dos infectados agora usa `video/dominium-intro/intro-corredor-escuro.mp4`, mantendo os seis segundos da cena anterior e uma imagem de fallback (`img-dominus/ala-estagio-2.png`), sem deslocar os marcos de 1:38, 1:53 e 2:08 da música. O vídeo permanece mudo; a trilha continua sendo a única fonte de áudio.
 
 A exposição foi elevada na abertura inteira, com atenção especial ao celular: filtros de brilho e camadas escuras foram reduzidos, inclusive no trecho final e na ala infectada, preservando o contraste de terror sem exigir brilho máximo para ler as imagens. `node --check`, `git diff --check`, o build inglês e o QA automatizado passaram. A revisão visual local foi bloqueada pelo portão de acesso por falta de sessão validada; não contornei essa proteção. A confirmação de áudio audível e aparência no telefone continua pendente de teste no aparelho.
+
+### Setor interativo de Criogenia — 25 de novembro de 2026
+
+O laboratório Hades recebeu um módulo próprio de **Criogenia**, acessível pela navegação principal e por um novo cartão na visão geral. A sala apresenta a câmara `D-37 / ANT-DOOM-00`, uma representação visual da amostra e três consultas interativas: inspeção visual, verificação de custódia e teste de isolamento.
+
+As respostas do terminal foram escritas para separar fatos recuperados de lacunas narrativas. D-37, DOOM, Categoria 6 e Hades/L-04 aparecem como identificações do arquivo; temperatura, pressão, responsáveis, procedimentos, duração do armazenamento e rota completa continuam explicitamente ausentes. Os controles apenas consultam o registro e não simulam procedimentos laboratoriais reais.
+
+Três documentos expansíveis complementam a sala: etiqueta da amostra, vínculo antártico e lacuna de custódia. O módulo é responsivo, navegável por teclado, respeita redução de movimento e possui textos equivalentes em português e inglês. A prévia inglesa de `projeto-doom.html` foi regenerada e os identificadores de cache do CSS e do JavaScript foram atualizados. Os arquivos não rastreados já existentes em `img-dominus/` e `video/dominium-intro/` foram preservados e não fazem parte desta alteração.
+
+### Correção da música da intro Dominium no celular — 25 de novembro de 2026
+
+A abertura passou a usar `audio/themelab.mp3` como fonte local automática em celulares e dispositivos com tela de toque. A reprodução ocorre diretamente no clique ou no Enter do portão de entrada, evitando a restrição de reprodução do player incorporado do SoundCloud em navegadores móveis. No computador, o SoundCloud continua como fonte principal; se ele não carregar durante a preparação, a mesma trilha local fica disponível como alternativa.
+
+O controle de volume, os momentos de silêncio, o retorno da música e o encerramento da intro continuam ligados aos marcos visuais já definidos. A versão inglesa recebeu o mesmo elemento de áudio, e o endereço do JavaScript ganhou uma nova versão de cache para impedir que o celular reutilize o arquivo antigo. A sintaxe do script e a integridade do diff foram verificadas; a audição física ainda deve ser confirmada no aparelho após a publicação.

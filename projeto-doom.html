@@ -45,7 +45,7 @@ body>nav{position:fixed;inset:0 0 auto;z-index:100;display:flex;justify-content:
 </style>
 <link rel="stylesheet" href="cursor-site.css">
 <link rel="stylesheet" href="experience-mode.css">
-<link rel="stylesheet" href="project-doom-stage1.css?v=8">
+<link rel="stylesheet" href="project-doom-stage1.css?v=9">
 <script src="i18n/pt-BR.js"></script><script src="i18n/en.js"></script><script src="i18n/classified-pt-BR.js"></script><script src="i18n/classified-en.js"></script><script src="i18n/core.js"></script><script src="experience-mode.js"></script>
 </head>
 <body class="locked">
@@ -97,6 +97,7 @@ body>nav{position:fixed;inset:0 0 auto;z-index:100;display:flex;justify-content:
       <button type="button" data-hub-module="overview" aria-pressed="true" aria-controls="hub-module-stage" data-i18n="classified.doom.stage1.hub.module.overview">VISÃO GERAL</button>
       <button type="button" data-hub-module="divisions" aria-pressed="false" aria-controls="hub-module-stage" data-i18n="classified.doom.stage1.hub.module.divisions">DIVISÕES</button>
       <button type="button" data-hub-module="research" aria-pressed="false" aria-controls="hub-module-stage" data-i18n="classified.doom.stage1.hub.module.research">PESQUISAS</button>
+      <button type="button" data-hub-module="cryogenics" aria-pressed="false" aria-controls="hub-module-stage" data-i18n="classified.doom.stage1.hub.module.cryogenics">CRIOGENIA</button>
       <button type="button" data-hub-module="experiments" aria-pressed="false" aria-controls="hub-module-stage" data-i18n="classified.doom.stage1.hub.module.experiments">EXPERIMENTOS</button>
       <button type="button" data-hub-module="evolution" aria-pressed="false" aria-controls="hub-module-stage" data-i18n="classified.doom.stage1.hub.module.evolution">EVOLUÇÃO DOS INFECTADOS</button>
       <button type="button" data-hub-module="personnel" aria-pressed="false" aria-controls="hub-module-stage" data-i18n="classified.doom.stage1.hub.module.personnel">EQUIPE</button>
@@ -125,6 +126,7 @@ body>nav{position:fixed;inset:0 0 auto;z-index:100;display:flex;justify-content:
             <button class="hades-launch-card" type="button" data-hub-module="divisions" aria-pressed="false" aria-controls="hub-module-stage"><span class="hades-launch-code">01 // DOM-SEC</span><strong data-i18n="classified.doom.stage1.hub.module.divisions">DIVISÕES</strong><span data-i18n="classified.doom.stage1.hub.sector.open">ACESSAR SETOR</span></button>
             <button class="hades-launch-card" type="button" data-hub-module="research" aria-pressed="false" aria-controls="hub-module-stage"><span class="hades-launch-code">02 // DOM-R&amp;D</span><strong data-i18n="classified.doom.stage1.hub.module.research">PESQUISAS</strong><span data-i18n="classified.doom.stage1.hub.sector.open">ACESSAR SETOR</span></button>
             <button class="hades-launch-card" type="button" data-hub-module="evolution" aria-pressed="false" aria-controls="hub-module-stage"><span class="hades-launch-code">03 // MORPH</span><strong data-i18n="classified.doom.stage1.hub.module.evolution">EVOLUÇÃO DOS INFECTADOS</strong><span data-i18n="classified.doom.stage1.hub.sector.open">ACESSAR SETOR</span></button>
+            <button class="hades-launch-card" type="button" data-hub-module="cryogenics" aria-pressed="false" aria-controls="hub-module-stage"><span class="hades-launch-code">04 // CRYO</span><strong data-i18n="classified.doom.stage1.hub.module.cryogenics">CRIOGENIA</strong><span data-i18n="classified.doom.stage1.hub.sector.open">ACESSAR SETOR</span></button>
           </div>
         </section>
         <section class="hub-view" id="hub-view-divisions" data-hub-view="divisions" hidden aria-labelledby="hub-divisions-title">
@@ -139,6 +141,37 @@ body>nav{position:fixed;inset:0 0 auto;z-index:100;display:flex;justify-content:
           <div class="hub-research-layout">
             <figure class="hub-research-figure"><img src="img-dominus/WhatsApp%20Image%202026-11-20%20at%2000.57.47%20(14).jpeg" alt="" loading="lazy" decoding="async"><figcaption data-i18n="classified.doom.stage1.hub.view.research.image">EQUIPE CIENTÍFICA // HADES</figcaption></figure>
             <div class="hub-research-file"><span class="hub-view-kicker" data-i18n="classified.doom.stage1.hub.view.research.label">ARQUIVO DE PESQUISA // NÍVEL 04</span><h2 id="hub-research-title" data-i18n="classified.doom.stage1.hub.view.research.title">AMOSTRA D-37</h2><dl class="hub-research-readout"><div><dt data-i18n="classified.doom.stage1.hub.view.research.strain.label">CEPA IDENTIFICADA</dt><dd>DOOM</dd></div><div><dt data-i18n="classified.doom.stage1.hub.view.research.category.label">CATEGORIA</dt><dd>06</dd></div><div><dt data-i18n="classified.doom.stage1.hub.view.research.location.label">LOCAL</dt><dd>HADES // L-04</dd></div></dl><details class="hub-record-card hub-record-card-compact"><summary data-i18n="classified.doom.stage1.hub.view.research.details">CONSULTAR NOTA DE INTEGRIDADE</summary><p data-i18n="classified.doom.stage1.hub.view.research.note">Os rótulos D-37, DOOM e Categoria 6 aparecem nos registros visuais. Procedimentos, resultados e origem permanecem fora deste terminal até a confirmação do autor.</p></details></div>
+          </div>
+        </section>
+        <section class="hub-view" id="hub-view-cryogenics" data-hub-view="cryogenics" hidden aria-labelledby="hub-cryo-title">
+          <div class="hub-view-kicker" data-i18n="classified.doom.stage1.hub.view.cryo.label">CRIOGENIA // CUSTÓDIA DE AMOSTRAS</div>
+          <div class="cryo-workbench">
+            <section class="cryo-chamber-panel" aria-labelledby="cryo-chamber-title">
+              <header class="cryo-panel-head"><div><span>CRYO // D-37</span><h2 id="cryo-chamber-title" data-i18n="classified.doom.stage1.hub.view.cryo.chamber.title">CÂMARA DE CONTENÇÃO</h2></div><b data-i18n="classified.doom.stage1.hub.view.cryo.chamber.status">LEITURA PARCIAL</b></header>
+              <div class="cryo-chamber" id="cryo-chamber" data-cryo-mode="visual" role="img" aria-label="Representação da amostra D-37 em uma câmara criogênica" data-i18n-attr="aria-label:classified.doom.stage1.hub.view.cryo.chamber.aria">
+                <div class="cryo-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                <div class="cryo-capsule" aria-hidden="true"><span class="cryo-specimen"></span><span class="cryo-glass"></span></div>
+                <div class="cryo-scan-line" aria-hidden="true"></div>
+                <span class="cryo-chamber-code">D-37 // ANT-DOOM-00</span>
+              </div>
+              <div class="cryo-controls" role="group" aria-label="Controles da câmara criogênica" data-i18n-attr="aria-label:classified.doom.stage1.hub.view.cryo.controls.label">
+                <button type="button" data-cryo-mode="visual" aria-pressed="true" data-i18n="classified.doom.stage1.hub.view.cryo.controls.visual">INSPEÇÃO VISUAL</button>
+                <button type="button" data-cryo-mode="custody" aria-pressed="false" data-i18n="classified.doom.stage1.hub.view.cryo.controls.custody">VERIFICAR CUSTÓDIA</button>
+                <button type="button" data-cryo-mode="isolation" aria-pressed="false" data-i18n="classified.doom.stage1.hub.view.cryo.controls.isolation">TESTAR ISOLAMENTO</button>
+              </div>
+              <output class="cryo-output" id="cryo-output" aria-live="polite" data-i18n="classified.doom.stage1.hub.view.cryo.output.visual">Leitura visual: o rótulo D-37 está legível. Nenhum resultado biológico foi carregado.</output>
+            </section>
+            <aside class="cryo-data-panel">
+              <span class="hub-view-kicker" data-i18n="classified.doom.stage1.hub.view.cryo.file.label">ARQUIVO CRIOGÊNICO // ANT-DOOM-00</span>
+              <h2 id="hub-cryo-title" data-i18n="classified.doom.stage1.hub.view.cryo.title">CUSTÓDIA DA AMOSTRA</h2>
+              <p data-i18n="classified.doom.stage1.hub.view.cryo.copy">O terminal separa identificações recuperadas de informações ainda ausentes. Os controles consultam o arquivo; não executam procedimentos reais.</p>
+              <dl class="cryo-readout"><div><dt data-i18n="classified.doom.stage1.hub.view.cryo.readout.sample">AMOSTRA</dt><dd>D-37</dd></div><div><dt data-i18n="classified.doom.stage1.hub.view.cryo.readout.strain">CEPA</dt><dd>DOOM</dd></div><div><dt data-i18n="classified.doom.stage1.hub.view.cryo.readout.category">CATEGORIA</dt><dd>06</dd></div><div><dt data-i18n="classified.doom.stage1.hub.view.cryo.readout.location">LOCAL</dt><dd>HADES // L-04</dd></div></dl>
+              <div class="cryo-documents" aria-label="Documentos criogênicos" data-i18n-attr="aria-label:classified.doom.stage1.hub.view.cryo.documents.label">
+                <details><summary><span>CRYO // 01</span><strong data-i18n="classified.doom.stage1.hub.view.cryo.document.identity.title">ETIQUETA DA AMOSTRA</strong></summary><p data-i18n="classified.doom.stage1.hub.view.cryo.document.identity.copy">D-37, DOOM e Categoria 6 são identificações visíveis nos registros recuperados.</p></details>
+                <details><summary><span>CRYO // 02</span><strong data-i18n="classified.doom.stage1.hub.view.cryo.document.origin.title">VÍNCULO ANTÁRTICO</strong></summary><p data-i18n="classified.doom.stage1.hub.view.cryo.document.origin.copy">O arquivo ANT-DOOM-00 liga o material à recuperação na Antártida. A rota completa até Hades não foi reconstruída.</p></details>
+                <details><summary><span>CRYO // 03</span><strong data-i18n="classified.doom.stage1.hub.view.cryo.document.gap.title">LACUNA DE CUSTÓDIA</strong></summary><p data-i18n="classified.doom.stage1.hub.view.cryo.document.gap.copy">Temperatura, responsáveis, procedimentos e duração do armazenamento continuam ausentes do arquivo.</p></details>
+              </div>
+            </aside>
           </div>
         </section>
         <section class="hub-view" id="hub-view-experiments" data-hub-view="experiments" hidden aria-labelledby="hub-experiments-title">
@@ -380,7 +413,7 @@ playRestrictedTheme();
 document.addEventListener('pointerdown',playRestrictedTheme,{once:true});document.addEventListener('keydown',playRestrictedTheme,{once:true});
 </script>
 <script src="cursor-site.js"></script>
-<script src="project-doom-stage1.js?v=4"></script>
+<script src="project-doom-stage1.js?v=5"></script>
 <script src="project-doom-infected.js?v=1"></script>
 </body>
 </html>

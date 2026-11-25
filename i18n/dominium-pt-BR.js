@@ -53,6 +53,7 @@
     'dominium.opening.wait.kicker': 'SINCRONIZANDO TRANSMISSÃO',
     'dominium.opening.wait.copy': 'ESTABELECENDO CONEXÃO COM O ARQUIVO DE ÁUDIO...',
     'dominium.opening.audio.preparing': 'CARREGANDO A TRILHA // AGUARDE PARA INICIAR',
+    'dominium.opening.audio.local': 'TRILHA LOCAL PRONTA // CLIQUE OU ENTER PARA INICIAR',
     'dominium.opening.audio.unavailable': 'CANAL DE ÁUDIO INDISPONÍVEL // ARQUIVO VISUAL INDEPENDENTE',
     'dominium.opening.soundtrack.credit': 'TRILHA TEMPORÁRIA // SOUNDCLOUD',
     'dominium.opening.soundtrack.title': 'Trilha temporária da abertura no SoundCloud',

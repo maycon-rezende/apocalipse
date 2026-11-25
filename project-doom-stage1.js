@@ -122,6 +122,7 @@
     overview: 'overview',
     divisions: 'divisions',
     research: 'research',
+    cryogenics: 'cryogenics',
     experiments: 'experiments',
     evolution: 'evolution',
     personnel: 'personnel',
@@ -180,6 +181,22 @@
     button.setAttribute('aria-controls', 'hub-module-stage');
     button.addEventListener('click', () => selectHubModule(button.dataset.hubModule, { navigate: true, scroll: true }));
   });
+
+  let cryoMode = 'visual';
+  const updateCryoMode = mode => {
+    if (!['visual','custody','isolation'].includes(mode)) return;
+    cryoMode = mode;
+    const chamber = byId('cryo-chamber');
+    const output = byId('cryo-output');
+    if (chamber) chamber.dataset.cryoMode = mode;
+    document.querySelectorAll('.cryo-controls [data-cryo-mode]').forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.cryoMode === mode));
+    });
+    if (output) output.textContent = t(`classified.doom.stage1.hub.view.cryo.output.${mode}`);
+  };
+  document.querySelectorAll('.cryo-controls [data-cryo-mode]').forEach(button => {
+    button.addEventListener('click', () => updateCryoMode(button.dataset.cryoMode));
+  });
   selectHubModule(moduleFromLocation());
   const restoreHubRoute = () => {
     if (!hub?.hidden && document.body.classList.contains('doom-hades-active')) {
@@ -190,7 +207,10 @@
   window.addEventListener('hashchange', restoreHubRoute);
   document.addEventListener('dd:locale-change', () => {
     const active = document.querySelector('[data-hub-module][aria-pressed="true"]')?.dataset.hubModule || 'overview';
-    requestAnimationFrame(() => selectHubModule(active));
+    requestAnimationFrame(() => {
+      selectHubModule(active);
+      updateCryoMode(cryoMode);
+    });
   });
 
   window.ProjectDoomStage1 = Object.freeze({ showAntarcticEntry, enterSurface });
