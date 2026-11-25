@@ -53,7 +53,6 @@
     'dominium.opening.wait.kicker': 'SYNCHRONIZING TRANSMISSION',
     'dominium.opening.wait.copy': 'ESTABLISHING AUDIO ARCHIVE CONNECTION...',
     'dominium.opening.audio.preparing': 'LOADING SOUNDTRACK // PLEASE WAIT TO BEGIN',
-    'dominium.opening.audio.local': 'LOCAL SOUNDTRACK READY // CLICK OR PRESS ENTER TO BEGIN',
     'dominium.opening.audio.unavailable': 'AUDIO LINK UNAVAILABLE // VISUAL ARCHIVE CONTINUES',
     'dominium.opening.soundtrack.credit': 'TEMPORARY SOUNDTRACK // SOUNDCLOUD',
     'dominium.opening.soundtrack.title': 'Temporary opening soundtrack on SoundCloud',
