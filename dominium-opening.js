@@ -76,6 +76,7 @@
   const scenes = [
     {
       kind: 'video',
+      startImmediately: true,
       src: 'video/dominium-intro/intro-entrada-leviathan.mp4',
       fallback: 'img-dominus/intro/video-keyframes/intro-video-frame-01-leviathan-approach.png',
       duration: 10030,
@@ -295,21 +296,46 @@
     video.load();
   };
 
+  const primeInitialVideo = () => {
+    const firstScene = scenes[0];
+    if (!video || firstScene?.kind !== 'video') return;
+    forceVideoSilence(video);
+    video.preload = 'auto';
+    video.src = firstScene.src;
+    video.load();
+  };
+
   const showVideo = async (scene, token) => {
-    const fallbackReady = await showStill(scene.fallback, token);
-    if (!fallbackReady || token !== playbackToken || dismissed || !video) return;
+    if (!video || token !== playbackToken || dismissed) return;
+
+    // The Leviathan approach is preloaded behind the gate and starts in the
+    // click handler's call stack, instead of waiting for a still-image swap.
+    if (!scene.startImmediately) {
+      const fallbackReady = await showStill(scene.fallback, token);
+      if (!fallbackReady || token !== playbackToken || dismissed) return;
+    }
 
     forceVideoSilence(video);
     video.hidden = false;
     video.preload = 'auto';
-    video.src = scene.src;
-    video.load();
+    if (video.getAttribute('src') !== scene.src) {
+      video.src = scene.src;
+      video.load();
+    }
     forceVideoSilence(video);
     video.onplaying = () => {
       if (token !== playbackToken || dismissed) return;
       forceVideoSilence(video);
       window.requestAnimationFrame(() => {
-        if (token === playbackToken && !dismissed) video.classList.add('is-visible');
+        if (token !== playbackToken || dismissed) return;
+        video.classList.add('is-visible');
+        if (scene.startImmediately && activeStill) {
+          const outgoing = activeStill;
+          outgoing.classList.remove('is-visible');
+          window.setTimeout(() => {
+            if (token === playbackToken && !dismissed) outgoing.hidden = true;
+          }, TRANSITION_MS + 50);
+        }
       });
     };
     video.onerror = () => {
@@ -354,7 +380,8 @@
     const token = ++playbackToken;
     currentSceneIndex = index;
     currentFrameIndex = -1;
-    stopVideo();
+    const keepPrimedFirstVideo = index === 0 && video?.getAttribute('src') === scenes[0].src;
+    if (!keepPrimedFirstVideo) stopVideo();
 
     opening.classList.remove('is-final', 'is-intertitle', 'is-suspense', 'is-dominium-reveal', 'is-tick-sequence', 'is-tick-pulse', 'is-transformation', 'is-hades-impact');
     opening.classList.add('is-cinematic');
@@ -675,6 +702,7 @@
 
   // Preload the stills while the visitor reads the gate to avoid black transitions.
   preloadOpeningImages();
+  primeInitialVideo();
   watchSoundcloudApi();
   document.body.classList.add('dominium-opening-active');
   startButton.addEventListener('click', startOpening);
