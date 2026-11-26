@@ -1,222 +1,143 @@
-/* Impact beats for the HADES reveal and the final DOMINIUM reveal. */
-.dominium-opening.is-hades-impact .opening-copy h2 em {
-  color: var(--dmn-ice);
-  text-shadow: 0 0 10px rgba(168, 229, 239, .88), 0 0 36px rgba(216, 37, 52, .74), 5px 0 rgba(216, 37, 52, .6);
-  animation: dominium-hades-strike 1.65s steps(1, end) both;
-}
+/* Story beats used by the rebuilt opening timeline. */
+.dominium-opening.is-hades-impact .opening-copy h2 span{animation:dominium-hades-arrival .9s cubic-bezier(.12,.88,.22,1) both}
+.dominium-opening.is-hades-impact .opening-copy h2 em{color:var(--dmn-ice);text-shadow:0 0 10px rgba(168,229,239,.88),0 0 36px rgba(216,37,52,.74),5px 0 rgba(216,37,52,.6);animation:dominium-hades-strike 1.65s steps(1,end) both}
+.dominium-opening.is-hades-impact .opening-stage::after{animation:dominium-hades-flash .82s ease-out both}
 
-.dominium-opening.is-hades-impact .opening-copy h2 span {
-  animation: dominium-hades-arrival .9s cubic-bezier(.12, .88, .22, 1) both;
-}
+.dominium-opening.is-suspense .opening-stage::before{animation:dominium-capsule-suspense 2.8s ease-in-out infinite}
+.dominium-opening.is-suspense .opening-final-kicker{color:var(--dmn-red);animation:dominium-suspense-signal 2s steps(2,end) infinite}
+.dominium-opening.is-tick-pulse .opening-stage::after{animation:dominium-tick-flash .62s ease-out both}
+.dominium-opening.is-tick-sequence #opening-final-word.is-tick-hit{animation:dominium-tick-word-hit .76s cubic-bezier(.13,.85,.2,1) both}
 
-.dominium-opening.is-hades-impact .opening-stage::after {
-  animation: dominium-hades-flash .82s ease-out both;
-}
+.dominium-opening.is-transformation .opening-stage::after{animation:dominium-transformation-signal 1.8s steps(1,end) 2 both}
+.dominium-opening.is-transformation .opening-stage.is-final-image .opening-still.is-visible{animation:dominium-transformation-frame 1.45s cubic-bezier(.2,.68,.25,1) both}
 
-.dominium-opening.is-suspense .opening-stage::before {
-  animation: dominium-capsule-suspense 2.8s ease-in-out infinite;
-}
-
-.dominium-opening.is-suspense .opening-final-kicker {
-  color: var(--dmn-red);
-  animation: dominium-suspense-signal 2s steps(2, end) infinite;
-}
-
-.dominium-opening.is-tick-pulse .opening-stage::after {
-  animation: dominium-tick-flash .62s ease-out both;
-}
-
-.dominium-opening.is-tick-sequence #opening-final-word.is-tick-hit {
-  animation: dominium-tick-word-hit .76s cubic-bezier(.13, .85, .2, 1) both;
-}
-
-.dominium-opening.is-transformation .opening-stage::after {
-  animation: dominium-transformation-signal 1.8s steps(1, end) 2 both;
-}
-
-.dominium-opening.is-transformation .opening-stage.is-final-image .opening-still.is-visible {
-  animation: dominium-transformation-frame 2.1s cubic-bezier(.2, .68, .25, 1) both;
-}
-
-.opening-stage.is-infected-wing .opening-still.is-visible {
-  filter: brightness(.72) saturate(.72) contrast(1.1);
-}
-
-.opening-stage.is-infected-wing .opening-video.is-visible {
-  filter: brightness(.82) saturate(.76) contrast(1.06);
-}
-
-.opening-stage.is-infected-wing::after {
+.opening-stage.is-infected-wing .opening-still.is-visible{filter:brightness(.8) saturate(.76) contrast(1.08)}
+.opening-stage.is-infected-wing .opening-video.is-visible{filter:brightness(.88) saturate(.8) contrast(1.04)}
+.opening-stage.is-infected-wing::after{
   background:
-    linear-gradient(90deg, rgba(1, 5, 7, .58), rgba(1, 5, 7, .18) 70%, rgba(1, 5, 7, .27)),
-    linear-gradient(0deg, rgba(0, 0, 0, .55), transparent 62%),
-    radial-gradient(ellipse at 78% 16%, rgba(173, 29, 38, .16), transparent 38%),
-    repeating-linear-gradient(0deg, transparent 0 5px, rgba(193, 35, 44, .035) 5px 6px);
-  animation: dominium-infected-flicker 2.2s steps(1, end) infinite;
+    linear-gradient(90deg,rgba(1,5,7,.5),rgba(1,5,7,.14) 70%,rgba(1,5,7,.22)),
+    linear-gradient(0deg,rgba(0,0,0,.5),transparent 62%),
+    radial-gradient(ellipse at 78% 16%,rgba(173,29,38,.16),transparent 38%),
+    repeating-linear-gradient(0deg,transparent 0 5px,rgba(193,35,44,.035) 5px 6px);
+  animation:dominium-infected-flicker 2.2s steps(1,end) infinite;
 }
 
-@keyframes dominium-infected-flicker {
-  0%, 15%, 16%, 42%, 43%, 100% { opacity: 1; }
-  15.5%, 42.5% { opacity: .45; }
-  55% { opacity: .72; }
-  56%, 58% { opacity: .34; }
-  57%, 59% { opacity: .9; }
+.dominium-opening.is-dominium-reveal .opening-stage::before{animation:dominium-capsule-pulse 4s ease-in-out 3 both}
+.dominium-opening.is-dominium-reveal .opening-stage::after{animation:dominium-capsule-flash 1.45s ease-out both}
+.dominium-opening.is-dominium-reveal .opening-final h2 span{display:inline-block;font-size:clamp(.9rem,1.6vw,1.2rem);letter-spacing:.62em;animation:dominium-brand-label 1s .2s ease-out both}
+.dominium-opening.is-dominium-reveal .opening-final h2 strong{color:var(--dmn-ink);transform-origin:50% 85%;animation:dominium-brand-emerge 2.4s cubic-bezier(.16,.82,.25,1) both}
+
+@keyframes dominium-infected-flicker{
+  0%,15%,16%,42%,43%,100%{opacity:1}
+  15.5%,42.5%{opacity:.55}
+  55%{opacity:.78}
+  56%,58%{opacity:.48}
+  57%,59%{opacity:.94}
+}
+@keyframes dominium-hades-arrival{
+  0%{opacity:0;filter:blur(14px);transform:translateY(18px) scale(.82)}
+  55%{opacity:1;filter:none;transform:translateY(-3px) scale(1.04)}
+  72%{transform:translateX(-3px)}
+  84%{transform:translateX(3px)}
+  100%{opacity:1;filter:none;transform:none}
+}
+@keyframes dominium-hades-strike{
+  0%{opacity:0;color:var(--dmn-red);filter:blur(12px);transform:scale(.72) translateY(18px);letter-spacing:.34em}
+  24%{opacity:1;color:#f1ece2;filter:none;transform:scale(1.08);letter-spacing:.04em}
+  30%{color:var(--dmn-ice);transform:translateX(-7px) skewX(-3deg);text-shadow:0 0 24px rgba(168,229,239,.95),-7px 0 var(--dmn-red)}
+  37%{color:var(--dmn-red);transform:translateX(7px) skewX(3deg);text-shadow:0 0 28px rgba(216,37,52,.9),7px 0 var(--dmn-ice)}
+  44%{color:var(--dmn-ice);transform:translateX(-4px)}
+  53%{color:var(--dmn-ink);transform:translateX(3px)}
+  62%,100%{opacity:1;color:var(--dmn-ice);filter:none;transform:none;letter-spacing:.04em;text-shadow:0 0 12px rgba(168,229,239,.82),0 0 34px rgba(216,37,52,.58)}
+}
+@keyframes dominium-hades-flash{
+  0%{opacity:.55;filter:brightness(2.2) sepia(.3) hue-rotate(300deg)}
+  18%{opacity:.9;filter:brightness(1.45) sepia(.2) hue-rotate(305deg)}
+  42%{opacity:.72;filter:brightness(1.1) hue-rotate(165deg)}
+  100%{opacity:1;filter:none}
+}
+@keyframes dominium-capsule-pulse{
+  0%,100%{filter:blur(16px) saturate(.72) brightness(.84);opacity:.78}
+  38%{filter:blur(13px) saturate(1.16) brightness(1.16);opacity:.98}
+  48%{filter:blur(16px) saturate(.85) brightness(.72);opacity:.72}
+  58%{filter:blur(12px) saturate(1.22) brightness(1.18);opacity:1}
+}
+@keyframes dominium-capsule-flash{
+  0%{opacity:.3;filter:brightness(2.6) sepia(.22) hue-rotate(300deg)}
+  28%{opacity:.9;filter:brightness(1.5) sepia(.12) hue-rotate(310deg)}
+  100%{opacity:1;filter:none}
+}
+@keyframes dominium-capsule-suspense{
+  0%,100%{filter:blur(16px) saturate(.62) brightness(.62);opacity:.72}
+  42%{filter:blur(13px) saturate(1.04) brightness(.86);opacity:.94}
+  49%{filter:blur(16px) saturate(.5) brightness(.5);opacity:.62}
+  57%{filter:blur(12px) saturate(1.15) brightness(.98);opacity:1}
+}
+@keyframes dominium-suspense-signal{
+  0%,72%,100%{opacity:1;text-shadow:0 0 12px rgba(216,37,52,.4)}
+  75%{opacity:.42;text-shadow:-4px 0 rgba(168,229,239,.9)}
+  78%{opacity:.94;text-shadow:4px 0 rgba(216,37,52,.8)}
+}
+@keyframes dominium-transformation-signal{
+  0%,100%{opacity:1;filter:none}
+  37%{opacity:.76;filter:contrast(1.22) brightness(1.3) hue-rotate(-12deg)}
+  39%{opacity:1;filter:none}
+  68%{opacity:.68;filter:contrast(1.3) brightness(1.4) hue-rotate(18deg)}
+  71%{opacity:1;filter:none}
+}
+@keyframes dominium-transformation-frame{from{transform:scale(1.01)}to{transform:scale(1.065)}}
+@keyframes dominium-tick-flash{
+  0%{opacity:.34;filter:brightness(1.85) sepia(.12) hue-rotate(300deg)}
+  28%{opacity:.76;filter:brightness(1.3) hue-rotate(325deg)}
+  100%{opacity:1;filter:none}
+}
+@keyframes dominium-tick-word-hit{
+  0%{opacity:.18;filter:blur(12px);transform:scale(.78) translateY(14px);letter-spacing:.22em}
+  28%{opacity:1;filter:brightness(1.8);transform:scale(1.1);color:var(--dmn-ice);text-shadow:0 0 42px rgba(216,37,52,.9),0 0 70px rgba(168,229,239,.62)}
+  42%{transform:translateX(-5px) scale(1.04);color:var(--dmn-red)}
+  56%{transform:translateX(5px) scale(1.02);color:var(--dmn-ink)}
+  100%{opacity:1;filter:none;transform:none;color:var(--dmn-ink);letter-spacing:-.04em;text-shadow:7px 0 rgba(216,37,52,.42),0 0 50px rgba(216,37,52,.38)}
+}
+@keyframes dominium-brand-label{
+  0%{opacity:0;filter:blur(10px);letter-spacing:1.2em;transform:translateY(10px)}
+  65%{opacity:1;filter:none;letter-spacing:.54em;transform:translateY(-2px)}
+  100%{opacity:1;filter:none;letter-spacing:.54em;transform:none}
+}
+@keyframes dominium-brand-emerge{
+  0%{opacity:0;filter:blur(24px) brightness(2);transform:perspective(900px) translateY(52vh) scale(.38);text-shadow:0 0 0 rgba(216,37,52,0)}
+  34%{opacity:1;filter:blur(0) brightness(1.65);transform:perspective(900px) translateY(-8px) scale(1.08);text-shadow:0 0 55px rgba(216,37,52,.95),0 0 100px rgba(168,229,239,.38)}
+  42%{transform:perspective(900px) translateX(-8px) scale(1.04);color:var(--dmn-ice)}
+  49%{transform:perspective(900px) translateX(7px) scale(1.02);color:var(--dmn-red)}
+  58%{transform:perspective(900px) translateX(-3px) scale(1.01);color:var(--dmn-ink)}
+  72%,100%{opacity:1;filter:none;transform:none;color:var(--dmn-ink);text-shadow:7px 0 rgba(216,37,52,.42),0 0 50px rgba(216,37,52,.32)}
 }
 
-.dominium-opening.is-dominium-reveal .opening-stage::before {
-  animation: dominium-capsule-pulse 4s ease-in-out 3 both;
-}
-
-.dominium-opening.is-dominium-reveal .opening-stage::after {
-  animation: dominium-capsule-flash 1.45s ease-out both;
-}
-
-.dominium-opening.is-dominium-reveal .opening-final h2 span {
-  display: inline-block;
-  animation: dominium-brand-label 1s .2s ease-out both;
-}
-
-.dominium-opening.is-dominium-reveal .opening-final h2 strong {
-  color: var(--dmn-ink);
-  animation: dominium-brand-emerge 2.4s cubic-bezier(.16, .82, .25, 1) both;
-  transform-origin: 50% 85%;
-}
-
-.dominium-opening.is-dominium-reveal .opening-final h2 span {
-  font-size: clamp(.9rem, 1.6vw, 1.2rem);
-  letter-spacing: .62em;
-}
-
-@keyframes dominium-hades-arrival {
-  0% { opacity: 0; filter: blur(14px); transform: translateY(18px) scale(.82); }
-  55% { opacity: 1; filter: none; transform: translateY(-3px) scale(1.04); }
-  72% { transform: translateX(-3px); }
-  84% { transform: translateX(3px); }
-  100% { opacity: 1; filter: none; transform: none; }
-}
-
-@keyframes dominium-hades-strike {
-  0% { opacity: 0; color: var(--dmn-red); filter: blur(12px); transform: scale(.72) translateY(18px); letter-spacing: .34em; }
-  24% { opacity: 1; color: #f1ece2; filter: none; transform: scale(1.08); letter-spacing: .04em; }
-  30% { color: var(--dmn-ice); transform: translateX(-7px) skewX(-3deg); text-shadow: 0 0 24px rgba(168,229,239,.95), -7px 0 var(--dmn-red); }
-  37% { color: var(--dmn-red); transform: translateX(7px) skewX(3deg); text-shadow: 0 0 28px rgba(216,37,52,.9), 7px 0 var(--dmn-ice); }
-  44% { color: var(--dmn-ice); transform: translateX(-4px); }
-  53% { color: var(--dmn-ink); transform: translateX(3px); }
-  62%, 100% { opacity: 1; color: var(--dmn-ice); filter: none; transform: none; letter-spacing: .04em; text-shadow: 0 0 12px rgba(168,229,239,.82), 0 0 34px rgba(216,37,52,.58); }
-}
-
-@keyframes dominium-hades-flash {
-  0% { opacity: .55; filter: brightness(2.2) sepia(.3) hue-rotate(300deg); }
-  18% { opacity: .9; filter: brightness(1.45) sepia(.2) hue-rotate(305deg); }
-  42% { opacity: .72; filter: brightness(1.1) hue-rotate(165deg); }
-  100% { opacity: 1; filter: none; }
-}
-
-@keyframes dominium-capsule-pulse {
-  0%, 100% { filter: blur(15px) saturate(.72) brightness(.84); opacity: .76; }
-  38% { filter: blur(13px) saturate(1.16) brightness(1.16); opacity: .98; }
-  48% { filter: blur(15px) saturate(.85) brightness(.72); opacity: .68; }
-  58% { filter: blur(12px) saturate(1.22) brightness(1.18); opacity: 1; }
-}
-
-@keyframes dominium-capsule-flash {
-  0% { opacity: .3; filter: brightness(2.6) sepia(.22) hue-rotate(300deg); }
-  28% { opacity: .9; filter: brightness(1.5) sepia(.12) hue-rotate(310deg); }
-  100% { opacity: 1; filter: none; }
-}
-
-@keyframes dominium-capsule-suspense {
-  0%, 100% { filter: blur(15px) saturate(.58) brightness(.56); opacity: .64; }
-  42% { filter: blur(13px) saturate(1.04) brightness(.82); opacity: .9; }
-  49% { filter: blur(15px) saturate(.46) brightness(.42); opacity: .54; }
-  57% { filter: blur(12px) saturate(1.18) brightness(.96); opacity: .98; }
-}
-
-@keyframes dominium-suspense-signal {
-  0%, 72%, 100% { opacity: 1; text-shadow: 0 0 12px rgba(216,37,52,.4); }
-  75% { opacity: .35; text-shadow: -4px 0 rgba(168,229,239,.9); }
-  78% { opacity: .9; text-shadow: 4px 0 rgba(216,37,52,.8); }
-}
-
-@keyframes dominium-transformation-signal {
-  0%, 100% { opacity: 1; filter: none; }
-  37% { opacity: .72; filter: contrast(1.22) brightness(1.4) hue-rotate(-12deg); }
-  39% { opacity: 1; filter: none; }
-  68% { opacity: .58; filter: contrast(1.35) brightness(1.55) hue-rotate(18deg); }
-  71% { opacity: 1; filter: none; }
-}
-
-@keyframes dominium-transformation-frame {
-  from { transform: scale(1.015); }
-  to { transform: scale(1.075); }
-}
-
-@keyframes dominium-tick-flash {
-  0% { opacity: .34; filter: brightness(1.85) sepia(.12) hue-rotate(300deg); }
-  28% { opacity: .72; filter: brightness(1.3) hue-rotate(325deg); }
-  100% { opacity: 1; filter: none; }
-}
-
-@keyframes dominium-tick-word-hit {
-  0% { opacity: .18; filter: blur(12px); transform: scale(.78) translateY(14px); letter-spacing: .22em; }
-  28% { opacity: 1; filter: brightness(1.8); transform: scale(1.1); color: var(--dmn-ice); text-shadow: 0 0 42px rgba(216,37,52,.9), 0 0 70px rgba(168,229,239,.62); }
-  42% { transform: translateX(-5px) scale(1.04); color: var(--dmn-red); }
-  56% { transform: translateX(5px) scale(1.02); color: var(--dmn-ink); }
-  100% { opacity: 1; filter: none; transform: none; color: var(--dmn-ink); letter-spacing: -.04em; text-shadow: 7px 0 rgba(216,37,52,.42), 0 0 50px rgba(216,37,52,.38); }
-}
-
-@keyframes dominium-brand-label {
-  0% { opacity: 0; filter: blur(10px); letter-spacing: 1.2em; transform: translateY(10px); }
-  65% { opacity: 1; filter: none; letter-spacing: .54em; transform: translateY(-2px); }
-  100% { opacity: 1; filter: none; letter-spacing: .54em; transform: none; }
-}
-
-@keyframes dominium-brand-emerge {
-  0% { opacity: 0; filter: blur(24px) brightness(2); transform: perspective(900px) translateY(52vh) scale(.38); text-shadow: 0 0 0 rgba(216,37,52,0); }
-  34% { opacity: 1; filter: blur(0) brightness(1.65); transform: perspective(900px) translateY(-8px) scale(1.08); text-shadow: 0 0 55px rgba(216,37,52,.95), 0 0 100px rgba(168,229,239,.38); }
-  42% { transform: perspective(900px) translateX(-8px) scale(1.04); color: var(--dmn-ice); }
-  49% { transform: perspective(900px) translateX(7px) scale(1.02); color: var(--dmn-red); }
-  58% { transform: perspective(900px) translateX(-3px) scale(1.01); color: var(--dmn-ink); }
-  72%, 100% { opacity: 1; filter: none; transform: none; color: var(--dmn-ink); text-shadow: 7px 0 rgba(216,37,52,.42), 0 0 50px rgba(216,37,52,.32); }
-}
-
-@media (max-width: 640px) {
-  .dominium-opening.is-hades-impact .opening-copy h2 em { text-shadow: 0 0 8px rgba(168,229,239,.8), 0 0 22px rgba(216,37,52,.62); }
-  .dominium-opening.is-tick-sequence .opening-final h2 strong,
-  .dominium-opening.is-dominium-reveal .opening-final h2 strong { font-size: clamp(2.8rem, 14vw, 5rem); letter-spacing: -.04em; }
-  .dominium-opening.is-dominium-reveal .opening-final h2 span { letter-spacing: .36em; }
-  @keyframes dominium-hades-strike {
-    0% { opacity: 0; color: var(--dmn-red); filter: blur(10px); transform: scale(.78) translateY(14px); letter-spacing: .18em; }
-    24% { opacity: 1; color: #f1ece2; filter: none; transform: scale(1.04); letter-spacing: .02em; }
-    32% { color: var(--dmn-ice); transform: translateX(-3px); }
-    40% { color: var(--dmn-red); transform: translateX(3px); }
-    50% { color: var(--dmn-ice); transform: translateX(-2px); }
-    62%, 100% { opacity: 1; color: var(--dmn-ice); filter: none; transform: none; letter-spacing: .02em; text-shadow: 0 0 9px rgba(168,229,239,.8), 0 0 24px rgba(216,37,52,.56); }
+@media(max-width:640px){
+  .dominium-opening.is-hades-impact .opening-copy h2 em{ text-shadow:0 0 8px rgba(168,229,239,.8),0 0 22px rgba(216,37,52,.62) }
+  .dominium-opening.is-tick-sequence .opening-final h2 strong,.dominium-opening.is-dominium-reveal .opening-final h2 strong{font-size:clamp(2.8rem,14vw,5rem);letter-spacing:-.04em}
+  .dominium-opening.is-dominium-reveal .opening-final h2 span{letter-spacing:.36em}
+  @keyframes dominium-hades-strike{
+    0%{opacity:0;color:var(--dmn-red);filter:blur(10px);transform:scale(.78) translateY(14px);letter-spacing:.18em}
+    24%{opacity:1;color:#f1ece2;filter:none;transform:scale(1.04);letter-spacing:.02em}
+    32%{color:var(--dmn-ice);transform:translateX(-3px)}
+    40%{color:var(--dmn-red);transform:translateX(3px)}
+    50%{color:var(--dmn-ice);transform:translateX(-2px)}
+    62%,100%{opacity:1;color:var(--dmn-ice);filter:none;transform:none;letter-spacing:.02em;text-shadow:0 0 9px rgba(168,229,239,.8),0 0 24px rgba(216,37,52,.56)}
   }
-  @keyframes dominium-brand-emerge {
-    0% { opacity: 0; filter: blur(18px) brightness(2); transform: translateY(36vh) scale(.48); }
-    34% { opacity: 1; filter: blur(0) brightness(1.55); transform: translateY(-5px) scale(1.05); text-shadow: 0 0 32px rgba(216,37,52,.9); }
-    43% { transform: translateX(-4px) scale(1.02); color: var(--dmn-ice); }
-    51% { transform: translateX(4px); color: var(--dmn-red); }
-    62%, 100% { opacity: 1; filter: none; transform: none; color: var(--dmn-ink); text-shadow: 5px 0 rgba(216,37,52,.4), 0 0 34px rgba(216,37,52,.3); }
+  @keyframes dominium-brand-emerge{
+    0%{opacity:0;filter:blur(18px) brightness(2);transform:translateY(36vh) scale(.48)}
+    34%{opacity:1;filter:blur(0) brightness(1.55);transform:translateY(-5px) scale(1.05);text-shadow:0 0 32px rgba(216,37,52,.9)}
+    43%{transform:translateX(-4px) scale(1.02);color:var(--dmn-ice)}
+    51%{transform:translateX(4px);color:var(--dmn-red)}
+    62%,100%{opacity:1;filter:none;transform:none;color:var(--dmn-ink);text-shadow:5px 0 rgba(216,37,52,.4),0 0 34px rgba(216,37,52,.3)}
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .dominium-opening.is-hades-impact .opening-copy h2 em,
-  .dominium-opening.is-hades-impact .opening-copy h2 span,
-  .dominium-opening.is-hades-impact .opening-stage::after,
-  .dominium-opening.is-suspense .opening-stage::before,
-  .dominium-opening.is-suspense .opening-final-kicker,
-  .dominium-opening.is-tick-pulse .opening-stage::after,
-  .dominium-opening.is-dominium-reveal .opening-stage::before,
-  .dominium-opening.is-dominium-reveal .opening-stage::after,
-  .dominium-opening.is-dominium-reveal .opening-final h2 span,
-  .dominium-opening.is-dominium-reveal .opening-final h2 strong,
-  .dominium-opening.is-tick-sequence #opening-final-word.is-tick-hit,
-  .dominium-opening.is-transformation .opening-stage::after,
-  .opening-stage.is-infected-wing::after {
-    animation: none !important;
-  }
-  .dominium-opening.is-hades-impact .opening-copy h2 em { color: var(--dmn-ice); filter: none; transform: none; }
+@media(prefers-reduced-motion:reduce){
+  .dominium-opening.is-hades-impact .opening-copy h2 em,.dominium-opening.is-hades-impact .opening-copy h2 span,.dominium-opening.is-hades-impact .opening-stage::after,
+  .dominium-opening.is-suspense .opening-stage::before,.dominium-opening.is-suspense .opening-final-kicker,.dominium-opening.is-tick-pulse .opening-stage::after,
+  .dominium-opening.is-dominium-reveal .opening-stage::before,.dominium-opening.is-dominium-reveal .opening-stage::after,.dominium-opening.is-dominium-reveal .opening-final h2 span,
+  .dominium-opening.is-dominium-reveal .opening-final h2 strong,.dominium-opening.is-tick-sequence #opening-final-word.is-tick-hit,
+  .dominium-opening.is-transformation .opening-stage::after,.opening-stage.is-infected-wing::after{animation:none!important}
+  .dominium-opening.is-hades-impact .opening-copy h2 em{color:var(--dmn-ice);filter:none;transform:none}
 }

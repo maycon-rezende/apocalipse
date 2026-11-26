@@ -13,7 +13,7 @@
 <script src="i18n/pt-BR.js"></script><script src="i18n/en.js"></script><script src="i18n/dominium-pt-BR.js"></script><script src="i18n/dominium-en.js"></script><script src="i18n/core.js"></script>
 <script id="soundcloud-widget-api" src="https://w.soundcloud.com/player/api.js" defer></script>
 <script src="dominium-site.js" defer></script>
-<script src="dominium-opening.js?v=8" defer></script>
+  <script src="dominium-opening.js?v=13" defer></script>
 </head>
 <body class="dominium-body" data-dominium-page="home">
 <div class="dominium-noise" aria-hidden="true"></div><div class="dominium-vignette" aria-hidden="true"></div>
@@ -34,12 +34,8 @@
         <p class="opening-gate-kicker" data-i18n="dominium.opening.gate.kicker">TRANSMISSÃO RECUPERADA // ANT-DOOM-00</p>
         <h1 id="opening-gate-title" data-i18n="dominium.opening.gate.title">UM ARQUIVO SOB O GELO</h1>
         <p data-i18n="dominium.opening.gate.copy">O primeiro registro começa na superfície. A origem permanece fora do alcance dos arquivos abertos.</p>
-        <button class="dominium-action opening-primary-action" id="opening-start" type="button" data-start-opening data-i18n="dominium.opening.start" aria-busy="true">INICIAR TRANSMISSÃO</button>
+        <button class="dominium-action opening-primary-action" id="opening-start" type="button" data-start-opening data-i18n="dominium.opening.start">INICIAR TRANSMISSÃO</button>
         <small id="opening-gate-hint" data-i18n="dominium.opening.gate.hint">UMA EXPERIÊNCIA CINEMATOGRÁFICA // CLIQUE OU ENTER</small>
-      </section>
-      <section class="opening-wait" id="opening-wait" aria-live="polite" hidden>
-        <p class="opening-wait-kicker" data-i18n="dominium.opening.wait.kicker">SINCRONIZANDO TRANSMISSÃO</p>
-        <p id="opening-wait-copy" data-i18n="dominium.opening.wait.copy">ESTABELECENDO CONEXÃO COM O ARQUIVO DE ÁUDIO...</p>
       </section>
       <section class="opening-copy" id="opening-copy" aria-live="polite" hidden>
         <p class="opening-copy-kicker" id="opening-kicker"></p>
@@ -56,7 +52,7 @@
       <button class="opening-skip" id="opening-skip" type="button" data-skip-opening data-i18n="dominium.opening.skip" hidden>PULAR ABERTURA</button>
       <footer class="opening-progress" aria-hidden="true"><span id="opening-progress-count">SINAL // 00</span><i><b id="opening-progress-bar"></b></i></footer>
       <a class="opening-soundtrack-credit" href="https://soundcloud.com/galactic-skull/avengers-doomsday-special-look" target="_blank" rel="noopener noreferrer" data-i18n="dominium.opening.soundtrack.credit">TRILHA TEMPORÁRIA // SOUNDCLOUD</a>
-      <iframe class="opening-soundtrack-player" id="dominium-soundtrack-player" title="Trilha temporária da abertura no SoundCloud" data-i18n-attr="title:dominium.opening.soundtrack.title" data-soundtrack-src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fgalactic-skull%2Favengers-doomsday-special-look&amp;color=%23d82534&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false" allow="autoplay" aria-hidden="true" tabindex="-1"></iframe>
+      <iframe class="opening-soundtrack-player" id="dominium-soundtrack-player" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fgalactic-skull%2Favengers-doomsday-special-look&amp;color=%23d82534&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false" title="Trilha temporária da abertura no SoundCloud" data-i18n-attr="title:dominium.opening.soundtrack.title" width="420" height="166" loading="eager" allow="autoplay" aria-hidden="true" tabindex="-1"></iframe>
     </div>
   </section>
   <header class="dominium-topbar">
