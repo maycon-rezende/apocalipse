@@ -3,90 +3,97 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content="Registros ficcionais das cobaias e da evolução dos infectados no Hades." data-i18n-attr="content:dominium.infected.meta.description">
-  <title data-i18n="dominium.infected.meta.title">ALA DE TESTES // DOMINIUM</title>
+  <meta name="description" content="Explore o corredor de contenção e reconstrua registros visuais incompletos da Ala dos Infectados." data-i18n-attr="content:dominium.infected.game.meta.description">
+  <meta name="theme-color" content="#030506">
+  <title data-i18n="dominium.infected.meta.title">ALA DOS INFECTADOS // DOMINIUM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="dominium-site.css">
+  <link rel="stylesheet" href="dominium-infected-game.css">
   <script src="i18n/pt-BR.js"></script><script src="i18n/en.js"></script>
   <script src="i18n/dominium-pt-BR.js"></script><script src="i18n/dominium-en.js"></script>
-  <script src="i18n/core.js"></script><script src="dominium-site.js" defer></script>
+  <script src="i18n/core.js"></script><script src="dominium-site.js" defer></script><script src="dominium-infected-game.js" defer></script>
 </head>
 <body class="dominium-body dominium-infected-body" data-dominium-page="infected">
-  <div class="dominium-noise" aria-hidden="true"></div><div class="dominium-vignette" aria-hidden="true"></div>
+  <div class="dominium-noise" aria-hidden="true"></div>
   <section class="dominium-access-lock" id="dominium-access-lock" hidden aria-labelledby="dominium-lock-title">
     <div class="dominium-lock-panel"><span data-i18n="dominium.lock.status">AUTORIZAÇÃO AUSENTE // SESSÃO NÃO VALIDADA</span><h1 id="dominium-lock-title" data-i18n="dominium.lock.title">Acesso não autorizado</h1><p data-i18n="dominium.lock.copy">Esta rede só pode ser acessada pelo terminal liberado após a verificação de credenciais.</p><a href="projeto-doom.html" data-i18n="dominium.lock.return">Retornar ao terminal de acesso</a></div>
   </section>
-  <div id="dominium-app" hidden>
-    <header class="dominium-topbar">
-      <a class="dominium-brand" href="dominium.html" aria-label="Dominium"><strong>DOMINIUM<span> // DOOM</span></strong><small data-i18n="dominium.nav.network">PESQUISA E CONTENÇÃO // ORGANIZAÇÃO</small></a>
-      <nav class="dominium-nav" aria-label="Navegação da Dominium"><a href="dominium.html" data-i18n="dominium.nav.overview">INÍCIO</a><a href="dominium-complex.html" data-i18n="dominium.nav.facilities">COMPLEXOS</a><a href="dominium-research.html" data-i18n="dominium.nav.research">PESQUISAS</a><a href="dominium-personnel.html" data-i18n="dominium.nav.personnel">EQUIPE</a><a href="dominium-archives.html" data-i18n="dominium.nav.archives">ARQUIVOS</a></nav>
-      <div class="dominium-locale" aria-label="Idioma"><button type="button" data-dominium-locale="pt-BR" aria-label="Português do Brasil">🇧🇷 PT</button><button type="button" data-dominium-locale="en" aria-label="English">🇺🇸 EN</button><a class="dominium-node-state" href="projeto-doom.html" data-i18n="dominium.nav.close">ENCERRAR SESSÃO</a></div>
+
+  <div id="dominium-app" class="infection-game-app" hidden>
+    <header class="infection-game-hud">
+      <a class="infection-game-brand" href="dominium-hades.html" aria-label="DOMINIUM // HADES"><strong>DOMINIUM <i>//</i> HADES</strong><small data-i18n="dominium.infected.game.hud">ALA DOS INFECTADOS // NÍVEL SUBTERRÂNEO</small></a>
+      <div class="infection-game-signal"><span aria-hidden="true"></span><b data-i18n="dominium.infected.game.signal">SINAL INSTÁVEL</b><small id="game-hud-location" data-i18n="dominium.infected.game.location.entry">SETOR — AGUARDANDO ENTRADA</small></div>
+      <div class="infection-game-tools"><div class="infection-game-locale" aria-label="Idioma" data-i18n-attr="aria-label:dominium.infected.game.locale.aria"><button type="button" data-dominium-locale="pt-BR" aria-label="Português do Brasil">🇧🇷</button><button type="button" data-dominium-locale="en" aria-label="English">🇺🇸</button></div><a href="dominium-hades.html" data-i18n="dominium.infected.game.exit">SAIR DA ALA</a></div>
     </header>
-    <main class="dominium-shell infection-site" id="testing-wing">
-      <section class="infection-hero" aria-labelledby="infected-title">
-        <div class="infection-hero-copy"><span class="dominium-kicker" data-i18n="dominium.infected.kicker">HADES // ALA DE TESTES</span><p class="infection-warning" data-i18n="dominium.infected.warning">ACESSO RESTRITO // NÃO ULTRAPASSE A LINHA DE CONTENÇÃO</p><h1 id="infected-title" data-i18n="dominium.infected.title">Ala de Testes.</h1><p data-i18n="dominium.infected.lede">Uma área de contenção e observação. Os registros ficcionais descrevem cobaias encaminhadas pelo governo após condenação à pena de morte; os nomes e crimes individuais ainda não foram recuperados.</p></div>
-        <figure class="infection-hero-image"><img src="img-dominus/ala-de-testes.png" alt="Cobaia em observação dentro da ala de testes do complexo Hades" data-i18n-attr="alt:dominium.infected.hero.alt" loading="eager"><figcaption data-i18n="dominium.infected.hero.caption">CÂMERA DE CONTENÇÃO // SINAL LOCAL</figcaption></figure>
+
+    <main class="infection-game-stage" id="infection-game" data-scene="entry" aria-label="Ala dos Infectados" data-i18n-attr="aria-label:dominium.infected.game.main.aria">
+      <section class="infection-game-view infection-entry is-active" data-game-view="entry" aria-labelledby="infection-entry-title">
+        <div class="infection-entry-copy">
+          <p class="infection-game-kicker" data-i18n="dominium.infected.game.entry.kicker">HADES // SETOR DE CONTENÇÃO</p>
+          <p class="infection-game-alert" data-i18n="dominium.infected.game.entry.alert">ACESSO AUTORIZADO // ARQUIVO INCOMPLETO</p>
+          <h1 id="infection-entry-title" data-i18n="dominium.infected.game.entry.title">Ala dos Infectados</h1>
+          <p class="infection-entry-brief" data-i18n="dominium.infected.game.entry.copy">O corredor está ativo. Três celas respondem ao terminal. As imagens recuperadas não possuem identificação confirmada.</p>
+          <button class="infection-game-button is-primary" type="button" data-game-start><span aria-hidden="true">▶</span><span data-i18n="dominium.infected.game.entry.start">ENTRAR NO CORREDOR</span></button>
+          <p class="infection-game-hint" data-i18n="dominium.infected.game.entry.hint">Use o mouse ou as setas. ENTER confirma a seleção.</p>
+        </div>
+        <div class="infection-entry-readout" aria-hidden="true"><span data-i18n="dominium.infected.game.entry.floor">HADES / NÍVEL −04</span><b>03</b><small data-i18n="dominium.infected.game.entry.doors">PORTAS RESPONDENDO</small><i></i><em data-i18n="dominium.infected.game.entry.feed">CAM // SINAL LOCAL</em></div>
       </section>
 
-      <section class="dominium-section infection-cell-section" aria-labelledby="cell-section-title">
-        <div class="dominium-section-heading"><div><span class="dominium-kicker" data-i18n="dominium.infected.cells.kicker">CORREDOR DE CONTENÇÃO</span><h2 id="cell-section-title" data-i18n="dominium.infected.cells.title">Escolha uma cela.</h2></div><span data-i18n="dominium.infected.cells.hint">O REGISTRO ABRE AO SELECIONAR</span></div>
-        <p class="dominium-lede" data-i18n="dominium.infected.cells.copy">As portas exibem apenas os códigos recuperados. Abra um registro para consultar seu estado; nenhum dado pessoal será presumido.</p>
-        <div class="infection-corridor" role="group" aria-label="Selecionar registro de cela" data-i18n-attr="aria-label:dominium.infected.cells.aria">
-          <button type="button" data-panel-selector="cell-01" data-infection-cell data-cell-code="01" aria-pressed="true"><span>01</span><strong data-i18n="dominium.infected.cell.open">ABRIR REGISTRO</strong><small data-i18n="dominium.infected.cell.status.partial">ARQUIVO PARCIAL</small></button>
-          <button type="button" data-panel-selector="cell-02" data-infection-cell data-cell-code="02" aria-pressed="false"><span>02</span><strong data-i18n="dominium.infected.cell.open">ABRIR REGISTRO</strong><small data-i18n="dominium.infected.cell.status.sealed">ARQUIVO SELADO</small></button>
-          <button type="button" data-panel-selector="cell-03" data-infection-cell data-cell-code="03" aria-pressed="false"><span>03</span><strong data-i18n="dominium.infected.cell.open">ABRIR REGISTRO</strong><small data-i18n="dominium.infected.cell.status.unknown">ESTADO NÃO CONFIRMADO</small></button>
+      <section class="infection-game-view infection-corridor-view" data-game-view="corridor" aria-labelledby="infection-corridor-title" hidden>
+        <div class="infection-game-heading">
+          <div><p class="infection-game-kicker" data-i18n="dominium.infected.game.corridor.kicker">ALA DE CONTENÇÃO // HADES −04</p><h1 id="infection-corridor-title" data-i18n="dominium.infected.game.corridor.title">Corredor de celas</h1></div>
+          <p data-i18n="dominium.infected.game.corridor.copy">Escolha uma porta. O terminal não recuperou nomes nem fichas individuais.</p>
         </div>
-        <article class="infection-cell-record" data-panel="cell-01">
-          <div><span class="dominium-card-code" data-i18n="dominium.infected.record.one.code">CÓDIGO DE CELA // 01</span><h3 data-i18n="dominium.infected.record.one.title">Identificação incompleta.</h3><p data-i18n="dominium.infected.record.one.copy">O vínculo entre esta cela, a ficha criminal e a sequência de transformação ainda não foi recuperado.</p><dl><div><dt data-i18n="dominium.infected.record.subject.label">COBAIA</dt><dd data-i18n="dominium.infected.record.pending">DADOS NÃO ANEXADOS</dd></div><div><dt data-i18n="dominium.infected.record.crime.label">CRIME</dt><dd data-i18n="dominium.infected.record.pending">DADOS NÃO ANEXADOS</dd></div><div><dt data-i18n="dominium.infected.record.stage.label">ESTÁGIO</dt><dd data-i18n="dominium.infected.record.stage.value">VISUAL EM ANÁLISE</dd></div></dl></div>
-          <span class="infection-cell-light" aria-hidden="true"></span>
-        </article>
-        <article class="infection-cell-record" data-panel="cell-02" hidden>
-          <div><span class="dominium-card-code" data-i18n="dominium.infected.record.two.code">CÓDIGO DE CELA // 02</span><h3 data-i18n="dominium.infected.record.two.title">Acesso sob lacre.</h3><p data-i18n="dominium.infected.record.two.copy">O sistema reconhece o código, mas ainda não há autorização para exibir a identificação individual.</p><dl><div><dt data-i18n="dominium.infected.record.subject.label">COBAIA</dt><dd data-i18n="dominium.infected.record.pending">DADOS NÃO ANEXADOS</dd></div><div><dt data-i18n="dominium.infected.record.crime.label">CRIME</dt><dd data-i18n="dominium.infected.record.pending">DADOS NÃO ANEXADOS</dd></div><div><dt data-i18n="dominium.infected.record.stage.label">ESTÁGIO</dt><dd data-i18n="dominium.infected.record.stage.value">VISUAL EM ANÁLISE</dd></div></dl></div>
-          <span class="infection-cell-light is-red" aria-hidden="true"></span>
-        </article>
-        <article class="infection-cell-record" data-panel="cell-03" hidden>
-          <div><span class="dominium-card-code" data-i18n="dominium.infected.record.three.code">CÓDIGO DE CELA // 03</span><h3 data-i18n="dominium.infected.record.three.title">Sinal sem origem.</h3><p data-i18n="dominium.infected.record.three.copy">O relatório termina antes de identificar a cobaia. O restante do conteúdo permanece indisponível.</p><dl><div><dt data-i18n="dominium.infected.record.subject.label">COBAIA</dt><dd data-i18n="dominium.infected.record.pending">DADOS NÃO ANEXADOS</dd></div><div><dt data-i18n="dominium.infected.record.crime.label">CRIME</dt><dd data-i18n="dominium.infected.record.pending">DADOS NÃO ANEXADOS</dd></div><div><dt data-i18n="dominium.infected.record.stage.label">ESTÁGIO</dt><dd data-i18n="dominium.infected.record.stage.value">VISUAL EM ANÁLISE</dd></div></dl></div>
-          <span class="infection-cell-light is-off" aria-hidden="true"></span>
-        </article>
-        <div class="infection-inspection-console">
-          <div class="infection-inspection-heading"><div><span class="dominium-card-code" data-i18n="dominium.infected.inspection.kicker">TERMINAL DE OBSERVAÇÃO</span><h3 data-i18n="dominium.infected.inspection.title">Inspecione os canais.</h3></div><span id="infection-inspection-count" data-i18n="dominium.infected.inspection.count.initial">0/3 CANAIS LIDOS</span></div>
-          <p class="infection-inspection-copy" data-i18n="dominium.infected.inspection.copy">Consulte a imagem, os sensores ou o interfone. Os fragmentos recuperados não identificam a cobaia nem explicam o que aconteceu.</p>
-          <div class="infection-channel-grid" role="group" aria-label="Canais da cela" data-i18n-attr="aria-label:dominium.infected.inspection.aria">
-            <button type="button" data-infection-channel="visual" data-result-key="dominium.infected.inspection.result.visual" aria-pressed="false"><span>01</span><strong data-i18n="dominium.infected.inspection.channel.visual">CÂMERA</strong><small data-i18n="dominium.infected.inspection.channel.visual.type">SINAL VISUAL</small></button>
-            <button type="button" data-infection-channel="sensor" data-result-key="dominium.infected.inspection.result.sensor" aria-pressed="false"><span>02</span><strong data-i18n="dominium.infected.inspection.channel.sensor">SENSORES</strong><small data-i18n="dominium.infected.inspection.channel.sensor.type">LEITURA TÉCNICA</small></button>
-            <button type="button" data-infection-channel="intercom" data-result-key="dominium.infected.inspection.result.intercom" aria-pressed="false"><span>03</span><strong data-i18n="dominium.infected.inspection.channel.intercom">INTERFONE</strong><small data-i18n="dominium.infected.inspection.channel.intercom.type">CANAL DE ÁUDIO</small></button>
+        <div class="infection-corridor-playfield">
+          <div class="infection-door-row" role="group" aria-label="Selecionar cela" data-i18n-attr="aria-label:dominium.infected.game.corridor.aria">
+            <button class="infection-door is-selected" type="button" data-game-cell="01" aria-pressed="true"><span class="infection-door-lamp"></span><small data-i18n="dominium.infected.game.cell.label">CELA</small><strong>01</strong><em data-i18n="dominium.infected.game.cell.status">SEM IDENTIFICAÇÃO</em><b>SELECIONADA</b></button>
+            <button class="infection-door" type="button" data-game-cell="02" aria-pressed="false"><span class="infection-door-lamp"></span><small data-i18n="dominium.infected.game.cell.label">CELA</small><strong>02</strong><em data-i18n="dominium.infected.game.cell.status">SEM IDENTIFICAÇÃO</em><b>SELECIONAR</b></button>
+            <button class="infection-door" type="button" data-game-cell="03" aria-pressed="false"><span class="infection-door-lamp"></span><small data-i18n="dominium.infected.game.cell.label">CELA</small><strong>03</strong><em data-i18n="dominium.infected.game.cell.status">SEM IDENTIFICAÇÃO</em><b>SELECIONAR</b></button>
           </div>
-          <p class="infection-inspection-output" id="infection-inspection-status" role="status" aria-live="polite" aria-atomic="true" data-i18n="dominium.infected.inspection.output.initial">CELA 01 // SELECIONE UM CANAL PARA EXAMINAR O ARQUIVO.</p>
+          <aside class="infection-corridor-console">
+            <div class="infection-console-top"><span data-i18n="dominium.infected.game.console.title">TERMINAL DE ACESSO</span><b><i></i><span data-i18n="dominium.infected.game.console.online">ONLINE</span></b></div>
+            <p data-i18n="dominium.infected.game.console.origin">TRANSFERÊNCIA GOVERNAMENTAL // SENTENÇA CAPITAL</p>
+            <div class="infection-console-target"><small data-i18n="dominium.infected.game.console.selected">PORTA SELECIONADA</small><strong id="game-selected-cell">01</strong><span data-i18n="dominium.infected.game.console.data">IDENTIDADE E PRONTUÁRIO NÃO RECUPERADOS</span></div>
+            <button class="infection-game-button is-primary" type="button" data-game-enter><span>ABRIR CELA 01</span><span aria-hidden="true">→</span></button>
+            <p class="infection-game-hint" data-i18n="dominium.infected.game.console.hint">A seleção não confirma o vínculo entre a cela e os quadros visuais.</p>
+          </aside>
         </div>
+        <div class="infection-game-bottomline"><span data-i18n="dominium.infected.game.corridor.controls">← → SELECIONAR PORTA // ENTER ABRIR</span><span data-i18n="dominium.infected.game.corridor.file">MAPA RECUPERADO // 3 ACESSOS</span></div>
       </section>
 
-      <section class="dominium-section infection-stage-section" aria-labelledby="stage-section-title">
-        <div class="dominium-section-heading"><div><span class="dominium-kicker" data-i18n="dominium.infected.stages.kicker">ALAS DE PROGRESSÃO // REGISTRO VISUAL</span><h2 id="stage-section-title" data-i18n="dominium.infected.stages.title">Acompanhe os estágios.</h2></div><span data-i18n="dominium.infected.stages.hint">SELECIONE UMA ALA</span></div>
-        <p class="dominium-lede" data-i18n="dominium.infected.stages.copy">Selecione um registro para observar os estágios disponíveis. As imagens não estão associadas a uma identidade ou cronologia individual.</p>
-        <div class="infection-protocol-console" role="group" aria-label="Progredir pelo protocolo visual da cela selecionada" data-i18n-attr="aria-label:dominium.infected.protocol.aria">
-          <div class="infection-protocol-case"><span class="dominium-card-code" data-i18n="dominium.infected.protocol.case">CELA ATIVA</span><strong id="infection-selected-cell">01</strong></div>
-          <p id="infection-protocol-status" role="status" aria-live="polite" aria-atomic="true"></p>
-          <div class="infection-protocol-actions">
-            <button class="dominium-action red" type="button" data-infection-advance data-i18n="dominium.infected.protocol.advance">AVANÇAR PARA A PRÓXIMA ALA</button>
-            <button class="dominium-action is-secondary" type="button" data-infection-reset data-i18n="dominium.infected.protocol.reset">REINICIAR LEITURA</button>
-          </div>
+      <section class="infection-game-view infection-cell-view" data-game-view="cell" aria-labelledby="infection-cell-title" hidden>
+        <div class="infection-cell-topline"><button class="infection-back-button" type="button" data-game-back><span aria-hidden="true">←</span><span data-i18n="dominium.infected.game.cell.back">VOLTAR AO CORREDOR</span></button><span class="infection-cell-coord" id="game-cell-coord">HADES −04 // CELA 01</span><span class="infection-danger-indicator"><i></i><span data-i18n="dominium.infected.game.cell.live">CÂMERA ATIVA</span></span></div>
+        <div class="infection-cell-layout">
+          <section class="infection-feed-panel" aria-label="Registro visual recuperado" data-i18n-attr="aria-label:dominium.infected.game.feed.aria">
+            <div class="infection-feed-top"><span id="game-feed-code">CAM 01 // HADES −04</span><b id="game-feed-stage" aria-live="polite">FRAME 01 / 04</b></div>
+            <figure class="infection-feed" id="game-feed-frame"><img id="game-stage-image" src="img-dominus/ala-de-testes.png" alt="Registro visual recuperado da Ala dos Infectados" data-i18n-attr="alt:dominium.infected.stage.1.alt"><figcaption id="game-stage-caption" aria-live="polite" data-i18n="dominium.infected.stage.1.title">Registro visual 01</figcaption><span class="infection-feed-crosshair" aria-hidden="true">+</span></figure>
+            <div class="infection-feed-foot"><span data-i18n="dominium.infected.game.feed.source">FONTE: ARQUIVO VISUAL DA ALA</span><span data-i18n="dominium.infected.game.feed.identity">VÍNCULO COM ESTA CELA NÃO CONFIRMADO</span></div>
+          </section>
+          <aside class="infection-player-console">
+            <div class="infection-console-top"><span data-i18n="dominium.infected.game.player.title">RECONSTITUIÇÃO DE ARQUIVO</span><b id="game-stage-counter" aria-live="polite">01 / 04</b></div>
+            <h2 id="infection-cell-title"><span data-i18n="dominium.infected.game.player.cell">CELA</span> <span id="game-cell-title-code">01</span></h2>
+            <p class="infection-player-objective" data-i18n="dominium.infected.game.player.objective">Objetivo: recupere dois canais para reconstruir o próximo quadro.</p>
+            <div class="infection-stage-track" role="group" aria-label="Quadros recuperados" data-i18n-attr="aria-label:dominium.infected.game.track.aria">
+              <button type="button" data-game-frame="1" aria-label="Quadro 1" data-i18n-attr="aria-label:dominium.infected.game.frame.one" aria-current="step">01</button><button type="button" data-game-frame="2" aria-label="Quadro 2" data-i18n-attr="aria-label:dominium.infected.game.frame.two" disabled>02</button><button type="button" data-game-frame="3" aria-label="Quadro 3" data-i18n-attr="aria-label:dominium.infected.game.frame.three" disabled>03</button><button type="button" data-game-frame="4" aria-label="Quadro 4" data-i18n-attr="aria-label:dominium.infected.game.frame.four" disabled>04</button>
+            </div>
+            <p class="infection-channel-label" data-i18n="dominium.infected.game.channels.label">INSPECIONE OS CANAIS // 2 NECESSÁRIOS</p>
+            <div class="infection-game-channels" role="group" aria-label="Canais de inspeção" data-i18n-attr="aria-label:dominium.infected.game.channels.aria">
+              <button type="button" data-game-channel="visual" aria-pressed="false"><span>01</span><b data-i18n="dominium.infected.inspection.channel.visual">CÂMERA</b><small data-i18n="dominium.infected.game.channels.visual">EXAMINAR FRAME</small><i></i></button>
+              <button type="button" data-game-channel="sensor" aria-pressed="false"><span>02</span><b data-i18n="dominium.infected.inspection.channel.sensor">SENSORES</b><small data-i18n="dominium.infected.game.channels.sensor">LER TERMINAL</small><i></i></button>
+              <button type="button" data-game-channel="intercom" aria-pressed="false"><span>03</span><b data-i18n="dominium.infected.inspection.channel.intercom">INTERFONE</b><small data-i18n="dominium.infected.game.channels.intercom">OUVIR CANAL</small><i></i></button>
+            </div>
+            <p class="infection-game-log" id="game-inspection-log" role="status" aria-live="polite" aria-atomic="true" data-i18n="dominium.infected.game.log.initial">SEM LEITURAS // ESCOLHA UM CANAL.</p>
+            <div class="infection-game-objective-meter"><span id="game-channel-count">0 / 2</span><div><i id="game-channel-meter"></i></div><small data-i18n="dominium.infected.game.meter">DADOS RECUPERADOS</small></div>
+            <button class="infection-game-button is-primary infection-advance-button" type="button" data-game-advance disabled><span data-i18n="dominium.infected.game.advance">RECUPERAR PRÓXIMO QUADRO</span><span aria-hidden="true">→</span></button>
+            <p class="infection-game-end-note" id="game-complete-note" hidden data-i18n="dominium.infected.game.complete">SEQUÊNCIA VISUAL RECUPERADA. A IDENTIDADE E A CRONOLOGIA CONTINUAM SEM CONFIRMAÇÃO.</p>
+          </aside>
         </div>
-        <div class="infection-stage-viewer">
-          <figure><img id="infection-stage-image" src="img-dominus/ala-de-testes.png" alt="Registro visual inicial da ala de testes" data-i18n-attr="alt:dominium.infected.stage.1.alt"><figcaption id="infection-stage-caption" aria-live="polite" data-i18n="dominium.infected.stage.1.title">Registro visual 01</figcaption></figure>
-          <div class="infection-stage-controls" role="group" aria-label="Selecionar estágio visual" data-i18n-attr="aria-label:dominium.infected.stages.controls">
-            <button class="infection-stage-door" type="button" data-infection-stage data-stage-index="1" data-stage-image="img-dominus/ala-de-testes.png" data-stage-alt-key="dominium.infected.stage.1.alt" data-stage-title-key="dominium.infected.stage.1.title" aria-pressed="true"><span>01</span><strong data-i18n="dominium.infected.stage.1.button">ALA 01 // OBSERVAÇÃO</strong><small data-i18n="dominium.infected.stage.access">ABRIR QUADRO</small></button>
-            <button class="infection-stage-door" type="button" data-infection-stage data-stage-index="2" data-stage-image="img-dominus/ala-estagio-2.png" data-stage-alt-key="dominium.infected.stage.2.alt" data-stage-title-key="dominium.infected.stage.2.title" aria-pressed="false" disabled><span>02</span><strong data-i18n="dominium.infected.stage.2.button">ALA 02 // ALTERAÇÃO</strong><small data-i18n="dominium.infected.stage.sealed">REGISTRO LACRADO</small></button>
-            <button class="infection-stage-door" type="button" data-infection-stage data-stage-index="3" data-stage-image="img-dominus/ala-estagio-3-transformacao.png" data-stage-alt-key="dominium.infected.stage.3.alt" data-stage-title-key="dominium.infected.stage.3.title" aria-pressed="false" disabled><span>03</span><strong data-i18n="dominium.infected.stage.3.button">ALA 03 // TRANSFORMAÇÃO</strong><small data-i18n="dominium.infected.stage.sealed">REGISTRO LACRADO</small></button>
-            <button class="infection-stage-door" type="button" data-infection-stage data-stage-index="4" data-stage-image="img-dominus/ala-estagio-4-transformacao.png" data-stage-alt-key="dominium.infected.stage.4.alt" data-stage-title-key="dominium.infected.stage.4.title" aria-pressed="false" disabled><span>04</span><strong data-i18n="dominium.infected.stage.4.button">ALA 04 // FORMA POSTERIOR</strong><small data-i18n="dominium.infected.stage.sealed">REGISTRO LACRADO</small></button>
-            <p data-i18n="dominium.infected.stages.disclaimer">Arquivo ficcional. Formas e estágios serão ajustados conforme a história for definida.</p>
-          </div>
-        </div>
+        <div class="infection-game-bottomline"><span data-i18n="dominium.infected.game.cell.disclaimer">ARQUIVO NARRATIVO // ASSOCIAÇÃO INDIVIDUAL NÃO VERIFICADA</span><span><kbd>ESC</kbd> <span data-i18n="dominium.infected.game.cell.esc">RETORNAR AO CORREDOR</span></span></div>
       </section>
-
-      <footer class="dominium-footer"><span>DOMINIUM // HADES</span><span class="fiction-label" data-i18n="dominium.footer.fiction">UNIVERSO FICCIONAL // ARQUIVO NARRATIVO</span><a href="dominium-hades.html" data-i18n="dominium.infected.back">VOLTAR AO HADES</a></footer>
     </main>
+    <footer class="infection-game-footer"><span>DOMINIUM // HADES −04</span><span data-i18n="dominium.infected.game.footer">RECONSTITUIÇÃO INTERATIVA // ACESSO RESTRITO</span></footer>
   </div>
 </body>
 </html>
