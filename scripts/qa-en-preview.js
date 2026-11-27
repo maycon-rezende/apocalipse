@@ -9,7 +9,7 @@ const ROOT = path.resolve(__dirname, '..');
 const previewArg = process.argv.indexOf('--preview-dir');
 const PREVIEW_NAME = previewArg >= 0 ? process.argv[previewArg + 1] : 'en-preview';
 const PREVIEW = path.resolve(ROOT, PREVIEW_NAME);
-const ALL_PAGES = ['index.html', 'home.html', 'transicao-extincao.html', 'historia.html', 'personagens.html', 'personagem.html', 'ameaca.html', 'projeto-doom.html', 'dominium.html', 'dominium-complex.html', 'dominium-research.html', 'dominium-personnel.html', 'dominium-archives.html', 'galeria.html', 'protocolos.html', 'simulacao.html', 'frequencia-morta.html', 'evidencias.html', 'acesso-restrito.html'];
+const ALL_PAGES = ['index.html', 'home.html', 'transicao-extincao.html', 'historia.html', 'personagens.html', 'personagem.html', 'ameaca.html', 'projeto-doom.html', 'dominium.html', 'dominium-organization.html', 'dominium-complex.html', 'dominium-hades.html', 'dominium-infected.html', 'dominium-research.html', 'dominium-personnel.html', 'dominium-archives.html', 'galeria.html', 'protocolos.html', 'simulacao.html', 'frequencia-morta.html', 'evidencias.html', 'acesso-restrito.html'];
 const PAGES = process.argv.includes('--only')
   ? process.argv.slice(process.argv.indexOf('--only') + 1).filter(page => ALL_PAGES.includes(page))
   : ALL_PAGES;

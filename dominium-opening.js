@@ -161,15 +161,15 @@
     },
     {
       kind: 'image',
-      src: 'img-dominus/intro/stills/intro-still-18-dual-pathogen-experiment.png',
+      src: 'img-dominus/intro/stills/intro-still-10-maverick-laboratory.png',
       duration: 4800,
-      frames: [frame('dual-sample')]
+      frames: [frame('laboratory')]
     },
     {
       kind: 'image',
-      src: 'img-dominus/intro/stills/intro-still-17-maverick-capsule.png',
+      src: 'img-dominus/intro/stills/intro-still-11-maverick-journal.png',
       duration: 5000,
-      frames: [frame('capsule')]
+      frames: [frame('journal')]
     }
   ];
 
